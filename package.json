@@ -13,6 +13,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "dev": "concurrently \"npm start\" \"npx sass --watch src/sass/style.scss src/index.css\"",
+    "sass": "npx sass --watch src/sass/style.scss src/index.css",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
