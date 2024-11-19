@@ -23,6 +23,22 @@ nav .nav-ul li {
   align-items: center;
 }
 
+.header-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header-banner img {
+  max-width: 300px;
+  width: 100%;
+}
+.header-banner .all-mode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
 body.light-mode {
   background-color: white;
   color: black;

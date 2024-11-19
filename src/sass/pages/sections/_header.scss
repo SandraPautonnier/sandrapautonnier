@@ -1,0 +1,11 @@
+.header-banner {
+    @include flex-column-center;
+    img {
+        max-width: 300px;
+        width: 100%;
+    }
+    .all-mode {
+        @include flex-column-center;
+        gap: 20px;
+    }
+}
