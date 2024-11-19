@@ -1,0 +1,8 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+footer {
+    .footer-main {
+        @include flex-column-center;
+    }
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 import ToggleMode from '../../components/Mode';
 import Sandra1 from '../../assets/images/sandra1.png'
 
@@ -18,13 +19,10 @@ const Home = () => {
             <button></button>
           </div>
         </div>
-        
       </header>
-      
       <div>
-
       </div>
-      
+      <Footer/>
     </div>
   )
 }
