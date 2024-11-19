@@ -23,10 +23,16 @@ nav .nav-ul li {
   align-items: center;
 }
 
+footer {
+  width: 100%;
+}
 footer .footer-main {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+footer .footer-main img {
+  max-width: 100px;
 }
 
 .header-banner {

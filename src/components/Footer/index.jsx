@@ -1,5 +1,7 @@
 import React from 'react'
 import Sandra2 from "../../assets/images/sandra2.png"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin } from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => {
   return (
@@ -11,9 +13,9 @@ const Footer = () => {
             </div>
             <img src={Sandra2} alt="Sandra" />
             <div className='social-media'>
-                <i></i>
-                <i></i>
-                <i></i>
+                <a href=""><FontAwesomeIcon icon={faLinkedin} /></a>
+                <a href=""></a><i></i>
+                <a href=""></a><i></i>
             </div>
         </div>
         <div className='footer-secondary'>
