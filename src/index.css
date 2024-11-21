@@ -30,9 +30,14 @@ footer .footer-main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 20px;
 }
 footer .footer-main img {
   max-width: 100px;
+}
+footer .footer-main .social-media {
+  display: flex;
+  gap: 15px;
 }
 
 .header-banner {

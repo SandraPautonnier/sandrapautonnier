@@ -5,8 +5,13 @@ footer {
     width: 100%;
     .footer-main {
         @include flex-column-center;
+        gap:20px;
         img {
             max-width: 100px;
+        }
+        .social-media {
+            display: flex;
+            gap: 15px;
         }
     }
 }
