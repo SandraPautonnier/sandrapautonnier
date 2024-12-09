@@ -19,7 +19,7 @@ const Footer = () => {
             </div>
         </div>
         <div className='footer-secondary'>
-
+          <p>Mentions Légales - no copyright</p>
         </div>
     </footer>
   )

@@ -3,8 +3,14 @@
 
 footer {
     width: 100%;
+    @include flex-column-center;
     .footer-main {
         @include flex-column-center;
+        @media (min-width: 1024px) {
+            width: 100%;
+            @include flex-space-between;
+            flex-direction: row;
+        } 
         gap:20px;
         img {
             max-width: 100px;

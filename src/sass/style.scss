@@ -2,6 +2,7 @@
 @use "layout/Navbar";
 @use "layout/Footer";
 @use "./pages/Home";
+@use "./pages/sections/about";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Marko+One&display=swap');
 
@@ -16,9 +17,13 @@ h1,h2 {
 body {
     margin: 20px;
     @media (min-width: 1024px) {
-        margin: 30px auto;
+        margin: 20px auto;
         max-width: 1240px;
-        
+    }
+    .home-body {
+        @media (min-width: 1024px) {
+            margin: 20px;
+        } 
     }
 }
 

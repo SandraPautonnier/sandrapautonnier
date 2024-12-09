@@ -8,7 +8,7 @@ import About from '../../sections/About';
 
 const Home = () => {
   return (
-    <div>
+    <div className='home-body'>
       <header>
         <Navbar/>
         <div className='header-banner'>

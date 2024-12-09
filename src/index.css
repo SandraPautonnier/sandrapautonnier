@@ -25,12 +25,23 @@ nav .nav-ul li {
 
 footer {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 footer .footer-main {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
+}
+@media (min-width: 1024px) {
+  footer .footer-main {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
 }
 footer .footer-main img {
   max-width: 100px;
@@ -66,6 +77,11 @@ body.dark-mode {
   color: white;
 }
 
+.tag-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
 * {
   font-family: "Montserrat", sans-serif;
 }
@@ -79,8 +95,13 @@ body {
 }
 @media (min-width: 1024px) {
   body {
-    margin: 30px auto;
+    margin: 20px auto;
     max-width: 1240px;
+  }
+}
+@media (min-width: 1024px) {
+  body .home-body {
+    margin: 20px;
   }
 }
 

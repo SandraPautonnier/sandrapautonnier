@@ -9,6 +9,11 @@ const About = () => {
             Mon autonomie me permet de relever des défis variés et d'acquérir rapidement de nouvelles compétences.
             C'est pourquoi j'ai déjà une riche expérience dans différents domaines, ce qui fait de moi une Intégratrice Web polyvalente et innovante.
         </p>
+        <div className='tag-btn'>
+          <span>tags</span>
+          <button>en savoir plus</button>
+        </div>
+        
     </div>
   )
 }
