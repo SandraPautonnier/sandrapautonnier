@@ -8,8 +8,9 @@ footer {
         @include flex-column-center;
         @media (min-width: 1024px) {
             width: 100%;
-            @include flex-space-between;
-            flex-direction: row;
+            display: grid;
+            justify-items: center;
+            grid-template-columns: 1fr 1fr 1fr;
         } 
         gap:20px;
         img {

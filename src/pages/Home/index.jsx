@@ -5,6 +5,7 @@ import Footer from '../../components/Footer';
 import ToggleMode from '../../components/Mode';
 import Sandra1 from '../../assets/images/sandra1.png';
 import About from '../../sections/About';
+import Skills from '../../sections/Skills';
 
 const Home = () => {
   return (
@@ -23,6 +24,7 @@ const Home = () => {
       </header>
       <main>
         <About />
+        <Skills />
       </main>
       <Footer/>
     </div>

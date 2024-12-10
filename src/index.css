@@ -38,9 +38,9 @@ footer .footer-main {
 @media (min-width: 1024px) {
   footer .footer-main {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 footer .footer-main img {
@@ -80,6 +80,35 @@ body.dark-mode {
 .tag-btn {
   display: flex;
   justify-content: space-between;
+}
+
+.container-card-skills {
+  width: 100%;
+  gap: 20px;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 800px) {
+  .container-card-skills {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 30px;
+  }
+}
+.container-card-skills .card-skills {
+  border: 1px solid blueviolet;
+  border-radius: 20px;
+  height: 200px;
+  width: 100%;
+  padding: 15px;
+}
+@media (min-width: 800px) {
+  .container-card-skills .card-skills {
+    height: 300px;
+  }
 }
 
 * {

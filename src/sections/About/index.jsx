@@ -2,7 +2,7 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div>
+    <section>
         <h2>Qui suis-je ?</h2>
         <p>Je m'appelle Sandra Pautonnier, j'ai 32 ans. <br />
             Étant une personne très curieuse et créative, je m'intéresse à tout et cherche toujours à comprendre comment les choses fonctionnent.
@@ -14,7 +14,7 @@ const About = () => {
           <button>en savoir plus</button>
         </div>
         
-    </div>
+    </section>
   )
 }
 
