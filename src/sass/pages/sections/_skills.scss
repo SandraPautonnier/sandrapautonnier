@@ -3,7 +3,6 @@
 .container-card-skills {
     width: 100%;
     gap: 20px;
-    margin: 15px;
     @include flex-column-center;
     @media (min-width: 800px) {
         @include flex-space-between;
