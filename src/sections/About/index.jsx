@@ -11,7 +11,7 @@ const About = () => {
         </p>
         <div className='tag-btn'>
           <span>tags</span>
-          <button>en savoir plus</button>
+          <button className='main-button'>en savoir plus</button>
         </div>
         
     </section>

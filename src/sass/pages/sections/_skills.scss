@@ -10,12 +10,10 @@
         gap: 30px;
     } 
     .card-skills {
-        border: 1px solid blueviolet;
         border-radius: 20px;
         height: 200px;
         width: 100%;
         padding: 15px;
-        
         @media (min-width: 800px) {
             height: 300px;
         } 

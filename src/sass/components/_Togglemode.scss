@@ -1,11 +1,36 @@
-
+@import "../utils/variables";
+@import "../utils/mixins";
 
 body.light-mode {
-    background-color: white;
-    color: black;
+    @include bagradient-coblack;
+    button {
+        &.toggle-button {
+            @include btn;
+            @include bablack-cowhite;
+        }
+        &.main-button {
+            @include btn;
+            @include bablack-cowhite;
+        }
+    }
+    .card-skills {
+        @include bablack-cowhite;
+    }
 }
   
 body.dark-mode {
-    background-color: #121212;
-    color: white;
+    @include bablack-cowhite;
+    button {
+        &.toggle-button {
+            @include btn;
+            @include bagradient-coblack;
+        }
+        &.main-button {
+            @include btn;
+            @include bagradient-coblack;
+        }
+    }
+    .card-skills {
+        @include bagradient-coblack;
+    }
 }

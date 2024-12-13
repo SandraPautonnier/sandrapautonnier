@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
@@ -15,7 +15,7 @@ const Home = () => {
         <div className='header-banner'>
           <img src={Sandra1} alt="Sandra" />
           <h1>Sandra Pautonnier</h1>
-          <p>Developpeuse Intégratrice Web</p>
+          <p>Developpeuse Web Front-end</p>
           <div className='all-mode'>
             <ToggleMode />
             <button></button>
