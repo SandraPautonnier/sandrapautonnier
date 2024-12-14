@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "titlecard": "Commerce Marketing Conseil",
+        "listcard": [ "Suivi commercial", 
+        "Conseiller un client",
+        "Stratégie Web marketing & SEO"
+        ]
+    },
+    {
+        "id": 2,
+        "titlecard": "Gestion de projet",
+        "listcard": [ "Réalisation de tableau de suivi", 
+        "Organisation d'évènement",
+        "Coordonner les collaborateurs"
+        ]
+    },
+    {
+        "id": 3,
+        "titlecard": "Créativité Web Animation",
+        "listcard": [ "Création de visuel", 
+        "Montage vidéo",
+        "Création de site web (html/CSS, Javascript et React)"
+        ]
+    }
+]

@@ -101,7 +101,7 @@ body.light-mode button.modal-button {
   background: none;
   padding: 0;
   font-size: 16px;
-  color: black;
+  color: #121212;
 }
 
 body.dark-mode {
@@ -169,7 +169,7 @@ body.dark-mode button.modal-button {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: transparent;
+  background: rosybrown;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
@@ -200,7 +200,6 @@ button {
   border: none;
   padding: 10px 20px;
   border-radius: 4px;
-  cursor: pointer;
 }
 
 button:hover {
@@ -265,6 +264,10 @@ body {
   body .home-body {
     margin: 20px;
   }
+}
+
+ul {
+  padding-inline-start: 0;
 }
 
 li {
