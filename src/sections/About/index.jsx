@@ -3,7 +3,7 @@ import AgeCalculator from "../../components/AgeCalculator";
 
 const About = () => {
   return (
-    <section>
+    <section className='about'>
         <h2>Qui suis-je?</h2>
         <p>Je m'appelle Sandra Pautonnier, j'ai <AgeCalculator birthDate="1992-07-28" /> ans. <br />
             Étant une personne très curieuse et créative, je m'intéresse à tout et cherche toujours à comprendre comment les choses fonctionnent.

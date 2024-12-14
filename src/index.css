@@ -44,12 +44,28 @@ footer .footer-main {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+footer .footer-main .contact-mail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer .footer-main .contact-mail p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 footer .footer-main img {
   max-width: 100px;
 }
 footer .footer-main .social-media {
   display: flex;
+  font-size: 20px;
   gap: 15px;
+}
+footer .footer-secondary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .header-banner {
@@ -156,7 +172,6 @@ body.dark-mode button.modal-button {
 
 /* Contenu de la modale */
 .modal-content {
-  background: white;
   padding: 20px;
   border-radius: 8px;
   width: 90%;
@@ -172,7 +187,6 @@ body.dark-mode button.modal-button {
   background: rosybrown;
   border: none;
   font-size: 1.5rem;
-  cursor: pointer;
 }
 
 /* Style pour les champs du formulaire */
@@ -206,12 +220,15 @@ button:hover {
   background-color: #0056b3;
 }
 
-.tag-btn {
+.about {
+  width: 100%;
+}
+.about .tag-btn {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
-.tag-btn .tags {
+.about .tag-btn .tags {
   display: flex;
   gap: 20px;
 }
@@ -264,6 +281,10 @@ body {
   body .home-body {
     margin: 20px;
   }
+}
+
+section {
+  margin: 30px 0;
 }
 
 ul {

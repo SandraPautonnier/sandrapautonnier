@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin , faSquareGithub , faCodepen } from '@fortawesome/free-brands-svg-icons';
 import ContactModal from "../ContactModal";
 
+
 const Footer = () => {
   return (
     <footer>

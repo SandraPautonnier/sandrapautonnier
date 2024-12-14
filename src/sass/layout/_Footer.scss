@@ -14,12 +14,22 @@ footer {
             grid-template-columns: 1fr 1fr 1fr;
         } 
         gap:20px;
+        .contact-mail {
+            @include flex-column-center;
+            p {
+                @include flex-column-center;
+            }
+        }
         img {
             max-width: 100px;
         }
         .social-media {
             display: flex;
+            font-size: 20px;
             gap: 15px;
         }
+    }
+    .footer-secondary {
+        @include flex-column-center;
     }
 }

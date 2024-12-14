@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import backgroundContact from '../../assets/images/background_contact.webp';
+
 
 const ContactModal = ({ buttonText, title, buttonClassName }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -48,7 +50,11 @@ const ContactModal = ({ buttonText, title, buttonClassName }) => {
       {/* Contenu de la modale */}
       {isModalOpen && (
         <div className="modal-overlay" onClick={handleOutsideClick}>
-          <div className="modal-content">
+          <div className="modal-content"
+          style={{
+            backgroundImage: `url(${backgroundContact})`,
+            backgroundSize: `cover`
+          }}>
             {/* Bouton pour fermer */}
             <button className="close-btn" onClick={toggleModal}>
               &times;
