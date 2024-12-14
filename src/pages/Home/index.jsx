@@ -18,7 +18,6 @@ const Home = () => {
           <p>Developpeuse Web Front-end</p>
           <div className='all-mode'>
             <ToggleMode />
-            <button></button>
           </div>
         </div>
       </header>

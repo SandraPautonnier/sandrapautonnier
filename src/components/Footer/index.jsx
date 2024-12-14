@@ -8,7 +8,7 @@ const Footer = () => {
     <footer>
         <div className='footer-main'>
             <div className='contact-mail'>
-                <button></button>
+                <button className='main-button'>Contactez-moi via mon formulaire</button>
                 <p>ou par mail : <a href="mailto:contact@sandrapautonnier.com">contact@sandrapautonnier.com</a></p>
             </div>
             <img src={Sandra2} alt="Sandra" />
@@ -19,7 +19,7 @@ const Footer = () => {
             </div>
         </div>
         <div className='footer-secondary'>
-          <p>Mentions Légales - no copyright</p>
+          <p>Mentions Légales - Tout droit réservés</p>
         </div>
     </footer>
   )

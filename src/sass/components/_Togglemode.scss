@@ -16,6 +16,10 @@ body.light-mode {
     .card-skills {
         @include bablack-cowhite;
     }
+    .tag {
+        @include btn;
+        @include bablack-cowhite;
+    }
 }
   
 body.dark-mode {
@@ -31,6 +35,10 @@ body.dark-mode {
         }
     }
     .card-skills {
+        @include bagradient-coblack;
+    }
+    .tag {
+        @include btn;
         @include bagradient-coblack;
     }
 }
