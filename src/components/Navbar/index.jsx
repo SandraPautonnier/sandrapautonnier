@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import ContactModal from '../ContactModal';
 
 
 const Navbar = () => {
@@ -10,7 +11,7 @@ const Navbar = () => {
             <li>ACCUEIL</li>
             <li>PROFIL</li>
             <li>PORTFOLIO</li>
-            <li>CONTACT</li>
+            <li><ContactModal buttonText="CONTACT" title="Contactez-moi" buttonClassName="modal-button"/></li>
         </ul>
     </nav>
   )

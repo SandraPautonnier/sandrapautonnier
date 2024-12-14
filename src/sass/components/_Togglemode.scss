@@ -20,6 +20,10 @@ body.light-mode {
         @include btn;
         @include bablack-cowhite;
     }
+    button.modal-button {
+        @include modal-btn;
+        color: black;
+    }
 }
   
 body.dark-mode {
@@ -40,5 +44,9 @@ body.dark-mode {
     .tag {
         @include btn;
         @include bagradient-coblack;
+    }
+    button.modal-button {
+        @include modal-btn;
+        color: white;
     }
 }

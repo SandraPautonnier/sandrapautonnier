@@ -31,3 +31,9 @@
     background: linear-gradient(93deg, rgba(255,251,213,1) 0%, rgba(255,204,251,1) 100%);
     color: #121212;
 }
+
+@mixin modal-btn {
+    background: none;
+    padding: 0;
+    font-size: 16px;
+}

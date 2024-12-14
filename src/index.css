@@ -97,6 +97,12 @@ body.light-mode .tag {
   background: #121212;
   color: white;
 }
+body.light-mode button.modal-button {
+  background: none;
+  padding: 0;
+  font-size: 16px;
+  color: black;
+}
 
 body.dark-mode {
   background: #121212;
@@ -127,14 +133,88 @@ body.dark-mode .tag {
   background: linear-gradient(93deg, rgb(255, 251, 213) 0%, rgb(255, 204, 251) 100%);
   color: #121212;
 }
+body.dark-mode button.modal-button {
+  background: none;
+  padding: 0;
+  font-size: 16px;
+  color: white;
+}
+
+/* Style de l'overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Contenu de la modale */
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+
+/* Bouton pour fermer la modale */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Style pour les champs du formulaire */
+form div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Bouton de soumission */
+button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
 
 .tag-btn {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 .tag-btn .tags {
   display: flex;
-  gap: 30px;
+  gap: 20px;
 }
 
 .container-card-skills {

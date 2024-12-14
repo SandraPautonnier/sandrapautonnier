@@ -2,13 +2,14 @@ import React from 'react'
 import Sandra2 from "../../assets/images/sandra2.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin , faSquareGithub , faCodepen } from '@fortawesome/free-brands-svg-icons';
+import ContactModal from "../ContactModal";
 
 const Footer = () => {
   return (
     <footer>
         <div className='footer-main'>
             <div className='contact-mail'>
-                <button className='main-button'>Contactez-moi via mon formulaire</button>
+                <ContactModal buttonText="Contactez-moi via mon formulaire" title="Contactez-moi" buttonClassName="main-button"/>
                 <p>ou par mail : <a href="mailto:contact@sandrapautonnier.com">contact@sandrapautonnier.com</a></p>
             </div>
             <img src={Sandra2} alt="Sandra" />
