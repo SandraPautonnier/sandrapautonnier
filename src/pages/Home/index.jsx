@@ -6,6 +6,7 @@ import ToggleMode from '../../components/Mode';
 import Sandra1 from '../../assets/images/sandra1.png';
 import About from '../../sections/About';
 import Skills from '../../sections/Skills';
+import Experiences from "../../sections/Experiences";
 
 const Home = () => {
   return (
@@ -24,6 +25,7 @@ const Home = () => {
       <main>
         <About />
         <Skills />
+        <Experiences />
       </main>
       <Footer/>
     </div>

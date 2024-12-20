@@ -18,8 +18,8 @@
   .modal-content {
     padding: 20px;
     border-radius: 8px;
-    width: 90%;
-    max-width: 500px;
+    width: 100%;
+    margin: 30px;
     position: relative;
   }
   
@@ -28,13 +28,17 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    background: rosybrown;
+    @include bablack-cowhite;
     border: none;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    &:hover {
+      @include bagradient-coblack;
+    }
   }
   
   /* Style pour les champs du formulaire */
   form div {
+    width: 100%;
     margin-bottom: 15px;
   }
   
@@ -47,20 +51,19 @@
   input, textarea {
     width: 100%;
     padding: 10px;
+    
     border: 1px solid #ccc;
     border-radius: 4px;
   }
   
   /* Bouton de soumission */
   button {
-    background-color: #007BFF;
-    color: white;
+    @include bablack-cowhite;
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
+    &:hover {
+      @include bagradient-coblack;
+    }
   }
   

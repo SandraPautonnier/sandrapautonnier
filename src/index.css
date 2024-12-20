@@ -174,8 +174,8 @@ body.dark-mode button.modal-button {
 .modal-content {
   padding: 20px;
   border-radius: 8px;
-  width: 90%;
-  max-width: 500px;
+  width: 100%;
+  margin: 30px;
   position: relative;
 }
 
@@ -184,13 +184,19 @@ body.dark-mode button.modal-button {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: rosybrown;
+  background: #121212;
+  color: white;
   border: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
+}
+.close-btn:hover {
+  background: linear-gradient(93deg, rgb(255, 251, 213) 0%, rgb(255, 204, 251) 100%);
+  color: #121212;
 }
 
 /* Style pour les champs du formulaire */
 form div {
+  width: 100%;
   margin-bottom: 15px;
 }
 
@@ -209,15 +215,15 @@ input, textarea {
 
 /* Bouton de soumission */
 button {
-  background-color: #007BFF;
+  background: #121212;
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 4px;
 }
-
 button:hover {
-  background-color: #0056b3;
+  background: linear-gradient(93deg, rgb(255, 251, 213) 0%, rgb(255, 204, 251) 100%);
+  color: #121212;
 }
 
 .about {
