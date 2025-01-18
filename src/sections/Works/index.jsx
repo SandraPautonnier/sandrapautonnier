@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUpRightAndDownLeftFromCenter,
+  faDownLeftAndUpRightToCenter,
+} from "@fortawesome/free-solid-svg-icons";
 import workslist from "../../assets/content/worksList.json";
 
 const Works = () => {
@@ -46,22 +51,29 @@ const Works = () => {
               <Link to={works.link}>
               <img src={`${works.cover}`} alt={`${works.description}`} />
               <h3>{works.titlework}</h3>
-              
+              <span className="work-language">{works.language}</span>
+              <span className="work-tools">{works.tools}</span>
+              </Link>
               {/* Description repliable */}
               <div className="description-collapse">
                 <button
                   className="collapse-button"
                   onClick={() => toggleDescription(works.id)}
                 >
-                  {expandedCard === works.id ? "Voir moins" : "Voir plus"}
+                  <FontAwesomeIcon
+                  icon={
+                    expandedCard === works.id
+                      ? faDownLeftAndUpRightToCenter
+                      : faUpRightAndDownLeftFromCenter
+                  }
+                />
                 </button>
                 {expandedCard === works.id && (
-                  <p className="description-text">{works.description}</p>
+                  <div className="description-text">
+                    <p>{works.description}</p>
+                  </div>
                 )}
               </div>
-              </Link>
-              
-              
             </div>
           ))
         }
