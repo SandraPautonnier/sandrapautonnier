@@ -7,6 +7,8 @@ import Sandra1 from '../../assets/images/sandra1.png';
 import About from '../../sections/About';
 import Skills from '../../sections/Skills';
 import Experiences from "../../sections/Experiences";
+import Works from "../../sections/Works";
+
 
 const Home = () => {
   return (
@@ -26,6 +28,7 @@ const Home = () => {
         <About />
         <Skills />
         <Experiences />
+        <Works />
       </main>
       <Footer/>
     </div>

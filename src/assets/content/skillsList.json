@@ -1,14 +1,25 @@
 [
     {
         "id": 1,
-        "titlecard": "Commerce Marketing Conseil",
-        "listcard": [ "Suivi commercial", 
-        "Conseiller un client",
-        "Stratégie Web marketing & SEO"
+        "icon": "fa-code",
+        "titlecard": "Web",
+        "listcard": [ "Création de site web", 
+        "React",
+        "API"
         ]
     },
     {
         "id": 2,
+        "icon": "fa-pen",
+        "titlecard": "Création de contenu",
+        "listcard": [ "Création de visuel", 
+        "Montage vidéo",
+        "Animation en direct"
+        ]
+    },
+    {
+        "id": 3,
+        "icon": "fa-diagram-project",
         "titlecard": "Gestion de projet",
         "listcard": [ "Réalisation de tableau de suivi", 
         "Organisation d'évènement",
@@ -16,11 +27,12 @@
         ]
     },
     {
-        "id": 3,
-        "titlecard": "Créativité Web Animation",
-        "listcard": [ "Création de visuel", 
-        "Montage vidéo",
-        "Création de site web (html/CSS, Javascript et React)"
+        "id": 4,
+        "icon": "fa-bullseye",
+        "titlecard": "Commerce Marketing Conseil",
+        "listcard": [ "Suivi commercial", 
+        "Conseiller un client",
+        "Stratégie Web marketing & SEO"
         ]
     }
 ]

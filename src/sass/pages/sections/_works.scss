@@ -1,0 +1,14 @@
+.container-card-works {
+    display: flex;
+    .card-works {
+        position: relative;
+        height: 200px;
+        width: 100%;
+        img {
+            border-radius: 20px;
+            width: 100%;
+            height: 225px;
+            object-fit: cover;
+        }
+    }
+}

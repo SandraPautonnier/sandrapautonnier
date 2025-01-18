@@ -241,6 +241,7 @@ button:hover {
 
 .container-card-skills {
   width: 100%;
+  margin: 0 20px;
   gap: 20px;
   display: flex;
   flex-direction: column;
@@ -255,15 +256,23 @@ button:hover {
   }
 }
 .container-card-skills .card-skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border-radius: 20px;
   height: 200px;
   width: 100%;
-  padding: 15px;
+  padding-inline-start: 2em;
 }
 @media (min-width: 800px) {
   .container-card-skills .card-skills {
+    align-items: stretch;
     height: 300px;
   }
+}
+.container-card-skills .card-skills li {
+  list-style: disc;
 }
 
 * {
