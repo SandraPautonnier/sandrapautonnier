@@ -1,14 +1,27 @@
+@import "../../utils/mixins";
+
 .container-card-works {
-    display: flex;
+    
+    margin: 0 20px;
+    gap: 20px;
+    @media (min-width: 800px) {
+        @include flex-space-between;
+        flex-direction: row;
+        gap: 30px;
+    } 
     .card-works {
         position: relative;
-        height: 200px;
-        width: 100%;
+
         img {
             border-radius: 20px;
             width: 100%;
             height: 225px;
             object-fit: cover;
+        }
+        h3 {
+            position: absolute;
+            top: 0px;
+            left: 15px;
         }
     }
 }

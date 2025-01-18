@@ -1,46 +1,57 @@
 [
     {
+        "id": 3,
+        "titlework": "sukana",
+        "description": "Site web de Sukana",
+        "cover": "https://gentle-pony-095b6f.netlify.app/capture%20d'%C3%A9cran%202025-01-18%20092452.png",
+        "category": "Wordpress",
+        "link": "https://sukana.fr",
+        "language": [
+            "Wordpress",
+            ""
+        ],
+        "tools": "Elementor"
+    },
+    {
+        "id": 4,
+        "titlework": "sandrapautonnier v1",
+        "description": "Ancien site web de Sandra",
+        "cover": "https://gentle-pony-095b6f.netlify.app/capture%20d'%C3%A9cran%202025-01-18%20092452.png",
+        "category": "HTML/CSS",
+        "link": "https://sandrapautonnier.github.io/sandrapautonnier.com_v1/",
+        "language": [
+            "HTML",
+            "CSS"
+        ],
+        "tools": ""
+    },
+    {
         "id": 1,
         "titlework": "Ohmyfood",
         "description": "Ohmyfood fait",
-        "cover": "",
-        "category": "SASS",
+        "cover": "https://gentle-pony-095b6f.netlify.app/capture%20d'%C3%A9cran%202025-01-18%20091036.png",
+        "category": "SCSS",
         "link": "",
         "language": [
             "HTML",
-            "SASS"
+            "SCSS"
         ],
-        "framework": "React",
         "tools": "Create React App"
     },
     {
         "id": 2,
         "titlework": "Kasa",
         "description": "Kasa fait",
-        "cover": "",
+        "cover": "https://gentle-pony-095b6f.netlify.app/capture%20d'%C3%A9cran%202025-01-18%20092452.png",
         "category": "React",
         "link": "",
         "language": [
             "JavaScript",
-            "SASS",
-            "HTML"
+            "React",
+            "SCSS"
         ],
-        "framework": "React",
         "tools": "Create React App"
-    },
-    {
-        "id": 3,
-        "titlework": "sukana",
-        "description": "Site web de Sukana",
-        "cover": "",
-        "category": "Wordpress",
-        "link": "https://sukana.fr",
-        "language": [
-            "",
-            ""
-        ],
-        "framework": "",
-        "tools": "Elementor"
     }
+    
     
 ]
