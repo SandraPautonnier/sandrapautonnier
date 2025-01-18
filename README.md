@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# 👋 Bienvenue sur mon profil GitHub !
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🧑‍💻 Qui suis-je ?
+Je m'appelle Sandra Pautonnier, actuellement en formation **Web Intégrateur** (niveau Bac+2). Avec une expérience professionnelle riche en **travail social**, **commerce**, et **gestion de projets**, je me lance dans une nouvelle aventure dans le domaine du développement web et de l'intégration.
 
-## Available Scripts
+- 🌟 **Qualités** : Curieuse, autonome, passionnée par l'apprentissage et l'innovation.  
+- 🌱 **Actuellement en apprentissage** : React, JavaScript, et des bonnes pratiques en intégration web.  
+- 💼 **Projets récents** : Création de carrousels dynamiques, filtres de catégories, gestion de modales et déploiement GitHub Pages.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📂 Mes projets
+Voici quelques exemples de ce sur quoi j'ai travaillé récemment :
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 🔗 [**Kasa**](https://sandrapautonnier.github.io/kasa) : Une application React déployée sur GitHub Pages.  
+- 🎨 **Carrousel dynamique** : Projet interactif avec animation et gestion des événements utilisateurs.  
+- 🛠️ **Portfolio** : [Lien vers mon portfolio en construction](https://github.com/SandraPautonnier/sandrapautonnier).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🌐 Technologies et outils
+Voici les outils et technologies avec lesquels je travaille :
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🌟 Langages et frameworks
+- **HTML5** / **CSS3**  
+- **JavaScript** (ES6+)  
+- **React** (CRA et Vite / Redux)
 
-### `npm run build`
+### 🛠️ Outils
+- **Git & GitHub**  
+- **Figma** (pour le design et le prototypage)  
+- **Netlify / GitHub Pages** (pour le déploiement)  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📈 Statistiques GitHub
+![Sandra's GitHub stats](https://github-readme-stats.vercel.app/api?username=SandraPautonnier&show_icons=true&theme=radical)  
+![Top Langages](https://github-readme-stats.vercel.app/api/top-langs/?username=SandraPautonnier&layout=compact&theme=radical)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 📫 Contactez-moi
+💌 **Email** : sandra.pautonnier@gmail.com  
+💼 **LinkedIn** : [Profil LinkedIn](https://www.linkedin.com/in/sandra-pautonnier)  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Merci d’avoir visité mon profil ! N’hésitez pas à explorer mes projets ou à me contacter pour discuter. 🚀
