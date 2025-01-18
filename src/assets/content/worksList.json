@@ -20,8 +20,7 @@
         "category": "HTML/CSS",
         "link": "https://sandrapautonnier.github.io/sandrapautonnier.com_v1/",
         "language": [
-            "HTML",
-            "CSS"
+            "HTML/CSS"
         ],
         "tools": ""
     },
@@ -33,7 +32,20 @@
         "category": "SCSS",
         "link": "",
         "language": [
-            "HTML",
+            "HTML/SCSS"
+        ],
+        "tools": ""
+    },
+    {
+        "id": 2,
+        "titlework": "Kasa",
+        "description": "Kasa fait",
+        "cover": "https://gentle-pony-095b6f.netlify.app/capture%20d'%C3%A9cran%202025-01-18%20092452.png",
+        "category": "React",
+        "link": "",
+        "language": [
+            "JavaScript",
+            "React",
             "SCSS"
         ],
         "tools": "Create React App"
