@@ -98,7 +98,7 @@ const ContactModal = ({ buttonText, title, buttonClassName }) => {
                     required
                   ></textarea>
                 </div>
-                <button type="submit">Envoyer</button>
+                <button className="btn-submit-form" ype="submit">Envoyer</button>
               </form>
             )}
           </div>

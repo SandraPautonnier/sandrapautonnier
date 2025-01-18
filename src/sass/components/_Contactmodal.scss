@@ -57,11 +57,9 @@
   }
   
   /* Bouton de soumission */
-  button {
+  .btn-submit-form {
     @include bablack-cowhite;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
+    @include btn;
     &:hover {
       @include bagradient-coblack;
     }

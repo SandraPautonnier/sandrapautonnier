@@ -8,12 +8,14 @@ import {
 import workslist from "../../assets/content/worksList.json";
 
 const Works = () => {
-
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [expandedCard, setExpandedCard] = useState(null); // Gère l'état d'affichage des descriptions.
 
   // Liste des catégories uniques
-  const categories = ["All", ...new Set(workslist.map((work) => work.category))];
+  const categories = [
+    "All",
+    ...new Set(workslist.map((work) => work.category)),
+  ];
 
   // Filtrer les projets en fonction de la catégorie sélectionnée
   const filteredWorks =
@@ -45,38 +47,38 @@ const Works = () => {
         </select>
       </div>
       <div className="container-card-works">
-        {
-          filteredWorks.map((works) => (
-            <div className="card-works" key={works.id}>
-              <Link to={works.link}>
+        {filteredWorks.map((works) => (
+          <div className="card-works" key={works.id}>
+            <Link to={works.link}>
               <img src={`${works.cover}`} alt={`${works.description}`} />
               <h3>{works.titlework}</h3>
               <span className="work-language">{works.language}</span>
               <span className="work-tools">{works.tools}</span>
-              </Link>
-              {/* Description repliable */}
-              <div className="description-collapse">
-                <button
-                  className="collapse-button"
-                  onClick={() => toggleDescription(works.id)}
-                >
-                  <FontAwesomeIcon
+            </Link>
+            {/* Description repliable */}
+            <div className="description-collapse">
+              <button
+                className="collapse-button"
+                onClick={() => toggleDescription(works.id)}
+              >
+                <FontAwesomeIcon
                   icon={
                     expandedCard === works.id
                       ? faDownLeftAndUpRightToCenter
                       : faUpRightAndDownLeftFromCenter
                   }
                 />
-                </button>
-                {expandedCard === works.id && (
-                  <div className="description-text">
-                    <p>{works.description}</p>
-                  </div>
-                )}
+              </button>
+              <div
+                className={`description-text ${
+                  expandedCard === works.id ? "open" : "closed"
+                }`}
+              >
+                <p>{works.description}</p>
+              </div>
               </div>
             </div>
-          ))
-        }
+        ))}
       </div>
     </section>
   );
