@@ -42,7 +42,8 @@
         }
         .description-collapse {
             .collapse-button {
-                @include bablack-cowhite;
+                background-color: rgba(0, 0, 0, 0.9);
+                color: white;
                 @include btn;
                 position: absolute;
                 z-index: 10;
@@ -66,7 +67,8 @@
                 transition: transform 0.4s ease-in-out; /* Animation fluide */
                 p {
                     margin: 20px;
-                    text-align: center;
+                    
+                    font-size: 15px;
                 }
             }
             .description-text.open {

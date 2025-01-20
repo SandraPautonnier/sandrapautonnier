@@ -1,8 +1,8 @@
 [
     {
-        "id": 3,
+        "id": 1,
         "titlework": "sukana",
-        "description": "Site web de Sukana",
+        "description": "En 2021, j'ai commencé à m'intéresser réellement au monde du web. J'ai ressenti ce besoin de créer.\n En parallèle, étant streameuse sur Twitch, il était important de centraliser mon contenu sur un support unique.\n C'est donc, sans connaissances approfondies, que je me suis lancée dans ce projet WordPress.",
         "cover": "https://gentle-pony-095b6f.netlify.app/capture%20d'%C3%A9cran%202025-01-18%20092452.png",
         "category": "Wordpress",
         "link": "https://sukana.fr",
@@ -13,9 +13,9 @@
         "tools": "Elementor"
     },
     {
-        "id": 4,
+        "id": 2,
         "titlework": "sandrapautonnier v1",
-        "description": "Ancien site web de Sandra",
+        "description": "Avant ma formation, fin 2022, une ancienne version de mon site portfolio existait. J'étais encore chargée de projet chez Enedis ! J'ai appris les bases de HTML et CSS, ainsi que le déploiement de mon site sur un serveur OVH via FileZilla.",
         "cover": "https://gentle-pony-095b6f.netlify.app/capture%20d'%C3%A9cran%202025-01-18%20092452.png",
         "category": "HTML/CSS",
         "link": "https://sandrapautonnier.github.io/sandrapautonnier.com_v1/",
@@ -25,7 +25,7 @@
         "tools": ""
     },
     {
-        "id": 1,
+        "id": 3,
         "titlework": "Ohmyfood",
         "description": "Ohmyfood fait",
         "cover": "https://gentle-pony-095b6f.netlify.app/capture%20d'%C3%A9cran%202025-01-18%20091036.png",
@@ -37,12 +37,12 @@
         "tools": ""
     },
     {
-        "id": 2,
+        "id": 4,
         "titlework": "Kasa",
         "description": "Kasa fait",
         "cover": "https://gentle-pony-095b6f.netlify.app/capture%20d'%C3%A9cran%202025-01-18%20092452.png",
         "category": "React",
-        "link": "",
+        "link": "https://sandrapautonnier.github.io/kasa/",
         "language": [
             "JavaScript",
             "React",
@@ -51,18 +51,17 @@
         "tools": "Create React App"
     },
     {
-        "id": 2,
-        "titlework": "Kasa",
+        "id": 5,
+        "titlework": "argent bank",
         "description": "Kasa fait",
         "cover": "https://gentle-pony-095b6f.netlify.app/capture%20d'%C3%A9cran%202025-01-18%20092452.png",
         "category": "React",
         "link": "",
         "language": [
-            "JavaScript",
-            "React",
-            "SCSS"
+            "React /",
+            "Redux"
         ],
-        "tools": "Create React App"
+        "tools": "Vite"
     }
     
     

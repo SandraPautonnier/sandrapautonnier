@@ -321,7 +321,7 @@ input, textarea {
   right: 15px;
 }
 .container-card-works .card-works .description-collapse .collapse-button {
-  background: #121212;
+  background-color: rgba(0, 0, 0, 0.9);
   color: white;
   border-radius: 10px;
   border: none;
@@ -348,7 +348,7 @@ input, textarea {
 }
 .container-card-works .card-works .description-collapse .description-text p {
   margin: 20px;
-  text-align: center;
+  font-size: 15px;
 }
 .container-card-works .card-works .description-collapse .description-text.open {
   transform: scale(1); /* Dépliage complet */

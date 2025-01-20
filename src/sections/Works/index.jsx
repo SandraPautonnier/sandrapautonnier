@@ -49,7 +49,7 @@ const Works = () => {
       <div className="container-card-works">
         {filteredWorks.map((works) => (
           <div className="card-works" key={works.id}>
-            <Link to={works.link}>
+            <Link to={works.link} target='_blank'>
               <img src={`${works.cover}`} alt={`${works.description}`} />
               <h3>{works.titlework}</h3>
               <span className="work-language">{works.language}</span>
