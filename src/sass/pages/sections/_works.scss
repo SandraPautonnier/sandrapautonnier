@@ -1,25 +1,28 @@
 @import "../../utils/mixins";
 
 .container-card-works {
-    
-    margin: 20px;
+    margin: 20px 0;
     gap: 20px;
+    @include flex-column-center;
     @media (min-width: 800px) {
-        @include flex-space-between;
-        flex-direction: row;
-        gap: 30px;
+        @include grid-2;
     } 
     .card-works {
         position: relative;
-        margin-top: 20px;
         width: 100%;
         height: 225px;
+        @media (min-width: 1200px) {
+            height: 275px;
+        }
         img {
             border-radius: 15px;
             width: 100%;
             height: 225px;
             object-fit: cover;
             filter: grayscale(0%) brightness(60%);
+            @media (min-width: 1200px) {
+                height: 275px;
+            }
         }
         h3 {
             position: absolute;

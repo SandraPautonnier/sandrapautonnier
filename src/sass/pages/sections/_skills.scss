@@ -1,14 +1,14 @@
 @import "../../utils/mixins";
 
 .container-card-skills {
-    width: 100%;
-    margin: 0 20px;
+    margin: 20px 0;
     gap: 20px;
     @include flex-column-center;
     @media (min-width: 800px) {
+        @include grid-2;
+    } 
+    @media (min-width: 1200px) {
         @include flex-space-between;
-        flex-direction: row;
-        gap: 30px;
     } 
     .card-skills {
         display: flex;
@@ -18,14 +18,16 @@
         border-radius: 20px;
         height: 200px;
         width: 100%;
-        padding-inline-start: 2em;
-        
+        margin: 0;
         @media (min-width: 800px) {
-            align-items: stretch;
+            height: 250px;
+        }
+        @media (min-width: 1200px) {
             height: 300px;
         }
         li {
             list-style:disc;
+            
         }
     }
 }

@@ -26,10 +26,10 @@ nav .nav-ul li {
 
 footer {
   width: 100%;
-  margin: 30px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 30px 0;
+  position: relative;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  /*@include flex-column-center;*/
 }
 footer .footer-main {
   display: flex;
@@ -37,7 +37,7 @@ footer .footer-main {
   align-items: center;
   gap: 20px;
 }
-@media (min-width: 1024px) {
+@media (min-width: 800px) {
   footer .footer-main {
     width: 100%;
     display: grid;
@@ -118,6 +118,18 @@ body.light-mode button.modal-button {
   background: none;
   padding: 0;
   font-size: 16px;
+  border: none;
+  color: #121212;
+}
+body.light-mode footer {
+  background: #121212;
+  color: white;
+}
+body.light-mode footer .main-button {
+  border-radius: 10px;
+  border: none;
+  padding: 10px 15px;
+  background: linear-gradient(93deg, rgb(255, 251, 213) 0%, rgb(255, 204, 251) 100%);
   color: #121212;
 }
 
@@ -154,6 +166,18 @@ body.dark-mode button.modal-button {
   background: none;
   padding: 0;
   font-size: 16px;
+  border: none;
+  color: white;
+}
+body.dark-mode footer {
+  background: linear-gradient(93deg, rgb(255, 251, 213) 0%, rgb(255, 204, 251) 100%);
+  color: #121212;
+}
+body.dark-mode footer .main-button {
+  border-radius: 10px;
+  border: none;
+  padding: 10px 15px;
+  background: #121212;
   color: white;
 }
 
@@ -232,17 +256,31 @@ input, textarea {
 }
 .about .tag-btn {
   width: 100%;
+  scale: 90%;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
 }
 .about .tag-btn .tags {
-  display: flex;
   gap: 20px;
+}
+@media (min-width: 375px) {
+  .about .tag-btn .tags {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+  }
+  .about .tag-btn .tags .tag {
+    margin: 0;
+  }
+}
+.about .tag-btn .tags .tag {
+  margin: 15px;
 }
 
 .container-card-skills {
-  width: 100%;
-  margin: 0 20px;
+  margin: 20px 0;
   gap: 20px;
   display: flex;
   flex-direction: column;
@@ -250,10 +288,16 @@ input, textarea {
 }
 @media (min-width: 800px) {
   .container-card-skills {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
+  }
+}
+@media (min-width: 1200px) {
+  .container-card-skills {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 .container-card-skills .card-skills {
@@ -264,11 +308,15 @@ input, textarea {
   border-radius: 20px;
   height: 200px;
   width: 100%;
-  padding-inline-start: 2em;
+  margin: 0;
 }
 @media (min-width: 800px) {
   .container-card-skills .card-skills {
-    align-items: stretch;
+    height: 250px;
+  }
+}
+@media (min-width: 1200px) {
+  .container-card-skills .card-skills {
     height: 300px;
   }
 }
@@ -277,22 +325,28 @@ input, textarea {
 }
 
 .container-card-works {
-  margin: 20px;
+  margin: 20px 0;
   gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 @media (min-width: 800px) {
   .container-card-works {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
 }
 .container-card-works .card-works {
   position: relative;
-  margin-top: 20px;
   width: 100%;
   height: 225px;
+}
+@media (min-width: 1200px) {
+  .container-card-works .card-works {
+    height: 275px;
+  }
 }
 .container-card-works .card-works img {
   border-radius: 15px;
@@ -300,6 +354,11 @@ input, textarea {
   height: 225px;
   object-fit: cover;
   filter: grayscale(0%) brightness(60%);
+}
+@media (min-width: 1200px) {
+  .container-card-works .card-works img {
+    height: 275px;
+  }
 }
 .container-card-works .card-works h3 {
   position: absolute;
@@ -366,22 +425,34 @@ h1, h2 {
 }
 
 body {
-  margin: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
 }
-@media (min-width: 1024px) {
-  body {
-    margin: 20px auto;
-    max-width: 1240px;
-  }
+body .home-body {
+  margin: 0;
+  padding: 0;
 }
-@media (min-width: 1024px) {
-  body .home-body {
-    margin: 20px;
-  }
+
+.header-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1240px;
+  width: 100%;
+  margin: 0px auto;
+  box-sizing: border-box;
+}
+
+main {
+  box-sizing: border-box;
+  width: 100%;
 }
 
 section {
-  margin: 30px 0;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 30px;
 }
 
 ul {

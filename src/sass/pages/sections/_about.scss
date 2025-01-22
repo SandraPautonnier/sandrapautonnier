@@ -2,12 +2,23 @@
 
 .about {
     width: 100%;
+    
     .tag-btn {
         width: 100%;
+        scale: 90%;
         @include flex-space-between;
         .tags {
-            display: flex;
+            @media (min-width: 375px) {
+                @include flex-row-center;
+                gap: 0;
+                .tag {
+                    margin: 0;
+                }
+            }
             gap: 20px;
+            .tag {
+                margin: 15px;
+            }
         }
     }
 }

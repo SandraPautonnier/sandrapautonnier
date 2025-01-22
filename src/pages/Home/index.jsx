@@ -13,23 +13,25 @@ import Works from "../../sections/Works";
 const Home = () => {
   return (
     <div className='home-body'>
-      <header>
-        <Navbar/>
-        <div className='header-banner'>
-          <img src={Sandra1} alt="Sandra" />
-          <h1>Sandra Pautonnier</h1>
-          <p>Developpeuse Web Front-end</p>
-          <div className='all-mode'>
-            <ToggleMode />
+      <div className="header-main">
+        <header>
+          <Navbar/>
+          <div className='header-banner'>
+            <img src={Sandra1} alt="Sandra" />
+            <h1>Sandra Pautonnier</h1>
+            <p>Developpeuse Web Front-end</p>
+            <div className='all-mode'>
+              <ToggleMode />
+            </div>
           </div>
-        </div>
-      </header>
-      <main>
-        <About />
-        <Skills />
-        <Experiences />
-        <Works />
-      </main>
+        </header>
+        <main>
+          <About />
+          <Skills />
+          <Experiences />
+          <Works />
+        </main>
+      </div>
       <Footer/>
     </div>
   )

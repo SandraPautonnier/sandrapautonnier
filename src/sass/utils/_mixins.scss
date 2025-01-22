@@ -13,7 +13,14 @@
 
 @mixin flex-space-between {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+}
+
+@mixin grid-2 {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
 }
 
 @mixin btn {
@@ -36,4 +43,5 @@
     background: none;
     padding: 0;
     font-size: 16px;
+    border: none;
 }

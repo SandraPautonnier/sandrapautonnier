@@ -3,11 +3,13 @@
 
 footer {
     width: 100%;
-    margin: 30px 0;
-    @include flex-column-center;
+    padding: 30px 0;
+    position: relative;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    /*@include flex-column-center;*/
     .footer-main {
         @include flex-column-center;
-        @media (min-width: 1024px) {
+        @media (min-width: 800px) {
             width: 100%;
             display: grid;
             justify-items: center;

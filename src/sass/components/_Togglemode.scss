@@ -25,7 +25,16 @@ body.light-mode {
         @include modal-btn;
         color: #121212;
     }
+    footer {
+        @include bablack-cowhite;
+        .main-button {
+            @include btn;
+            @include bagradient-coblack;
+        }
+    }
 }
+
+
   
 body.dark-mode {
     @include bablack-cowhite;
@@ -49,5 +58,12 @@ body.dark-mode {
     button.modal-button {
         @include modal-btn;
         color: white;
+    }
+    footer {
+        @include bagradient-coblack;
+        .main-button {
+            @include btn;
+            @include bablack-cowhite;
+        }
     }
 }
