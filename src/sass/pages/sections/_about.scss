@@ -2,10 +2,9 @@
 
 .about {
     width: 100%;
-    
+    margin: 30px 0;
     .tag-btn {
         width: 100%;
-        scale: 90%;
         @include flex-space-between;
         .tags {
             @media (min-width: 375px) {

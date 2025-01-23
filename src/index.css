@@ -25,8 +25,7 @@ nav .nav-ul li {
 }
 
 footer {
-  width: 100%;
-  padding: 30px 0;
+  padding: 30px;
   position: relative;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
   /*@include flex-column-center;*/
@@ -253,10 +252,10 @@ input, textarea {
 
 .about {
   width: 100%;
+  margin: 30px 0;
 }
 .about .tag-btn {
   width: 100%;
-  scale: 90%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -279,7 +278,10 @@ input, textarea {
   margin: 15px;
 }
 
-.container-card-skills {
+.skills {
+  margin-bottom: 30px;
+}
+.skills .container-card-skills {
   margin: 20px 0;
   gap: 20px;
   display: flex;
@@ -287,20 +289,20 @@ input, textarea {
   align-items: center;
 }
 @media (min-width: 800px) {
-  .container-card-skills {
+  .skills .container-card-skills {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
 }
 @media (min-width: 1200px) {
-  .container-card-skills {
+  .skills .container-card-skills {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
 }
-.container-card-skills .card-skills {
+.skills .container-card-skills .card-skills {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -311,20 +313,23 @@ input, textarea {
   margin: 0;
 }
 @media (min-width: 800px) {
-  .container-card-skills .card-skills {
+  .skills .container-card-skills .card-skills {
     height: 250px;
   }
 }
 @media (min-width: 1200px) {
-  .container-card-skills .card-skills {
+  .skills .container-card-skills .card-skills {
     height: 300px;
   }
 }
-.container-card-skills .card-skills li {
+.skills .container-card-skills .card-skills li {
   list-style: disc;
 }
 
-.container-card-works {
+.works {
+  margin-bottom: 30px;
+}
+.works .container-card-works {
   margin: 20px 0;
   gap: 20px;
   display: flex;
@@ -332,23 +337,23 @@ input, textarea {
   align-items: center;
 }
 @media (min-width: 800px) {
-  .container-card-works {
+  .works .container-card-works {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
 }
-.container-card-works .card-works {
+.works .container-card-works .card-works {
   position: relative;
   width: 100%;
   height: 225px;
 }
 @media (min-width: 1200px) {
-  .container-card-works .card-works {
+  .works .container-card-works .card-works {
     height: 275px;
   }
 }
-.container-card-works .card-works img {
+.works .container-card-works .card-works img {
   border-radius: 15px;
   width: 100%;
   height: 225px;
@@ -356,30 +361,30 @@ input, textarea {
   filter: grayscale(0%) brightness(60%);
 }
 @media (min-width: 1200px) {
-  .container-card-works .card-works img {
+  .works .container-card-works .card-works img {
     height: 275px;
   }
 }
-.container-card-works .card-works h3 {
+.works .container-card-works .card-works h3 {
   position: absolute;
   color: white;
   margin: 0;
   top: 10px;
   left: 15px;
 }
-.container-card-works .card-works .work-language {
+.works .container-card-works .card-works .work-language {
   position: absolute;
   color: white;
   top: 10px;
   right: 15px;
 }
-.container-card-works .card-works .work-tools {
+.works .container-card-works .card-works .work-tools {
   position: absolute;
   color: white;
   bottom: 15px;
   right: 15px;
 }
-.container-card-works .card-works .description-collapse .collapse-button {
+.works .container-card-works .card-works .description-collapse .collapse-button {
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
   border-radius: 10px;
@@ -391,7 +396,7 @@ input, textarea {
   left: 15px;
   font-size: 17px;
 }
-.container-card-works .card-works .description-collapse .description-text {
+.works .container-card-works .card-works .description-collapse .description-text {
   position: absolute;
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
@@ -405,15 +410,41 @@ input, textarea {
   transform: scale(0); /* Initialement replié */
   transition: transform 0.4s ease-in-out; /* Animation fluide */
 }
-.container-card-works .card-works .description-collapse .description-text p {
+.works .container-card-works .card-works .description-collapse .description-text p {
   margin: 20px;
   font-size: 15px;
 }
-.container-card-works .card-works .description-collapse .description-text.open {
+.works .container-card-works .card-works .description-collapse .description-text.open {
   transform: scale(1); /* Dépliage complet */
 }
-.container-card-works .card-works .description-collapse .description-text.closed {
+.works .container-card-works .card-works .description-collapse .description-text.closed {
   transform: scale(0); /* Replié */
+}
+
+.success {
+  width: 100%;
+}
+.success .container-img-success {
+  box-sizing: border-box;
+  width: 100%;
+}
+@media (min-width: 800px) {
+  .success .container-img-success {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.success .container-img-success img {
+  max-width: 400px;
+  width: 100%;
+}
+.success .container-img-success .container-success li {
+  padding: 10px;
+}
+
+.experiences {
+  margin-bottom: 30px;
 }
 
 * {
@@ -452,7 +483,7 @@ main {
 section {
   box-sizing: border-box;
   width: 100%;
-  padding: 0 30px;
+  padding: 0px 30px;
 }
 
 ul {

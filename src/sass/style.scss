@@ -5,6 +5,8 @@
 @use "./pages/sections/about";
 @use "./pages/sections/skills";
 @use "./pages/sections/works";
+@use "./pages/sections/success";
+@use "./pages/sections/experiences";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Marko+One&display=swap');
 
@@ -46,7 +48,7 @@ main {
 section {
     box-sizing: border-box;
     width: 100%;
-    padding: 0 30px;
+    padding: 0px 30px;
 }
 
 ul {

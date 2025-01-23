@@ -1,33 +1,37 @@
 @import "../../utils/mixins";
 
-.container-card-skills {
-    margin: 20px 0;
-    gap: 20px;
-    @include flex-column-center;
-    @media (min-width: 800px) {
-        @include grid-2;
-    } 
-    @media (min-width: 1200px) {
-        @include flex-space-between;
-    } 
-    .card-skills {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border-radius: 20px;
-        height: 200px;
-        width: 100%;
-        margin: 0;
+.skills {
+    margin-bottom: 30px;
+    .container-card-skills {
+        margin: 20px 0;
+        gap: 20px;
+        @include flex-column-center;
         @media (min-width: 800px) {
-            height: 250px;
-        }
+            @include grid-2;
+        } 
         @media (min-width: 1200px) {
-            height: 300px;
-        }
-        li {
-            list-style:disc;
-            
+            @include flex-space-between;
+        } 
+        .card-skills {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            height: 200px;
+            width: 100%;
+            margin: 0;
+            @media (min-width: 800px) {
+                height: 250px;
+            }
+            @media (min-width: 1200px) {
+                height: 300px;
+            }
+            li {
+                list-style:disc;
+                
+            }
         }
     }
 }
+
