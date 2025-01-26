@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React from 'react';
 import ContactModal from '../ContactModal';
 
 
 const Navbar = () => {
+
   return (
     <nav>
-        <h2>SP</h2>
+        {/*<h2>SP</h2>*/}
         <ul className='nav-ul'>
-            <li>ACCUEIL</li>
-            <li>PROFIL</li>
-            <li>PORTFOLIO</li>
+            <li><a href="#home">ACCEUIL</a></li>
+            <li><a href="#profil">PROFIL</a></li>
+            <li><a href="#portfolio">PORTFOLIO</a></li>
             <li><ContactModal buttonText="CONTACT" title="Contactez-moi" buttonClassName="modal-button"/></li>
         </ul>
     </nav>

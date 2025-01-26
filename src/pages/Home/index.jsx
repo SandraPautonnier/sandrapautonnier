@@ -17,7 +17,7 @@ const Home = () => {
       <div className="header-main">
         <header>
           <Navbar/>
-          <div className='header-banner'>
+          <div className='header-banner' id="home">
             <img src={Sandra1} alt="Photo de Sandra" />
             <h1>Sandra Pautonnier</h1>
             <p>Developpeuse Web Front-end</p>
@@ -29,8 +29,9 @@ const Home = () => {
         <main>
           <About />
           <Skills />
-          <Experiences />
+          {/*<Experiences />*/}
           <Works />
+          {/*<Snippets />*/}
           <section className="success">
             <h2>Mes réussites</h2>
             <div className="container-img-success">
