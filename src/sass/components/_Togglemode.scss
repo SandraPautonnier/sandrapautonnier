@@ -14,6 +14,9 @@ body.light-mode {
             @include bablack-cowhite;
         }
     }
+    select {
+        @include bablack-cowhite;
+    }
     .card-skills {
         @include bablack-cowhite;
     }
@@ -47,6 +50,9 @@ body.dark-mode {
             @include btn;
             @include bagradient-coblack;
         }
+    }
+    select {
+        @include bagradient-coblack;
     }
     .card-skills {
         @include bagradient-coblack;

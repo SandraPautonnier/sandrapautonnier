@@ -39,7 +39,7 @@
     {
         "id": 4,
         "titlework": "Kasa",
-        "description": "Kasa fait",
+        "description": "Kasa est un projet fictif Openclassrooms. C'est mon premier projet React. Je l'ai initialisé avec Create React App",
         "cover": "https://gentle-pony-095b6f.netlify.app/capture%20d'%C3%A9cran%202025-01-18%20092452.png",
         "category": "React",
         "link": "https://sandrapautonnier.github.io/kasa/",
@@ -52,7 +52,7 @@
     },
     {
         "id": 5,
-        "titlework": "argent bank",
+        "titlework": "Argent bank",
         "description": "Kasa fait",
         "cover": "https://gentle-pony-095b6f.netlify.app/capture%20d'%C3%A9cran%202025-01-18%20092452.png",
         "category": "React",

@@ -14,6 +14,7 @@
         } 
         .card-skills {
             display: flex;
+            box-sizing: border-box;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -21,15 +22,22 @@
             height: 200px;
             width: 100%;
             margin: 0;
+            padding: 0 20px;
             @media (min-width: 800px) {
                 height: 250px;
             }
             @media (min-width: 1200px) {
                 height: 300px;
-            }
-            li {
-                list-style:disc;
                 
+            }
+            .li-skills {
+                text-align: center;
+                @media (min-width: 1200px) {
+                    text-align: initial;
+                }
+                li {
+                    list-style:disc;  
+                }
             }
         }
     }

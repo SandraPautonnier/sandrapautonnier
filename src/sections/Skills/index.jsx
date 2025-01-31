@@ -17,13 +17,13 @@ function Skills() {
         <h2>Mes domaines de compétences</h2>
         <div className='container-card-skills'>
           {skills.map((skill, index) => (
-            <ul key={index} className='card-skills'>
+            <div key={index} className='card-skills'>
               <FontAwesomeIcon icon={iconMap[skill.icon]} />
               <h3>{skill.titlecard}</h3>
-              {skill.listcard.map((item, idx) => (
+              <div className='li-skills'>{skill.listcard.map((item, idx) => (
                 <li key={idx}>{item}</li>
-              ))}
-            </ul>
+              ))}</div>
+            </div>
           ))}
         </div>
     </section>

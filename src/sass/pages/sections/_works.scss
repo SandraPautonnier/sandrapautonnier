@@ -61,6 +61,8 @@
                     position: absolute;
                     background-color: rgba(0, 0, 0, 0.9);
                     color: white;
+                    overflow: auto;
+                    scrollbar-color: white #121212;
                     border-radius: 10px;
                     top: 15px;
                     left: 15px;
@@ -72,7 +74,6 @@
                     transition: transform 0.4s ease-in-out; /* Animation fluide */
                     p {
                         margin: 20px;
-                        
                         font-size: 15px;
                     }
                 }
