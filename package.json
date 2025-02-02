@@ -33,6 +33,7 @@
       "react-app/jest"
     ]
   },
+  "homepage": "https://sandrapautonnier.github.io/sandrapautonnier",
   "browserslist": {
     "production": [
       ">0.2%",
