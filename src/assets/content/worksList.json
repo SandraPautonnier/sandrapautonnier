@@ -52,7 +52,7 @@
     {
         "id": 5,
         "titlework": "Argent bank",
-        "description": "Dans le cadre d’un projet d'OpenClassrooms, Argent Bank, une nouvelle banque en ligne vise à s'imposer dans le secteur bancaire. En initialisant le projet avec Vite, j’ai développé le front-end d’une application bancaire avec React et Redux pour une expérience utilisateur dynamique. J’ai intégré le front-end avec le back-end via des appels API REST, assurant une communication fluide. En gérant l’état global avec Redux, j'ai conçu une application performante. J’ai également utilisé Swagger pour définir les points d’accès de l’API et Node.js pour exécuter le code côté serveur.",
+        "description": "Dans le cadre d’un projet OpenClassrooms, Argent Bank, une nouvelle banque en ligne vise à s'imposer dans le secteur bancaire. En initialisant le projet avec Vite, j’ai développé le front-end d’une application bancaire avec React et Redux pour une expérience utilisateur dynamique. J’ai intégré le front-end avec le back-end via des appels API REST, assurant une communication fluide. En gérant l’état global avec Redux, j'ai conçu une application performante. J’ai également utilisé Swagger pour définir les points d’accès de l’API et Node.js pour exécuter le code côté serveur.",
         "cover": "https://gentle-pony-095b6f.netlify.app/argentbank.png",
         "category": "React",
         "link": "https://github.com/SandraPautonnier/argentbank.git",
