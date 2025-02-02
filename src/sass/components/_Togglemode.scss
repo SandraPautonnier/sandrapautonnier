@@ -52,7 +52,11 @@ body.dark-mode {
         }
     }
     select {
-        @include bagradient-coblack;
+        background-color: white;
+        color: #121212;
+        &:hover {
+            background-color: white;
+        }
     }
     .card-skills {
         @include bagradient-coblack;

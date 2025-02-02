@@ -32,6 +32,10 @@
                 margin: 0;
                 top: 10px;
                 left: 15px;
+                font-size: 16px;
+                @media (min-width: 450px) {
+                    font-size: 20px;
+                }
             }
             .work-language {
                 position:absolute;
@@ -59,7 +63,7 @@
                 }
                 .description-text {
                     position: absolute;
-                    background-color: rgba(0, 0, 0, 0.9);
+                    background-color: rgba(0, 0, 0, 0.7);
                     color: white;
                     overflow: auto;
                     scrollbar-color: white #121212;
@@ -75,6 +79,8 @@
                     p {
                         margin: 20px;
                         font-size: 15px;
+                        padding-left: 30px;
+                        text-wrap: pretty;
                     }
                 }
                 .description-text.open {

@@ -9,31 +9,42 @@
         @media (min-width: 800px) {
             @include grid-2;
         } 
-        @media (min-width: 1200px) {
-            @include flex-space-between;
-        } 
         .card-skills {
             display: flex;
             box-sizing: border-box;
-            flex-direction: column;
+            @include flex-column-center;
             justify-content: center;
-            align-items: center;
+            font-size: 15px;
             border-radius: 20px;
-            height: 200px;
+            height: 300px;
             width: 100%;
             margin: 0;
             padding: 0 20px;
+            @media (min-width: 550px) {
+                height: 220px;
+            }
             @media (min-width: 800px) {
-                height: 250px;
+                height: 320px;
+                font-size: 16px;
             }
             @media (min-width: 1200px) {
                 height: 300px;
+                font-size: 17px;
                 
             }
             .li-skills {
-                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                @media (min-width: 590px) {
+                    align-items: center;
+                }
+                @media (min-width: 800px) {
+                    align-items: start;
+                }
                 @media (min-width: 1200px) {
-                    text-align: initial;
+                    align-items: center;
+                    
                 }
                 li {
                     list-style:disc;  
