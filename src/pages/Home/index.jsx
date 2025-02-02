@@ -37,10 +37,10 @@ const Home = () => {
             <div className="container-img-success">
               <img src={Sandra} alt="Photo de Sandra" />
               <ul className="container-success">
-                <li>2010 : J'ai été médaillée d'argent au concours départementale du Meilleur apprenti de France dans le domaine des Métiers de la Mode.</li>
-                <li>2017 : J'ai organisé un séminaire avec 5 établissements scolaires et des associations sur les thèmes du harcèlement scolaire et du décrochage scolaire.</li>
-                <li>2021 : J'ai récolté 1477€ pour l'association Endofrance lors d'un évènement caritatif sur ma chaîne Twitch.</li>
-                <li>2023 : J'ai été l'interlocutrice et référente de l'ACO (Bornes fixes des 24h du Mans).</li>
+                <li><span className="bold">2010 :</span> J'ai été médaillée d'argent au concours départementale du Meilleur apprenti de France dans le domaine des Métiers de la Mode.</li>
+                <li><span className="bold">2017 :</span> J'ai organisé un séminaire avec 5 établissements scolaires et des associations sur les thèmes du harcèlement scolaire et du décrochage scolaire.</li>
+                <li><span className="bold">2021 :</span> J'ai récolté 1477€ pour l'association Endofrance lors d'un évènement caritatif sur ma chaîne Twitch.</li>
+                <li><span className="bold">2023 :</span> J'ai été l'interlocutrice et référente de l'ACO (Bornes fixes des 24h du Mans).</li>
               </ul>
             </div>
           </section>

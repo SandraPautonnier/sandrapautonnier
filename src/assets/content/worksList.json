@@ -30,7 +30,7 @@
         "description": "Dans le cadre d’un projet fictif d’OpenClassrooms, Ohmyfood est une jeune startup qui voudrait s'imposer sur le marché de la restauration. Dans ce projet, ma mission est de développer l’interface mobile-first du site en intégrant une maquette fournie. J'ai utilisé Sass pour optimiser les styles, implémenté des animations CSS pour enrichir l’expérience utilisateur et assurer un design adaptatif. Le projet a été versionné avec Git et GitHub, me permettant de renforcer mes compétences en gestion de code et en collaboration.",
         "cover": "https://gentle-pony-095b6f.netlify.app/ohmyfood.png",
         "category": "SASS",
-        "link": "",
+        "link": "https://sandrapautonnier.github.io/ohmyfood/",
         "language": [
             "HTML/SCSS"
         ],
@@ -55,7 +55,7 @@
         "description": "Dans le cadre d’un projet d'OpenClassrooms, Argent Bank, une nouvelle banque en ligne vise à s'imposer dans le secteur bancaire. En initialisant le projet avec Vite, j’ai développé le front-end d’une application bancaire avec React et Redux pour une expérience utilisateur dynamique. J’ai intégré le front-end avec le back-end via des appels API REST, assurant une communication fluide. En gérant l’état global avec Redux, j'ai conçu une application performante. J’ai également utilisé Swagger pour définir les points d’accès de l’API et Node.js pour exécuter le code côté serveur.",
         "cover": "https://gentle-pony-095b6f.netlify.app/argentbank.png",
         "category": "React",
-        "link": "",
+        "link": "https://github.com/SandraPautonnier/argentbank.git",
         "language": [
             "React /",
             "Redux"

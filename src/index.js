@@ -20,14 +20,14 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <Notfound />,
+    element: <Home />,
   },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={router} basename={"/sandrapautonnier"}/>
   </React.StrictMode>
 );
 

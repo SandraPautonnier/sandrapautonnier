@@ -488,6 +488,11 @@ input, textarea {
 .success .container-img-success .container-success li {
   padding: 10px;
 }
+@media (min-width: 1200px) {
+  .success .container-img-success .container-success li {
+    font-size: 18px;
+  }
+}
 
 .experiences {
   margin-bottom: 30px;
@@ -555,6 +560,10 @@ select {
 
 button {
   cursor: pointer;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=index.css.map */

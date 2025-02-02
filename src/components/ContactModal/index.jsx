@@ -27,7 +27,7 @@ const ContactModal = ({ buttonText, title, buttonClassName }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Simuler l'envoi des données au serveur (vous pouvez ajouter votre logique ici)
+    // Ajouter la logique ici
     console.log("Données envoyées :", formData);
 
     // Réinitialiser le formulaire et afficher un message de confirmation
