@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/sandrapautonnier/static/css/main.31858001.css",
-    "main.js": "/sandrapautonnier/static/js/main.7fe768db.js",
+    "main.js": "/sandrapautonnier/static/js/main.79c295d8.js",
     "static/js/453.dc694953.chunk.js": "/sandrapautonnier/static/js/453.dc694953.chunk.js",
     "static/media/sandra2.png": "/sandrapautonnier/static/media/sandra2.50aa2f87a0303d1afdb0.png",
     "static/media/sandra1.png": "/sandrapautonnier/static/media/sandra1.32c278c71399322aed15.png",
     "static/media/sandra.png": "/sandrapautonnier/static/media/sandra.1576013ea6da806f2412.png",
     "index.html": "/sandrapautonnier/index.html",
     "main.31858001.css.map": "/sandrapautonnier/static/css/main.31858001.css.map",
-    "main.7fe768db.js.map": "/sandrapautonnier/static/js/main.7fe768db.js.map",
+    "main.79c295d8.js.map": "/sandrapautonnier/static/js/main.79c295d8.js.map",
     "453.dc694953.chunk.js.map": "/sandrapautonnier/static/js/453.dc694953.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.31858001.css",
-    "static/js/main.7fe768db.js"
+    "static/js/main.79c295d8.js"
   ]
 }
