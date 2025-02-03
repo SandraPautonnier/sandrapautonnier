@@ -24,6 +24,18 @@ body.light-mode {
         @include btn;
         @include bablack-cowhite;
     }
+    .modal-content {
+        background: linear-gradient(93deg, rgba(255,251,213,1) 0%, rgba(255,204,251,1) 100%);
+        color: #121212;
+        .btn-submit-form, .close-btn {
+            @include bablack-cowhite;
+            @include btn;
+            &:hover {
+              @include bagradient-coblack;
+              border: #121212 1px solid;
+            }
+          }
+    }
     button.modal-button {
         @include modal-btn;
         color: #121212;
@@ -64,6 +76,18 @@ body.dark-mode {
     .tag {
         @include btn;
         @include bagradient-coblack;
+    }
+    .modal-content {
+        background: #121212;
+        color: white;
+        .btn-submit-form, .close-btn {
+            @include bagradient-coblack;
+            @include btn;
+            &:hover {
+              @include bablack-cowhite;
+              border: white 1px solid;
+            }
+          }
     }
     button.modal-button {
         @include modal-btn;

@@ -11,9 +11,8 @@ const Footer = () => {
         <div className='footer-main'>
             <div className='contact-mail'>
                 <ContactModal buttonText="Contactez-moi via mon formulaire" title="Contactez-moi" buttonClassName="main-button"/>
-                <p>ou par mail : <a href="mailto:contact@sandrapautonnier.com">contact@sandrapautonnier.com</a></p>
             </div>
-            <img src={Sandra2} alt="Sandra" />
+            <img src={Sandra2} alt="Photo de Sandra" />
             <div className='social-media'>
                 <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank'><FontAwesomeIcon icon={faLinkedin} /></a>
                 <a href="https://github.com/SandraPautonnier" target='_blank'><FontAwesomeIcon icon={faSquareGithub} /></a>

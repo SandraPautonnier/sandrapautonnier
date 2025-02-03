@@ -5,22 +5,26 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    right: 0;
+    bottom: 0;
     background: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    padding: 0 30px;
+    
   }
   
   /* Contenu de la modale */
   .modal-content {
+    box-sizing: border-box;
     padding: 20px;
     border-radius: 8px;
+    max-width: 768px;
     width: 100%;
-    margin: 30px;
-    position: relative;
+    margin: 0 30px;
+    position: absolute;
   }
   
   /* Bouton pour fermer la modale */
@@ -28,40 +32,45 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    @include bablack-cowhite;
-    border: none;
+    border-radius: 5px;
     font-size: 2rem;
-    &:hover {
-      @include bagradient-coblack;
-    }
-  }
-  
-  /* Style pour les champs du formulaire */
-  form div {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  input, textarea {
-    width: 100%;
-    padding: 10px;
     
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  }
+  #close-btn {
+    padding: 0 10px;
   }
   
-  /* Bouton de soumission */
-  .btn-submit-form {
-    @include bablack-cowhite;
-    @include btn;
-    &:hover {
-      @include bagradient-coblack;
+  form {
+    box-sizing: content-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Style pour les champs du formulaire */
+    div {
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      width: 100%;
+      margin: 15px 30px;
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 17px;
+        font-weight: bold;
+      }
+      input {
+        @include form-input-text;
+        height: 25px;
+        max-width: 300px;
+      }
+      textarea {
+        @include form-input-text;
+        height: 150px;
+      }
     }
   }
+
+  
+  
   

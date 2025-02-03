@@ -25,7 +25,7 @@
 
 @mixin btn {
     border-radius: 10px;
-    border: none;
+    border: 1px solid transparent;
     padding: 10px 15px;
 }
 
@@ -44,4 +44,12 @@
     padding: 0;
     font-size: 16px;
     border: none;
+}
+
+@mixin form-input-text {
+    max-width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
 }

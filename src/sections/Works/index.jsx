@@ -33,7 +33,7 @@ const Works = () => {
       <h2>Mes projets</h2>
       {/* Menu déroulant pour sélectionner une catégorie */}
       <div className="filter">
-        <label htmlFor="category-select">Filtrer par catégorie :</label>
+        <label htmlFor="category-select">Filtrer par catégorie : </label>
         <select
           id="category-select"
           value={selectedCategory}
