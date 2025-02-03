@@ -5,13 +5,53 @@ nav {
     @include flex-row-center;
     justify-content: space-between;
     .nav-ul {
-        @include flex-row-center;
+        display: flex;
         gap: $gap;
-        @media (max-width: 499px) {
-            display: none;
-        }
         li {
             @include flex-row-center;
         }
     }
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    .bar {
+        width: 25px;
+        height: 4px;
+        border-radius: 25% / 25%;
+        margin: 4px 0;
+        transition: background-color 0.3s ease;
+    }
+    .close-nav {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+        margin-top: 20px;
+    }
+    .nav-ul {
+        position: absolute;
+        top: 60px;
+        flex-direction: column;
+        border-radius: 5px;
+        padding: 10px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        &.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0)
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    }
+    
 }

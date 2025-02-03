@@ -4,6 +4,16 @@
 
 body.light-mode {
     @include bagradient-coblack;
+    .nav-ul {
+        @include bablack-cowhite;
+        @media (min-width: 768px) {
+            background-color: transparent;
+            color: #121212;
+        }
+    }
+    .bar {
+        background-color: #121212;
+    }
     button {
         &.toggle-button {
             @include btn;
@@ -39,6 +49,9 @@ body.light-mode {
     button.modal-button {
         @include modal-btn;
         color: #121212;
+        @media (max-width: 768px) {
+            color: white;
+        }
     }
     footer {
         @include bablack-cowhite;
@@ -53,6 +66,16 @@ body.light-mode {
   
 body.dark-mode {
     @include bablack-cowhite;
+    .nav-ul {
+        @include bagradient-coblack;
+        @media (min-width: 768px) {
+            background: transparent;
+            color: white;
+        }
+    }
+    .bar {
+        background-color: white;
+    }
     button {
         &.toggle-button {
             @include btn;
@@ -92,6 +115,9 @@ body.dark-mode {
     button.modal-button {
         @include modal-btn;
         color: white;
+        @media (max-width: 768px) {
+            color: #121212;
+        }
     }
     footer {
         @include bagradient-coblack;
