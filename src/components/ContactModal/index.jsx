@@ -4,7 +4,7 @@ import emailjs from '@emailjs/browser'; // Importation d'EmailJS
 const ContactModal = ({ buttonText, title, buttonClassName }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [confirmationMessage, setConfirmationMessage] = useState(""); // État pour le message de confirmation
-
+  const [isSending, setIsSending] = useState(false);
   // États séparés pour chaque champ du formulaire
   const [fromName, setFromName] = useState("");
   const [fromEmail, setFromEmail] = useState("");
@@ -24,6 +24,7 @@ const ContactModal = ({ buttonText, title, buttonClassName }) => {
   // Gérer la soumission du formulaire
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsSending(true);
 
     const serviceID = "service_lmmjb3d";
     const templateID = "template_npfqhdf";
@@ -44,10 +45,12 @@ const ContactModal = ({ buttonText, title, buttonClassName }) => {
         setFromName("");
         setFromEmail("");
         setMessage("");
+        setIsSending(false);
       })
       .catch((error) => {
         console.error("Erreur lors de l'envoi de l'email", error);
         setConfirmationMessage("Une erreur s'est produite. Veuillez réessayer plus tard.");
+        setIsSending(false);
       });
   };
 
@@ -117,7 +120,7 @@ const ContactModal = ({ buttonText, title, buttonClassName }) => {
                   ></textarea>
                 </div>
                 <button className="btn-submit-form" type="submit">
-                  Envoyer
+                  {isSending ? "Envoi en cours..." : "Envoyer"}
                 </button>
               </form>
             )}
