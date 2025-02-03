@@ -32,5 +32,6 @@ footer {
     }
     .footer-secondary {
         @include flex-column-center;
+        text-align: center;
     }
 }
