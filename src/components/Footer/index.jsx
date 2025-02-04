@@ -20,7 +20,7 @@ const Footer = () => {
             </div>
         </div>
         <div className='footer-secondary'>
-          <p>Mentions Légales - Tout droit réservés</p>
+          <p>Mentions Légales - Copyright 2025</p>
         </div>
     </footer>
   )

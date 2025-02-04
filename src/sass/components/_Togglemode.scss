@@ -8,11 +8,11 @@ body.light-mode {
         @include bablack-cowhite;
         @media (min-width: 768px) {
             background-color: transparent;
-            color: #121212;
+            color: $dark-color;
         }
     }
     .bar {
-        background-color: #121212;
+        background-color: $dark-color;
     }
     button {
         &.toggle-button {
@@ -36,7 +36,7 @@ body.light-mode {
     }
     .modal-content {
         background: linear-gradient(93deg, rgba(255,251,213,1) 0%, rgba(255,204,251,1) 100%);
-        color: #121212;
+        color: $dark-color;
         .btn-submit-form, .close-btn {
             @include bablack-cowhite;
             @include btn;
@@ -44,13 +44,13 @@ body.light-mode {
               @include bagradient-coblack;
               border: #313030 1px solid;
             }
-          }
+        }
     }
     button.modal-button {
         @include modal-btn;
-        color: #121212;
+        color: $dark-color;
         @media (max-width: 768px) {
-            color: white;
+            color: $light-color;
         }
     }
     footer {
@@ -70,27 +70,22 @@ body.dark-mode {
         @include bagradient-coblack;
         @media (min-width: 768px) {
             background: transparent;
-            color: white;
+            color: $light-color;
         }
     }
     .bar {
-        background-color: white;
+        background-color: $light-color;
     }
-    button {
-        &.toggle-button {
-            @include btn;
-            @include bagradient-coblack;
-        }
-        &.main-button {
-            @include btn;
-            @include bagradient-coblack;
-        }
+    button.toggle-button {
+        @include btn;
+        @include bagradient-coblack;
     }
+
     select {
-        background-color: white;
-        color: #121212;
+        background-color: $light-color;
+        color: $dark-color;
         &:hover {
-            background-color: white;
+            background-color: $light-color;
         }
     }
     .card-skills {
@@ -101,22 +96,23 @@ body.dark-mode {
         @include bagradient-coblack;
     }
     .modal-content {
-        background: #121212;
-        color: white;
+        background: $dark-color;
+        color: $light-color;
         .btn-submit-form, .close-btn {
             @include bagradient-coblack;
             @include btn;
             &:hover {
-              @include bablack-cowhite;
-              border: white 1px solid;
+                @include bablack-cowhite;
+                border: $light-color 1px solid;
             }
           }
     }
+    
     button.modal-button {
         @include modal-btn;
-        color: white;
+        color: $light-color;
         @media (max-width: 768px) {
-            color: #121212;
+            color: $dark-color;
         }
     }
     footer {

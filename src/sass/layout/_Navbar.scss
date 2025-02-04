@@ -10,7 +10,21 @@ nav {
         gap: $gap;
         li {
             @include flex-row-center;
+            &:hover {
+                text-decoration: underline;
+            }
         }
+        button {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    @media (max-width: 768px) {
+        display: block;
+        position: absolute;
+        left: 20px;
+        margin-top: -20px;
     }
 }
 
@@ -43,7 +57,7 @@ nav {
     .nav-ul {
         position: absolute;
         margin-left: 10px;
-        top: 60px;
+        top: 40px;
         flex-direction: column;
         border-radius: 5px;
         padding: 10px;
@@ -56,8 +70,11 @@ nav {
             visibility: visible;
             transform: translateY(0)
         }
-        li {
+        li,button {
             margin-bottom: 10px;
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
     

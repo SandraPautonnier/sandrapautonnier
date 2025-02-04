@@ -42,6 +42,9 @@ body {
 
 header {
     margin: 0 20px;
+    @media (max-width: 768px) {
+        margin: 30px 20px;
+    }
 }
 
 main {
