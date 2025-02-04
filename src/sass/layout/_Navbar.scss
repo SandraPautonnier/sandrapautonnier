@@ -4,6 +4,7 @@
 nav {
     @include flex-row-center;
     justify-content: space-between;
+    margin-bottom: 20px;
     .nav-ul {
         display: flex;
         gap: $gap;
@@ -21,7 +22,7 @@ nav {
         width: 25px;
         height: 4px;
         border-radius: 25% / 25%;
-        margin: 4px 0;
+        margin: 2px 0;
         transition: background-color 0.3s ease;
     }
     .close-nav {
@@ -33,10 +34,15 @@ nav {
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
-        margin-top: 20px;
+        margin: 20px 10px;
+        .close-nav {
+            line-height: 27px;
+            margin: -1.5px -2px;
+        }
     }
     .nav-ul {
         position: absolute;
+        margin-left: 10px;
         top: 60px;
         flex-direction: column;
         border-radius: 5px;

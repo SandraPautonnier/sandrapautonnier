@@ -6,6 +6,7 @@ nav {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 nav .nav-ul {
   display: flex;
@@ -26,7 +27,7 @@ nav .nav-ul li {
   width: 25px;
   height: 4px;
   border-radius: 25%/25%;
-  margin: 4px 0;
+  margin: 2px 0;
   transition: background-color 0.3s ease;
 }
 .hamburger .close-nav {
@@ -37,10 +38,15 @@ nav .nav-ul li {
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
-    margin-top: 20px;
+    margin: 20px 10px;
+  }
+  .hamburger .close-nav {
+    line-height: 27px;
+    margin: -1.5px -2px;
   }
   .nav-ul {
     position: absolute;
+    margin-left: 10px;
     top: 60px;
     flex-direction: column;
     border-radius: 5px;
@@ -108,6 +114,7 @@ footer .footer-secondary {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 .header-banner img {
   max-width: 300px;
@@ -180,7 +187,7 @@ body.light-mode .modal-content .btn-submit-form, body.light-mode .modal-content 
 body.light-mode .modal-content .btn-submit-form:hover, body.light-mode .modal-content .close-btn:hover {
   background: linear-gradient(93deg, rgb(255, 251, 213) 0%, rgb(255, 204, 251) 100%);
   color: #121212;
-  border: #121212 1px solid;
+  border: #313030 1px solid;
 }
 body.light-mode button.modal-button {
   background: none;
@@ -379,13 +386,13 @@ form div textarea {
 }
 .about .tag-btn {
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
 .about .tag-btn .tags {
   box-sizing: border-box;
-  gap: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 @media (min-width: 498px) {
   .about .tag-btn .tags {
@@ -636,6 +643,10 @@ body .home-body {
   width: 100%;
   margin: 0px auto;
   box-sizing: border-box;
+}
+
+header {
+  margin: 0 20px;
 }
 
 main {

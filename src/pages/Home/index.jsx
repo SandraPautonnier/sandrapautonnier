@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import React from "react";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import ToggleMode from '../../components/Mode';
@@ -7,7 +6,7 @@ import Sandra1 from '../../assets/images/sandra1.png';
 import Sandra from '../../assets/images/sandra.png'
 import About from '../../sections/About';
 import Skills from '../../sections/Skills';
-import Experiences from "../../sections/Experiences";
+/*import Experiences from "../../sections/Experiences"; */
 import Works from "../../sections/Works";
 
 

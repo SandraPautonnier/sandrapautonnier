@@ -7,17 +7,17 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from '../src/pages/Home/index';
-import Notfound from '../src/pages/Notfound/index';
+/*import Notfound from '../src/pages/Notfound/index'; */
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
   },
-  {
+  /*{
     path: "/404",
     element: <Notfound />,
-  },
+  }, */
   {
     path: "*",
     element: <Home />,
