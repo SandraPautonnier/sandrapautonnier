@@ -24,6 +24,9 @@ body.light-mode {
             @include bablack-cowhite;
         }
     }
+    .formation {
+        @include bablack-cowhite;
+    }
     select {
         @include bablack-cowhite;
     }
@@ -43,6 +46,7 @@ body.light-mode {
             &:hover {
               @include bagradient-coblack;
               border: #313030 1px solid;
+              text-decoration: none;
             }
         }
     }
@@ -80,7 +84,9 @@ body.dark-mode {
         @include btn;
         @include bagradient-coblack;
     }
-
+    .formation {
+        @include bagradient-coblack;
+    }
     select {
         background-color: $light-color;
         color: $dark-color;
@@ -104,6 +110,7 @@ body.dark-mode {
             &:hover {
                 @include bablack-cowhite;
                 border: $light-color 1px solid;
+                text-decoration: none;
             }
           }
     }

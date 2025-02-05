@@ -12,12 +12,12 @@ nav .nav-ul {
   display: flex;
   gap: 30px;
 }
-nav .nav-ul li {
+nav .nav-ul .nav-li {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-nav .nav-ul li:hover {
+nav .nav-ul .nav-li:hover {
   text-decoration: underline;
 }
 nav .nav-ul button:hover {
@@ -175,6 +175,10 @@ body.light-mode button.main-button {
   background: #121212;
   color: white;
 }
+body.light-mode .formation {
+  background: #121212;
+  color: white;
+}
 body.light-mode select {
   background: #121212;
   color: white;
@@ -205,6 +209,7 @@ body.light-mode .modal-content .btn-submit-form:hover, body.light-mode .modal-co
   background: linear-gradient(93deg, rgb(255, 251, 213) 0%, rgb(255, 204, 251) 100%);
   color: #121212;
   border: #313030 1px solid;
+  text-decoration: none;
 }
 body.light-mode button.modal-button {
   background: none;
@@ -254,6 +259,10 @@ body.dark-mode button.toggle-button {
   background: linear-gradient(93deg, rgb(255, 251, 213) 0%, rgb(255, 204, 251) 100%);
   color: #121212;
 }
+body.dark-mode .formation {
+  background: linear-gradient(93deg, rgb(255, 251, 213) 0%, rgb(255, 204, 251) 100%);
+  color: #121212;
+}
 body.dark-mode select {
   background-color: white;
   color: #121212;
@@ -287,6 +296,7 @@ body.dark-mode .modal-content .btn-submit-form:hover, body.dark-mode .modal-cont
   background: #121212;
   color: white;
   border: white 1px solid;
+  text-decoration: none;
 }
 body.dark-mode button.modal-button {
   background: none;
@@ -345,6 +355,7 @@ body.dark-mode footer .main-button {
   right: 10px;
   border-radius: 5px;
   font-size: 2rem;
+  text-decoration: none;
 }
 
 #close-btn {
@@ -396,10 +407,18 @@ form div textarea {
 }
 .about .tag-btn {
   width: 100%;
+  justify-content: space-around;
+  gap: 20px;
+}
+@media (min-width: 768px) {
+  .about .tag-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 }
 .about .tag-btn .tags {
   box-sizing: border-box;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -417,6 +436,20 @@ form div textarea {
 }
 .about .tag-btn .tags .tag {
   margin: 15px;
+}
+.about .tag-btn .formation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 30px;
+  border-radius: 10px;
+}
+.about .tag-btn .formation h3 {
+  margin: 0;
+}
+.about .tag-btn .formation p {
+  margin: 0;
 }
 
 .skills {

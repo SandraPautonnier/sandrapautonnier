@@ -12,11 +12,11 @@ const Footer = () => {
             <div className='contact-mail'>
                 <ContactModal buttonText="Contactez-moi via mon formulaire" title="Contactez-moi" buttonClassName="main-button"/>
             </div>
-            <img src={Sandra2} alt="Photo de Sandra" />
+            <img src={Sandra2} alt="Sandra" />
             <div className='social-media'>
-                <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank'><FontAwesomeIcon icon={faLinkedin} /></a>
-                <a href="https://github.com/SandraPautonnier" target='_blank'><FontAwesomeIcon icon={faSquareGithub} /></a>
-                <a href="https://codepen.io/sandrapautonnier" target='_blank'><FontAwesomeIcon icon={faCodepen} /></a>
+                <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} /></a>
+                <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faSquareGithub} /></a>
+                <a href="https://codepen.io/sandrapautonnier" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faCodepen} /></a>
             </div>
         </div>
         <div className='footer-secondary'>
@@ -26,4 +26,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default Footer;

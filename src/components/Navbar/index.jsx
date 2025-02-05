@@ -25,16 +25,16 @@ const Navbar = () => {
       </div>
       {/*Menu de nav*/}
       <ul className={`nav-ul ${menuOpen ? 'open' : ''}`}>
-        <li>
+        <li className="nav-li">
           <a href="#home" onClick={() => setMenuOpen(false)}>ACCEUIL</a>
         </li>
-        <li>
+        <li className="nav-li">
           <a href="#profil" onClick={() => setMenuOpen(false)}>PROFIL</a>
         </li>
-        <li>
+        <li className="nav-li">
           <a href="#portfolio" onClick={() => setMenuOpen(false)}>PORTFOLIO</a>
         </li>
-        <li>
+        <li className="nav-li">
           <ContactModal
             buttonText="CONTACT"
             title="Contactez-moi"

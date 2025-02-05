@@ -14,6 +14,11 @@ const About = () => {
             <li className='tag'>#créative</li>
             <li className='tag'>#autonome</li>
           </ul>
+          <div className='formation'>
+            <h3>Formée chez Openclassrooms</h3>
+            <p>Intégrateur Web</p>
+            <p>Certification Qualiopi</p>
+          </div>
         </div>
     </section>
   )

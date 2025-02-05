@@ -8,7 +8,7 @@ nav {
     .nav-ul {
         display: flex;
         gap: $gap;
-        li {
+        .nav-li {
             @include flex-row-center;
             &:hover {
                 text-decoration: underline;

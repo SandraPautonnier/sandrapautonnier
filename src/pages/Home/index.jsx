@@ -17,7 +17,7 @@ const Home = () => {
         <header>
           <Navbar/>
           <div className='header-banner' id="home">
-            <img src={Sandra1} alt="Photo de Sandra" />
+            <img src={Sandra1} alt="Sandra" />
             <h1>Sandra Pautonnier</h1>
             <p>Developpeuse Web Front-end</p>
             <div className='all-mode'>
@@ -34,7 +34,7 @@ const Home = () => {
           <section className="success">
             <h2>Mes réussites</h2>
             <div className="container-img-success">
-              <img src={Sandra} alt="Photo de Sandra" />
+              <img src={Sandra} alt="Sandra" />
               <ul className="container-success">
                 <li><span className="bold">2010 :</span> Dans le domaine des Métiers de la Mode, j'ai été médaillée d'argent au concours départementale du Meilleur Apprenti de France.</li>
                 <li><span className="bold">2017 :</span> Lors de mon service civique, j'ai organisé un séminaire de A à Z avec 5 établissements scolaires et des associations sur les thèmes du harcèlement scolaire et du décrochage scolaire.</li>

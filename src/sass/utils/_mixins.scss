@@ -1,3 +1,4 @@
+@import "../utils/variables";
 
 @mixin flex-row-center {
     display: flex;
@@ -35,7 +36,7 @@
 }
 
 @mixin bagradient-coblack {
-    background: linear-gradient(93deg, rgba(255,251,213,1) 0%, rgba(255,204,251,1) 100%);
+    background: linear-gradient(93deg, $main-color 0%, $secondary-color 100%);
     color: #121212;
 }
 
