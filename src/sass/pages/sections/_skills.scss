@@ -19,7 +19,7 @@
             height: 300px;
             width: 100%;
             margin: 0;
-            padding: 0 25px;
+            padding: 0 20px;
             
             @media (min-width: 550px) {
                 height: 220px;
@@ -31,6 +31,7 @@
             @media (min-width: 1200px) {
                 height: 300px;
                 font-size: 17px;
+                text-align: center;
                 
             }
             .li-skills {
