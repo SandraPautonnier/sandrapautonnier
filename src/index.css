@@ -448,7 +448,7 @@ form div textarea {
   height: 300px;
   width: 100%;
   margin: 0;
-  padding: 0 20px;
+  padding: 0 25px;
 }
 @media (min-width: 550px) {
   .skills .container-card-skills .card-skills {
