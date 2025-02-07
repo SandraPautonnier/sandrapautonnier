@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import ContactModal from "../../components/ContactModal";
 import ToggleMode from '../../components/Mode';
 import Sandra1 from '../../assets/images/sandra1.png';
 import Sandra from '../../assets/images/sandra.png'
@@ -11,11 +12,17 @@ import Works from "../../sections/Works";
 
 
 const Home = () => {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <div className='home-body'>
       <div className="header-main">
         <header>
-          <Navbar/>
+          <Navbar openModal={openModal}/>
           <div className='header-banner' id="home">
             <img src={Sandra1} alt="Sandra" />
             <h1>Sandra Pautonnier</h1>
@@ -45,7 +52,12 @@ const Home = () => {
           </section>
         </main>
       </div>
-      <Footer/>
+      <Footer openModal={openModal}/>
+      <ContactModal 
+        isOpen={isModalOpen} 
+        onClose={closeModal} 
+        title="Contactez-moi" 
+      />
     </div>
   )
 }

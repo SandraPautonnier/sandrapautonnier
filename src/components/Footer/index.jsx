@@ -5,12 +5,14 @@ import { faLinkedin , faSquareGithub , faCodepen } from '@fortawesome/free-brand
 import ContactModal from "../ContactModal";
 
 
-const Footer = () => {
+const Footer = ({openModal}) => {
   return (
     <footer>
         <div className='footer-main'>
             <div className='contact-mail'>
-                <ContactModal buttonText="Contactez-moi via mon formulaire" title="Contactez-moi" buttonClassName="main-button"/>
+                <button className="main-button" onClick={openModal}>
+                  Contactez-moi via mon formulaire
+                </button>
             </div>
             <img src={Sandra2} alt="Sandra" />
             <div className='social-media'>

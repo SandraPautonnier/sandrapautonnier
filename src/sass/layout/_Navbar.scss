@@ -20,19 +20,16 @@ nav {
             }
         }
     }
-    /*@media (max-width: 768px) {
+    @media (max-width: 768px) {
         display: block;
         position: absolute;
         left: 20px;
         margin-top: -20px;
-    }*/
-    @media (max-width: 768px) {
-        display: none;
     }
     
 }
 
-/*.hamburger {
+.hamburger {
     display: none;
     flex-direction: column;
     cursor: pointer;
@@ -82,4 +79,4 @@ nav {
         }
     }
     
-}*/
+}

@@ -1,23 +1,19 @@
 import React, { useState } from "react";
 import ContactModal from "../ContactModal";
 
-const Navbar = () => {
+const Navbar = ({ openModal }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
   
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
-
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
+  
+
   return (
     <nav>
       {/*<h2>SP</h2>*/}
-      {/*Bouton hamburger
+      {/*Bouton hamburger*/}
       <div className="hamburger" onClick={toggleMenu}>
         {menuOpen ? (
           <span className="close-nav">&times;</span>
@@ -28,7 +24,7 @@ const Navbar = () => {
             <div className="bar"></div>
           </>
         )}
-      </div>*/}
+      </div>
       {/*Menu de nav*/}
       <ul className={`nav-ul ${menuOpen ? 'open' : ''}`}>
         <li className="nav-li">
@@ -41,16 +37,12 @@ const Navbar = () => {
           <a href="#portfolio" onClick={() => setMenuOpen(false)}>PORTFOLIO</a>
         </li>
         <li className="nav-li">
-          <button onClick={toggleModal} className="modal-button">
+          <button onClick={openModal} className="modal-button">
+          CONTACT
           </button>
         </li>
       </ul>
-      <ContactModal
-        title="Contactez-moi"
-        onClose={toggleModal}
-        buttonText="CONTACT"
-        buttonClassName="modal-button"
-      />
+      
     </nav>
   );
 };
