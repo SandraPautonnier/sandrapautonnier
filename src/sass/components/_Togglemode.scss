@@ -38,8 +38,7 @@ body.light-mode {
         @include bablack-cowhite;
     }
     .modal-content {
-        background: linear-gradient(93deg, rgba(255,251,213,1) 0%, rgba(255,204,251,1) 100%);
-        color: $dark-color;
+        @include bagradient-coblack;
         .btn-submit-form, .close-btn {
             @include bablack-cowhite;
             @include btn;

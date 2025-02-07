@@ -145,7 +145,7 @@ footer .footer-secondary {
 }
 
 body.light-mode {
-  background: linear-gradient(93deg, rgb(255, 251, 213) 0%, rgb(255, 204, 251) 100%);
+  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
   color: #121212;
 }
 body.light-mode .nav-ul {
@@ -195,7 +195,7 @@ body.light-mode .tag {
   color: white;
 }
 body.light-mode .modal-content {
-  background: linear-gradient(93deg, rgb(255, 251, 213) 0%, rgb(255, 204, 251) 100%);
+  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
   color: #121212;
 }
 body.light-mode .modal-content .btn-submit-form, body.light-mode .modal-content .close-btn {
@@ -206,7 +206,7 @@ body.light-mode .modal-content .btn-submit-form, body.light-mode .modal-content 
   padding: 10px 15px;
 }
 body.light-mode .modal-content .btn-submit-form:hover, body.light-mode .modal-content .close-btn:hover {
-  background: linear-gradient(93deg, rgb(255, 251, 213) 0%, rgb(255, 204, 251) 100%);
+  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
   color: #121212;
   border: #313030 1px solid;
   text-decoration: none;
@@ -231,7 +231,7 @@ body.light-mode footer .main-button {
   border-radius: 10px;
   border: 1px solid transparent;
   padding: 10px 15px;
-  background: linear-gradient(93deg, rgb(255, 251, 213) 0%, rgb(255, 204, 251) 100%);
+  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
   color: #121212;
 }
 
@@ -240,7 +240,7 @@ body.dark-mode {
   color: white;
 }
 body.dark-mode .nav-ul {
-  background: linear-gradient(93deg, rgb(255, 251, 213) 0%, rgb(255, 204, 251) 100%);
+  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
   color: #121212;
 }
 @media (min-width: 768px) {
@@ -256,11 +256,11 @@ body.dark-mode button.toggle-button {
   border-radius: 10px;
   border: 1px solid transparent;
   padding: 10px 15px;
-  background: linear-gradient(93deg, rgb(255, 251, 213) 0%, rgb(255, 204, 251) 100%);
+  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
   color: #121212;
 }
 body.dark-mode .formation {
-  background: linear-gradient(93deg, rgb(255, 251, 213) 0%, rgb(255, 204, 251) 100%);
+  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
   color: #121212;
 }
 body.dark-mode select {
@@ -271,14 +271,14 @@ body.dark-mode select:hover {
   background-color: white;
 }
 body.dark-mode .card-skills {
-  background: linear-gradient(93deg, rgb(255, 251, 213) 0%, rgb(255, 204, 251) 100%);
+  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
   color: #121212;
 }
 body.dark-mode .tag {
   border-radius: 10px;
   border: 1px solid transparent;
   padding: 10px 15px;
-  background: linear-gradient(93deg, rgb(255, 251, 213) 0%, rgb(255, 204, 251) 100%);
+  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
   color: #121212;
 }
 body.dark-mode .modal-content {
@@ -286,7 +286,7 @@ body.dark-mode .modal-content {
   color: white;
 }
 body.dark-mode .modal-content .btn-submit-form, body.dark-mode .modal-content .close-btn {
-  background: linear-gradient(93deg, rgb(255, 251, 213) 0%, rgb(255, 204, 251) 100%);
+  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
   color: #121212;
   border-radius: 10px;
   border: 1px solid transparent;
@@ -311,7 +311,7 @@ body.dark-mode button.modal-button {
   }
 }
 body.dark-mode footer {
-  background: linear-gradient(93deg, rgb(255, 251, 213) 0%, rgb(255, 204, 251) 100%);
+  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
   color: #121212;
 }
 body.dark-mode footer .main-button {
