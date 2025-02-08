@@ -10,18 +10,13 @@ nav {
 }
 nav .nav-ul {
   display: flex;
+  align-items: flex-start;
   gap: 30px;
 }
 nav .nav-ul .nav-li {
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-nav .nav-ul .nav-li:hover {
-  text-decoration: underline;
-}
-nav .nav-ul button:hover {
-  text-decoration: underline;
 }
 @media (max-width: 768px) {
   nav {
@@ -74,12 +69,6 @@ nav .nav-ul button:hover {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-  }
-  .nav-ul li, .nav-ul button {
-    margin-bottom: 10px;
-  }
-  .nav-ul li:hover, .nav-ul button:hover {
-    text-decoration: underline;
   }
 }
 footer {
@@ -156,6 +145,24 @@ body.light-mode .nav-ul {
   body.light-mode .nav-ul {
     background-color: transparent;
     color: #121212;
+  }
+}
+body.light-mode .nav-ul .nav-li {
+  background: linear-gradient(to top, rgb(18, 18, 18) 0%, rgb(18, 18, 18) 1px, transparent 2px) no-repeat;
+  background-size: 0 100%;
+  transition: background-size 0.3s ease-in-out;
+}
+body.light-mode .nav-ul .nav-li:hover {
+  background-size: 100% 100%;
+}
+@media (max-width: 768px) {
+  body.light-mode .nav-ul .nav-li {
+    background: linear-gradient(to top, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 1px, transparent 2px) no-repeat;
+    background-size: 0 100%;
+    transition: background-size 0.3s ease-in-out;
+  }
+  body.light-mode .nav-ul .nav-li:hover {
+    background-size: 100% 100%;
   }
 }
 body.light-mode .bar {
@@ -247,6 +254,24 @@ body.dark-mode .nav-ul {
   body.dark-mode .nav-ul {
     background: transparent;
     color: white;
+  }
+}
+body.dark-mode .nav-ul .nav-li {
+  background: linear-gradient(to top, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 1px, transparent 2px) no-repeat;
+  background-size: 0 100%;
+  transition: background-size 0.3s ease-in-out;
+}
+body.dark-mode .nav-ul .nav-li:hover {
+  background-size: 100% 100%;
+}
+@media (max-width: 768px) {
+  body.dark-mode .nav-ul .nav-li {
+    background: linear-gradient(to top, rgb(18, 18, 18) 0%, rgb(18, 18, 18) 1px, transparent 2px) no-repeat;
+    background-size: 0 100%;
+    transition: background-size 0.3s ease-in-out;
+  }
+  body.dark-mode .nav-ul .nav-li:hover {
+    background-size: 100% 100%;
   }
 }
 body.dark-mode .bar {

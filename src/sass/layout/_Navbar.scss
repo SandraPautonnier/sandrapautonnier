@@ -7,17 +7,10 @@ nav {
     margin-bottom: 20px;
     .nav-ul {
         display: flex;
+        align-items: flex-start;
         gap: $gap;
         .nav-li {
             @include flex-row-center;
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-        button {
-            &:hover {
-                text-decoration: underline;
-            }
         }
     }
     @media (max-width: 768px) {
@@ -71,12 +64,7 @@ nav {
             visibility: visible;
             transform: translateY(0)
         }
-        li,button {
-            margin-bottom: 10px;
-            &:hover {
-                text-decoration: underline;
-            }
-        }
+        
     }
     
 }

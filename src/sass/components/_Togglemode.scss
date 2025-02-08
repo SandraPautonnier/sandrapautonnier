@@ -10,6 +10,12 @@ body.light-mode {
             background-color: transparent;
             color: $dark-color;
         }
+        .nav-li {
+            @include underline-anim-black;
+            @media (max-width: 768px) {
+                @include underline-anim-white;
+            }
+        }
     }
     .bar {
         background-color: $dark-color;
@@ -74,6 +80,12 @@ body.dark-mode {
         @media (min-width: 768px) {
             background: transparent;
             color: $light-color;
+        }
+        .nav-li {
+            @include underline-anim-white;
+            @media (max-width: 768px) {
+                @include underline-anim-black;
+            }
         }
     }
     .bar {
