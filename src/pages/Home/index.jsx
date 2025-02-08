@@ -1,41 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import ContactModal from "../../components/ContactModal";
 import ToggleMode from '../../components/Mode';
+import loader from "../../components/Loader";
 import Sandra1 from '../../assets/images/sandra1.png';
 import Sandra from '../../assets/images/sandra.png'
-import About from '../../sections/About';
-import Skills from '../../sections/Skills';
+import About from '../Sections/About';
+import Skills from '../Sections/Skills';
 /*import Experiences from "../../sections/Experiences"; */
-import Works from "../../sections/Works";
+import Works from "../Sections/Works";
 
 
 const Home = () => {
-  const [loading, setLoading] = useState(true);
+  const loading = loader(2000);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  useEffect(() => {
-    // Simuler un chargement de 2 secondes
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-
-    // Nettoyage du timer si le composant se démonte
-    return () => clearTimeout(timer);
-  }, []);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
   if (loading) {
-    return (
+    return ( 
       <div className="loading-screen">
         <div className="loader"></div>
-        <p>Chargement...</p>
+          <p>Chargement...</p>
       </div>
     );
-  }
+  };
 
   return (
     <div className='home-body'>

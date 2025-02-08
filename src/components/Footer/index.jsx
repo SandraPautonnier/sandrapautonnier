@@ -2,7 +2,6 @@ import React from 'react'
 import Sandra2 from "../../assets/images/sandra2.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin , faSquareGithub , faCodepen } from '@fortawesome/free-brands-svg-icons';
-import ContactModal from "../ContactModal";
 
 
 const Footer = ({openModal}) => {

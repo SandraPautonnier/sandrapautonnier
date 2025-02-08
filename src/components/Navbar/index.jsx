@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ContactModal from "../ContactModal";
 
 const Navbar = ({ openModal }) => {
   const [menuOpen, setMenuOpen] = useState(false);
