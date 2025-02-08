@@ -75,7 +75,6 @@ footer {
   padding: 30px;
   position: relative;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-  /*@include flex-column-center;*/
 }
 footer .footer-main {
   display: flex;
@@ -96,18 +95,27 @@ footer .footer-main .contact-mail {
   flex-direction: column;
   align-items: center;
 }
-footer .footer-main .contact-mail p {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+footer .footer-main .contact-mail .main-button {
+  transform: scale(1);
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+footer .footer-main .contact-mail .main-button:hover {
+  transform: scale(1.1);
 }
 footer .footer-main img {
   max-width: 100px;
 }
 footer .footer-main .social-media {
   display: flex;
-  font-size: 20px;
+  font-size: 24px;
   gap: 15px;
+}
+footer .footer-main .social-media a {
+  transform: scale(1);
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+footer .footer-main .social-media a:hover {
+  transform: scale(1.1);
 }
 footer .footer-secondary {
   display: flex;
@@ -151,21 +159,21 @@ footer .footer-secondary {
 @keyframes slideInFromRight {
   from {
     transform: translateX(500%);
-    opacity: 0;
   }
   to {
     transform: translateX(0);
     opacity: 1;
+    visibility: visible;
   }
 }
 @keyframes slideInFromLeft {
   from {
     transform: translateX(-500%);
-    opacity: 0;
   }
   to {
     transform: translateX(0);
     opacity: 1;
+    visibility: visible;
   }
 }
 .header-banner {
@@ -174,22 +182,29 @@ footer .footer-secondary {
   align-items: center;
   text-align: center;
 }
+.header-banner img,
+.header-banner h1,
+.header-banner p {
+  opacity: 0;
+  visibility: hidden;
+}
 .header-banner img {
   max-width: 300px;
   width: 100%;
-  animation: slideInFromRight 0.6s ease-out 0.5s;
+  animation: slideInFromRight 0.6s ease-out forwards;
 }
 .header-banner h1 {
-  animation: slideInFromLeft 0.6s ease-out 0.7s;
+  animation: slideInFromLeft 0.6s ease-out 0.2s forwards;
 }
 .header-banner p {
-  animation: slideInFromLeft 0.6s ease-out 0.9s;
+  animation: slideInFromLeft 0.6s ease-out 0.4s forwards;
 }
-.header-banner .all-mode {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+.header-banner .toggle-button {
+  transform: scale(1);
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.header-banner .toggle-button:hover {
+  transform: scale(1.1);
 }
 
 body.light-mode {
@@ -209,7 +224,7 @@ body.light-mode .nav-ul {
 body.light-mode .nav-ul .nav-li {
   background: linear-gradient(to top, rgb(18, 18, 18) 0%, rgb(18, 18, 18) 1px, transparent 2px) no-repeat;
   background-size: 0 100%;
-  transition: background-size 0.3s ease-in-out;
+  transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
 }
 body.light-mode .nav-ul .nav-li:hover {
   background-size: 100% 100%;
@@ -218,7 +233,7 @@ body.light-mode .nav-ul .nav-li:hover {
   body.light-mode .nav-ul .nav-li {
     background: linear-gradient(to top, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 1px, transparent 2px) no-repeat;
     background-size: 0 100%;
-    transition: background-size 0.3s ease-in-out;
+    transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
   }
   body.light-mode .nav-ul .nav-li:hover {
     background-size: 100% 100%;
@@ -318,7 +333,7 @@ body.dark-mode .nav-ul {
 body.dark-mode .nav-ul .nav-li {
   background: linear-gradient(to top, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 1px, transparent 2px) no-repeat;
   background-size: 0 100%;
-  transition: background-size 0.3s ease-in-out;
+  transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
 }
 body.dark-mode .nav-ul .nav-li:hover {
   background-size: 100% 100%;
@@ -327,7 +342,7 @@ body.dark-mode .nav-ul .nav-li:hover {
   body.dark-mode .nav-ul .nav-li {
     background: linear-gradient(to top, rgb(18, 18, 18) 0%, rgb(18, 18, 18) 1px, transparent 2px) no-repeat;
     background-size: 0 100%;
-    transition: background-size 0.3s ease-in-out;
+    transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
   }
   body.dark-mode .nav-ul .nav-li:hover {
     background-size: 100% 100%;

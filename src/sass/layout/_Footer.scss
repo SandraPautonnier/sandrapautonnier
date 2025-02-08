@@ -5,7 +5,6 @@ footer {
     padding: 30px;
     position: relative;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    /*@include flex-column-center;*/
     .footer-main {
         @include flex-column-center;
         @media (min-width: 800px) {
@@ -17,8 +16,8 @@ footer {
         gap:20px;
         .contact-mail {
             @include flex-column-center;
-            p {
-                @include flex-column-center;
+            .main-button {
+                @include zoom-btn;
             }
         }
         img {
@@ -26,8 +25,11 @@ footer {
         }
         .social-media {
             display: flex;
-            font-size: 20px;
+            font-size: 24px;
             gap: 15px;
+            a {
+                @include zoom-btn;
+            }
         }
     }
     .footer-secondary {

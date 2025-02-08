@@ -58,7 +58,7 @@
 @mixin underline-anim-black {
     background: linear-gradient(to top, rgba(18, 18, 18, 1) 0%, rgba(18, 18, 18, 1) 1px, transparent 2px) no-repeat;
     background-size: 0 100%;
-    transition: background-size 0.3s ease-in-out;
+    transition: background-size 0.3s cubic-bezier(.77,0,.18,1);
     &:hover {
         background-size: 100% 100%;
     }
@@ -67,8 +67,16 @@
 @mixin underline-anim-white {
     background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 1px, transparent 2px) no-repeat;
     background-size: 0 100%;
-    transition: background-size 0.3s ease-in-out;
+    transition: background-size 0.3s cubic-bezier(.77,0,.18,1);
     &:hover {
         background-size: 100% 100%;
+    }
+}
+
+@mixin zoom-btn {
+    transform: scale(1); 
+    transition: transform 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+    &:hover {
+      transform: scale(1.1);
     }
 }

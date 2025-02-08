@@ -1,41 +1,48 @@
+@import "../../utils/mixins";
+
 @keyframes slideInFromRight {
-    from {
-      transform: translateX(500%);
-      opacity: 0; 
-    }
-    to {
-      transform: translateX(0); 
-      opacity: 1; 
-    }
+  from {
+    transform: translateX(500%);
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 @keyframes slideInFromLeft {
-    from {
-      transform: translateX(-500%); 
-      opacity: 0; 
-    }
-    to {
-      transform: translateX(0); 
-      opacity: 1; 
-    }
+  from {
+    transform: translateX(-500%);
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 .header-banner {
-    @include flex-column-center;
-    text-align: center;
-    img {
-        max-width: 300px;
-        width: 100%;
-        animation: slideInFromRight 0.6s ease-out 0.5s;
-    }
-    h1 {
-        animation: slideInFromLeft 0.6s ease-out 0.7s;
-    }
-    p {
-        animation: slideInFromLeft 0.6s ease-out 0.9s;
-    }
-    .all-mode {
-        @include flex-column-center;
-        gap: 20px;
-    }
+  @include flex-column-center;
+  text-align: center;
+  img,
+  h1,
+  p {
+    opacity: 0;
+    visibility: hidden;
+  }
+  img {
+    max-width: 300px;
+    width: 100%;
+    animation: slideInFromRight 0.6s ease-out forwards;
+  }
+  h1 {
+    animation: slideInFromLeft 0.6s ease-out 0.2s forwards;
+  }
+  p {
+    animation: slideInFromLeft 0.6s ease-out 0.4s forwards;
+  }
+  .toggle-button {
+    @include zoom-btn;
+  }
 }

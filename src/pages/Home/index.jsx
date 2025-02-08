@@ -14,6 +14,7 @@ import Works from "../Sections/Works";
 
 const Home = () => {
   const loading = loader(2000);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => setIsModalOpen(true);
@@ -37,9 +38,7 @@ const Home = () => {
             <img src={Sandra1} alt="Sandra" />
             <h1>Sandra Pautonnier</h1>
             <p>Developpeuse Web Front-end</p>
-            <div className='all-mode'>
-              <ToggleMode />
-            </div>
+            <ToggleMode />
           </div>
         </header>
         <main>
