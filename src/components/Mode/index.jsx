@@ -10,8 +10,8 @@ function ToggleMode() {
 
     // Appliquer le thème au body lors d'un changement
     useEffect(() => {
-        document.body.className = isDarkMode ? "dark-mode" : "light-mode";
-        localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+        document.body.className = isDarkMode ? "light-mode" : "dark-mode";
+        localStorage.setItem("theme", isDarkMode ? "light" : "dark");
     }, [isDarkMode]);
 
     // Fonction pour basculer le mode
@@ -21,7 +21,7 @@ function ToggleMode() {
 
   return (
     <button onClick={toggleTheme} className="toggle-button" style={{ cursor: "pointer", padding: "10px" }}>
-      {isDarkMode ? <FontAwesomeIcon icon={faSun} /> : <FontAwesomeIcon icon={faMoon} />}
+      {isDarkMode ? <FontAwesomeIcon icon={faMoon} /> : <FontAwesomeIcon icon={faSun} />}
     </button>
   )
 }

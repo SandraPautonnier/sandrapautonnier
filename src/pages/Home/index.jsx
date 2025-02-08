@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import ContactModal from "../../components/ContactModal";
@@ -12,11 +12,30 @@ import Works from "../../sections/Works";
 
 
 const Home = () => {
-
+  const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    // Simuler un chargement de 2 secondes
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    // Nettoyage du timer si le composant se démonte
+    return () => clearTimeout(timer);
+  }, []);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
+  if (loading) {
+    return (
+      <div className="loading-screen">
+        <div className="loader"></div>
+        <p>Chargement...</p>
+      </div>
+    );
+  }
 
   return (
     <div className='home-body'>
