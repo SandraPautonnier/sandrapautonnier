@@ -44,7 +44,7 @@ const Home = () => {
               <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faSquareGithub} />Github</a>
               <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} />Linkedin</a>
             </div>
-            {/*<ToggleMode />*/}
+            <ToggleMode />
           </div>
         </header>
         <main>
