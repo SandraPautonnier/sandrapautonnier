@@ -11,13 +11,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Marko+One&display=swap');
 
-
 * {
     font-family: 'Montserrat', sans-serif;
 }
 
 h1,h2 {
     font-family: "Marko One", serif;
+}
+
+h1 {
+    margin: 30px auto 20px;
 }
 
 body {

@@ -40,9 +40,26 @@
     animation: slideInFromLeft 0.6s ease-out 0.2s forwards;
   }
   p {
+    margin: 10px auto 20px;
     animation: slideInFromLeft 0.6s ease-out 0.4s forwards;
   }
+  .buttons-social {
+    gap: 20px;
+    display: flex;
+    margin: 20px auto;
+    a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background-color: $main-color;
+      padding: 5px 7px;
+      border-radius: 10px;
+      font-size: 15px;
+      @include zoom-btn;
+    }
+  }
   .toggle-button {
+    margin: 10px auto;
     @include zoom-btn;
   }
 }
