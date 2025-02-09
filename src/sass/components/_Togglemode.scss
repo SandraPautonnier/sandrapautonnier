@@ -5,43 +5,40 @@
 body.light-mode {
     @include bagradient-coblack;
     .nav-ul {
-        @include bablack-cowhite;
+        @include bablack-cowhite-component;
         @media (min-width: 768px) {
             background-color: transparent;
-            color: $dark-color;
+            border: none;
         }
         .nav-li {
             @include underline-anim-black;
-            @media (max-width: 768px) {
-                @include underline-anim-white;
-            }
         }
     }
     .bar {
-        background-color: $dark-color;
+        background-color: $main-color;
     }
     button {
         &.toggle-button {
             @include btn;
-            @include bablack-cowhite;
+            @include btn-color-main;
         }
         &.main-button {
             @include btn;
-            @include bablack-cowhite;
+            @include btn-color-main;
         }
     }
     .formation {
-        @include bablack-cowhite;
+        @include bablack-cowhite-component;
     }
     select {
-        @include bablack-cowhite;
+        @include bablack-cowhite-component;
     }
     .card-skills {
-        @include bablack-cowhite;
+        @include bablack-cowhite-component;
     }
     .tag {
         @include btn;
-        @include bablack-cowhite;
+        @include bablack-cowhite-component;
     }
     .modal-content {
         @include bagradient-coblack;
@@ -57,60 +54,48 @@ body.light-mode {
     }
     button.modal-button {
         @include modal-btn;
-        color: $dark-color;
-        @media (max-width: 768px) {
-            color: $light-color;
-        }
+        color: $light-text;
     }
     footer {
-        @include bablack-cowhite;
+        @include bablack-cowhite-component;
         .main-button {
             @include btn;
             @include bagradient-coblack;
         }
     }
 }
-
-
   
 body.dark-mode {
     @include bablack-cowhite;
     .nav-ul {
-        @include bagradient-coblack;
+        @include bagradient-coblack-component;
         @media (min-width: 768px) {
             background: transparent;
-            color: $light-color;
+            border: none;
         }
         .nav-li {
             @include underline-anim-white;
-            @media (max-width: 768px) {
-                @include underline-anim-black;
-            }
         }
     }
     .bar {
-        background-color: $light-color;
+        background-color: $dark-text;
     }
     button.toggle-button {
         @include btn;
-        @include bagradient-coblack;
+        @include btn-color-main;
     }
     .formation {
-        @include bagradient-coblack;
+        @include bagradient-coblack-component;
     }
     select {
-        background-color: $light-color;
-        color: $dark-color;
-        &:hover {
-            background-color: $light-color;
-        }
+        @include bagradient-coblack-component;
     }
     .card-skills {
-        @include bagradient-coblack;
+        @include bagradient-coblack-component;
     }
     .tag {
         @include btn;
-        @include bagradient-coblack;
+        @include bagradient-coblack-component;
     }
     .modal-content {
         background: $dark-color;
@@ -128,16 +113,13 @@ body.dark-mode {
     
     button.modal-button {
         @include modal-btn;
-        color: $light-color;
-        @media (max-width: 768px) {
-            color: $dark-color;
-        }
+        color: $dark-text;
     }
     footer {
-        @include bagradient-coblack;
+        @include bagradient-coblack-component;
         .main-button {
             @include btn;
-            @include bablack-cowhite;
+            @include btn-color-main;
         }
     }
 }

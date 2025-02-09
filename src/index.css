@@ -136,8 +136,8 @@ footer .footer-secondary {
 .loader {
   width: 50px;
   height: 50px;
-  border: 5px solid rgb(248, 235, 167);
-  border-top: 5px solid rgb(255, 204, 251);
+  border: 5px solid #8C52FF;
+  border-top: 5px solid #E3DAFF;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -153,7 +153,7 @@ footer .footer-secondary {
 .loading-screen p {
   margin-top: 10px;
   text-align: center;
-  color: rgb(255, 204, 251);
+  color: #E3DAFF;
 }
 
 @keyframes slideInFromRight {
@@ -197,9 +197,30 @@ footer .footer-secondary {
   animation: slideInFromLeft 0.6s ease-out 0.2s forwards;
 }
 .header-banner p {
+  margin: 10px auto 20px;
   animation: slideInFromLeft 0.6s ease-out 0.4s forwards;
 }
+.header-banner .buttons-social {
+  gap: 20px;
+  display: flex;
+  margin: 20px auto;
+}
+.header-banner .buttons-social a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: #8C52FF;
+  padding: 5px 7px;
+  border-radius: 10px;
+  font-size: 15px;
+  transform: scale(1);
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.header-banner .buttons-social a:hover {
+  transform: scale(1.1);
+}
 .header-banner .toggle-button {
+  margin: 10px auto;
   transform: scale(1);
   transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
@@ -208,87 +229,82 @@ footer .footer-secondary {
 }
 
 body.light-mode {
-  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
-  color: #121212;
+  background: linear-gradient(180deg, #F9F8FF 0%, white 20%);
+  color: #723AD7;
 }
 body.light-mode .nav-ul {
-  background: #121212;
-  color: white;
+  background-color: #EAE3FF;
+  color: #723AD7;
+  border: 1px solid #C2B0FF;
 }
 @media (min-width: 768px) {
   body.light-mode .nav-ul {
     background-color: transparent;
-    color: #121212;
+    border: none;
   }
 }
 body.light-mode .nav-ul .nav-li {
-  background: linear-gradient(to top, rgb(18, 18, 18) 0%, rgb(18, 18, 18) 1px, transparent 2px) no-repeat;
+  background: linear-gradient(to top, #723AD7 0%, #723AD7 1px, transparent 2px) no-repeat;
   background-size: 0 100%;
   transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
 }
 body.light-mode .nav-ul .nav-li:hover {
   background-size: 100% 100%;
 }
-@media (max-width: 768px) {
-  body.light-mode .nav-ul .nav-li {
-    background: linear-gradient(to top, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 1px, transparent 2px) no-repeat;
-    background-size: 0 100%;
-    transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
-  }
-  body.light-mode .nav-ul .nav-li:hover {
-    background-size: 100% 100%;
-  }
-}
 body.light-mode .bar {
-  background-color: #121212;
+  background-color: #8C52FF;
 }
 body.light-mode button.toggle-button {
   border-radius: 10px;
   border: 1px solid transparent;
   padding: 10px 15px;
-  background: #121212;
-  color: white;
+  background-color: #8C52FF;
+  color: #E3DAFF;
 }
 body.light-mode button.main-button {
   border-radius: 10px;
   border: 1px solid transparent;
   padding: 10px 15px;
-  background: #121212;
-  color: white;
+  background-color: #8C52FF;
+  color: #E3DAFF;
 }
 body.light-mode .formation {
-  background: #121212;
-  color: white;
+  background-color: #EAE3FF;
+  color: #723AD7;
+  border: 1px solid #C2B0FF;
 }
 body.light-mode select {
-  background: #121212;
-  color: white;
+  background-color: #EAE3FF;
+  color: #723AD7;
+  border: 1px solid #C2B0FF;
 }
 body.light-mode .card-skills {
-  background: #121212;
-  color: white;
+  background-color: #EAE3FF;
+  color: #723AD7;
+  border: 1px solid #C2B0FF;
 }
 body.light-mode .tag {
   border-radius: 10px;
   border: 1px solid transparent;
   padding: 10px 15px;
-  background: #121212;
-  color: white;
+  background-color: #EAE3FF;
+  color: #723AD7;
+  border: 1px solid #C2B0FF;
 }
 body.light-mode .modal-content {
-  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
-  color: #121212;
+  background: linear-gradient(180deg, #F9F8FF 0%, white 20%);
+  color: #723AD7;
 }
 body.light-mode .modal-content .btn-submit-form, body.light-mode .modal-content .close-btn {
-  background: #121212;
-  color: white;
+  background: linear-gradient(180deg, #19142B 0%, #19191B 20%);
+  color: #E3DAFF;
   border-radius: 10px;
   border: 1px solid transparent;
   padding: 10px 15px;
 }
 body.light-mode .modal-content .btn-submit-form:hover, body.light-mode .modal-content .close-btn:hover {
-  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
-  color: #121212;
+  background: linear-gradient(180deg, #F9F8FF 0%, white 20%);
+  color: #723AD7;
   border: #313030 1px solid;
   text-decoration: none;
 }
@@ -297,103 +313,91 @@ body.light-mode button.modal-button {
   padding: 0;
   font-size: 16px;
   border: none;
-  color: #121212;
-}
-@media (max-width: 768px) {
-  body.light-mode button.modal-button {
-    color: white;
-  }
+  color: #723AD7;
 }
 body.light-mode footer {
-  background: #121212;
-  color: white;
+  background-color: #EAE3FF;
+  color: #723AD7;
+  border: 1px solid #C2B0FF;
 }
 body.light-mode footer .main-button {
   border-radius: 10px;
   border: 1px solid transparent;
   padding: 10px 15px;
-  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
-  color: #121212;
+  background: linear-gradient(180deg, #F9F8FF 0%, white 20%);
+  color: #723AD7;
 }
 
 body.dark-mode {
-  background: #121212;
-  color: white;
+  background: linear-gradient(180deg, #19142B 0%, #19191B 20%);
+  color: #E3DAFF;
 }
 body.dark-mode .nav-ul {
-  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
-  color: #121212;
+  background-color: #361B69;
+  color: #E3DAFF;
+  border: 1px solid #5A3CA0;
 }
 @media (min-width: 768px) {
   body.dark-mode .nav-ul {
     background: transparent;
-    color: white;
+    border: none;
   }
 }
 body.dark-mode .nav-ul .nav-li {
-  background: linear-gradient(to top, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 1px, transparent 2px) no-repeat;
+  background: linear-gradient(to top, #E3DAFF 0%, #E3DAFF 1px, transparent 2px) no-repeat;
   background-size: 0 100%;
   transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
 }
 body.dark-mode .nav-ul .nav-li:hover {
   background-size: 100% 100%;
 }
-@media (max-width: 768px) {
-  body.dark-mode .nav-ul .nav-li {
-    background: linear-gradient(to top, rgb(18, 18, 18) 0%, rgb(18, 18, 18) 1px, transparent 2px) no-repeat;
-    background-size: 0 100%;
-    transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
-  }
-  body.dark-mode .nav-ul .nav-li:hover {
-    background-size: 100% 100%;
-  }
-}
 body.dark-mode .bar {
-  background-color: white;
+  background-color: #E3DAFF;
 }
 body.dark-mode button.toggle-button {
   border-radius: 10px;
   border: 1px solid transparent;
   padding: 10px 15px;
-  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
-  color: #121212;
+  background-color: #8C52FF;
+  color: #E3DAFF;
 }
 body.dark-mode .formation {
-  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
-  color: #121212;
+  background-color: #361B69;
+  color: #E3DAFF;
+  border: 1px solid #5A3CA0;
 }
 body.dark-mode select {
-  background-color: white;
-  color: #121212;
-}
-body.dark-mode select:hover {
-  background-color: white;
+  background-color: #361B69;
+  color: #E3DAFF;
+  border: 1px solid #5A3CA0;
 }
 body.dark-mode .card-skills {
-  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
-  color: #121212;
+  background-color: #361B69;
+  color: #E3DAFF;
+  border: 1px solid #5A3CA0;
 }
 body.dark-mode .tag {
   border-radius: 10px;
   border: 1px solid transparent;
   padding: 10px 15px;
-  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
-  color: #121212;
+  background-color: #361B69;
+  color: #E3DAFF;
+  border: 1px solid #5A3CA0;
 }
 body.dark-mode .modal-content {
-  background: #121212;
+  background: #19191B;
   color: white;
 }
 body.dark-mode .modal-content .btn-submit-form, body.dark-mode .modal-content .close-btn {
-  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
-  color: #121212;
+  background: linear-gradient(180deg, #F9F8FF 0%, white 20%);
+  color: #723AD7;
   border-radius: 10px;
   border: 1px solid transparent;
   padding: 10px 15px;
 }
 body.dark-mode .modal-content .btn-submit-form:hover, body.dark-mode .modal-content .close-btn:hover {
-  background: #121212;
-  color: white;
+  background: linear-gradient(180deg, #19142B 0%, #19191B 20%);
+  color: #E3DAFF;
   border: white 1px solid;
   text-decoration: none;
 }
@@ -402,23 +406,19 @@ body.dark-mode button.modal-button {
   padding: 0;
   font-size: 16px;
   border: none;
-  color: white;
-}
-@media (max-width: 768px) {
-  body.dark-mode button.modal-button {
-    color: #121212;
-  }
+  color: #E3DAFF;
 }
 body.dark-mode footer {
-  background: linear-gradient(93deg, rgb(248, 235, 167) 0%, rgb(255, 204, 251) 100%);
-  color: #121212;
+  background-color: #361B69;
+  color: #E3DAFF;
+  border: 1px solid #5A3CA0;
 }
 body.dark-mode footer .main-button {
   border-radius: 10px;
   border: 1px solid transparent;
   padding: 10px 15px;
-  background: #121212;
-  color: white;
+  background-color: #8C52FF;
+  color: #E3DAFF;
 }
 
 /* Style de l'overlay */
@@ -763,6 +763,10 @@ form div textarea {
 
 h1, h2 {
   font-family: "Marko One", serif;
+}
+
+h1 {
+  margin: 30px auto 20px;
 }
 
 body {

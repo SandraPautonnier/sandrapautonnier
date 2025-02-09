@@ -10,10 +10,12 @@ import About from '../Sections/About';
 import Skills from '../Sections/Skills';
 /*import Experiences from "../../sections/Experiences"; */
 import Works from "../Sections/Works";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin , faSquareGithub } from '@fortawesome/free-brands-svg-icons';
 
 
 const Home = () => {
-  const loading = loader(2000);
+  const loading = loader(900);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -37,7 +39,11 @@ const Home = () => {
           <div className='header-banner' id="home">
             <img src={Sandra1} alt="Sandra" />
             <h1>Sandra Pautonnier</h1>
-            <p>Developpeuse Web Front-end</p>
+            <p>En recherche d'un poste de développeuse web front-end</p>
+            <div className="buttons-social">
+              <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faSquareGithub} />Github</a>
+              <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} />Linkedin</a>
+            </div>
             <ToggleMode />
           </div>
         </header>

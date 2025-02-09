@@ -20,7 +20,7 @@ function ToggleMode() {
   };
 
   return (
-    <button onClick={toggleTheme} className="toggle-button" style={{ cursor: "pointer", padding: "10px" }}>
+    <button onClick={toggleTheme} className="toggle-button" style={{ cursor: "pointer", padding: "7px" }}>
       {isDarkMode ? <FontAwesomeIcon icon={faMoon} /> : <FontAwesomeIcon icon={faSun} />}
     </button>
   )

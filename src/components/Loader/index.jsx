@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const Loader = (delay = 2000) => {
+const Loader = (delay = 900) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
