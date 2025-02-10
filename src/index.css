@@ -5,7 +5,7 @@ nav {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 20px;
 }
 nav .nav-ul {
@@ -24,6 +24,7 @@ nav .nav-ul .nav-li {
     position: absolute;
     left: 20px;
     margin-top: -20px;
+    z-index: 5;
   }
 }
 
@@ -253,6 +254,9 @@ body.light-mode .nav-ul .nav-li:hover {
 }
 body.light-mode .bar {
   background-color: #8C52FF;
+}
+body.light-mode .buttons-social {
+  color: white;
 }
 body.light-mode button.toggle-button {
   border-radius: 10px;
