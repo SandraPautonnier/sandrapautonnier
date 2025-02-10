@@ -97,3 +97,7 @@
       transform: scale(1.1);
     }
 }
+
+@mixin transition-btn {
+    transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
+}
