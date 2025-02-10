@@ -17,6 +17,9 @@ body.light-mode {
     .bar {
         background-color: $main-color;
     }
+    .buttons-social {
+        color: $light-color;
+    }
     button {
         &.toggle-button {
             @include btn;
