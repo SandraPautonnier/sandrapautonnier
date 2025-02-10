@@ -6,6 +6,7 @@ const ContactModal = ({ isOpen, onClose, title }) => {
   const [confirmationMessage, setConfirmationMessage] = useState("");
   const [isSending, setIsSending] = useState(false);
   const [fromName, setFromName] = useState("");
+  const [fromObject, setFromObject] = useState("");
   const [fromEmail, setFromEmail] = useState("");
   const [message, setMessage] = useState("");
 
@@ -26,6 +27,7 @@ const ContactModal = ({ isOpen, onClose, title }) => {
       from_name: fromName,
       from_email: fromEmail,
       message: message,
+      from_object: fromObject
     };
 
     emailjs.send(serviceID, templateID, templateParams)
@@ -33,6 +35,7 @@ const ContactModal = ({ isOpen, onClose, title }) => {
         console.log("Email envoyé avec succès !", response);
         setConfirmationMessage("Votre message a bien été envoyé !");
         setFromName("");
+        setFromObject("");
         setFromEmail("");
         setMessage("");
         setIsSending(false);
@@ -67,7 +70,7 @@ const ContactModal = ({ isOpen, onClose, title }) => {
         ) : (
           <form onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="from_email">Votre e-mail</label>
+              <label htmlFor="from_email">E-mail</label>
               <input
                 type="email"
                 id="from_email"
@@ -78,7 +81,7 @@ const ContactModal = ({ isOpen, onClose, title }) => {
               />
             </div>
             <div>
-              <label htmlFor="from_name">Votre nom / Objet</label>
+              <label htmlFor="from_name">Name</label>
               <input
                 type="text"
                 id="from_name"
@@ -90,7 +93,19 @@ const ContactModal = ({ isOpen, onClose, title }) => {
               />
             </div>
             <div>
-              <label htmlFor="message">Votre message</label>
+              <label htmlFor="from_object">Objet</label>
+              <input
+                type="text"
+                id="from_object"
+                name="from_object"
+                value={fromObject}
+                onChange={(e) => setFromObject(e.target.value)}
+                maxLength={200}
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="message">Message</label>
               <textarea
                 id="message"
                 name="message"

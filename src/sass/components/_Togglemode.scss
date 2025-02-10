@@ -44,14 +44,22 @@ body.light-mode {
         @include bablack-cowhite-component;
     }
     .modal-content {
-        @include bagradient-coblack;
+        background-color: rgb(242, 239, 255, 0.8);
+        backdrop-filter: blur(20px);
+        color: $light-text;
+        input, textarea {
+            background-color: $light-input;
+            color: $light-text;
+        }
         .btn-submit-form, .close-btn {
-            @include bablack-cowhite;
+            @include btn-color-main;
             @include btn;
+            @include transition-btn;
             &:hover {
-              @include bagradient-coblack;
-              border: #313030 1px solid;
-              text-decoration: none;
+                background: $light-background;
+                color: $light-text;
+                border: $main-color 1px solid;
+                text-decoration: none;
             }
         }
     }
@@ -101,17 +109,24 @@ body.dark-mode {
         @include bagradient-coblack-component;
     }
     .modal-content {
-        background: $dark-color;
-        color: $light-color;
+        background-color: rgba(25, 20, 43, 0.8);
+        backdrop-filter: blur(20px);
+        color: $dark-text;
+        input, textarea {
+            background-color: $dark-input;
+            color: $dark-text;
+        }
         .btn-submit-form, .close-btn {
-            @include bagradient-coblack;
+            background: $light-background;
+            color: $light-text;
             @include btn;
+            @include transition-btn;
             &:hover {
                 @include bablack-cowhite;
-                border: $light-color 1px solid;
+                border: $light-border 1px solid;
                 text-decoration: none;
             }
-          }
+        }
     }
     
     button.modal-button {

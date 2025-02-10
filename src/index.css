@@ -230,7 +230,7 @@ footer .footer-secondary {
 }
 
 body.light-mode {
-  background: linear-gradient(180deg, #F9F8FF 0%, white 20%);
+  background: linear-gradient(180deg, #F2EFFF 0%, #F9F9FB 20%);
   color: #723AD7;
 }
 body.light-mode .nav-ul {
@@ -256,7 +256,7 @@ body.light-mode .bar {
   background-color: #8C52FF;
 }
 body.light-mode .buttons-social {
-  color: white;
+  color: #F9F9FB;
 }
 body.light-mode button.toggle-button {
   border-radius: 10px;
@@ -296,20 +296,26 @@ body.light-mode .tag {
   border: 1px solid #C2B0FF;
 }
 body.light-mode .modal-content {
-  background: linear-gradient(180deg, #F9F8FF 0%, white 20%);
+  background-color: rgba(242, 239, 255, 0.8);
+  backdrop-filter: blur(20px);
+  color: #723AD7;
+}
+body.light-mode .modal-content input, body.light-mode .modal-content textarea {
+  background-color: #EFF0F3;
   color: #723AD7;
 }
 body.light-mode .modal-content .btn-submit-form, body.light-mode .modal-content .close-btn {
-  background: linear-gradient(180deg, #19142B 0%, #19191B 20%);
+  background-color: #8C52FF;
   color: #E3DAFF;
   border-radius: 10px;
   border: 1px solid transparent;
   padding: 10px 15px;
+  transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
 }
 body.light-mode .modal-content .btn-submit-form:hover, body.light-mode .modal-content .close-btn:hover {
-  background: linear-gradient(180deg, #F9F8FF 0%, white 20%);
+  background: #F2EFFF;
   color: #723AD7;
-  border: #313030 1px solid;
+  border: #8C52FF 1px solid;
   text-decoration: none;
 }
 body.light-mode button.modal-button {
@@ -328,7 +334,7 @@ body.light-mode footer .main-button {
   border-radius: 10px;
   border: 1px solid transparent;
   padding: 10px 15px;
-  background: linear-gradient(180deg, #F9F8FF 0%, white 20%);
+  background: linear-gradient(180deg, #F2EFFF 0%, #F9F9FB 20%);
   color: #723AD7;
 }
 
@@ -389,20 +395,26 @@ body.dark-mode .tag {
   border: 1px solid #5A3CA0;
 }
 body.dark-mode .modal-content {
-  background: #19191B;
-  color: white;
+  background-color: rgba(25, 20, 43, 0.8);
+  backdrop-filter: blur(20px);
+  color: #E3DAFF;
+}
+body.dark-mode .modal-content input, body.dark-mode .modal-content textarea {
+  background-color: #19191B;
+  color: #E3DAFF;
 }
 body.dark-mode .modal-content .btn-submit-form, body.dark-mode .modal-content .close-btn {
-  background: linear-gradient(180deg, #F9F8FF 0%, white 20%);
+  background: #F2EFFF;
   color: #723AD7;
   border-radius: 10px;
   border: 1px solid transparent;
   padding: 10px 15px;
+  transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
 }
 body.dark-mode .modal-content .btn-submit-form:hover, body.dark-mode .modal-content .close-btn:hover {
   background: linear-gradient(180deg, #19142B 0%, #19191B 20%);
   color: #E3DAFF;
-  border: white 1px solid;
+  border: #C2B0FF 1px solid;
   text-decoration: none;
 }
 body.dark-mode button.modal-button {
