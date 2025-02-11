@@ -38,7 +38,7 @@ const Navbar = ({ openModal }) => {
       {/* Menu de navigation */}
       <ul className={`nav-ul ${menuOpen ? "open" : ""}`}>
         <li className="nav-li">
-          <a href="#home" onClick={() => setMenuOpen(false)}>ACCEUIL</a>
+          <a href="#home" onClick={() => setMenuOpen(false)}>ACCUEIL</a>
         </li>
         <li className="nav-li">
           <a href="#profil" onClick={() => setMenuOpen(false)}>PROFIL</a>
