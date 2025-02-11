@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const Navbar = ({ openModal }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  
+  const navRef = useRef(null);
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuOpen && navRef.current && !navRef.current.contains(event.target)) {
+        setMenuOpen(false); 
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuOpen]);
 
   return (
-    <nav>
-      {/*<h2>SP</h2>*/}
-      {/*Bouton hamburger*/}
+    <nav ref={navRef}>
+      {/* Bouton hamburger */}
       <div className="hamburger" onClick={toggleMenu}>
         {menuOpen ? (
           <span className="close-nav">&times;</span>
@@ -24,10 +35,10 @@ const Navbar = ({ openModal }) => {
           </>
         )}
       </div>
-      {/*Menu de nav*/}
-      <ul className={`nav-ul ${menuOpen ? 'open' : ''}`}>
+      {/* Menu de navigation */}
+      <ul className={`nav-ul ${menuOpen ? "open" : ""}`}>
         <li className="nav-li">
-          <a href="#home" onClick={() => setMenuOpen(false)}>ACCEUIL</a>
+          <a href="#home" onClick={() => setMenuOpen(false)}>ACCUEIL</a>
         </li>
         <li className="nav-li">
           <a href="#profil" onClick={() => setMenuOpen(false)}>PROFIL</a>
@@ -37,11 +48,10 @@ const Navbar = ({ openModal }) => {
         </li>
         <li className="nav-li">
           <button onClick={openModal} className="modal-button">
-          CONTACT
+            CONTACT
           </button>
         </li>
       </ul>
-      
     </nav>
   );
 };

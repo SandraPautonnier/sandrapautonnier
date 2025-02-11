@@ -18,6 +18,8 @@ function Skills() {
         <div className='container-card-skills'>
           {skills.map((skill, index) => (
             <div key={index} className='card-skills'>
+              <div className='triangle1'></div>
+              <div></div>
               <FontAwesomeIcon icon={iconMap[skill.icon]} />
               <h3>{skill.titlecard}</h3>
               <div className='li-skills'>{skill.listcard.map((item, idx) => (

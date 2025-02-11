@@ -6,12 +6,14 @@ import ToggleMode from '../../components/Mode';
 import loader from "../../components/Loader";
 import Sandra1 from '../../assets/images/sandra1.png';
 import Sandra from '../../assets/images/sandra.png'
+import Cv from '../../assets/pdf/CV_Sandra_Pautonnier.pdf';
 import About from '../Sections/About';
 import Skills from '../Sections/Skills';
 /*import Experiences from "../../sections/Experiences"; */
 import Works from "../Sections/Works";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin , faSquareGithub } from '@fortawesome/free-brands-svg-icons';
+import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 
 const Home = () => {
@@ -43,6 +45,7 @@ const Home = () => {
             <div className="buttons-social">
               <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faSquareGithub} />Github</a>
               <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} />Linkedin</a>
+              <a href={Cv} target="_blank" rel="noreferrer" download><FontAwesomeIcon icon={faFileArrowDown} /> CV</a>
             </div>
             <ToggleMode />
           </div>
