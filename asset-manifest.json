@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.css": "/sandrapautonnier/static/css/main.3fd4da7a.css",
-    "main.js": "/sandrapautonnier/static/js/main.3034d2e3.js",
-    "static/js/453.6e9eb026.chunk.js": "/sandrapautonnier/static/js/453.6e9eb026.chunk.js",
+    "main.css": "/sandrapautonnier/static/css/main.b09d88cf.css",
+    "main.js": "/sandrapautonnier/static/js/main.08387078.js",
+    "static/js/453.dc694953.chunk.js": "/sandrapautonnier/static/js/453.dc694953.chunk.js",
     "static/media/sandra2.png": "/sandrapautonnier/static/media/sandra2.50aa2f87a0303d1afdb0.png",
     "static/media/sandra1.png": "/sandrapautonnier/static/media/sandra1.32c278c71399322aed15.png",
+    "static/media/CV_Sandra_Pautonnier.pdf": "/sandrapautonnier/static/media/CV_Sandra_Pautonnier.c828586e68cab82cf61d.pdf",
     "static/media/sandra.png": "/sandrapautonnier/static/media/sandra.1576013ea6da806f2412.png",
     "index.html": "/sandrapautonnier/index.html",
-    "main.3fd4da7a.css.map": "/sandrapautonnier/static/css/main.3fd4da7a.css.map",
-    "main.3034d2e3.js.map": "/sandrapautonnier/static/js/main.3034d2e3.js.map",
-    "453.6e9eb026.chunk.js.map": "/sandrapautonnier/static/js/453.6e9eb026.chunk.js.map"
+    "main.b09d88cf.css.map": "/sandrapautonnier/static/css/main.b09d88cf.css.map",
+    "main.08387078.js.map": "/sandrapautonnier/static/js/main.08387078.js.map",
+    "453.dc694953.chunk.js.map": "/sandrapautonnier/static/js/453.dc694953.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3fd4da7a.css",
-    "static/js/main.3034d2e3.js"
+    "static/css/main.b09d88cf.css",
+    "static/js/main.08387078.js"
   ]
 }
