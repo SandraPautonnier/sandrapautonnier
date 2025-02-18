@@ -1,0 +1,142 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+
+body.light-mode {
+    @include balight-codark;
+    .nav-ul {
+        @include balight-codark-component;
+        @media (min-width: 768px) {
+            background-color: transparent;
+            border: none;
+        }
+        .nav-li {
+            @include underline-anim-black;
+        }
+    }
+    .bar {
+        background-color: $main-color;
+    }
+    .buttons-social {
+        color: $light-color;
+    }
+    button {
+        &.toggle-button {
+            @include btn;
+            @include btn-color-main;
+        }
+        &.main-button {
+            @include btn;
+            @include btn-color-main;
+        }
+    }
+    .formation {
+        @include balight-codark-component;
+    }
+    select {
+        @include balight-codark-component;
+    }
+    .card-skills {
+        @include balight-codark-component;
+    }
+    .tag {
+        @include balight-codark-tags;
+    }
+    .modal-content {
+        color: $light-text;
+        input, textarea {
+            background-color: $light-input;
+            color: $light-text;
+        }
+        .btn-submit-form, .close-btn {
+            @include btn-color-main;
+            @include transition-btn;
+            &:hover {
+                background: $light-background;
+                color: $light-text;
+                border: $main-color 1px solid;
+                text-decoration: none;
+            }
+        }
+    }
+    button.modal-button {
+        @include modal-btn;
+        color: $light-text;
+    }
+    footer {
+        @include balight-codark-component;
+        .main-button {
+            @include btn;
+            @include balight-codark;
+        }
+    }
+}
+  
+body.dark-mode {
+    @include badark-colight;
+    .nav-ul {
+        @include badark-colight-component;
+        @media (min-width: 768px) {
+            background: transparent;
+            border: none;
+        }
+        .nav-li {
+            @include underline-anim-white;
+        }
+    }
+    .bar {
+        background-color: $dark-text;
+    }
+    button.toggle-button {
+        @include btn;
+        @include btn-color-main;
+    }
+    .card-hook-about {
+        .card-profile {
+            @include badark-colight-component;
+        }
+        
+    }
+    .formation {
+        @include badark-colight-component;
+    }
+    select {
+        @include badark-colight-component;
+    }
+    .card-skills {
+        @include badark-colight-component;
+    }
+    .tag {
+        @include badark-colight-tags;
+    }
+    .modal-content {
+        color: $dark-text;
+        input, textarea {
+            background-color: $dark-input;
+            color: $dark-text;
+        }
+        .btn-submit-form, .close-btn {
+            background: $light-background;
+            color: $light-text;
+            @include btn;
+            @include transition-btn;
+            &:hover {
+                @include badark-colight;
+                border: $light-border 1px solid;
+                text-decoration: none;
+            }
+        }
+    }
+    
+    button.modal-button {
+        @include modal-btn;
+        color: $dark-text;
+    }
+    footer {
+        @include badark-colight-component;
+        .main-button {
+            @include btn;
+            @include btn-color-main;
+        }
+    }
+}

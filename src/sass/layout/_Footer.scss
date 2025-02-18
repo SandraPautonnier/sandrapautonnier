@@ -1,0 +1,39 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+footer {
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    .footer-main {
+        @include flex-column-center;
+        @media (min-width: 800px) {
+            width: 100%;
+            display: grid;
+            justify-items: center;
+            grid-template-columns: 1fr 1fr 1fr;
+        } 
+        gap:20px;
+        .contact-mail {
+            @include flex-column-center;
+            .main-button {
+                @include zoom-btn;
+            }
+        }
+        img {
+            max-width: 100px;
+        }
+        .social-media {
+            display: flex;
+            font-size: 24px;
+            gap: 15px;
+            a {
+                @include zoom-btn;
+            }
+        }
+    }
+    .footer-secondary {
+        @include flex-column-center;
+        text-align: center;
+    }
+}

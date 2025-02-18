@@ -1,0 +1,132 @@
+@import "../utils/variables";
+
+//flex
+
+@mixin flex-row-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+@mixin flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@mixin flex-space-between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@mixin grid-2 {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+//buttons, tags
+
+@mixin btn {
+    border-radius: 12px;
+    border: 1px solid transparent;
+    padding: 6px 8px;
+    font-size: 15px;
+}
+
+@mixin btn-color-main {
+    background-color: $main-color;
+    color: $dark-text;
+}
+
+@mixin modal-btn {
+    background: none;
+    padding: 0;
+    font-size: 16px;
+    border: none;
+}
+
+@mixin tags {
+    font-size: 14px;
+    border-radius: 15px;
+    padding: 5px 7px;
+}
+
+//form
+
+@mixin form-input-text {
+    max-width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+//colors
+
+@mixin badark-colight {
+    background: linear-gradient(180deg, $dark-background 0%, $dark-color 20%);
+    color: $dark-text;
+}
+
+@mixin badark-colight-component {
+    background-color: $dark-component;
+    color: $dark-text;
+    
+}
+
+@mixin badark-colight-tags {
+    background-color: $dark-tags;
+    color: $dark-text;
+    border: 1px solid $dark-border;
+}
+
+@mixin balight-codark {
+    background: linear-gradient(180deg, $light-background 0%, $light-color 20%);
+    color: $light-text;
+}
+
+@mixin balight-codark-component {
+    background-color: $light-component;
+    color: $light-text;
+    
+}
+
+@mixin balight-codark-tags {
+    background-color: $light-tags;
+    color: $light-text;
+    border: 1px solid $light-border;
+}
+
+//animations
+
+@mixin underline-anim-black {
+    background: linear-gradient(to top, $light-text 0%, $light-text 1px, transparent 2px) no-repeat;
+    background-size: 0 100%;
+    transition: background-size 0.3s cubic-bezier(.77,0,.18,1);
+    &:hover {
+        background-size: 100% 100%;
+    }
+}
+
+@mixin underline-anim-white {
+    background: linear-gradient(to top, $dark-text 0%, $dark-text 1px, transparent 2px) no-repeat;
+    background-size: 0 100%;
+    transition: background-size 0.3s cubic-bezier(.77,0,.18,1);
+    &:hover {
+        background-size: 100% 100%;
+    }
+}
+
+@mixin zoom-btn {
+    transform: scale(1); 
+    transition: transform 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+    &:hover {
+      transform: scale(1.1);
+    }
+}
+
+@mixin transition-btn {
+    transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
+}
