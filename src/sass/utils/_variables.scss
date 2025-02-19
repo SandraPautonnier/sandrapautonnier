@@ -4,7 +4,7 @@ $main-color: #8C52FF;
 $secondary-color: rgba(255,204,251,1);
 
 //Dark Mode
-$dark-background: #19142B;
+$dark-background: rgba(25, 20, 43, 0.8); //#19142B
 $dark-text: #E3DAFF;
 $dark-border: #5A3CA0;
 $dark-tags: #19142B;
@@ -13,14 +13,16 @@ $dark-component: #291A4E;
 $dark-input: #19191B;
 
 //Light Mode
-$light-background: #F2EFFF;
+$light-background: rgba(242, 239, 255, 0.7); //#F2EFFF
 $light-text: #723AD7;
 $light-border: #C2B0FF;
 $light-tags: #E0D6FF;
 $light-component: #EAE3FF;
 $light-input: #EFF0F3;
 
+$dark-color-background: rgba(25, 25, 27, 0.8);
 $dark-color: #19191B;
+$light-color-background: rgba(249, 249, 251, 0.7);
 $light-color: #F9F9FB;
 
 //width

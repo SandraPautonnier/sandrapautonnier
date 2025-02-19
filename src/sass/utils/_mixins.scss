@@ -66,7 +66,8 @@
 //colors
 
 @mixin badark-colight {
-    background: linear-gradient(180deg, $dark-background 0%, $dark-color 20%);
+    background: linear-gradient(180deg, $dark-background 0%, $dark-color-background 20%);
+    backdrop-filter: blur(20px);
     color: $dark-text;
 }
 
@@ -83,7 +84,8 @@
 }
 
 @mixin balight-codark {
-    background: linear-gradient(180deg, $light-background 0%, $light-color 20%);
+    background: linear-gradient(180deg, $light-background 0%, $light-color-background 20%);
+    backdrop-filter: blur(20px);
     color: $light-text;
 }
 

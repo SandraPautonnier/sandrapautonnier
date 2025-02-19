@@ -9,18 +9,20 @@
     @include btn-color-main;
     @include zoom-btn;
     display: inline-block;
+    margin: 15px 0;
 }
 
 .hook-about {
     width: 100%;
     .container-hook-about {
+        gap: $gap;
         @media (min-width: 768px) {
             @include flex-row-center;
-            gap: $gap;
         }
         .card-profile {
-            padding: 15px;
-            max-width: 400px;
+            box-sizing: border-box;
+            padding: 20px;
+            width: 100%;
             border-radius: 7px;
             @include transition-btn;
             &:hover {
@@ -28,6 +30,7 @@
             }
             .card-user {
                 @include flex-column-center;
+                margin: 0 0 10px;
                 svg {
                     font-size: 20px;
                     margin: 10px 0;
@@ -42,11 +45,7 @@
                 svg {
                     margin: 0 5px;
                 }
-            }
-            .fa-user {
-                
-            }
-            
+            } 
         }
         .tags {
             display: flex;
@@ -55,6 +54,9 @@
             .tag {
                 @include tags;
             }
+        }
+        .text-hook-about {
+            @include flex-column-center;
         }
     }
 }

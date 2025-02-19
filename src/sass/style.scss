@@ -26,15 +26,30 @@ h2 {
     text-align: center;
 }
 
+html,body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
     box-sizing: border-box;
     width: 100%;
     margin: 0;
-    
-    .home-body {
-        margin: 0;
-        padding: 0;
+    padding: 0;
+    .background-image {
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+        height: 100%;
+        width: 100%;
+        .background-color {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
     }
+    
 }
 
 .header-main {
@@ -63,6 +78,7 @@ section {
     box-sizing: border-box;
     width: 100%;
     padding: 0px 30px;
+    margin: 40px 0;
 }
 
 ul {

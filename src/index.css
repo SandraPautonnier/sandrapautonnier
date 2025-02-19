@@ -230,35 +230,36 @@ footer .footer-secondary {
   transform: scale(1.1);
 }
 
-body.light-mode {
-  background: linear-gradient(180deg, #F2EFFF 0%, #F9F9FB 20%);
+body.light-mode .background {
+  background: linear-gradient(180deg, rgba(242, 239, 255, 0.7) 0%, rgba(249, 249, 251, 0.7) 20%);
+  backdrop-filter: blur(20px);
   color: #723AD7;
 }
-body.light-mode .nav-ul {
+body.light-mode .background .nav-ul {
   background-color: #EAE3FF;
   color: #723AD7;
 }
 @media (min-width: 768px) {
-  body.light-mode .nav-ul {
+  body.light-mode .background .nav-ul {
     background-color: transparent;
     border: none;
   }
 }
-body.light-mode .nav-ul .nav-li {
+body.light-mode .background .nav-ul .nav-li {
   background: linear-gradient(to top, #723AD7 0%, #723AD7 1px, transparent 2px) no-repeat;
   background-size: 0 100%;
   transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
 }
-body.light-mode .nav-ul .nav-li:hover {
+body.light-mode .background .nav-ul .nav-li:hover {
   background-size: 100% 100%;
 }
-body.light-mode .bar {
+body.light-mode .background .bar {
   background-color: #8C52FF;
 }
-body.light-mode .buttons-social {
+body.light-mode .background .buttons-social {
   color: #F9F9FB;
 }
-body.light-mode button.toggle-button {
+body.light-mode .background button.toggle-button {
   border-radius: 12px;
   border: 1px solid transparent;
   padding: 6px 8px;
@@ -266,7 +267,7 @@ body.light-mode button.toggle-button {
   background-color: #8C52FF;
   color: #E3DAFF;
 }
-body.light-mode button.main-button {
+body.light-mode .background button.main-button {
   border-radius: 12px;
   border: 1px solid transparent;
   padding: 6px 8px;
@@ -274,87 +275,91 @@ body.light-mode button.main-button {
   background-color: #8C52FF;
   color: #E3DAFF;
 }
-body.light-mode .formation {
+body.light-mode .background .formation {
   background-color: #EAE3FF;
   color: #723AD7;
 }
-body.light-mode select {
+body.light-mode .background select {
   background-color: #EAE3FF;
   color: #723AD7;
 }
-body.light-mode .card-skills {
+body.light-mode .background .card-skills {
   background-color: #EAE3FF;
   color: #723AD7;
 }
-body.light-mode .tag {
+body.light-mode .background .tag {
   background-color: #E0D6FF;
   color: #723AD7;
   border: 1px solid #C2B0FF;
 }
-body.light-mode .modal-content {
+body.light-mode .background .modal-content {
   color: #723AD7;
 }
-body.light-mode .modal-content input, body.light-mode .modal-content textarea {
+body.light-mode .background .modal-content input, body.light-mode .background .modal-content textarea {
   background-color: #EFF0F3;
   color: #723AD7;
 }
-body.light-mode .modal-content .btn-submit-form, body.light-mode .modal-content .close-btn {
+body.light-mode .background .modal-content .btn-submit-form, body.light-mode .background .modal-content .close-btn {
   background-color: #8C52FF;
   color: #E3DAFF;
   transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
 }
-body.light-mode .modal-content .btn-submit-form:hover, body.light-mode .modal-content .close-btn:hover {
-  background: #F2EFFF;
+body.light-mode .background .modal-content .btn-submit-form:hover, body.light-mode .background .modal-content .close-btn:hover {
+  background: rgba(242, 239, 255, 0.7);
   color: #723AD7;
   border: #8C52FF 1px solid;
   text-decoration: none;
 }
-body.light-mode button.modal-button {
+body.light-mode .background button.modal-button {
   background: none;
   padding: 0;
   font-size: 16px;
   border: none;
   color: #723AD7;
 }
-body.light-mode footer {
+body.light-mode .background footer {
   background-color: #EAE3FF;
   color: #723AD7;
 }
-body.light-mode footer .main-button {
+body.light-mode .background footer .main-button {
   border-radius: 12px;
   border: 1px solid transparent;
   padding: 6px 8px;
   font-size: 15px;
-  background: linear-gradient(180deg, #F2EFFF 0%, #F9F9FB 20%);
+  background: linear-gradient(180deg, rgba(242, 239, 255, 0.7) 0%, rgba(249, 249, 251, 0.7) 20%);
+  backdrop-filter: blur(20px);
   color: #723AD7;
 }
 
-body.dark-mode {
-  background: linear-gradient(180deg, #19142B 0%, #19191B 20%);
+body.dark-mode .background-color {
+  background: linear-gradient(180deg, rgba(25, 20, 43, 0.8) 0%, rgba(25, 25, 27, 0.8) 20%);
+  backdrop-filter: blur(20px);
   color: #E3DAFF;
+  height: 100vh;
+  width: 100%;
 }
-body.dark-mode .nav-ul {
+body.dark-mode .background-color .nav-ul {
   background-color: #291A4E;
   color: #E3DAFF;
 }
 @media (min-width: 768px) {
-  body.dark-mode .nav-ul {
+  body.dark-mode .background-color .nav-ul {
     background: transparent;
     border: none;
   }
 }
-body.dark-mode .nav-ul .nav-li {
+body.dark-mode .background-color .nav-ul .nav-li {
   background: linear-gradient(to top, #E3DAFF 0%, #E3DAFF 1px, transparent 2px) no-repeat;
   background-size: 0 100%;
   transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
 }
-body.dark-mode .nav-ul .nav-li:hover {
+body.dark-mode .background-color .nav-ul .nav-li:hover {
   background-size: 100% 100%;
 }
-body.dark-mode .bar {
+body.dark-mode .background-color .bar {
   background-color: #E3DAFF;
 }
-body.dark-mode button.toggle-button {
+body.dark-mode .background-color button.toggle-button {
   border-radius: 12px;
   border: 1px solid transparent;
   padding: 6px 8px;
@@ -362,36 +367,36 @@ body.dark-mode button.toggle-button {
   background-color: #8C52FF;
   color: #E3DAFF;
 }
-body.dark-mode .card-hook-about .card-profile {
+body.dark-mode .background-color .card-hook-about .card-profile {
   background-color: #291A4E;
   color: #E3DAFF;
 }
-body.dark-mode .formation {
+body.dark-mode .background-color .formation {
   background-color: #291A4E;
   color: #E3DAFF;
 }
-body.dark-mode select {
+body.dark-mode .background-color select {
   background-color: #291A4E;
   color: #E3DAFF;
 }
-body.dark-mode .card-skills {
+body.dark-mode .background-color .card-skills {
   background-color: #291A4E;
   color: #E3DAFF;
 }
-body.dark-mode .tag {
+body.dark-mode .background-color .tag {
   background-color: #19142B;
   color: #E3DAFF;
   border: 1px solid #5A3CA0;
 }
-body.dark-mode .modal-content {
+body.dark-mode .background-color .modal-content {
   color: #E3DAFF;
 }
-body.dark-mode .modal-content input, body.dark-mode .modal-content textarea {
+body.dark-mode .background-color .modal-content input, body.dark-mode .background-color .modal-content textarea {
   background-color: #19191B;
   color: #E3DAFF;
 }
-body.dark-mode .modal-content .btn-submit-form, body.dark-mode .modal-content .close-btn {
-  background: #F2EFFF;
+body.dark-mode .background-color .modal-content .btn-submit-form, body.dark-mode .background-color .modal-content .close-btn {
+  background: rgba(242, 239, 255, 0.7);
   color: #723AD7;
   border-radius: 12px;
   border: 1px solid transparent;
@@ -399,24 +404,25 @@ body.dark-mode .modal-content .btn-submit-form, body.dark-mode .modal-content .c
   font-size: 15px;
   transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
 }
-body.dark-mode .modal-content .btn-submit-form:hover, body.dark-mode .modal-content .close-btn:hover {
-  background: linear-gradient(180deg, #19142B 0%, #19191B 20%);
+body.dark-mode .background-color .modal-content .btn-submit-form:hover, body.dark-mode .background-color .modal-content .close-btn:hover {
+  background: linear-gradient(180deg, rgba(25, 20, 43, 0.8) 0%, rgba(25, 25, 27, 0.8) 20%);
+  backdrop-filter: blur(20px);
   color: #E3DAFF;
   border: #C2B0FF 1px solid;
   text-decoration: none;
 }
-body.dark-mode button.modal-button {
+body.dark-mode .background-color button.modal-button {
   background: none;
   padding: 0;
   font-size: 16px;
   border: none;
   color: #E3DAFF;
 }
-body.dark-mode footer {
+body.dark-mode .background-color footer {
   background-color: #291A4E;
   color: #E3DAFF;
 }
-body.dark-mode footer .main-button {
+body.dark-mode .background-color footer .main-button {
   border-radius: 12px;
   border: 1px solid transparent;
   padding: 6px 8px;
@@ -511,6 +517,7 @@ form div textarea {
   transform: scale(1);
   transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
   display: inline-block;
+  margin: 15px 0;
 }
 .btn:hover {
   transform: scale(1.1);
@@ -519,17 +526,20 @@ form div textarea {
 .hook-about {
   width: 100%;
 }
+.hook-about .container-hook-about {
+  gap: 30px;
+}
 @media (min-width: 768px) {
   .hook-about .container-hook-about {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 30px;
   }
 }
 .hook-about .container-hook-about .card-profile {
-  padding: 15px;
-  max-width: 400px;
+  box-sizing: border-box;
+  padding: 20px;
+  width: 100%;
   border-radius: 7px;
   transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
 }
@@ -540,6 +550,7 @@ form div textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 0 10px;
 }
 .hook-about .container-hook-about .card-profile .card-user svg {
   font-size: 20px;
@@ -563,6 +574,11 @@ form div textarea {
   font-size: 14px;
   border-radius: 15px;
   padding: 5px 7px;
+}
+.hook-about .container-hook-about .text-hook-about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /*.about {
@@ -832,14 +848,29 @@ h2 {
   text-align: center;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
   box-sizing: border-box;
   width: 100%;
   margin: 0;
-}
-body .home-body {
-  margin: 0;
   padding: 0;
+}
+body .background-image {
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+}
+body .background-image .background-color {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .header-main {
@@ -870,6 +901,7 @@ section {
   box-sizing: border-box;
   width: 100%;
   padding: 0px 30px;
+  margin: 40px 0;
 }
 
 ul {

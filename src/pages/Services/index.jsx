@@ -11,7 +11,7 @@ const Services = () => {
     const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div className='home-body'>
+    <div className='background'>
         <div className="header-main">
             <header>
                 <Navbar openModal={openModal}/>
