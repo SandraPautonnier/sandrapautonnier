@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import ToggleMode from '../../components/Mode';
 
 const Navbar = ({ openModal }) => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -56,6 +57,7 @@ const Navbar = ({ openModal }) => {
           </button>
         </li>
       </ul>
+      <ToggleMode />
     </nav>
   );
 };

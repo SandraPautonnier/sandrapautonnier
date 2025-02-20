@@ -4,6 +4,7 @@ import Footer from '../../components/Footer';
 import ContactModal from "../../components/ContactModal";
 import Skills from '../Sections/Skills';
 
+
 const Profile = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);

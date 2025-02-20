@@ -5,6 +5,7 @@ import ContactModal from "../../components/ContactModal";
 import Works from "../Sections/Works";
 import Sandra from '../../assets/images/sandra.png'
 
+
 const Portfolio = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);

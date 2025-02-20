@@ -331,6 +331,12 @@ body.light-mode .background footer .main-button {
   color: #723AD7;
 }
 
+body.dark-mode .background-image {
+  background-image: url(../../assets/images/Background-image.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 body.dark-mode .background-color {
   background: linear-gradient(180deg, rgba(25, 20, 43, 0.8) 0%, rgba(25, 25, 27, 0.8) 20%);
   backdrop-filter: blur(20px);
@@ -848,26 +854,18 @@ h2 {
   text-align: center;
 }
 
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
 body {
   box-sizing: border-box;
   width: 100%;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
 }
 body .background-image {
-  background-size: cover;
-  background-position: center;
-  min-height: 100vh;
   height: 100%;
-  width: 100%;
 }
 body .background-image .background-color {
-  min-height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

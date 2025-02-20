@@ -79,7 +79,10 @@ body.light-mode {
   
 body.dark-mode {
     .background-image {
-        
+        background-image: url(../../assets/images/Background-image.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
     }
     .background-color {
         @include badark-colight;

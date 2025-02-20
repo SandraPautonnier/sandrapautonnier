@@ -3,16 +3,19 @@ import { Link } from "react-router-dom";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import ContactModal from "../../components/ContactModal";
-import ToggleMode from '../../components/Mode';
+
 import loader from "../../components/Loader";
 import Sandra1 from '../../assets/images/sandra1.png';
 import Cv from '../../assets/pdf/CV_Sandra_Pautonnier.pdf';
-import About from '../Sections/About';
 import AgeCalculator from "../../components/AgeCalculator";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin , faSquareGithub ,faReact } from '@fortawesome/free-brands-svg-icons';
 import { faFileArrowDown , faUser , faFlask , faCode , faAward } from '@fortawesome/free-solid-svg-icons';
-import BackgroundImage from '../../assets/images/Background-image.png';
+import BgDark from "../../assets/images/Background-image-dark.png";
+import BgLight from "../../assets/images/Background-image-light.png";
+import ToggleMode from '../../components/Mode';
+
+
 
 
 const Home = () => {
@@ -33,11 +36,12 @@ const Home = () => {
   };
 
   return (
-    <div className="background-image" style={{background: `url(${BackgroundImage})`}}>
+    <div className="background-image" style={{background: `url(${isDarkMode ? BgDark : BgLight}) no-repeat center/cover`}}> {/*style={{background: ``url(${isDarkMode ? darkBg : lightBg}) no-repeat center/cover`}}*/}
       <div className='background-color'>
         <div className="header-main">
           <header>
             <Navbar openModal={openModal}/>
+            
             <div className='header-banner' id="home">
               <img src={Sandra1} alt="Sandra" />
               <h1>Sandra Pautonnier</h1>
@@ -47,7 +51,6 @@ const Home = () => {
                 <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} />Linkedin</a>
                 <a href={Cv} target="_blank" rel="noreferrer" download><FontAwesomeIcon icon={faFileArrowDown} /> CV</a>
               </div>
-              <ToggleMode />
             </div>
           </header>
           <main>
