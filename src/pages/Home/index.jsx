@@ -37,12 +37,11 @@ const Home = () => {
   };
 
   return (
-    <div className="background-image" style={{background: `url(${isDarkMode ? BgDark : BgLight}) no-repeat center/cover`}}> 
+    <div className="background-image" style={{background: `url(${isDarkMode ? BgDark : BgLight}) no-repeat center/cover`, height: '100%', minHeight: '100vh'}}> 
       <div className='background-color'>
         <div className="header-main">
           <header>
             <Navbar openModal={openModal}/>
-            
             <div className='header-banner' id="home">
               <img src={Sandra1} alt="Sandra" />
               <h1>Sandra Pautonnier</h1>

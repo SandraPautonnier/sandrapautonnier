@@ -25,9 +25,7 @@
             width: 100%;
             border-radius: 7px;
             @include transition-btn;
-            &:hover {
-                background-color: $dark-component-hover;
-            }
+            
             .card-user {
                 @include flex-column-center;
                 margin: 0 0 10px;

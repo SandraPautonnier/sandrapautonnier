@@ -3,9 +3,7 @@
 
 
 body.light-mode {
-    
-
-    .background {
+    .background-color {
         @include balight-codark;
         .nav-ul {
             @include balight-codark-component;
@@ -74,20 +72,11 @@ body.light-mode {
             }
         }
     }
-
 }
   
 body.dark-mode {
-    .background-image {
-        background-image: url(../../assets/images/Background-image.png);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-    }
     .background-color {
         @include badark-colight;
-        height: 100vh;
-        width: 100%;
         .nav-ul {
             @include badark-colight-component;
             @media (min-width: 768px) {
@@ -108,8 +97,10 @@ body.dark-mode {
         .card-hook-about {
             .card-profile {
                 @include badark-colight-component;
+                &:hover {
+                    background-color: $dark-component-hover;
+                }
             }
-            
         }
         .formation {
             @include badark-colight-component;
