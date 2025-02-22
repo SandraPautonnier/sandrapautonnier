@@ -13,9 +13,7 @@ import { faLinkedin , faSquareGithub ,faReact } from '@fortawesome/free-brands-s
 import { faFileArrowDown , faUser , faFlask , faCode , faAward } from '@fortawesome/free-solid-svg-icons';
 import BgDark from "../../assets/images/Background-image-dark.png";
 import BgLight from "../../assets/images/Background-image-light.png";
-import ToggleMode from '../../components/Mode';
-
-
+import useThemeStore from "../../store/useThemeStore"
 
 
 const Home = () => {
@@ -25,6 +23,9 @@ const Home = () => {
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
+  const isDarkMode = useThemeStore((state) => state.isDarkMode);
+
 
   if (loading) {
     return ( 
@@ -36,7 +37,7 @@ const Home = () => {
   };
 
   return (
-    <div className="background-image" style={{background: `url(${isDarkMode ? BgDark : BgLight}) no-repeat center/cover`}}> {/*style={{background: ``url(${isDarkMode ? darkBg : lightBg}) no-repeat center/cover`}}*/}
+    <div className="background-image" style={{background: `url(${isDarkMode ? BgDark : BgLight}) no-repeat center/cover`}}> 
       <div className='background-color'>
         <div className="header-main">
           <header>
