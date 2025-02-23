@@ -1,5 +1,5 @@
 import React from 'react'
-import AgeCalculator from "../../../components/AgeCalculator";
+import AgeCalculator from "../../../features/AgeCalculator";
 
 const About = () => {
   return (

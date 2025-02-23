@@ -3,7 +3,6 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import ContactModal from "../../components/ContactModal";
 
-
 const Services = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);

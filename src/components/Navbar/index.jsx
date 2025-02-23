@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import ToggleMode from '../../components/Mode';
+import ToggleMode from '../../features/Mode';
 
 const Navbar = ({ openModal }) => {
   const [menuOpen, setMenuOpen] = useState(false);

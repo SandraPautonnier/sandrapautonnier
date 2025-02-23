@@ -2,6 +2,7 @@
 @import "../utils/mixins";
 
 nav {
+    position: relative;
     @include flex-row-center;
     justify-content: center;
     margin-bottom: 20px;
@@ -38,6 +39,13 @@ nav {
         font-size: 50px;
         padding: 0;
     }
+}
+
+.toggle-button {
+    position: absolute;
+    cursor: pointer;
+    padding: 7px;
+    
 }
 
 @media (max-width: 768px) {

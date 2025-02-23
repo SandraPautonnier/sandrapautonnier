@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Marko+One&display=swap");
 nav {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -43,6 +44,12 @@ nav .nav-ul .nav-li {
 .hamburger .close-nav {
   font-size: 50px;
   padding: 0;
+}
+
+.toggle-button {
+  position: absolute;
+  cursor: pointer;
+  padding: 7px;
 }
 
 @media (max-width: 768px) {
@@ -579,44 +586,6 @@ form div textarea {
   align-items: center;
 }
 
-/*.about {
-    width: 100%;
-    margin: 30px 0;
-    .tag-btn {
-        width: 100%;
-        justify-content: space-around;
-        gap: 20px;
-        @media (min-width: 768px) {
-            @include flex-row-center;
-        }
-        .tags {
-            box-sizing: border-box;
-            @include flex-column-center;
-            @media (min-width: 498px) {
-                @include flex-row-center;
-                gap: 0;
-                .tag {
-                    margin: 0;
-                }
-            }
-            .tag {
-                margin: 15px;
-            }
-        }
-        .formation {
-            @include flex-column-center;
-            text-align: center;
-            padding: 20px 30px;
-            border-radius: 10px;
-            h3 {
-                margin: 0;
-            }
-            p{
-                margin: 0;
-            }
-        }
-    }
-}*/
 .skills {
   margin-bottom: 30px;
 }

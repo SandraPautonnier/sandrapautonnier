@@ -3,11 +3,10 @@ import { Link } from "react-router-dom";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import ContactModal from "../../components/ContactModal";
-
 import loader from "../../components/Loader";
 import Sandra1 from '../../assets/images/sandra1.png';
 import Cv from '../../assets/pdf/CV_Sandra_Pautonnier.pdf';
-import AgeCalculator from "../../components/AgeCalculator";
+import AgeCalculator from "../../features/AgeCalculator";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin , faSquareGithub ,faReact } from '@fortawesome/free-brands-svg-icons';
 import { faFileArrowDown , faUser , faFlask , faCode , faAward } from '@fortawesome/free-solid-svg-icons';
