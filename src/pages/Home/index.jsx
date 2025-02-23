@@ -8,11 +8,12 @@ import Sandra1 from '../../assets/images/sandra1.png';
 import Cv from '../../assets/pdf/CV_Sandra_Pautonnier.pdf';
 import AgeCalculator from "../../features/AgeCalculator";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin , faSquareGithub ,faReact } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin , faSquareGithub , faReact } from '@fortawesome/free-brands-svg-icons';
 import { faFileArrowDown , faUser , faFlask , faCode , faAward } from '@fortawesome/free-solid-svg-icons';
 import BgDark from "../../assets/images/Background-image-dark.png";
 import BgLight from "../../assets/images/Background-image-light.png";
-import useThemeStore from "../../store/useThemeStore"
+import useThemeStore from "../../store/useThemeStore";
+import Carousel from "../../features/Carousel";
 
 
 const Home = () => {

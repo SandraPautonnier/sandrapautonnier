@@ -1,4 +1,3 @@
-// ContactModal.jsx
 import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 
@@ -10,12 +9,10 @@ const ContactModal = ({ isOpen, onClose, title }) => {
   const [fromEmail, setFromEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  // Initialiser EmailJS 
   useEffect(() => {
     emailjs.init("0GoSVF1YIRg3i22PD");
   }, []);
 
-  // Gérer la soumission du formulaire
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSending(true);
@@ -47,14 +44,12 @@ const ContactModal = ({ isOpen, onClose, title }) => {
       });
   };
 
-  // Fermer la modale si l'utilisateur clique en dehors du contenu
   const handleOutsideClick = (e) => {
     if (e.target.className === "modal-overlay") {
       onClose();
     }
   };
 
-  // Ne rien afficher si la modale n'est pas ouverte
   if (!isOpen) return null;
 
   return (
