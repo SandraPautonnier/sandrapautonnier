@@ -58,3 +58,7 @@
         }
     }
 }
+
+.hook-works,.hook-services {
+    @include flex-column-center;
+}

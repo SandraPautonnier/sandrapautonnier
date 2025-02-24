@@ -1,16 +1,22 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 const Carousel = ({ children }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const length = children.length;
 
-  // Navigation
-  const prevSlide = () => setCurrentIndex((prev) => (prev === 0 ? length - 1 : prev - 1));
-  const nextSlide = () => setCurrentIndex((prev) => (prev === length - 1 ? 0 : prev + 1));
+
+  const prevSlide = () => setCurrentIndex((prev) => (prev === 0 ? children.length - 1 : prev - 1));
+  const nextSlide = () => setCurrentIndex((prev) => (prev === children.length - 1 ? 0 : prev + 1));
 
   return (
     <div className="carousel">
-      <div className="carousel-container" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+      <div 
+        className="carousel-container" 
+        style={{ transform: `translateX(-${currentIndex * 100}%)`, 
+        display: "flex",
+        transition: "transform 0.5s ease-in-out" }}
+      >
         {children.map((child, index) => (
           <div key={index} className="carousel-slide">
             {child}
@@ -19,8 +25,12 @@ const Carousel = ({ children }) => {
       </div>
 
       {/* Boutons de navigation */}
-      <button onClick={prevSlide} className="carousel-button left">←</button>
-      <button onClick={nextSlide} className="carousel-button right">→</button>
+      <button onClick={prevSlide} className="carousel-button left">
+        <FontAwesomeIcon icon={faChevronLeft} />
+      </button>
+      <button onClick={nextSlide} className="carousel-button right">
+        <FontAwesomeIcon icon={faChevronRight} />
+      </button>
 
       {/* Indicateurs */}
       <div className="carousel-indicators">

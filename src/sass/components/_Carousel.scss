@@ -1,0 +1,104 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  margin: auto;
+  overflow: hidden;
+  .carousel-slide {
+    min-width: 100%;
+    img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 10px;
+        filter: grayscale(0%) brightness(80%);
+    }
+    h3 {
+        position: absolute;
+        color: white;
+        margin: 0;
+        top: 10px;
+        left: 15px;
+        font-size: 16px;
+        @media (min-width: 450px) {
+            font-size: 20px;
+        }
+    }
+    .work-language {
+        position:absolute;
+        color: white;
+        top: 10px;
+        right: 15px;
+    }
+    .work-tools {
+        position:absolute;
+        color: white;
+        bottom: 15px;
+        right: 15px;
+    }
+  }
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    &.left {
+        left: 10px;
+    }
+    &.right {
+        right: 10px;
+    }
+  }
+  .carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+    .indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: gray;
+        border: none;
+        cursor: pointer;
+        &.active {
+            background: white;
+        } 
+    }
+  }
+}
+
+h3 {
+    position: absolute;
+    color: white;
+    margin: 0;
+    top: 10px;
+    left: 15px;
+    font-size: 16px;
+    @media (min-width: 450px) {
+        font-size: 20px;
+    }
+}
+.work-language {
+    position:absolute;
+    color: white;
+    top: 10px;
+    right: 15px;
+}
+.work-tools {
+    position:absolute;
+    color: white;
+    bottom: 15px;
+    right: 15px;
+}

@@ -9,21 +9,18 @@ import workslist from "../../../assets/content/worksList.json";
 
 const Works = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [expandedCard, setExpandedCard] = useState(null); // Gère l'état d'affichage des descriptions.
+  const [expandedCard, setExpandedCard] = useState(null); 
 
-  // Liste des catégories uniques
   const categories = [
     "All",
     ...new Set(workslist.map((work) => work.category)),
   ];
 
-  // Filtrer les projets en fonction de la catégorie sélectionnée
   const filteredWorks =
     selectedCategory === "All"
       ? workslist
       : workslist.filter((work) => work.category === selectedCategory);
 
-  // Gestion de l'ouverture/fermeture des descriptions
   const toggleDescription = (id) => {
     setExpandedCard(expandedCard === id ? null : id);
   };

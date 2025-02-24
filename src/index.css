@@ -586,6 +586,12 @@ form div textarea {
   align-items: center;
 }
 
+.hook-works, .hook-services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .skills {
   margin-bottom: 30px;
 }
@@ -797,6 +803,114 @@ form div textarea {
 
 .experiences {
   margin-bottom: 30px;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  margin: auto;
+  overflow: hidden;
+}
+.carousel .carousel-slide {
+  min-width: 100%;
+}
+.carousel .carousel-slide img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  filter: grayscale(0%) brightness(80%);
+}
+.carousel .carousel-slide h3 {
+  position: absolute;
+  color: white;
+  margin: 0;
+  top: 10px;
+  left: 15px;
+  font-size: 16px;
+}
+@media (min-width: 450px) {
+  .carousel .carousel-slide h3 {
+    font-size: 20px;
+  }
+}
+.carousel .carousel-slide .work-language {
+  position: absolute;
+  color: white;
+  top: 10px;
+  right: 15px;
+}
+.carousel .carousel-slide .work-tools {
+  position: absolute;
+  color: white;
+  bottom: 15px;
+  right: 15px;
+}
+.carousel .carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+.carousel .carousel-button.left {
+  left: 10px;
+}
+.carousel .carousel-button.right {
+  right: 10px;
+}
+.carousel .carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+}
+.carousel .carousel-indicators .indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: gray;
+  border: none;
+  cursor: pointer;
+}
+.carousel .carousel-indicators .indicator.active {
+  background: white;
+}
+
+h3 {
+  position: absolute;
+  color: white;
+  margin: 0;
+  top: 10px;
+  left: 15px;
+  font-size: 16px;
+}
+@media (min-width: 450px) {
+  h3 {
+    font-size: 20px;
+  }
+}
+
+.work-language {
+  position: absolute;
+  color: white;
+  top: 10px;
+  right: 15px;
+}
+
+.work-tools {
+  position: absolute;
+  color: white;
+  bottom: 15px;
+  right: 15px;
 }
 
 * {

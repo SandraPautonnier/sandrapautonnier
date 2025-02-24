@@ -14,6 +14,7 @@ import BgDark from "../../assets/images/Background-image-dark.png";
 import BgLight from "../../assets/images/Background-image-light.png";
 import useThemeStore from "../../store/useThemeStore";
 import Carousel from "../../features/Carousel";
+import HookWorks from "../../assets/content/works.json";
 
 
 const Home = () => {
@@ -81,12 +82,25 @@ const Home = () => {
                 </div>
               </div>
             </section>
-            <section>
+            <section className="hook-works">
               <h2>Quelques réalisations</h2>
-              <div></div>
+                <Carousel>
+                {HookWorks.map((item) => (
+                  <div key={item.id} className="carousel-slide"> 
+                    <Link to={item.link} target='_blank'>
+                      <div className="slide-content">
+                        <img src={`${item.cover}`} alt={`${item.titlework}`} />
+                          <h3>{item.titlework}</h3>
+                          <span className="work-language">{item.language}</span>
+                          <span className="work-tools">{item.tools}</span>
+                      </div>
+                    </Link>
+                  </div>  
+                ))}
+              </Carousel>
               <Link to="/portfolio" className="btn">Voir plus de projets</Link>
             </section>
-            <section>
+            <section className="hook-services">
               <h2>Ce que je vous propose</h2>
               <div></div>
               <Link to="/services" className="btn">Voir les tarifs</Link>

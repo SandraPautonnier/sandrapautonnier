@@ -1,0 +1,40 @@
+[
+    {
+        "id": 1,
+        "titlework": "sukana",
+        "description": "En 2021, j'ai commencé à m'intéresser réellement au monde du web. J'ai ressenti ce besoin de créer.\n En parallèle, étant streameuse sur Twitch, il était important de centraliser mon contenu sur un support unique.\n C'est donc, sans connaissances approfondies, que je me suis lancée dans ce projet WordPress avec Elementor.",
+        "cover": "https://gentle-pony-095b6f.netlify.app/sukana.png",
+        "category": "Wordpress",
+        "link": "https://sukana.fr",
+        "language": [
+            "Wordpress",
+            ""
+        ],
+        "tools": "Elementor"
+    },
+    {
+        "id": 2,
+        "titlework": "Kasa",
+        "description": "Kasa est un projet fictif d'Openclassrooms représentant une entreprise de location d'appartements entre particuliers. J'ai développé le front-end de cette application en utilisant React et React Router pour une navigation fluide entre les pages. En suivant des maquettes et en manipulant des données simulées depuis un fichier JSON, j'ai conçu une interface réactive et moderne. J'ai initialisé le projet avec Create App React.",
+        "cover": "https://gentle-pony-095b6f.netlify.app/kasa.png",
+        "category": "React",
+        "link": "https://sandrapautonnier.github.io/kasa/",
+        "language": [
+            "React"
+        ],
+        "tools": "CRA"
+    },
+    {
+        "id": 3,
+        "titlework": "Argent bank",
+        "description": "Dans le cadre d’un projet OpenClassrooms, Argent Bank, une nouvelle banque en ligne vise à s'imposer dans le secteur bancaire. En initialisant le projet avec Vite, j’ai développé le front-end d’une application bancaire avec React et Redux pour une expérience utilisateur dynamique. J’ai intégré le front-end avec le back-end via des appels API REST, assurant une communication fluide. En gérant l’état global avec Redux, j'ai conçu une application performante. J’ai également utilisé Swagger pour définir les points d’accès de l’API et Node.js pour exécuter le code côté serveur.",
+        "cover": "https://gentle-pony-095b6f.netlify.app/argentbank.png",
+        "category": "React",
+        "link": "https://github.com/SandraPautonnier/argentbank.git",
+        "language": [
+            "React /",
+            "Redux"
+        ],
+        "tools": "Vite"
+    }
+]
