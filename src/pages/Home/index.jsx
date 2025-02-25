@@ -86,13 +86,15 @@ const Home = () => {
               <h2>Quelques réalisations</h2>
                 <Carousel>
                 {HookWorks.map((item) => (
-                  <div key={item.id} className="carousel-slide"> 
+                  <div key={item.index} className="carousel-slide"> 
                     <Link to={item.link} target='_blank'>
                       <div className="slide-content">
                         <img src={`${item.cover}`} alt={`${item.titlework}`} />
-                          <h3>{item.titlework}</h3>
+                        <div className="slide-description">
+                          <h3>{`${item.titlework}`}</h3>
                           <span className="work-language">{item.language}</span>
                           <span className="work-tools">{item.tools}</span>
+                        </div>
                       </div>
                     </Link>
                   </div>  

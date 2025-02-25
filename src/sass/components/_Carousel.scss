@@ -10,35 +10,38 @@
   overflow: hidden;
   .carousel-slide {
     min-width: 100%;
-    img {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-        border-radius: 10px;
-        filter: grayscale(0%) brightness(80%);
-    }
-    h3 {
-        position: absolute;
-        color: white;
-        margin: 0;
-        top: 10px;
-        left: 15px;
-        font-size: 16px;
-        @media (min-width: 450px) {
-            font-size: 20px;
+    .slide-content {
+        position: relative;
+        img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            filter: grayscale(0%) brightness(70%);
         }
-    }
-    .work-language {
-        position:absolute;
-        color: white;
-        top: 10px;
-        right: 15px;
-    }
-    .work-tools {
-        position:absolute;
-        color: white;
-        bottom: 15px;
-        right: 15px;
+        h3 {
+            position: absolute;
+            color: white;
+            margin: 0;
+            top: 10px;
+            left: 15px;
+            font-size: 16px;
+            @media (min-width: 450px) {
+                font-size: 20px;
+            }
+        }
+        .work-language {
+            position:absolute;
+            color: white;
+            top: 10px;
+            right: 15px;
+        }
+        .work-tools {
+            position:absolute;
+            color: white;
+            bottom: 15px;
+            right: 15px;
+        }
     }
   }
   .carousel-button {
@@ -49,7 +52,8 @@
     border-radius: 5px;
     color: white;
     border: none;
-    padding: 10px;
+    padding: 15px;
+    font-size: 20px;
     cursor: pointer;
     &.left {
         left: 10px;
@@ -79,26 +83,3 @@
   }
 }
 
-h3 {
-    position: absolute;
-    color: white;
-    margin: 0;
-    top: 10px;
-    left: 15px;
-    font-size: 16px;
-    @media (min-width: 450px) {
-        font-size: 20px;
-    }
-}
-.work-language {
-    position:absolute;
-    color: white;
-    top: 10px;
-    right: 15px;
-}
-.work-tools {
-    position:absolute;
-    color: white;
-    bottom: 15px;
-    right: 15px;
-}
