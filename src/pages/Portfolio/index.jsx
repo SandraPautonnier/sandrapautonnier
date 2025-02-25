@@ -27,6 +27,9 @@ const Portfolio = () => {
                 </header>
                 <main>
                     <Works />
+                    <section>
+                        <h2>Mes Snippets</h2>
+                    </section>
                     <section className="success">
                         <h2>Mes réussites</h2>
                         <div className="container-img-success">

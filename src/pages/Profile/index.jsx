@@ -26,6 +26,15 @@ const Profile = () => {
                 </header>
                 <main>
                     <Skills />
+                    <section>
+                        <h2>Mes Technos</h2>
+                    </section>
+                    <section>
+                        <h2>Mes Expériences</h2>
+                    </section>
+                    <section>
+                        <h2>Mes Formations</h2>
+                    </section>
                 </main>
             </div>
             <Footer openModal={openModal}/>
