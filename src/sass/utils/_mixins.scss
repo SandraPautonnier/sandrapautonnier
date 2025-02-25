@@ -92,6 +92,7 @@
 @mixin balight-codark-component {
     background-color: $light-component;
     color: $light-text;
+    border: 1px solid $light-border;
     
 }
 

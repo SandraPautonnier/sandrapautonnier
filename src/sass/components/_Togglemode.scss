@@ -21,14 +21,26 @@ body.light-mode {
         .buttons-social {
             color: $light-color;
         }
-        button {
-            &.toggle-button {
-                @include btn;
-                @include btn-color-main;
+        button.toggle-button {
+            @include btn;
+            @include btn-color-main;
+        }
+        .card-hook-about {
+            .card-profile {
+                @include balight-codark-component;
+                &:hover {
+                    background-color: $light-component-hover;
+                    border: 1px solid transparent
+                }
             }
-            &.main-button {
-                @include btn;
-                @include btn-color-main;
+        }
+        .carousel {
+            box-shadow: none;
+            transition: box-shadow 0.3s ease-in-out;
+            &:hover {
+                box-shadow:
+                0px 0px 6.6px rgba(0, 0, 0, 0.119),
+                0px 0px 46px rgba(0, 0, 0, 0.26);
             }
         }
         .formation {
@@ -68,7 +80,7 @@ body.light-mode {
             @include balight-codark-component;
             .main-button {
                 @include btn;
-                @include balight-codark;
+                @include btn-color-main;
             }
         }
     }
