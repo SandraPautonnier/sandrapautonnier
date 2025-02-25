@@ -1,28 +1,41 @@
 @import "../utils/variables";
 @import "../utils/mixins";
 
-nav {
-    position: relative;
-    @include flex-row-center;
-    justify-content: center;
-    margin-bottom: 20px;
-    .nav-ul {
-        display: flex;
-        align-items: flex-start;
-        gap: $gap;
-        .nav-li {
-            @include flex-row-center;
+
+.menu-nav {
+    nav {
+        position: relative;
+        @include flex-row-center;
+        justify-content: center;
+        margin: 20px 0;
+        .nav-ul {
+            display: flex;
+            align-items: flex-start;
+            gap: $gap;
+            .nav-li {
+                @include flex-row-center;
+            }
         }
+        
+        @media (max-width: 768px) {
+            display: block;
+            position: absolute;
+            left: 20px;
+            margin-top: -20px;
+            z-index: 5;
+        }
+        
     }
-    @media (max-width: 768px) {
-        display: block;
+    .toggle-button {
         position: absolute;
-        left: 20px;
-        margin-top: -20px;
-        z-index: 5;
+        cursor: pointer;
+        padding: 7px;
+        display: flex;
+        right: 30px;
+        top: 30px;
     }
-    
 }
+
 
 .hamburger {
     display: none;
@@ -41,12 +54,7 @@ nav {
     }
 }
 
-.toggle-button {
-    position: absolute;
-    cursor: pointer;
-    padding: 7px;
-    
-}
+
 
 @media (max-width: 768px) {
     .hamburger {

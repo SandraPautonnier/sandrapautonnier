@@ -24,41 +24,44 @@ const Navbar = ({ openModal }) => {
   }, [menuOpen]);
 
   return (
-    <nav ref={navRef}>
-      {/* Bouton hamburger */}
-      <div className="hamburger" onClick={toggleMenu}>
-        {menuOpen ? (
-          <span className="close-nav">&times;</span>
-        ) : (
-          <>
-            <div className="bar"></div>
-            <div className="bar"></div>
-            <div className="bar"></div>
-          </>
-        )}
-      </div>
-      {/* Menu de navigation */}
-      <ul className={`nav-ul ${menuOpen ? "open" : ""}`}>
-        <li className="nav-li">
-          <Link to="/" onClick={() => setMenuOpen(false)}>ACCUEIL</Link>
-        </li>
-        <li className="nav-li">
-          <Link to="/profile"  onClick={() => setMenuOpen(false)}>PROFIL</Link>
-        </li>
-        <li className="nav-li">
-          <Link to="/portfolio"  onClick={() => setMenuOpen(false)}>PORTFOLIO</Link>
-        </li>
-        <li className="nav-li">
-          <Link to="/services"  onClick={() => setMenuOpen(false)}>PRESTATIONS</Link>
-        </li>
-        <li className="nav-li">
-          <button onClick={openModal} className="modal-button">
-            CONTACT
-          </button>
-        </li>
-      </ul>
+    <div className="menu-nav">
+      <nav ref={navRef}>
+        {/* Bouton hamburger */}
+        <div className="hamburger" onClick={toggleMenu}>
+          {menuOpen ? (
+            <span className="close-nav">&times;</span>
+          ) : (
+            <>
+              <div className="bar"></div>
+              <div className="bar"></div>
+              <div className="bar"></div>
+            </>
+          )}
+        </div>
+        {/* Menu de navigation */}
+        <ul className={`nav-ul ${menuOpen ? "open" : ""}`}>
+          <li className="nav-li">
+            <Link to="/" onClick={() => setMenuOpen(false)}>ACCUEIL</Link>
+          </li>
+          <li className="nav-li">
+            <Link to="/profile"  onClick={() => setMenuOpen(false)}>PROFIL</Link>
+          </li>
+          <li className="nav-li">
+            <Link to="/portfolio"  onClick={() => setMenuOpen(false)}>PORTFOLIO</Link>
+          </li>
+          <li className="nav-li">
+            <Link to="/services"  onClick={() => setMenuOpen(false)}>PRESTATIONS</Link>
+          </li>
+          <li className="nav-li">
+            <button onClick={openModal} className="modal-button">
+              CONTACT
+            </button>
+          </li>
+        </ul>
+      </nav>
       <ToggleMode />
-    </nav>
+    </div>
+
   );
 };
 
