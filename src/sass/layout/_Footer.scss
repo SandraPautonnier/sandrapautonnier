@@ -22,6 +22,7 @@ footer {
         }
         img {
             max-width: 100px;
+            margin: 15px 0;
         }
         .social-media {
             display: flex;
@@ -35,5 +36,21 @@ footer {
     .footer-secondary {
         @include flex-column-center;
         text-align: center;
+        .heart {
+            @include flex-row-center;
+            gap: 7px;
+            p {
+                margin: 0;
+            }
+            .btn-fav {
+                font-size: 20px;
+                cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+                input[type="checkbox"] {
+                    display: none; 
+                }
+            }
+        }
     }
 }

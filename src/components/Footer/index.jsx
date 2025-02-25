@@ -1,16 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Sandra2 from "../../assets/images/sandra2.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin , faSquareGithub , faCodepen } from '@fortawesome/free-brands-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 
 const Footer = ({openModal}) => {
+
+  const [isChecked, setIsChecked] = useState(false);
+
   return (
     <footer>
         <div className='footer-main'>
             <div className='contact-mail'>
                 <button className="main-button" onClick={openModal}>
-                  Contactez-moi via mon formulaire
+                  Contactez-moi
                 </button>
             </div>
             <img src={Sandra2} alt="Sandra" />
@@ -22,6 +26,26 @@ const Footer = ({openModal}) => {
         </div>
         <div className='footer-secondary'>
           <p>Mentions Légales - Copyright 2025</p>
+          <div className='heart'>
+            <p>Coder avec</p>
+            <label class="btn-fav">
+              <input
+                type="checkbox"
+                checked={isChecked}
+                onChange={() => setIsChecked(!isChecked)}
+              />
+              <FontAwesomeIcon
+                icon={faHeart}
+                className="fa-heart"
+                style={{
+                  fill: isChecked ? "linear-gradient(to bottom, #9356dc, #ff79da)" : "transparent",
+                  stroke: isChecked ? "transparent" : "#9356dc",
+                  strokeWidth: "2px",
+                  transition: "all 0.4s ease-in-out",
+                }}
+              />
+            </label>
+          </div>
         </div>
     </footer>
   )
