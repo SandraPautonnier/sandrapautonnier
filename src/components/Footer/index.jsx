@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from "react-router-dom";
 import Sandra2 from "../../assets/images/sandra2.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin , faSquareGithub , faCodepen } from '@fortawesome/free-brands-svg-icons';
@@ -25,7 +26,7 @@ const Footer = ({openModal}) => {
             </div>
         </div>
         <div className='footer-secondary'>
-          <p>Mentions Légales - Copyright 2025</p>
+          <p><Link to="/legalnotice" >Mentions Légales</Link> - Copyright 2025</p>
           <div className='heart'>
             <p>Coder avec</p>
             <label class="btn-fav">

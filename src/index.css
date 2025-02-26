@@ -370,6 +370,17 @@ body.light-mode .background-color footer .main-button {
   background-color: #8C52FF;
   color: #E3DAFF;
 }
+body.light-mode .background-color footer a {
+  background: linear-gradient(to top, #723AD7 0%, #723AD7 1px, transparent 2px) no-repeat;
+  background-size: 0 100%;
+  transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
+}
+body.light-mode .background-color footer a:hover {
+  background-size: 100% 100%;
+}
+body.light-mode .background-color th, body.light-mode .background-color td {
+  border: 1px solid #723AD7;
+}
 
 body.dark-mode .background-color {
   background: linear-gradient(180deg, rgba(25, 20, 43, 0.8) 0%, rgba(25, 25, 27, 0.8) 20%);
@@ -470,6 +481,17 @@ body.dark-mode .background-color footer .main-button {
   font-size: 15px;
   background-color: #8C52FF;
   color: #E3DAFF;
+}
+body.dark-mode .background-color footer a {
+  background: linear-gradient(to top, #E3DAFF 0%, #E3DAFF 1px, transparent 2px) no-repeat;
+  background-size: 0 100%;
+  transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
+}
+body.dark-mode .background-color footer a:hover {
+  background-size: 100% 100%;
+}
+body.dark-mode .background-color th, body.dark-mode .background-color td {
+  border: 1px solid #E3DAFF;
 }
 
 .modal-overlay {
@@ -623,6 +645,20 @@ form div textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+table th,
+table td {
+  padding: 8px;
+  text-align: left;
+}
+table th {
+  font-weight: bold;
 }
 
 .skills {

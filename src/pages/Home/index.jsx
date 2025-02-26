@@ -104,7 +104,9 @@ const Home = () => {
             </section>
             <section className="hook-services">
               <h2>Ce que je vous propose</h2>
-              <div></div>
+              <div>
+                <div></div>
+              </div>
               <Link to="/services" className="btn">Voir les tarifs</Link>
             </section>
           </main>

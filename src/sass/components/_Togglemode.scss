@@ -12,7 +12,7 @@ body.light-mode {
                 border: none;
             }
             .nav-li {
-                @include underline-anim-black;
+                @include underline-anim-light;
             }
         }
         .bar {
@@ -82,6 +82,12 @@ body.light-mode {
                 @include btn;
                 @include btn-color-main;
             }
+            a {
+                @include underline-anim-light;
+            }
+        }
+        th, td {
+            border: 1px solid $light-text;
         }
     }
 }
@@ -96,7 +102,7 @@ body.dark-mode {
                 border: none;
             }
             .nav-li {
-                @include underline-anim-white;
+                @include underline-anim-dark;
             }
         }
         .bar {
@@ -155,6 +161,12 @@ body.dark-mode {
                 @include btn;
                 @include btn-color-main;
             }
+            a {
+                @include underline-anim-dark;
+            }
+        }
+        th, td {
+            border: 1px solid $dark-text;
         }
     }
 
