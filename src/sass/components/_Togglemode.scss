@@ -13,6 +13,9 @@ body.light-mode {
             }
             .nav-li {
                 @include underline-anim-light;
+                .active {
+                    @include underline-active-light;
+                }
             }
         }
         .bar {
@@ -103,6 +106,9 @@ body.dark-mode {
             }
             .nav-li {
                 @include underline-anim-dark;
+                .active {
+                    @include underline-active-dark;
+                }
             }
         }
         .bar {

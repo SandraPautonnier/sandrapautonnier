@@ -1,13 +1,20 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import ToggleMode from '../../features/Mode';
 
 const Navbar = ({ openModal }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef(null);
+  const location = useLocation();
+  const [activeUrl, setActiveUrl] = useState('');
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const handleContactClick = () => {
+    openModal();  
+    setMenuOpen(false);  
   };
 
   useEffect(() => {
@@ -22,6 +29,10 @@ const Navbar = ({ openModal }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [menuOpen]);
+
+  useEffect(() => {
+    setActiveUrl(location.pathname); 
+  }, [location]);
 
   return (
     <div className="menu-nav">
@@ -41,19 +52,19 @@ const Navbar = ({ openModal }) => {
         {/* Menu de navigation */}
         <ul className={`nav-ul ${menuOpen ? "open" : ""}`}>
           <li className="nav-li">
-            <Link to="/" onClick={() => setMenuOpen(false)}>ACCUEIL</Link>
+            <Link to="/" onClick={() => setMenuOpen(false)} className={activeUrl === '/' ? 'active' : ''}>ACCUEIL</Link>
           </li>
           <li className="nav-li">
-            <Link to="/profile"  onClick={() => setMenuOpen(false)}>PROFIL</Link>
+            <Link to="/profile"  onClick={() => setMenuOpen(false)} className={activeUrl === '/profile' ? 'active' : ''}>PROFIL</Link>
           </li>
           <li className="nav-li">
-            <Link to="/portfolio"  onClick={() => setMenuOpen(false)}>PORTFOLIO</Link>
+            <Link to="/portfolio"  onClick={() => setMenuOpen(false)} className={activeUrl === '/portfolio' ? 'active' : ''}>PORTFOLIO</Link>
           </li>
           <li className="nav-li">
-            <Link to="/services"  onClick={() => setMenuOpen(false)}>PRESTATIONS</Link>
+            <Link to="/services"  onClick={() => setMenuOpen(false)} className={activeUrl === '/services' ? 'active' : ''}>PRESTATIONS</Link>
           </li>
           <li className="nav-li">
-            <button onClick={openModal} className="modal-button">
+            <button onClick={handleContactClick} className="modal-button">
               CONTACT
             </button>
           </li>
