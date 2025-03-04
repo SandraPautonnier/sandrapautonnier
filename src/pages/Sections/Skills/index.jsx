@@ -17,7 +17,7 @@ function Skills() {
         <h2>Mes domaines de compétences</h2>
         <div className='container-card-skills'>
           {skills.map((skill, index) => (
-            <div key={index} className='card-skills'>
+            <div key={index} className='card skills'>
               <div className='triangle1'></div>
               <div></div>
               <FontAwesomeIcon icon={iconMap[skill.icon]} />

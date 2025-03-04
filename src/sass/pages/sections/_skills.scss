@@ -9,7 +9,7 @@
         @media (min-width: 800px) {
             @include grid-2;
         } 
-        .card-skills {
+        .skills {
             display: flex;
             box-sizing: border-box;
             @include flex-column-center;

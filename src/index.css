@@ -301,12 +301,12 @@ body.light-mode .background-color button.toggle-button {
   background-color: #8C52FF;
   color: #E3DAFF;
 }
-body.light-mode .background-color .card-hook-about .card-profile {
+body.light-mode .background-color .card {
   background-color: #F2EFFF;
   color: #723AD7;
   border: 1px solid #C2B0FF;
 }
-body.light-mode .background-color .card-hook-about .card-profile:hover {
+body.light-mode .background-color .card:hover {
   background-color: #EAE3FF;
   border: 1px solid transparent;
 }
@@ -323,11 +323,6 @@ body.light-mode .background-color .formation {
   border: 1px solid #C2B0FF;
 }
 body.light-mode .background-color select {
-  background-color: #F2EFFF;
-  color: #723AD7;
-  border: 1px solid #C2B0FF;
-}
-body.light-mode .background-color .card-skills {
   background-color: #F2EFFF;
   color: #723AD7;
   border: 1px solid #C2B0FF;
@@ -426,11 +421,11 @@ body.dark-mode .background-color button.toggle-button {
   background-color: #8C52FF;
   color: #E3DAFF;
 }
-body.dark-mode .background-color .card-hook-about .card-profile {
+body.dark-mode .background-color .card {
   background-color: #291A4E;
   color: #E3DAFF;
 }
-body.dark-mode .background-color .card-hook-about .card-profile:hover {
+body.dark-mode .background-color .card:hover {
   background-color: #361B69;
 }
 body.dark-mode .background-color .formation {
@@ -438,10 +433,6 @@ body.dark-mode .background-color .formation {
   color: #E3DAFF;
 }
 body.dark-mode .background-color select {
-  background-color: #291A4E;
-  color: #E3DAFF;
-}
-body.dark-mode .background-color .card-skills {
   background-color: #291A4E;
   color: #E3DAFF;
 }
@@ -596,6 +587,14 @@ form div textarea {
   transform: scale(1.1);
 }
 
+.card {
+  box-sizing: border-box;
+  padding: 20px;
+  width: 100%;
+  border-radius: 7px;
+  transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
+}
+
 .hook-about {
   width: 100%;
 }
@@ -609,30 +608,23 @@ form div textarea {
     align-items: center;
   }
 }
-.hook-about .container-hook-about .card-profile {
-  box-sizing: border-box;
-  padding: 20px;
-  width: 100%;
-  border-radius: 7px;
-  transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
-}
-.hook-about .container-hook-about .card-profile .card-user {
+.hook-about .container-hook-about .profile .card-user {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 0 10px;
 }
-.hook-about .container-hook-about .card-profile .card-user svg {
+.hook-about .container-hook-about .profile .card-user svg {
   font-size: 20px;
   margin: 10px 0;
 }
-.hook-about .container-hook-about .card-profile .card-user li {
+.hook-about .container-hook-about .profile .card-user li {
   margin: 2px 0;
 }
-.hook-about .container-hook-about .card-profile li {
+.hook-about .container-hook-about .profile li {
   margin: 7px 0;
 }
-.hook-about .container-hook-about .card-profile li svg {
+.hook-about .container-hook-about .profile li svg {
   margin: 0 5px;
 }
 .hook-about .container-hook-about .tags {
@@ -655,6 +647,29 @@ form div textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.container-hook-services {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+@media (min-width: 768px) {
+  .container-hook-services {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.container-hook-services .service {
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .container-hook-services .service {
+    height: 255px;
+  }
 }
 
 table {
@@ -688,7 +703,7 @@ table th {
     gap: 30px;
   }
 }
-.skills .container-card-skills .card-skills {
+.skills .container-card-skills .skills {
   display: flex;
   box-sizing: border-box;
   display: flex;
@@ -703,46 +718,46 @@ table th {
   padding: 0 20px;
 }
 @media (min-width: 550px) {
-  .skills .container-card-skills .card-skills {
+  .skills .container-card-skills .skills {
     height: 220px;
   }
 }
 @media (min-width: 800px) {
-  .skills .container-card-skills .card-skills {
+  .skills .container-card-skills .skills {
     height: 320px;
     font-size: 16px;
   }
 }
 @media (min-width: 1200px) {
-  .skills .container-card-skills .card-skills {
+  .skills .container-card-skills .skills {
     height: 300px;
     font-size: 17px;
     text-align: center;
   }
 }
-.skills .container-card-skills .card-skills .traingle1 {
+.skills .container-card-skills .skills .traingle1 {
   width: 50px;
   height: 50px;
   background-color: black;
   position: absolute;
 }
-.skills .container-card-skills .card-skills .li-skills {
+.skills .container-card-skills .skills .li-skills {
   display: flex;
   flex-direction: column;
   align-items: start;
 }
 @media (min-width: 590px) {
-  .skills .container-card-skills .card-skills .li-skills {
+  .skills .container-card-skills .skills .li-skills {
     align-items: center;
   }
 }
 @media (min-width: 800px) {
-  .skills .container-card-skills .card-skills .li-skills {
+  .skills .container-card-skills .skills .li-skills {
     align-items: start;
   }
 }
 @media (min-width: 1200px) {
-  .skills .container-card-skills .card-skills .li-skills {
+  .skills .container-card-skills .skills .li-skills {
     align-items: center;
   }
 }

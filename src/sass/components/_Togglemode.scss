@@ -28,13 +28,11 @@ body.light-mode {
             @include btn;
             @include btn-color-main;
         }
-        .card-hook-about {
-            .card-profile {
-                @include balight-codark-component;
-                &:hover {
-                    background-color: $light-component-hover;
-                    border: 1px solid transparent
-                }
+        .card {
+            @include balight-codark-component;
+            &:hover {
+                background-color: $light-component-hover;
+                border: 1px solid transparent
             }
         }
         .carousel {
@@ -50,9 +48,6 @@ body.light-mode {
             @include balight-codark-component;
         }
         select {
-            @include balight-codark-component;
-        }
-        .card-skills {
             @include balight-codark-component;
         }
         .tag {
@@ -118,21 +113,16 @@ body.dark-mode {
             @include btn;
             @include btn-color-main;
         }
-        .card-hook-about {
-            .card-profile {
-                @include badark-colight-component;
-                &:hover {
-                    background-color: $dark-component-hover;
-                }
+        .card {
+            @include badark-colight-component;
+            &:hover {
+                background-color: $dark-component-hover;
             }
         }
         .formation {
             @include badark-colight-component;
         }
         select {
-            @include badark-colight-component;
-        }
-        .card-skills {
             @include badark-colight-component;
         }
         .tag {

@@ -12,6 +12,11 @@
     margin: 30px 0;
 }
 
+.card {
+    @include card;
+    @include transition-btn;
+}
+
 .hook-about {
     width: 100%;
     .container-hook-about {
@@ -19,13 +24,7 @@
         @media (min-width: 768px) {
             @include flex-row-center;
         }
-        .card-profile {
-            box-sizing: border-box;
-            padding: 20px;
-            width: 100%;
-            border-radius: 7px;
-            @include transition-btn;
-            
+        .profile {
             .card-user {
                 @include flex-column-center;
                 margin: 0 0 10px;
@@ -60,4 +59,19 @@
 
 .hook-works,.hook-services {
     @include flex-column-center;
+}
+
+.container-hook-services {
+    width: 100%;
+    @include flex-column-center;
+    gap: $gap;
+    @media (min-width: 768px) {
+        @include flex-row-center;
+    } 
+    .service {
+        text-align: center;
+        @media (min-width: 768px) {
+            height: 255px;
+        } 
+    }
 }
