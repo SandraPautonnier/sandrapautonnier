@@ -26,7 +26,7 @@ const Footer = ({openModal}) => {
             </div>
         </div>
         <div className='footer-secondary'>
-          <p><Link to="/legalnotice" >Mentions Légales</Link> - Copyright 2025</p>
+          <p><Link to="/legalnotice" className='link'>Mentions Légales</Link> - Copyright 2025</p>
           <div className='heart'>
             <p>Coder avec</p>
             <label class="btn-fav">

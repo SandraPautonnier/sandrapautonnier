@@ -7,7 +7,7 @@ import BgDark from "../../assets/images/Background-image-dark.png";
 import BgLight from "../../assets/images/Background-image-light.png";
 import useThemeStore from "../../store/useThemeStore";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReact, faJs, faSass } from '@fortawesome/free-brands-svg-icons';
+import { faReact, faJs, faSass, faGithub, faNodeJs } from '@fortawesome/free-brands-svg-icons';
 
 const Profile = () => {
 
@@ -29,15 +29,22 @@ const Profile = () => {
                     <Skills />
                     <section>
                         <h2>Les technos que j'adore utiliser</h2>
-                        <div>
+                        <div className='technos'>
                             <FontAwesomeIcon icon={faSass} />
                             <FontAwesomeIcon icon={faJs} />
                             <FontAwesomeIcon icon={faReact} />
-                            
+                            <FontAwesomeIcon icon={faGithub} />
+                            <FontAwesomeIcon icon={faNodeJs} />
                         </div>
                     </section>
                     <section>
                         <h2>Mes Expériences</h2>
+                        <div class="label-work">
+                            <div class="base">
+                                <div class="text">Vendeuse prêt-à-porter</div>
+                                <div class="pointer"></div>  
+                            </div>
+                        </div>
                     </section>
                     <section>
                         <h2>Mes Formations</h2>

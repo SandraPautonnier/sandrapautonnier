@@ -3,11 +3,11 @@
 @use "layout/Footer";
 @use "layout/loader";
 @use "./pages/Home";
+@use "./pages/profile";
 @use "./pages/Legalnotice";
 @use "./pages/sections/skills";
 @use "./pages/sections/works";
 @use "./pages/sections/success";
-@use "./pages/sections/experiences";
 @use "./components/Carousel";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Marko+One&display=swap');
@@ -101,4 +101,5 @@ button {
 .bold {
     font-weight: bold;
 }
+
 

@@ -80,7 +80,7 @@ body.light-mode {
                 @include btn;
                 @include btn-color-main;
             }
-            a {
+            .link {
                 @include underline-anim-light;
             }
         }
@@ -157,7 +157,7 @@ body.dark-mode {
                 @include btn;
                 @include btn-color-main;
             }
-            a {
+            .link {
                 @include underline-anim-dark;
             }
         }
