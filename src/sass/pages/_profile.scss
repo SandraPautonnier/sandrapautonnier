@@ -1,43 +1,69 @@
+@import "../utils/variables";
+@import "../utils/mixins";
 
 .experiences {
     margin-bottom: 30px;
 }
 
 .technos {
-  font-size: 24px;
-  display: ;
+  @include flex-row-center;
+  justify-content: center;
+  gap: 30px;
+  font-size: 27px;
+  @media (max-width: 375px) {
+    font-size: 20px;
+    gap: 20px;
+} 
+svg {
+  @include zoom-btn;
+}
 }
 
-.label-work {
-    width: 300px;
-    height: 75px;
+.container {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 20px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". . . . . . . . Experience5"
+    ". . . . . . . Certificate4 ."
+    ". . . Experience2 Certificate3 Experience3 Experience4 . ."
+    ". Certificate2 Experience1 . . Personal3 Personal4 . ."
+    "Certificate1 Personal2 . . . . . . ."
+    "Personal1 . . . . . . . .";
+
+  .experience1 { grid-area: Experience1; }
+  .experience2 { grid-area: Experience2; }
+  .experience3 { grid-area: Experience3; }
+  .experience4 { grid-area: Experience4; }
+  .experience5 { grid-area: Experience5; }
+
+  .certificate1 { grid-area: Certificate1; }
+  .certificate2 { grid-area: Certificate2; }
+  .certificate3 { grid-area: Certificate3; }
+  .certificate4 { grid-area: Certificate4; }
+
+  .personal1 { grid-area: Personal1; }
+  .personal2 { grid-area: Personal2; }
+  .personal3 { grid-area: Personal3; }
+  .personal4 { grid-area: Personal4; }
+
+}
+
+.insert {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  border-radius: 7px;
+  @include badark-colight-component;
+  span {
+    font-size: 10px;
   }
-  
-  .base {
-    border-radius: 10px 4px 4px 10px;
-    position: relative;
-    background: black;
-    width: 100%;
-    height: 100%;
-    color: white;
-    font-size: 16px;
+  h3 {
+    font-size: 12px;
   }
-  
-  .text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  p {
+    font-size: 10px;
   }
-  
-  .pointer {
-   position: absolute;
-   width: 0;
-   height: 0;
-   left: 267px; 
-   top: 8px;
-   border-bottom: 59px solid black;
-   border-right: 59px solid transparent;
-   border-radius: 10px 10px 10px;
-   transform: rotate(-135deg);
-   }
+}

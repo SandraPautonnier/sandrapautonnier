@@ -151,6 +151,14 @@ body.dark-mode {
             @include modal-btn;
             color: $dark-text;
         }
+        .label-work {
+            .base {
+                @include badark-colight-component;
+            }
+            .pointer {
+                border-bottom: 59px solid $dark-component;
+            }
+        }
         footer {
             @include badark-colight-component;
             .main-button {
