@@ -529,6 +529,11 @@ form div textarea {
   transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
 }
 
+.catch {
+  text-align: center;
+  font-style: italic;
+}
+
 @keyframes slideInFromRight {
   from {
     transform: translateX(500%);

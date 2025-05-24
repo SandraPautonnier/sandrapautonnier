@@ -53,7 +53,7 @@ const Home = () => {
             <div className='header-banner' id="home">
               <img src={Sandra1} alt="Sandra" />
               <h1>Sandra Pautonnier</h1>
-              <p>Développeuse web front-end</p>
+              <p>Développeuse web full stack</p>
               <div className="buttons-social">
                 <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faSquareGithub} />Github</a>
                 <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} />Linkedin</a>
@@ -64,6 +64,7 @@ const Home = () => {
           <main>
             <section className="hook-about">
               <h2>Qui suis-je?</h2>
+              
               <div className="container-hook-about">
                 <div className="card-hook-about">
                   <ul className="card profile">
@@ -72,9 +73,9 @@ const Home = () => {
                       <li><strong>Prénom :</strong> Sandra</li>
                       <li><strong>Age :</strong> <AgeCalculator birthDate="1992-07-28" /> ans</li>
                     </div>
-                    <li><FontAwesomeIcon icon={faReact} /><strong>Techno favorite :</strong> React</li>
-                    <li><FontAwesomeIcon icon={faCode} /><strong>Compétences principales :</strong> Réaliser un portfolio dynamique avec une interface dédiée et Créer une application web fluide et sécurisée</li>
-                    <li><FontAwesomeIcon icon={faAward} /><strong>Dernière formation :</strong> Intégrateur Web Openclassrooms</li>
+                    <li><FontAwesomeIcon icon={faReact} /><strong>Technos :</strong> React, Node et MongoDB</li>
+                    <li><FontAwesomeIcon icon={faCode} /><strong>Compétences principales :</strong> Réaliser un site web dynamique avec une interface dédiée et créer une application web fluide et sécurisée</li>
+                    <li><FontAwesomeIcon icon={faAward} /><strong>Dernière formation :</strong> Titre RNCP Développeur Informatique</li>
                     <li><FontAwesomeIcon icon={faFlask} /><strong>Autres expériences :</strong> Commerce et gestion de projet</li>
                   </ul>
                 </div>
@@ -88,6 +89,7 @@ const Home = () => {
                   <Link to="/profile" className="btn">En savoir plus</Link>
                 </div>
               </div>
+              <p className="catch">Une développeuse qui parle votre langue (et aussi JavaScript !).</p>
             </section>
             <section className="hook-works">
               <h2>Quelques réalisations</h2>
@@ -119,8 +121,10 @@ const Home = () => {
                     <p>{Service.description}</p>
                   </div>
                 ))}
+                
               </div>
               <Link to="/services" className="btn">Voir les tarifs</Link>
+              <p className="catch">Flexible, moderne et humaine. C’est ça, le sur-mesure.</p>
             </section>
           </main>
         </div>

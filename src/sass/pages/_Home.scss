@@ -16,6 +16,11 @@
     @include transition-btn;
 }
 
+.catch {
+  text-align: center;
+  font-style: italic;
+}
+
 //header
 @keyframes slideInFromRight {
     from {

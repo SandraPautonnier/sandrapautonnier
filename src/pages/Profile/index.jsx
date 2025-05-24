@@ -6,10 +6,8 @@ import Skills from '../Sections/Skills';
 import BgDark from "../../assets/images/Background-image-dark.png";
 import BgLight from "../../assets/images/Background-image-light.png";
 import useThemeStore from "../../store/useThemeStore";
-import experiences from "../../assets/content/experiences.json";
-import certificates from "../../assets/content/certificates.json"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReact, faJs, faSass, faGithub, faNodeJs } from '@fortawesome/free-brands-svg-icons';
+import { faReact, faJs, faSass, faGithub, faNodeJs, faNode } from '@fortawesome/free-brands-svg-icons';
 
 const Profile = () => {
 
@@ -35,6 +33,7 @@ const Profile = () => {
                             <FontAwesomeIcon icon={faSass} />
                             <FontAwesomeIcon icon={faJs} />
                             <FontAwesomeIcon icon={faReact} />
+                            <FontAwesomeIcon icon={faNode} />
                             <FontAwesomeIcon icon={faGithub} />
                             <FontAwesomeIcon icon={faNodeJs} />
                         </div>
