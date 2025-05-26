@@ -19,7 +19,17 @@ svg {
 }
 }
 
-.container {
+.container-mobile {
+  display:flex;
+  text-align: center;
+  @include flex-column-center;
+  gap: 20px;
+  @media (min-width: 1100px) {
+    display: none;
+} 
+}
+
+.container-desktop {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   grid-template-rows: repeat(6, 1fr);
@@ -48,7 +58,9 @@ svg {
   .personal2 { grid-area: Personal2; }
   .personal3 { grid-area: Personal3; }
   .personal4 { grid-area: Personal4; }
-
+  @media (max-width: 1100px) {
+    display: none;
+} 
 }
 
 .insert {

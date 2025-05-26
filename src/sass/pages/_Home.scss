@@ -132,12 +132,12 @@
     width: 100%;
     @include flex-column-center;
     gap: $gap;
-    @media (min-width: 768px) {
+    @media (min-width: 932px) {
         @include flex-row-center;
     } 
     .service {
         text-align: center;
-        @media (min-width: 768px) {
+        @media (min-width: 932px) {
             height: 255px;
         } 
     }

@@ -668,7 +668,7 @@ form div textarea {
   align-items: center;
   gap: 30px;
 }
-@media (min-width: 768px) {
+@media (min-width: 932px) {
   .container-hook-services {
     display: flex;
     flex-direction: row;
@@ -678,7 +678,7 @@ form div textarea {
 .container-hook-services .service {
   text-align: center;
 }
-@media (min-width: 768px) {
+@media (min-width: 932px) {
   .container-hook-services .service {
     height: 255px;
   }
@@ -710,7 +710,21 @@ form div textarea {
   transform: scale(1.1);
 }
 
-.container {
+.container-mobile {
+  display: flex;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+@media (min-width: 1100px) {
+  .container-mobile {
+    display: none;
+  }
+}
+
+.container-desktop {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   grid-template-rows: repeat(6, 1fr);
@@ -718,44 +732,49 @@ form div textarea {
   grid-auto-flow: row;
   grid-template-areas: ". . . . . . . . Experience5" ". . . . . . . Certificate4 ." ". . . Experience2 Certificate3 Experience3 Experience4 . ." ". Certificate2 Experience1 . . Personal3 Personal4 . ." "Certificate1 Personal2 . . . . . . ." "Personal1 . . . . . . . .";
 }
-.container .experience1 {
+.container-desktop .experience1 {
   grid-area: Experience1;
 }
-.container .experience2 {
+.container-desktop .experience2 {
   grid-area: Experience2;
 }
-.container .experience3 {
+.container-desktop .experience3 {
   grid-area: Experience3;
 }
-.container .experience4 {
+.container-desktop .experience4 {
   grid-area: Experience4;
 }
-.container .experience5 {
+.container-desktop .experience5 {
   grid-area: Experience5;
 }
-.container .certificate1 {
+.container-desktop .certificate1 {
   grid-area: Certificate1;
 }
-.container .certificate2 {
+.container-desktop .certificate2 {
   grid-area: Certificate2;
 }
-.container .certificate3 {
+.container-desktop .certificate3 {
   grid-area: Certificate3;
 }
-.container .certificate4 {
+.container-desktop .certificate4 {
   grid-area: Certificate4;
 }
-.container .personal1 {
+.container-desktop .personal1 {
   grid-area: Personal1;
 }
-.container .personal2 {
+.container-desktop .personal2 {
   grid-area: Personal2;
 }
-.container .personal3 {
+.container-desktop .personal3 {
   grid-area: Personal3;
 }
-.container .personal4 {
+.container-desktop .personal4 {
   grid-area: Personal4;
+}
+@media (max-width: 1100px) {
+  .container-desktop {
+    display: none;
+  }
 }
 
 .insert {

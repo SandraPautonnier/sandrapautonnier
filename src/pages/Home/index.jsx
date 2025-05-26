@@ -5,7 +5,7 @@ import Footer from '../../components/Footer';
 import ContactModal from "../../components/ContactModal";
 import loader from "../../components/Loader";
 import Sandra1 from '../../assets/images/sandra1.png';
-import Cv from '../../assets/pdf/CV_Sandra_Pautonnier.pdf';
+import Cv from '../../assets/pdf/CV-Sandra-Pautonnier.pdf';
 import AgeCalculator from "../../features/AgeCalculator";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin , faSquareGithub , faReact } from '@fortawesome/free-brands-svg-icons';
@@ -110,6 +110,7 @@ const Home = () => {
                 ))}
               </Carousel>
               <Link to="/portfolio" className="btn">Voir plus de projets</Link>
+              <p className="catch">Des projets réalisés avec passion !</p>
             </section>
             <section className="hook-services">
               <h2>Ce que je vous propose</h2>
