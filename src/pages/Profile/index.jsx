@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import Sandra3 from '../../assets/images/Sandra3.png';
 import ContactModal from "../../components/ContactModal";
 import Skills from '../Sections/Skills';
 import BgDark from "../../assets/images/Background-image-dark.png";
@@ -24,30 +26,45 @@ const Profile = () => {
             <div className="header-main">
                 <header>
                     <Navbar openModal={openModal}/>
+                    <div className='banner'>
+                        <img src={Sandra3} alt="Sandra" />
+                        <h2>A propos de moi</h2>
+                        <div className="card profile">
+                        <p className='intro-profile'>Développeuse web fullstack, je conçois des applications modernes avec <strong>React</strong>, <strong>Node.js</strong> et <strong>MongoDB</strong>, en veillant à créer des interfaces à la fois fluides, intuitives et centrées utilisateur.<br></br>
+                        Avant de plonger dans le code, j’ai exploré des univers très variés : <strong>la couture</strong>, où j’ai appris la précision et le sens du détail ; <strong>le commerce</strong>, qui m’a donné le goût de l’organisation et du contact humain ; <strong>la gestion de projet</strong> et <strong>la communication</strong>, qui m’ont permis de structurer ma pensée, de collaborer efficacement et de raconter des histoires claires et engageantes.<br></br>
+                        Aujourd’hui, je mets toute cette richesse au service du développement web. <strong>Curieuse</strong>, <strong>autonome</strong> et toujours en quête de sens, je m’épanouis dans les projets qui allient technique, créativité et utilité.<br></br> 
+                        Mon ambition : continuer à apprendre, à expérimenter et à créer des outils numériques qui ont de l’impact.</p>
+                        </div>
+                    </div>
+                    <div className='technos'>
+                        <FontAwesomeIcon icon={faSass} />
+                        <FontAwesomeIcon icon={faJs} />
+                        <FontAwesomeIcon icon={faReact} />
+                        <FontAwesomeIcon icon={faNode} />
+                        <FontAwesomeIcon icon={faGithub} />
+                    </div>
                 </header>
                 <main>
                     <Skills />
-                    <section>
-                        <h2>Les technos que j'adore utiliser</h2>
-                        <div className='technos'>
-                            <FontAwesomeIcon icon={faSass} />
-                            <FontAwesomeIcon icon={faJs} />
-                            <FontAwesomeIcon icon={faReact} />
-                            <FontAwesomeIcon icon={faNode} />
-                            <FontAwesomeIcon icon={faGithub} />
-                        </div>
-                    </section>
                     <section>
                         <h2>Mon parcours</h2>
                         <div className='container-mobile'>
                             <div className="insert cer certificate1">
                                 <span>2008-2010</span>
                                 <h3>BEP Métiers de la Mode</h3>
-                                </div>
+                                </div>  
                             <div className="insert cer certificate2">
                                 <span>2012-2014</span>
                                 <h3>BAC PRO Commerce</h3>
                                 </div>
+                            <div className="insert exp experience1">
+                                <span>2014-2016</span>
+                                <h3>Vendeuse Prêt-à-porter</h3>
+                                <p>Noz - Sergent Major</p></div>
+                            <div className="insert exp experience2">
+                                <span>2016-2017</span>
+                                <h3>Chef de projet évenementiel</h3>
+                                <p>Service civique : Mission autonome de A à Z</p></div>
                             <div className="card insert exp experience4">
                                 <span>2021-2024</span>
                                 <h3>Chargé de projets</h3>
@@ -112,6 +129,7 @@ const Profile = () => {
                     </section>
                 </main>
             </div>
+            <Link to="/portfolio" className="btn dim">Découvrez mes réalisations</Link>
             <Footer openModal={openModal}/>
             <ContactModal 
                 isOpen={isModalOpen} 

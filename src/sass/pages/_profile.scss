@@ -4,6 +4,23 @@
 .experiences {
     margin-bottom: 30px;
 }
+.banner {
+  @include flex-column-center;
+  margin-bottom: 2rem;
+  img {
+    max-width: 300px;
+    width: 100%;
+  }
+  .intro-profile {
+  text-align: justify;
+}
+}
+
+.dim {
+  text-align: center;
+  margin: 2rem auto;
+}
+
 
 .technos {
   @include flex-row-center;
