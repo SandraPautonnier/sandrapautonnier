@@ -1,0 +1,42 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+
+    thead tr {
+      display: none;
+    }
+
+    tbody tr {
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+    }
+
+    tbody td {
+      padding-left: 50%;
+      position: relative;
+      border: none;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &::before {
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        width: 45%;
+        white-space: nowrap;
+        font-weight: 600;
+        color: #333;
+        content: attr(data-label);
+      }
+    }
+}

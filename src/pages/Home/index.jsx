@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import ContactModal from "../../components/ContactModal";
 import loader from "../../components/Loader";
+import Sp from "../../assets/images/SP.png";
 import Sandra1 from '../../assets/images/sandra1.png';
 import Cv from '../../assets/pdf/CV-Sandra-Pautonnier.pdf';
 import AgeCalculator from "../../features/AgeCalculator";
@@ -16,10 +17,11 @@ import useThemeStore from "../../store/useThemeStore";
 import Carousel from "../../features/Carousel";
 import HookWorks from "../../assets/content/works.json";
 import Services from "../../assets/content/services.json";
+import Meta from "../../components/Meta";
 
 
 const Home = () => {
-  const loading = loader(900);
+  
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -34,6 +36,7 @@ const Home = () => {
       'fa-wrench': faWrench
     };
 
+  /*const loading = loader(900);
 
   if (loading) {
     return ( 
@@ -42,10 +45,16 @@ const Home = () => {
           <p>Chargement...</p>
       </div>
     );
-  };
+  };*/
 
   return (
     <div className="background-image" style={{background: `url(${isDarkMode ? BgDark : BgLight}) no-repeat center/cover`, height: '100%', minHeight: '100vh'}}> 
+      <Meta 
+        title="Accueil - Développeuse Web fullstack" 
+        description="Développeuse web fullstack freelance spécialisée en React & Node. Création de sites performants, modernes et sur-mesure." 
+        image={Sandra1} 
+        favicon={Sp}
+      />
       <div className='background-color'>
         <div className="header-main">
           <header>

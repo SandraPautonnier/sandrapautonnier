@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import Meta from "../../components/Meta";
+import Sp from "../../assets/images/SP.png";
+import Sandra1 from '../../assets/images/sandra1.png';
+import Sandra from '../../assets/images/sandra.png';
 import Sandra3 from '../../assets/images/Sandra3.png';
 import ContactModal from "../../components/ContactModal";
 import Skills from '../Sections/Skills';
@@ -22,6 +26,12 @@ const Profile = () => {
 
   return (
     <div className="background-image" style={{background: `url(${isDarkMode ? BgDark : BgLight}) no-repeat center/cover`, height: '100%', minHeight: '100vh'}}> 
+        <Meta 
+            title="Profil - Développeuse Web fullstack" 
+            description="Développeuse web fullstack freelance spécialisée en React & Node. Création de sites performants, modernes et sur-mesure." 
+            image={Sandra1} 
+            favicon={Sp}
+        />
         <div className='background-color'>
             <div className="header-main">
                 <header>
@@ -49,19 +59,19 @@ const Profile = () => {
                     <section>
                         <h2>Mon parcours</h2>
                         <div className='container-mobile'>
-                            <div className="insert cer certificate1">
+                            <div className="card insert cer certificate1">
                                 <span>2008-2010</span>
                                 <h3>BEP Métiers de la Mode</h3>
                                 </div>  
-                            <div className="insert cer certificate2">
+                            <div className="card insert cer certificate2">
                                 <span>2012-2014</span>
                                 <h3>BAC PRO Commerce</h3>
                                 </div>
-                            <div className="insert exp experience1">
+                            <div className="card insert exp experience1">
                                 <span>2014-2016</span>
                                 <h3>Vendeuse Prêt-à-porter</h3>
                                 <p>Noz - Sergent Major</p></div>
-                            <div className="insert exp experience2">
+                            <div className="card insert exp experience2">
                                 <span>2016-2017</span>
                                 <h3>Chef de projet évenementiel</h3>
                                 <p>Service civique : Mission autonome de A à Z</p></div>
@@ -69,10 +79,10 @@ const Profile = () => {
                                 <span>2021-2024</span>
                                 <h3>Chargé de projets</h3>
                                 <p>Enedis</p></div>
-                            <div className="insert cer certificate4">
+                            <div className="card insert cer certificate4">
                                 <span>2024-2025</span>
                                 <h3>Titre RNCP Développeur informatique</h3></div>
-                            <div className="insert exp experience5">
+                            <div className="cardinsert exp experience5">
                                 <span>2025-auj.</span>
                                 <h3>Développeuse web full stack</h3>
                                 <p>Freelance</p></div>
@@ -82,49 +92,61 @@ const Profile = () => {
                                 <span>2021-2024</span>
                                 <h3>Chargé de projets</h3>
                                 <p>Enedis</p></div>
-                            <div className="insert exp experience3">
+                            <div className="card insert exp experience3">
                                 <span>2018-2021</span>
                                 <h3>Assistante administrative et technique</h3>
                                 <p>Université du Mans</p></div>
-                            <div className="insert per personal1">
+                            <div className="card insert per personal1">
                                 <span>2010</span>
                                 <h3>Médaillée d'argent au concours départemental du meilleur apprenti de France</h3>
                                 </div>
-                            <div className="insert cer certificate1">
+                            <div className="card insert cer certificate1">
                                 <span>2008-2010</span>
                                 <h3>BEP Métiers de la Mode</h3>
                                 </div>
-                            <div className="insert per personal2">
+                            <div className="card insert per personal2">
                                 <span>2014</span>
                                 <h3>Dessins / Peintures</h3></div>
-                            <div className="insert cer certificate2">
+                            <div className="card insert cer certificate2">
                                 <span>2012-2014</span>
                                 <h3>BAC PRO Commerce</h3>
                                 </div>
-                            <div className="insert exp experience1">
+                            <div className="card insert exp experience1">
                                 <span>2014-2016</span>
                                 <h3>Vendeuse Prêt-à-porter</h3>
                                 <p>Noz - Sergent Major</p></div>
-                            <div className="insert exp experience2">
+                            <div className="card insert exp experience2">
                                 <span>2016-2017</span>
                                 <h3>Chef de projet évenementiel</h3>
                                 <p>Service civique : Mission autonome de A à Z</p></div>
-                            <div className="insert cer certificate3">
+                            <div className="card insert cer certificate3">
                                 <span>2017-2020</span>
                                 <h3>BTS Support à l'action managériale</h3></div>
-                            <div className="insert per personal3">
+                            <div className="card insert per personal3">
                                 <span>2018-auj.</span>
                                 <h3>Créatrice de contenu jeux-vidéo</h3></div>
-                            <div className="insert per personal4">
+                            <div className="card insert per personal4">
                                 <span>2021-2024</span>
                                 <h3>Projets web</h3></div>
-                            <div className="insert exp experience5">
+                            <div className="card insert exp experience5">
                                 <span>2025-auj.</span>
                                 <h3>Développeuse web full stack</h3>
                                 <p>Freelance</p></div>
-                            <div className="insert cer certificate4">
+                            <div className="card insert cer certificate4">
                                 <span>2024-2025</span>
                                 <h3>Titre RNCP Développeur informatique</h3></div>
+                        </div>
+                    </section>
+                    <section className="success">
+                        <h2>Mes réussites</h2>
+                        <div className="container-img-success">
+                            <img src={Sandra} alt="Sandra" />
+                            <ul className="container-success">
+                                <li><span className="bold">2010 :</span> Dans le domaine des Métiers de la Mode, j'ai été médaillée d'argent au concours départementale du Meilleur Apprenti de France.</li>
+                                <li><span className="bold">2017 :</span> Lors de mon service civique, j'ai organisé un séminaire de A à Z avec 5 établissements scolaires et des associations sur les thèmes du harcèlement scolaire et du décrochage scolaire.</li>
+                                <li><span className="bold">2021 :</span> Lors d'un évènement caritatif sur ma chaîne Twitch, j'ai récolté 1477€ pour l'association Endofrance.</li>
+                                <li><span className="bold">2023 :</span> Chez Enedis, j'ai été l'interlocutrice et référente de l'ACO (Automobile Club de l'Ouest) pour le centenaire des 24h du Mans (Bornes fixes).</li>
+                            </ul>
                         </div>
                     </section>
                 </main>

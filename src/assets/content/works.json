@@ -1,18 +1,5 @@
 [
     {
-        "id": 1,
-        "titlework": "sukana",
-        "description": "En 2021, j'ai commencé à m'intéresser réellement au monde du web. J'ai ressenti ce besoin de créer.\n En parallèle, étant streameuse sur Twitch, il était important de centraliser mon contenu sur un support unique.\n C'est donc, sans connaissances approfondies, que je me suis lancée dans ce projet WordPress avec Elementor.",
-        "cover": "https://gentle-pony-095b6f.netlify.app/sukana.png",
-        "category": "Wordpress",
-        "link": "https://sukana.fr",
-        "language": [
-            "Wordpress",
-            ""
-        ],
-        "tools": "Elementor"
-    },
-    {
         "id": 2,
         "titlework": "Kasa",
         "description": "Kasa est un projet fictif d'Openclassrooms représentant une entreprise de location d'appartements entre particuliers. J'ai développé le front-end de cette application en utilisant React et React Router pour une navigation fluide entre les pages. En suivant des maquettes et en manipulant des données simulées depuis un fichier JSON, j'ai conçu une interface réactive et moderne. J'ai initialisé le projet avec Create App React.",
