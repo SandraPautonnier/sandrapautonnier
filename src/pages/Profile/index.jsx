@@ -7,6 +7,7 @@ import Sp from "../../assets/images/SP.png";
 import Sandra1 from '../../assets/images/sandra1.png';
 import Sandra from '../../assets/images/sandra.png';
 import Sandra3 from '../../assets/images/Sandra3.png';
+import Coupe from '../../assets/images/coupe.png';
 import ContactModal from "../../components/ContactModal";
 import Skills from '../Sections/Skills';
 import BgDark from "../../assets/images/Background-image-dark.png";
@@ -140,7 +141,7 @@ const Profile = () => {
                     <section className="success">
                         <h2>Mes réussites</h2>
                         <div className="container-img-success">
-                            <img src={Sandra} alt="Sandra" />
+                            <img src={Coupe} alt="Coupe de réussite" />
                             <ul className="container-success">
                                 <li><span className="bold">2010 :</span> Dans le domaine des Métiers de la Mode, j'ai été médaillée d'argent au concours départementale du Meilleur Apprenti de France.</li>
                                 <li><span className="bold">2017 :</span> Lors de mon service civique, j'ai organisé un séminaire de A à Z avec 5 établissements scolaires et des associations sur les thèmes du harcèlement scolaire et du décrochage scolaire.</li>

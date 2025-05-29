@@ -1056,13 +1056,14 @@ table th {
 @media (min-width: 800px) {
   .success .container-img-success {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    width: 100%;
   }
 }
 .success .container-img-success img {
-  max-width: 400px;
+  display: flex;
   width: 100%;
+  box-sizing: content-box;
+  max-width: 400px;
 }
 .success .container-img-success .container-success li {
   padding: 10px;

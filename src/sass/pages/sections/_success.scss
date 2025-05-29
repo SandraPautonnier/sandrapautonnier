@@ -6,11 +6,15 @@
         box-sizing: border-box;
         width: 100%;
         @media (min-width: 800px) {
-            @include flex-space-between;
+            display: flex;
+            width: 100%;
         }
         img {
-            max-width: 400px;
+            display: flex;
             width: 100%;
+            box-sizing: content-box;
+            max-width: 400px;
+            
         }
         .container-success {
             li {
