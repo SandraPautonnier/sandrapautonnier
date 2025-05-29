@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from "react-router-dom";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import Ordinateur from '../../assets/images/ordinateur.png';
 import Meta from "../../components/Meta";
 import Sp from "../../assets/images/SP.png";
 import Sandra1 from '../../assets/images/sandra1.png';
@@ -33,13 +34,11 @@ const Portfolio = () => {
             <div className="header-main">
                 <header>
                     <Navbar openModal={openModal}/>
+                        <div className='banner'>
+                        </div>                    
                 </header>
                 <main>
                     <Works />
-                    {/*<section>
-                        <h2>Mes Snippets</h2>
-                    </section>*/}
-                    
                 </main>
             </div>
             <Link to="/services" className="btn dim">Voir mes prestations</Link>

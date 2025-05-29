@@ -697,6 +697,7 @@ form div textarea {
 .banner img {
   max-width: 300px;
   width: 100%;
+  margin-top: 30px;
 }
 .banner .intro-profile {
   text-align: justify;
@@ -1048,10 +1049,13 @@ table th {
 
 .success {
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .success .container-img-success {
   box-sizing: border-box;
   width: 100%;
+  align-items: center;
 }
 @media (min-width: 800px) {
   .success .container-img-success {
@@ -1060,10 +1064,10 @@ table th {
   }
 }
 .success .container-img-success img {
-  display: flex;
   width: 100%;
-  box-sizing: content-box;
   max-width: 400px;
+  margin: 0 auto;
+  display: block;
 }
 .success .container-img-success .container-success li {
   padding: 10px;

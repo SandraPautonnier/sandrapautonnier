@@ -83,7 +83,7 @@ const Profile = () => {
                             <div className="card insert cer certificate4">
                                 <span>2024-2025</span>
                                 <h3>Titre RNCP Développeur informatique</h3></div>
-                            <div className="cardinsert exp experience5">
+                            <div className="card insert exp experience5">
                                 <span>2025-auj.</span>
                                 <h3>Développeuse web full stack</h3>
                                 <p>Freelance</p></div>

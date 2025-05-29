@@ -2,19 +2,21 @@
 
 .success {
     width: 100%;
+    display: flex;
+    flex-direction: column;
     .container-img-success {
         box-sizing: border-box;
         width: 100%;
+        align-items: center;
         @media (min-width: 800px) {
             display: flex;
             width: 100%;
         }
         img {
-            display: flex;
             width: 100%;
-            box-sizing: content-box;
             max-width: 400px;
-            
+            margin: 0 auto;
+            display: block;
         }
         .container-success {
             li {
