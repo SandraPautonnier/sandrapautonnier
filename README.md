@@ -40,9 +40,6 @@ Après un parcours riche en travail social, commerce et gestion de projets, je m
 
 ## 💼 Projets récents
 
-- **🧾 Qwenta – Menu Maker**  
-  App React avec Redux Toolkit pour restaurants : création de menus PDF, CRUD, auth, déploiement Vercel.
-
 - **🎠 Carrousel dynamique**  
   Galerie d’images animée avec React, navigation fluide & accessibilité.
 
