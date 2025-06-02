@@ -1,51 +1,74 @@
-👋 Bienvenue sur mon profil GitHub !
+<h1 align="center">👋 Bienvenue sur mon profil GitHub !</h1>
 
-🧑‍💻 Qui suis-je ?  
-Je m'appelle **Sandra Pautonnier**, développeuse web **fullstack** en freelance. Après un parcours riche en travail social, commerce et gestion de projets, je me suis reconvertie dans le développement web, où je mets à profit ma curiosité, ma créativité et mon autonomie.
+<p align="center">
+  <strong>Développeuse web fullstack en freelance</strong><br />
+  Curieuse • Autonome • Polyvalente • Orientée solution
+</p>
 
-🎯 Objectif : Créer des solutions web modernes, accessibles et efficaces pour les petites entreprises et entrepreneurs.
+---
 
-🌟 Mes qualités  
-💡 Curieuse • Autonome • Polyvalente • Orientée solution
+## 🧑‍💻 Qui suis-je ?
 
-💼 Projets récents  
-- **Qwenta – Menu Maker** : Application React avec Redux Toolkit pour générer des menus personnalisés pour restaurants (auth, CRUD, PDF, déploiement Vercel).  
-- **Carrousel dynamique** : Galerie animée en React avec navigation fluide.  
-- **Site Portfolio** : [sandrapautonnier.com](https://sandrapautonnier.com) (React, responsive, SEO de base).  
-- **Boutique d’art personnalisée (en cours)** : Interface client + interface artiste, paiement, favoris, tableaux de bord.
+Je m'appelle **Sandra Pautonnier**, développeuse web **fullstack** en freelance.  
+Après un parcours riche en travail social, commerce et gestion de projets, je me suis reconvertie dans le développement web. Je conçois des sites modernes, intuitifs et performants pour les petites entreprises et entrepreneurs.
 
-📂 Technologies et outils  
+🎯 **Objectif :** créer des expériences web utiles, accessibles et bien pensées.
 
-🌐 Langages & Frameworks  
-- HTML5 / CSS3  
-- JavaScript (ES6+)  
-- React (CRA / Vite, Redux, Zustand)  
-- Node.js / Express (en cours d’approfondissement)  
+---
+
+## 🛠️ Compétences techniques
+
+### 🌐 Front-end
+- HTML5 / CSS3
+- JavaScript (ES6+)
+- React (CRA / Vite)
+- Redux / Zustand
+
+### 🧩 Back-end (en cours de consolidation)
+- Node.js / Express
 - MongoDB / Mongoose
+- Authentification (JWT / OAuth)
+- Intégration d'APIs tierces (paiement, email...)
 
-🛠️ Outils & bonnes pratiques  
-- Git & GitHub  
-- Figma (UI/UX & prototypage)  
-- Vercel / Netlify / GitHub Pages  
-- Trello / Notion pour la gestion de projets
-
-📈 GitHub Stats  
-<!-- Tu peux activer les widgets type "GitHub Readme Stats" ici si tu veux -->
-
-📫 Contact  
-💌 Email : sandra.pautonnier@gmail.com  
-💼 LinkedIn : [Profil LinkedIn](https://www.linkedin.com/in/sandrapautonnier)  
+### 🧰 Outils & Méthodes
+- Git & GitHub
+- Figma (UI/UX design & prototypage)
+- Vercel / Netlify / GitHub Pages
+- Trello / Notion (gestion de projets)
 
 ---
 
-Merci d’avoir visité mon profil ! 🚀  
-N’hésitez pas à explorer mes projets ou à me contacter pour collaborer ou échanger.  
+## 💼 Projets récents
 
+- **🧾 Qwenta – Menu Maker**  
+  App React avec Redux Toolkit pour restaurants : création de menus PDF, CRUD, auth, déploiement Vercel.
 
-## 📫 Contactez-moi
-💌 **Email** : sandra.pautonnier@gmail.com  
-💼 **LinkedIn** : [Profil LinkedIn](https://www.linkedin.com/in/sandra-pautonnier)  
+- **🎠 Carrousel dynamique**  
+  Galerie d’images animée avec React, navigation fluide & accessibilité.
+
+- **🌐 Portfolio**  
+  [sandrapautonnier.com](https://sandrapautonnier.com) – Mon site pro (React, responsive, SEO friendly).
+
+- **🖼️ Boutique d’art (en cours)**  
+  Site e-commerce personnalisé : interface client/artiste, favoris, paiement, tableaux de bord.
 
 ---
 
-Merci d’avoir visité mon profil ! N’hésitez pas à explorer mes projets ou à me contacter pour discuter. 🚀
+## 📊 GitHub Stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=sandrapautonnier&show_icons=true&theme=tokyonight&hide=contribs&count_private=true" alt="Sandra's GitHub stats" height="165" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sandrapautonnier&layout=compact&theme=tokyonight" alt="Top Langages" height="165" />
+</p>
+
+---
+
+## 📫 Me contacter
+
+- 💌 Email : [sandra.pautonnier@gmail.com](mailto:sandra.pautonnier@gmail.com)  
+- 💼 LinkedIn : [Profil LinkedIn](https://www.linkedin.com/in/sandrapautonnier)
+
+---
+
+<p align="center">Merci d’avoir visité mon profil !<br />
+N’hésitez pas à explorer mes projets ou à me contacter pour échanger ou collaborer. 🚀</p>
