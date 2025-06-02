@@ -1,43 +1,46 @@
-# 👋 Bienvenue sur mon profil GitHub !
+👋 Bienvenue sur mon profil GitHub !
 
-## 🧑‍💻 Qui suis-je ?
-Je m'appelle Sandra Pautonnier, actuellement en formation **Web Intégrateur** (niveau Bac+2). Avec une expérience professionnelle riche en **travail social**, **commerce**, et **gestion de projets**, je me lance dans une nouvelle aventure dans le domaine du développement web et de l'intégration.
+🧑‍💻 Qui suis-je ?  
+Je m'appelle **Sandra Pautonnier**, développeuse web **fullstack** en freelance. Après un parcours riche en travail social, commerce et gestion de projets, je me suis reconvertie dans le développement web, où je mets à profit ma curiosité, ma créativité et mon autonomie.
 
-- 🌟 **Qualités** : Curieuse, autonome, passionnée par l'apprentissage et l'innovation.  
-- 🌱 **Actuellement en apprentissage** : React, JavaScript, et des bonnes pratiques en intégration web.  
-- 💼 **Projets récents** : Création de carrousels dynamiques, filtres de catégories, gestion de modales et déploiement GitHub Pages.
+🎯 Objectif : Créer des solutions web modernes, accessibles et efficaces pour les petites entreprises et entrepreneurs.
+
+🌟 Mes qualités  
+💡 Curieuse • Autonome • Polyvalente • Orientée solution
+
+💼 Projets récents  
+- **Qwenta – Menu Maker** : Application React avec Redux Toolkit pour générer des menus personnalisés pour restaurants (auth, CRUD, PDF, déploiement Vercel).  
+- **Carrousel dynamique** : Galerie animée en React avec navigation fluide.  
+- **Site Portfolio** : [sandrapautonnier.com](https://sandrapautonnier.com) (React, responsive, SEO de base).  
+- **Boutique d’art personnalisée (en cours)** : Interface client + interface artiste, paiement, favoris, tableaux de bord.
+
+📂 Technologies et outils  
+
+🌐 Langages & Frameworks  
+- HTML5 / CSS3  
+- JavaScript (ES6+)  
+- React (CRA / Vite, Redux, Zustand)  
+- Node.js / Express (en cours d’approfondissement)  
+- MongoDB / Mongoose
+
+🛠️ Outils & bonnes pratiques  
+- Git & GitHub  
+- Figma (UI/UX & prototypage)  
+- Vercel / Netlify / GitHub Pages  
+- Trello / Notion pour la gestion de projets
+
+📈 GitHub Stats  
+<!-- Tu peux activer les widgets type "GitHub Readme Stats" ici si tu veux -->
+
+📫 Contact  
+💌 Email : sandra.pautonnier@gmail.com  
+💼 LinkedIn : [Profil LinkedIn](https://www.linkedin.com/in/sandrapautonnier)  
 
 ---
 
-## 📂 Mes projets
-Voici quelques exemples de ce sur quoi j'ai travaillé récemment :
+Merci d’avoir visité mon profil ! 🚀  
+N’hésitez pas à explorer mes projets ou à me contacter pour collaborer ou échanger.  
 
-- 🔗 [**Kasa**](https://sandrapautonnier.github.io/kasa) : Une application React déployée sur GitHub Pages.  
-- 🎨 **Carrousel dynamique** : Projet interactif avec animation et gestion des événements utilisateurs.  
-- 🛠️ **Portfolio** : [Lien vers mon portfolio en construction](https://github.com/SandraPautonnier/sandrapautonnier).
-
----
-
-## 🌐 Technologies et outils
-Voici les outils et technologies avec lesquels je travaille :
-
-### 🌟 Langages et frameworks
-- **HTML5** / **CSS3**  
-- **JavaScript** (ES6+)  
-- **React** (CRA et Vite / Redux)
-
-### 🛠️ Outils
-- **Git & GitHub**  
-- **Figma** (pour le design et le prototypage)  
-- **Netlify / GitHub Pages** (pour le déploiement)  
-
----
-
-## 📈 Statistiques GitHub
-![Sandra's GitHub stats](https://github-readme-stats.vercel.app/api?username=SandraPautonnier&show_icons=true&theme=radical)  
-![Top Langages](https://github-readme-stats.vercel.app/api/top-langs/?username=SandraPautonnier&layout=compact&theme=radical)
-
----
 
 ## 📫 Contactez-moi
 💌 **Email** : sandra.pautonnier@gmail.com  
