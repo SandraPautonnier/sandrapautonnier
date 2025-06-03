@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import ContactModal from "../../components/ContactModal";
+import LoadingScreen from "../../components/Loader";
 import Sandra1 from '../../assets/images/sandra1.png';
 import Cv from '../../assets/pdf/CV-Sandra-Pautonnier.pdf';
 import AgeCalculator from "../../features/AgeCalculator";
@@ -40,6 +41,7 @@ const Home = () => {
         title="Accueil - Développeuse Web fullstack" 
         description="Développeuse web fullstack freelance spécialisée en React & Node. Création de sites performants, modernes et sur-mesure."  
       />
+      <LoadingScreen/>
       <div className='background-color'>
         <div className="header-main">
           <header>

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from "react-router-dom";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import LoadingScreen from "../../components/Loader";
 import Meta from "../../components/Meta";
 import ContactModal from "../../components/ContactModal";
 import Works from "../Sections/Works";
@@ -25,6 +26,7 @@ const Portfolio = () => {
             title="Portfolio - Développeuse Web fullstack" 
             description="Développeuse web fullstack freelance spécialisée en React & Node. Création de sites performants, modernes et sur-mesure." 
         />
+        <LoadingScreen/>
         <div className='background-color'>
             <div className="header-main">
                 <header>

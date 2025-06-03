@@ -45,13 +45,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </StrictMode>
 );
 
-// Supprimer le preloader une fois que React est prêt
 const preloader = document.getElementById('preloader');
 if (preloader) {
   preloader.classList.add('fade-out');
 
-  // Attendre la fin de l'animation puis retirer du DOM
   setTimeout(() => {
     preloader.remove();
-  }, 400); // même durée que la transition
+  }, 400); 
 }

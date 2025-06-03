@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Meta from "../../components/Meta";
-import Sp from "../../assets/images/SP.png";
-import Sandra1 from '../../assets/images/sandra1.png';
+import LoadingScreen from "../../components/Loader";
 import ContactModal from "../../components/ContactModal";
 import BgDark from "../../assets/images/Background-image-dark.png";
 import BgLight from "../../assets/images/Background-image-light.png";
@@ -25,6 +24,7 @@ const Services = () => {
             title="Prestations - Développeuse Web fullstack" 
             description="Développeuse web fullstack freelance spécialisée en React & Node. Création de sites performants, modernes et sur-mesure." 
         />
+        <LoadingScreen/>
         <div className='background-color'>
             <div className="header-main">
                 <header>
