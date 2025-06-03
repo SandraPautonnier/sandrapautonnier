@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-function Meta({ title, description, image, favicon }) {
+function Meta({ title, description }) {
   useEffect(() => {
     // Modifier le titre
     if (title) {
