@@ -2,10 +2,7 @@ import { useState } from 'react';
 import { Link } from "react-router-dom";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import Ordinateur from '../../assets/images/ordinateur.png';
 import Meta from "../../components/Meta";
-import Sp from "../../assets/images/SP.png";
-import Sandra1 from '../../assets/images/sandra1.png';
 import ContactModal from "../../components/ContactModal";
 import Works from "../Sections/Works";
 import BgDark from "../../assets/images/Background-image-dark.png";
@@ -39,7 +36,7 @@ const Portfolio = () => {
                     <Works />
                 </main>
             </div>
-            <Link to="/services" className="btn dim">Voir mes prestations</Link>
+            <Link to="/services" className="btn dim">Voir les prestations</Link>
             <Footer openModal={openModal}/>
             <ContactModal 
                 isOpen={isModalOpen} 

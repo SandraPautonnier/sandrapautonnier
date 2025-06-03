@@ -1,17 +1,30 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useRef } from 'react';
+import '../../sass/layout/_loader.scss';
 
-const Loader = (delay = 900) => {
-    const [loading, setLoading] = useState(true);
+const LoadingScreen = () => {
+  const screenRef = useRef(null);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-          setLoading(false);
-        }, delay);
-    
-        return () => clearTimeout(timer);
-    }, [delay]);
+  useEffect(() => {
+    const handleLoad = () => {
+      if (screenRef.current) {
+        screenRef.current.classList.add('fondu-out');
+      }
+    };
 
-  return loading;
-}
+    window.addEventListener('load', handleLoad);
 
-export default Loader;
+    return () => {
+      window.removeEventListener('load', handleLoad);
+    };
+  }, []);
+
+  return (
+    <div className="loading-screen" ref={screenRef}>
+      <div className="loader"></div>
+      <p>Chargement...</p>
+    </div>
+  );
+};
+
+export default LoadingScreen;
+

@@ -1,5 +1,5 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import ReactDOM, { createRoot } from 'react-dom/client'
 import './index.css'
 import {
   createBrowserRouter,
@@ -39,8 +39,19 @@ const router = createBrowserRouter([
   },
 ]);
 
-createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />
   </StrictMode>
 );
+
+// Supprimer le preloader une fois que React est prêt
+const preloader = document.getElementById('preloader');
+if (preloader) {
+  preloader.classList.add('fade-out');
+
+  // Attendre la fin de l'animation puis retirer du DOM
+  setTimeout(() => {
+    preloader.remove();
+  }, 400); // même durée que la transition
+}

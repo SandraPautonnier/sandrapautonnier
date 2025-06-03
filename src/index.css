@@ -153,6 +153,8 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   display: none;
 }
 
+/*@import "../utils/variables";
+
 .loading-screen {
   display: flex;
   flex-direction: column;
@@ -160,6 +162,51 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   justify-content: center;
   min-height: 100vh;
   background-color: #121212;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid $main-color;
+  border-top: 5px solid $dark-text;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-screen p {
+  margin-top: 10px;
+  text-align: center;
+  color: $dark-text;
+}
+
+.fondu-out {
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+*/
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #121212;
+  transition: opacity 0.4s ease-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
 }
 
 .loader {
@@ -183,6 +230,11 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   margin-top: 10px;
   text-align: center;
   color: #E3DAFF;
+}
+
+.fondu-out {
+  opacity: 0;
+  pointer-events: none;
 }
 
 body.light-mode .background-color {
@@ -700,7 +752,7 @@ form div textarea {
   margin-top: 30px;
 }
 .banner .intro-profile {
-  text-align: justify;
+  text-align: start;
 }
 
 .dim {

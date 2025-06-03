@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from "react-router-dom";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Meta from "../../components/Meta";
-import Sp from "../../assets/images/SP.png";
-import Sandra1 from '../../assets/images/sandra1.png';
-import Sandra from '../../assets/images/sandra.png';
 import Sandra3 from '../../assets/images/Sandra3.png';
 import Coupe from '../../assets/images/coupe.png';
 import ContactModal from "../../components/ContactModal";
