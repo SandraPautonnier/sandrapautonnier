@@ -27,8 +27,6 @@ const Portfolio = () => {
         <Meta 
             title="Portfolio - Développeuse Web fullstack" 
             description="Développeuse web fullstack freelance spécialisée en React & Node. Création de sites performants, modernes et sur-mesure." 
-            image={Sandra1} 
-            favicon={Sp}
         />
         <div className='background-color'>
             <div className="header-main">

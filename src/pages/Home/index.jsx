@@ -51,9 +51,7 @@ const Home = () => {
     <div className="background-image" style={{background: `url(${isDarkMode ? BgDark : BgLight}) no-repeat center/cover`, height: '100%', minHeight: '100vh'}}> 
       <Meta 
         title="Accueil - Développeuse Web fullstack" 
-        description="Développeuse web fullstack freelance spécialisée en React & Node. Création de sites performants, modernes et sur-mesure." 
-        image={Sandra1} 
-        favicon={Sp}
+        description="Développeuse web fullstack freelance spécialisée en React & Node. Création de sites performants, modernes et sur-mesure."  
       />
       <div className='background-color'>
         <div className="header-main">
