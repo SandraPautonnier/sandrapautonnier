@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import Meta from "../../components/Meta";
+import Sandra from '../../assets/images/Sandra.png';
+import Meta from "../../components/Meta"; 
 import LoadingScreen from "../../components/Loader";
 import ContactModal from "../../components/ContactModal";
 import BgDark from "../../assets/images/Background-image-dark.png";
@@ -29,14 +30,17 @@ const Services = () => {
             <div className="header-main">
                 <header>
                     <Navbar openModal={openModal}/>
+                    <div className='banner'>
+                        <img src={Sandra} alt="" />
+                        <h2>Offre de lancement</h2>
+                        <div className="card profile">
+                            <p>💡 Idéal pour se lancer avec un petit budget :</p>
+                            <p><strong>Site vitrine 4 pages + SEO de base + formulaire de contact → 450 € TTC</strong></p>
+                        </div>
+                    </div>
                 </header>
                 <main>
                     <Tarifaire/>
-                    <section>
-                        <h3>Forfait de lancement</h3>
-                        <p>💡 Idéal pour se lancer avec un petit budget :</p>
-                        <p><strong>Site vitrine 4 pages + SEO de base + formulaire de contact → 450 € TTC</strong></p>
-                    </section>
                     <section>
                         <h3>Infos utiles :</h3>
                         <ul>

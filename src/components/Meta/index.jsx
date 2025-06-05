@@ -2,12 +2,11 @@ import { useEffect } from 'react';
 
 function Meta({ title, description }) {
   useEffect(() => {
-    // Modifier le titre
+
     if (title) {
       document.title = title;
     }
 
-    // Modifier ou créer la meta description
     if (description) {
       let metaDescription = document.querySelector('meta[name="description"]');
       if (metaDescription) {
@@ -21,7 +20,7 @@ function Meta({ title, description }) {
     }
   }, [title, description]);
 
-  return null; // Ne rend rien
+  return null; 
 }
 
 export default Meta;

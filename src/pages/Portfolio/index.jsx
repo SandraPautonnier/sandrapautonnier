@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from "react-router-dom";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import Docs from '../../assets/images/Portfolio.svg';
 import LoadingScreen from "../../components/Loader";
 import Meta from "../../components/Meta";
 import ContactModal from "../../components/ContactModal";
@@ -32,6 +33,7 @@ const Portfolio = () => {
                 <header>
                     <Navbar openModal={openModal}/>
                         <div className='banner'>
+                            <img src={Docs} alt="" />
                         </div>                    
                 </header>
                 <main>

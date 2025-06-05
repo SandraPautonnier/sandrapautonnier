@@ -118,7 +118,6 @@ const Home = () => {
                     <p>{Service.description}</p>
                   </div>
                 ))}
-                
               </div>
               <Link to="/services" className="btn">Voir les tarifs</Link>
               <p className="catch">Flexible, moderne et humaine. C’est ça, le sur-mesure.</p>

@@ -5,7 +5,7 @@ import Footer from '../../components/Footer';
 import Meta from "../../components/Meta";
 import LoadingScreen from "../../components/Loader";
 import Sandra3 from '../../assets/images/Sandra3.png';
-import Coupe from '../../assets/images/coupe.png';
+import Coupe from '../../assets/images/coupe.svg';
 import ContactModal from "../../components/ContactModal";
 import Skills from '../Sections/Skills';
 import BgDark from "../../assets/images/Background-image-dark.png";

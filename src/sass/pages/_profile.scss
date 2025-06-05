@@ -24,6 +24,64 @@
   display: flex;
 }
 
+.skills {
+    margin-bottom: 30px;
+    .container-card-skills {
+        margin: 20px 0;
+        gap: 20px;
+        @include flex-column-center;
+        @media (min-width: 800px) {
+            @include grid-2;
+        } 
+        .skills {
+            display: flex;
+            box-sizing: border-box;
+            @include flex-column-center;
+            justify-content: center;
+            font-size: 15px;
+            border-radius: 20px;
+            height: 300px;
+            width: 100%;
+            margin: 0;
+            padding: 0 20px;
+            
+            @media (min-width: 550px) {
+                height: 220px;
+            }
+            @media (min-width: 800px) {
+                height: 320px;
+                font-size: 16px;
+            }
+            @media (min-width: 1200px) {
+                height: 300px;
+                font-size: 17px;
+                text-align: center;
+                
+            }
+            .traingle1 {
+                width:50px;
+                height: 50px;
+                background-color: black;
+                position: absolute;
+            }
+            .li-skills {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                @media (min-width: 590px) {
+                    align-items: center;
+                }
+                @media (min-width: 800px) {
+                    align-items: start;
+                }
+                @media (min-width: 1200px) {
+                    align-items: center;
+                    
+                }
+            }
+        }
+    }
+}
 
 .technos {
   @include flex-row-center;
@@ -98,4 +156,33 @@ svg {
   p {
     font-size: 10px;
   }
+}
+
+.success {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .container-img-success {
+        box-sizing: border-box;
+        width: 100%;
+        align-items: center;
+        @media (min-width: 800px) {
+            display: flex;
+            width: 100%;
+        }
+        img {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            display: block;
+        }
+        .container-success {
+            li {
+                padding: 10px;
+                @media (min-width: 1200px) {
+                    font-size: 18px;
+                }
+            }
+        }
+    }
 }
