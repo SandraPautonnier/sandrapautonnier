@@ -27,7 +27,6 @@ const Works = () => {
 
   return (
     <section className="works" id="portfolio">
-      <h2>Mes projets</h2>
       {/* Menu déroulant pour sélectionner une catégorie */}
       <div className="filter">
         <label htmlFor="category-select">Filtrer par catégorie : </label>

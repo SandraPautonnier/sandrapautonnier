@@ -35,10 +35,10 @@ const Profile = () => {
                 <header>
                     <Navbar openModal={openModal}/>
                     <div className='banner'>
-                        <img src={Sandra3} alt="Sandra" />
+                        <img src={Sandra3} alt="Photo de Sandra" />
                         <h2>A propos de moi</h2>
-                        <div className="card profile">
-                        <p className='intro-profile'>Développeuse web fullstack, je conçois des applications modernes avec <strong>React</strong>, <strong>Node.js</strong> et <strong>MongoDB</strong>, en veillant à créer des interfaces à la fois fluides, intuitives et centrées utilisateur.<br></br>
+                        <div className="card card-banner">
+                        <p className='intro'>Développeuse web fullstack, je conçois des applications modernes avec <strong>React</strong>, <strong>Node.js</strong> et <strong>MongoDB</strong>, en veillant à créer des interfaces à la fois fluides, intuitives et centrées utilisateur.<br></br>
                         Avant de plonger dans le code, j’ai exploré des univers très variés : <strong>la couture</strong>, où j’ai appris la précision et le sens du détail ; <strong>le commerce</strong>, qui m’a donné le goût de l’organisation et du contact humain ; <strong>la gestion de projet</strong> et <strong>la communication</strong>, qui m’ont permis de structurer ma pensée, de collaborer efficacement et de raconter des histoires claires et engageantes.<br></br>
                         Aujourd’hui, je mets toute cette richesse au service du développement web. <strong>Curieuse</strong>, <strong>autonome</strong> et toujours en quête de sens, je m’épanouis dans les projets qui allient technique, créativité et utilité.<br></br> 
                         Mon ambition : continuer à apprendre, à expérimenter et à créer des outils numériques qui ont de l’impact.</p>

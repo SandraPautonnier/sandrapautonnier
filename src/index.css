@@ -172,7 +172,7 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
 .loader {
   width: 50px;
   height: 50px;
-  border: 5px solid #8C52FF;
+  border: 5px solid #7F45ED;
   border-top: 5px solid #E3DAFF;
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -227,7 +227,7 @@ body.light-mode .background-color .nav-ul .nav-li .active {
   transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
 }
 body.light-mode .background-color .bar {
-  background-color: #8C52FF;
+  background-color: #7F45ED;
 }
 body.light-mode .background-color .buttons-social {
   color: #F9F9FB;
@@ -237,8 +237,8 @@ body.light-mode .background-color button.toggle-button {
   border: 1px solid transparent;
   padding: 6px 8px;
   font-size: 15px;
-  background-color: #8C52FF;
-  color: #E3DAFF;
+  background-color: #7F45ED;
+  color: white;
 }
 body.light-mode .background-color .card {
   background-color: #F2EFFF;
@@ -279,14 +279,14 @@ body.light-mode .background-color .modal-content input, body.light-mode .backgro
   color: #723AD7;
 }
 body.light-mode .background-color .modal-content .btn-submit-form, body.light-mode .background-color .modal-content .close-btn {
-  background-color: #8C52FF;
-  color: #E3DAFF;
+  background-color: #7F45ED;
+  color: white;
   transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
 }
 body.light-mode .background-color .modal-content .btn-submit-form:hover, body.light-mode .background-color .modal-content .close-btn:hover {
   background: rgba(242, 239, 255, 0.7);
   color: #723AD7;
-  border: #8C52FF 1px solid;
+  border: #7F45ED 1px solid;
   text-decoration: none;
 }
 body.light-mode .background-color button.modal-button {
@@ -306,8 +306,8 @@ body.light-mode .background-color footer .main-button {
   border: 1px solid transparent;
   padding: 6px 8px;
   font-size: 15px;
-  background-color: #8C52FF;
-  color: #E3DAFF;
+  background-color: #7F45ED;
+  color: white;
 }
 body.light-mode .background-color footer .link {
   background: linear-gradient(to top, #723AD7 0%, #723AD7 1px, transparent 2px) no-repeat;
@@ -357,8 +357,8 @@ body.dark-mode .background-color button.toggle-button {
   border: 1px solid transparent;
   padding: 6px 8px;
   font-size: 15px;
-  background-color: #8C52FF;
-  color: #E3DAFF;
+  background-color: #7F45ED;
+  color: white;
 }
 body.dark-mode .background-color .card {
   background-color: #291A4E;
@@ -426,8 +426,8 @@ body.dark-mode .background-color footer .main-button {
   border: 1px solid transparent;
   padding: 6px 8px;
   font-size: 15px;
-  background-color: #8C52FF;
-  color: #E3DAFF;
+  background-color: #7F45ED;
+  color: white;
 }
 body.dark-mode .background-color footer .link {
   background: linear-gradient(to top, #E3DAFF 0%, #E3DAFF 1px, transparent 2px) no-repeat;
@@ -522,8 +522,8 @@ form div textarea {
   border: 1px solid transparent;
   padding: 6px 8px;
   font-size: 15px;
-  background-color: #8C52FF;
-  color: #E3DAFF;
+  background-color: #7F45ED;
+  color: white;
   transform: scale(1);
   transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
   display: inline-block;
@@ -599,7 +599,7 @@ form div textarea {
   display: flex;
   align-items: center;
   gap: 5px;
-  background-color: #8C52FF;
+  background-color: #7F45ED;
   border-radius: 12px;
   border: 1px solid transparent;
   padding: 6px 8px;
@@ -689,15 +689,16 @@ form div textarea {
 }
 .container-hook-services .service {
   text-align: center;
+  padding-bottom: inherit;
+  padding-top: inherit;
+}
+.container-hook-services .service img {
+  max-width: 175px;
 }
 @media (min-width: 932px) {
   .container-hook-services .service {
-    height: 255px;
+    height: 374px;
   }
-}
-
-.audit {
-  max-width: 175px;
 }
 
 .experiences {
@@ -714,9 +715,6 @@ form div textarea {
   max-width: 300px;
   width: 100%;
   margin-top: 30px;
-}
-.banner .intro-profile {
-  text-align: start;
 }
 
 .dim {
@@ -1269,6 +1267,14 @@ button {
 
 .bold {
   font-weight: bold;
+}
+
+.intro {
+  margin: 0;
+}
+
+.card-banner {
+  max-width: 768px;
 }
 
 /*# sourceMappingURL=index.css.map */

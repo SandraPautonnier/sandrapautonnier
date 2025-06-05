@@ -31,10 +31,10 @@ const Services = () => {
                 <header>
                     <Navbar openModal={openModal}/>
                     <div className='banner'>
-                        <img src={Sandra} alt="" />
+                        <img src={Sandra} alt="Portrait de Sandra" />
                         <h2>Offre de lancement</h2>
-                        <div className="card profile">
-                            <p>💡 Idéal pour se lancer avec un petit budget :</p>
+                        <div className="card card-banner">
+                            <p className='intro'>💡 Idéal pour se lancer avec un petit budget :</p>
                             <p><strong>Site vitrine 4 pages + SEO de base + formulaire de contact → 450 € TTC</strong></p>
                         </div>
                     </div>

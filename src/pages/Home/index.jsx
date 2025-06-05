@@ -9,7 +9,7 @@ import Cv from '../../assets/pdf/CV-Sandra-Pautonnier.pdf';
 import AgeCalculator from "../../features/AgeCalculator";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin , faSquareGithub , faReact } from '@fortawesome/free-brands-svg-icons';
-import { faFileArrowDown , faUser , faFlask , faCode , faAward , faLaptopCode , faMagnifyingGlassChart , faWrench } from '@fortawesome/free-solid-svg-icons';
+import { faFileArrowDown , faUser , faFlask , faCode , faAward } from '@fortawesome/free-solid-svg-icons';
 import BgDark from "../../assets/images/Background-image-dark.png";
 import BgLight from "../../assets/images/Background-image-light.png";
 import useThemeStore from "../../store/useThemeStore";
@@ -29,12 +29,6 @@ const Home = () => {
 
   const isDarkMode = useThemeStore((state) => state.isDarkMode);
 
-    const iconMap = {
-      'fa-laptop-code': faLaptopCode,
-      'fa-magnifying-glass-chart': faMagnifyingGlassChart,
-      'fa-wrench': faWrench
-    };
-
   return (
     <div className="background-image" style={{background: `url(${isDarkMode ? BgDark : BgLight}) no-repeat center/cover`, height: '100%', minHeight: '100vh'}}> 
       <Meta 
@@ -47,7 +41,7 @@ const Home = () => {
           <header>
             <Navbar openModal={openModal}/>
             <div className='header-banner' id="home">
-              <img src={Sandra1} alt="Sandra" />
+              <img src={Sandra1} alt="Portrait de Sandra"/>
               <h1>Sandra Pautonnier</h1>
               <p>Développeuse web full stack</p>
               <div className="buttons-social">
@@ -94,7 +88,7 @@ const Home = () => {
                   <div key={item.index} className="carousel-slide"> 
                     <Link to={item.link} target='_blank'>
                       <div className="slide-content">
-                        <img src={`${item.cover}`} alt={`${item.titlework}`} />
+                        <img src={`${item.cover}`} alt={`Projet ${item.titlework}`} />
                         <div className="slide-description">
                           <h3>{`${item.titlework}`}</h3>
                           <span className="work-language">{item.language}</span>
@@ -113,7 +107,7 @@ const Home = () => {
               <div className="container-hook-services">
                 {Services.map(Service => (
                   <div key={Service.index} className="card service">
-                    <FontAwesomeIcon icon={iconMap[Service.icon]} />
+                    <img src={Service.img} alt="Illustration du service" />
                     <h3>{Service.title}</h3>
                     <p>{Service.description}</p>
                   </div>

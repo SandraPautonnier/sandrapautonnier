@@ -3,7 +3,7 @@
         "id": 2,
         "titlework": "sandrapautonnier v1",
         "description": "Avant ma formation, fin 2022, une ancienne version de mon site portfolio existait. J'étais encore chargée de projet chez Enedis ! J'ai appris les bases de HTML et CSS, ainsi que le déploiement de mon site sur un serveur OVH via FileZilla.",
-        "cover": "https://gentle-pony-095b6f.netlify.app/sandrapautonnierv1.png",
+        "cover": "https://gentle-pony-095b6f.netlify.app/sandrapautonnierv1.webp",
         "category": "HTML/CSS",
         "link": "https://sandrapautonnier.github.io/sandrapautonnier_V1/",
         "language": [
@@ -15,7 +15,7 @@
         "id": 3,
         "titlework": "Ohmyfood",
         "description": "Dans le cadre d’un projet fictif d’OpenClassrooms, Ohmyfood est une jeune startup qui voudrait s'imposer sur le marché de la restauration. Dans ce projet, ma mission est de développer l’interface mobile-first du site en intégrant une maquette fournie. J'ai utilisé Sass pour optimiser les styles, implémenté des animations CSS pour enrichir l’expérience utilisateur et assurer un design adaptatif. Le projet a été versionné avec Git et GitHub, me permettant de renforcer mes compétences en gestion de code et en collaboration.",
-        "cover": "https://gentle-pony-095b6f.netlify.app/ohmyfood.png",
+        "cover": "https://gentle-pony-095b6f.netlify.app/ohmyfood.webp",
         "category": "SASS",
         "link": "https://sandrapautonnier.github.io/ohmyfood/",
         "language": [
@@ -27,7 +27,7 @@
         "id": 4,
         "titlework": "Kasa",
         "description": "Kasa est un projet fictif d'Openclassrooms représentant une entreprise de location d'appartements entre particuliers. J'ai développé le front-end de cette application en utilisant React et React Router pour une navigation fluide entre les pages. En suivant des maquettes et en manipulant des données simulées depuis un fichier JSON, j'ai conçu une interface réactive et moderne. J'ai initialisé le projet avec Create App React.",
-        "cover": "https://gentle-pony-095b6f.netlify.app/kasa.png",
+        "cover": "https://gentle-pony-095b6f.netlify.app/kasa.webp",
         "category": "React",
         "link": "https://sandrapautonnier.github.io/kasa/",
         "language": [
@@ -39,7 +39,7 @@
         "id": 5,
         "titlework": "Argent bank",
         "description": "Dans le cadre d’un projet OpenClassrooms, Argent Bank, une nouvelle banque en ligne vise à s'imposer dans le secteur bancaire. En initialisant le projet avec Vite, j’ai développé le front-end d’une application bancaire avec React et Redux pour une expérience utilisateur dynamique. J’ai intégré le front-end avec le back-end via des appels API REST, assurant une communication fluide. En gérant l’état global avec Redux, j'ai conçu une application performante. J’ai également utilisé Swagger pour définir les points d’accès de l’API et Node.js pour exécuter le code côté serveur.",
-        "cover": "https://gentle-pony-095b6f.netlify.app/argentbank.png",
+        "cover": "https://gentle-pony-095b6f.netlify.app/argentbank.webp",
         "category": "React",
         "link": "https://github.com/SandraPautonnier/argentbank.git",
         "language": [

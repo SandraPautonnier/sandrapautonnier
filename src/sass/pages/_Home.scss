@@ -137,12 +137,13 @@
     } 
     .service {
         text-align: center;
+        padding-bottom: inherit;
+        padding-top: inherit;
+        img {
+          max-width: 175px;
+        }
         @media (min-width: 932px) {
-            height: 255px;
+            height: 374px;
         } 
     }
-}
-
-.audit {
-  max-width: 175px;
 }

@@ -18,7 +18,7 @@ const Footer = ({openModal}) => {
                   Contactez-moi
                 </button>
             </div>
-            <img src={Sandra2} alt="Sandra" />
+            <img src={Sandra2} alt="Photo de Sandra" />
             <div className='social-media'>
                 <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} /></a>
                 <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faSquareGithub} /></a>
