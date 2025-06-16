@@ -21,7 +21,6 @@ import Meta from "../../components/Meta";
 
 const Home = () => {
   
-
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => setIsModalOpen(true);

@@ -14,7 +14,6 @@
       margin-bottom: 1rem;
       border-radius: 8px;
       padding: 1rem;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
     }
 
     tbody td {
@@ -39,4 +38,9 @@
         content: attr(data-label);
       }
     }
+}
+
+.table {
+  border-collapse: separate;
+  border-radius: 8px;
 }

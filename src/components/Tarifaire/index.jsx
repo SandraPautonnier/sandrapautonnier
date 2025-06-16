@@ -25,7 +25,7 @@ const Tarifaire = () => {
     {
       nom: "🛠️ Maintenance mensuelle",
       details: "Mises à jour, sécurité, support, petit correctif inclus",
-      tarif: "30 €/mois"
+      tarif: "30 €/ mois"
     },
     {
       nom: "🛠️ Maintenance ponctuelle",
@@ -47,20 +47,20 @@ const Tarifaire = () => {
   return (
     <section>
       <h2>Grille tarifaire</h2>
-      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+      <table className='table'>
         <thead>
           <tr style={{ textAlign: 'left' }}>
-            <th style={{ padding: '8px', border: '1px solid #ddd' }}>Prestation</th>
-            <th style={{ padding: '8px', border: '1px solid #ddd' }}>Détails</th>
-            <th style={{ padding: '8px', border: '1px solid #ddd' }}>Tarif de base</th>
+            <th>Prestations</th>
+            <th>Détails</th>
+            <th>Tarif de base</th>
           </tr>
         </thead>
         <tbody>
           {prestations.map(({ nom, details, tarif }) => (
             <tr key={nom}>
-              <td style={{ padding: '8px', border: '1px solid #ddd' }}>{nom}</td>
-              <td style={{ padding: '8px', border: '1px solid #ddd' }}>{details}</td>
-              <td style={{ padding: '8px', border: '1px solid #ddd' }}>{tarif}</td>
+              <td>{nom}</td>
+              <td>{details}</td>
+              <td>{tarif}</td>
             </tr>
           ))}
         </tbody>

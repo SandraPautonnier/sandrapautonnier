@@ -317,8 +317,25 @@ body.light-mode .background-color footer .link {
 body.light-mode .background-color footer .link:hover {
   background-size: 100% 100%;
 }
-body.light-mode .background-color th, body.light-mode .background-color td {
-  border: 1px solid #723AD7;
+body.light-mode .background-color tr {
+  background-color: #F2EFFF;
+  color: #723AD7;
+  border: 1px solid #C2B0FF;
+}
+body.light-mode .background-color tr:hover {
+  background-color: #EAE3FF;
+  border: 1px solid transparent;
+}
+@media (min-width: 600px) {
+  body.light-mode .background-color .table {
+    background-color: #F2EFFF;
+    color: #723AD7;
+    border: 1px solid #C2B0FF;
+  }
+  body.light-mode .background-color .table:hover {
+    background-color: #EAE3FF;
+    border: 1px solid transparent;
+  }
 }
 
 body.dark-mode .background-color {
@@ -437,8 +454,21 @@ body.dark-mode .background-color footer .link {
 body.dark-mode .background-color footer .link:hover {
   background-size: 100% 100%;
 }
-body.dark-mode .background-color th, body.dark-mode .background-color td {
-  border: 1px solid #E3DAFF;
+body.dark-mode .background-color tr {
+  background-color: #291A4E;
+  color: #E3DAFF;
+}
+body.dark-mode .background-color tr:hover {
+  background-color: #361B69;
+}
+@media (min-width: 600px) {
+  body.dark-mode .background-color .table {
+    background-color: #291A4E;
+    color: #E3DAFF;
+  }
+  body.dark-mode .background-color .table:hover {
+    background-color: #361B69;
+  }
 }
 
 .modal-overlay {
@@ -949,7 +979,6 @@ form div textarea {
     margin-bottom: 1rem;
     border-radius: 8px;
     padding: 1rem;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
   }
   tbody td {
     padding-left: 50%;
@@ -972,6 +1001,11 @@ form div textarea {
     content: attr(data-label);
   }
 }
+.table {
+  border-collapse: separate;
+  border-radius: 8px;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
