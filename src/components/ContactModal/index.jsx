@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 
 const ContactModal = ({ isOpen, onClose, title }) => {
@@ -17,7 +17,7 @@ const ContactModal = ({ isOpen, onClose, title }) => {
     e.preventDefault();
     setIsSending(true);
 
-    const serviceID = "service_lmmjb3d";
+    const serviceID = "service_lene2i6";
     const templateID = "template_npfqhdf";
 
     const templateParams = {
@@ -76,7 +76,7 @@ const ContactModal = ({ isOpen, onClose, title }) => {
               />
             </div>
             <div>
-              <label htmlFor="from_name">Name</label>
+              <label htmlFor="from_name">Nom</label>
               <input
                 type="text"
                 id="from_name"
