@@ -17,7 +17,7 @@ const ContactModal = ({ isOpen, onClose, title }) => {
     e.preventDefault();
     setIsSending(true);
 
-    const serviceID = "service_lene2i6";
+    const serviceID = "service_dgr4ts3";
     const templateID = "template_npfqhdf";
 
     const templateParams = {
