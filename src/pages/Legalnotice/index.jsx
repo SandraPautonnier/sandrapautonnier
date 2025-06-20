@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import BgDark from "../../assets/images/Background-image-dark.png";
-import BgLight from "../../assets/images/Background-image-light.png";
+import BgDark from "../../assets/images/Background-image-dark.webp";
+import BgLight from "../../assets/images/Background-image-light.webp";
 import useThemeStore from "../../store/useThemeStore";
 import ContactModal from "../../components/ContactModal";
 

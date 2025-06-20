@@ -6,8 +6,8 @@ import Docs from '../../assets/images/Portfolio.svg';
 import Meta from "../../components/Meta";
 import ContactModal from "../../components/ContactModal";
 import Works from "../Sections/Works";
-import BgDark from "../../assets/images/Background-image-dark.png";
-import BgLight from "../../assets/images/Background-image-light.png";
+import BgDark from "../../assets/images/Background-image-dark.webp";
+import BgLight from "../../assets/images/Background-image-light.webp";
 import useThemeStore from "../../store/useThemeStore";
 
 
