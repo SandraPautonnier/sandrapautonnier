@@ -151,7 +151,7 @@ body.dark-mode {
                 color: $dark-text;
             }
             .btn-submit-form, .close-btn {
-                background: $light-background;
+                background: $dark-text;
                 color: $light-text;
                 @include btn;
                 @include transition-btn;

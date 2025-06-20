@@ -409,7 +409,7 @@ body.dark-mode .background-color .modal-content input, body.dark-mode .backgroun
   color: #E3DAFF;
 }
 body.dark-mode .background-color .modal-content .btn-submit-form, body.dark-mode .background-color .modal-content .close-btn {
-  background: rgba(242, 239, 255, 0.7);
+  background: #E3DAFF;
   color: #723AD7;
   border-radius: 12px;
   border: 1px solid transparent;
