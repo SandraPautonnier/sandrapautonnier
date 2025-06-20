@@ -5,6 +5,7 @@
     margin-bottom: 30px;
 }
 .banner {
+  min-height: 500px;
   @include flex-column-center;
   margin-bottom: 2rem;
   img {
