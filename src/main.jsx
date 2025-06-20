@@ -10,7 +10,7 @@ import Profile from '../src/pages/Profile'
 import Portfolio from './pages/Portfolio';
 import Services from './pages/Services';
 import Legalnotice from './pages/Legalnotice';
-import ScrollToTop from './features/ScrollToTop';
+import "@fontsource/montserrat";
 
 const router = createBrowserRouter([
   {
