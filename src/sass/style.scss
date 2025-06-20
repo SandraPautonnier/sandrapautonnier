@@ -13,6 +13,7 @@
 
 * {
     font-family: 'Montserrat', sans-serif;
+    font-display: swap;
 }
 
 h1,h2 {
@@ -63,7 +64,7 @@ header {
 main {
     box-sizing: border-box;
     width: 100%;
-    min-height: min-content;
+    min-height: 500px;
 }
 
 section {
