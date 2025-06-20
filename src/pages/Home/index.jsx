@@ -80,7 +80,7 @@ const Home = () => {
               <p className="catch">Une développeuse qui parle votre langue (et aussi JavaScript !).</p>
             </section>
             <section className="hook-works">
-              <h2>Quelques réalisations</h2>
+              <h2>Ce que je sais faire</h2>
                 <Carousel>
                 {HookWorks.map((item) => (
                   <div key={item.index} className="carousel-slide"> 
