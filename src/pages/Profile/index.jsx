@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Meta from "../../components/Meta";
-//import LoadingScreen from "../../components/Loader";
-import Sandra3 from '../../assets/images/Sandra3.png';
+import Sandra3 from '../../assets/images/Sandra3.webp';
 import Coupe from '../../assets/images/coupe.svg';
 import ContactModal from "../../components/ContactModal";
 import Skills from '../Sections/Skills';
@@ -29,7 +28,6 @@ const Profile = () => {
             title="Profil - Développeuse Web fullstack" 
             description="Développeuse web fullstack freelance spécialisée en React & Node. Création de sites performants, modernes et sur-mesure." 
         />
-        {/*<LoadingScreen/>*/}
         <div className='background-color'>
             <div className="header-main">
                 <header>
