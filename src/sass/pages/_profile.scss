@@ -144,6 +144,7 @@ svg {
   padding: 10px;
   border-radius: 7px;
   @include badark-colight-component;
+  @include zoom-btn;
   span {
     font-size: 10px;
   }

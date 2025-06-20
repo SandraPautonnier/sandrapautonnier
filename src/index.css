@@ -928,6 +928,11 @@ form div textarea {
   border-radius: 7px;
   background-color: #291A4E;
   color: #E3DAFF;
+  transform: scale(1);
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.insert:hover {
+  transform: scale(1.1);
 }
 .insert span {
   font-size: 10px;
