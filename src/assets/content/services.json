@@ -2,18 +2,21 @@
     {
         "id": 1,
         "img": "https://gentle-pony-095b6f.netlify.app/création-de-site.svg",
+        "alt": "Illustration de la création de site",
         "title": "Création de site web",
         "description": "Transformez votre idée en ligne avec un site web moderne, responsive et sur-mesure, conçu pour attirer et fidéliser vos visiteurs."
     },
     {
         "id": 2,
         "img": "https://gentle-pony-095b6f.netlify.app/audit-seo.svg",
+        "alt": "Illustration du référencement et d'un audit SEO",
         "title": "Audit SEO",
         "description": "Optimisez la visibilité de votre site grâce à un audit SEO complet, qui met en lumière les opportunités pour améliorer votre référencement et attirer plus de trafic."
     },
     {
         "id": 3,
         "img": "https://gentle-pony-095b6f.netlify.app/maintenance-de-site.svg",
+        "alt": "Illustration de la maintenance d'un site web",
         "title": "Maintenance de site",
         "description": "Gardez votre site performant et sécurisé avec mon service de maintenance continue, incluant mises à jour, sécurité et améliorations régulières"
     }

@@ -46,7 +46,7 @@ const Home = () => {
               <div className="buttons-social">
                 <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faSquareGithub} />Github</a>
                 <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} />Linkedin</a>
-                <a href={Cv} target="_blank" rel="noreferrer" download><FontAwesomeIcon icon={faFileArrowDown} /> CV</a>
+                <a href={Cv} target="_blank" rel="noreferrer" download aria-label="Télécharger le CV de Sandra en document pdf"><FontAwesomeIcon icon={faFileArrowDown} /> CV</a>
               </div>
             </div>
           </header>
@@ -105,7 +105,7 @@ const Home = () => {
               <div className="container-hook-services">
                 {Services.map(Service => (
                   <div key={Service.index} className="card service">
-                    <img src={Service.img} alt="Illustration du service" />
+                    <img src={Service.img} alt={Service.alt} />
                     <h3>{Service.title}</h3>
                     <p>{Service.description}</p>
                   </div>
