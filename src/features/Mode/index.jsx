@@ -10,6 +10,7 @@ function ToggleMode() {
     <button
       onClick={toggleTheme}
       className="toggle-button"
+      aria-label="Bouton du mode clair ou sombre"
     >
       {isDarkMode ? <FontAwesomeIcon icon={faMoon} /> : <FontAwesomeIcon icon={faSun} />}
     </button>
