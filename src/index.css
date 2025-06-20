@@ -722,14 +722,15 @@ form div textarea {
   text-align: center;
   padding-bottom: inherit;
   padding-top: inherit;
+  transform: scale(1);
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.container-hook-services .service:hover {
+  transform: scale(1.1);
 }
 .container-hook-services .service img {
   max-width: 175px;
-}
-@media (min-width: 932px) {
-  .container-hook-services .service {
-    height: 374px;
-  }
+  margin-top: 20px;
 }
 
 .experiences {

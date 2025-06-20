@@ -140,11 +140,10 @@
         text-align: center;
         padding-bottom: inherit;
         padding-top: inherit;
+        @include zoom-btn;
         img {
           max-width: 175px;
+          margin-top: 20px;
         }
-        @media (min-width: 932px) {
-            height: 374px;
-        } 
     }
 }
