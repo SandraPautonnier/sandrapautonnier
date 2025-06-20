@@ -1277,6 +1277,7 @@ header {
 main {
   box-sizing: border-box;
   width: 100%;
+  min-height: min-content;
 }
 
 section {
