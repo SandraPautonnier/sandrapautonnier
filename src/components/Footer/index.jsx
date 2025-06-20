@@ -20,9 +20,9 @@ const Footer = ({openModal}) => {
             </div>
             <img src={Sandra2} alt="Photo de Sandra" />
             <div className='social-media'>
-                <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} /></a>
-                <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faSquareGithub} /></a>
-                <a href="https://codepen.io/sandrapautonnier" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faCodepen} /></a>
+                <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer" aria-label="Lien vers le profil Linkedin de Sandra"><FontAwesomeIcon icon={faLinkedin} /></a>
+                <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer" aria-label="Lien vers le profil Github de Sandra"><FontAwesomeIcon icon={faSquareGithub} /></a>
+                <a href="https://codepen.io/sandrapautonnier" target='_blank' rel="noreferrer" aria-label="Lien vers le profil Codepen de Sandra"><FontAwesomeIcon icon={faCodepen} /></a>
             </div>
         </div>
         <div className='footer-secondary'>
