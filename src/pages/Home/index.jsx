@@ -54,11 +54,13 @@ const Home = () => {
               <div className="container-hook-about">
                 <div className="card-hook-about">
                   <ul className="card profile">
-                    <div className="card-user">
-                      <FontAwesomeIcon icon={faUser} />
-                      <li><strong>Prénom :</strong> Sandra</li>
-                      <li><strong>Age :</strong> <AgeCalculator birthDate="1992-07-28" /> ans</li>
-                    </div>
+                    <li>
+                      <div className="card-user">
+                        <FontAwesomeIcon icon={faUser} />
+                        <p><strong>Prénom :</strong> Sandra</p>
+                        <p><strong>Âge :</strong> <AgeCalculator birthDate="1992-07-28" /> ans</p>
+                      </div>
+                    </li>
                     <li><FontAwesomeIcon icon={faReact} /><strong>Technos :</strong> React, Node et MongoDB</li>
                     <li><FontAwesomeIcon icon={faCode} /><strong>Compétences principales :</strong> Réaliser un site web dynamique avec une interface dédiée et créer une application web fluide et sécurisée</li>
                     <li><FontAwesomeIcon icon={faAward} /><strong>Dernière formation :</strong> Titre RNCP Développeur Informatique</li>

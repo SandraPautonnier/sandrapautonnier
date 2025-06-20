@@ -4,16 +4,16 @@
 @import "../components/Contactmodal";
 
 .btn {
-    @include btn;
-    @include btn-color-main;
-    @include zoom-btn;
-    display: inline-block;
-    margin: 30px 0;
+  @include btn;
+  @include btn-color-main;
+  @include zoom-btn;
+  display: inline-block;
+  margin: 30px 0;
 }
 
 .card {
-    @include card;
-    @include transition-btn;
+  @include card;
+  @include transition-btn;
 }
 
 .catch {
@@ -23,127 +23,127 @@
 
 //header
 @keyframes slideInFromRight {
-    from {
-      transform: translateX(500%);
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-      visibility: visible;
-    }
+  from {
+    transform: translateX(500%);
   }
-  
-  @keyframes slideInFromLeft {
-    from {
-      transform: translateX(-500%);
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-      visibility: visible;
-    }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
   }
-  
-  .header-banner {
-    @include flex-column-center;
-    text-align: center;
-    img,
-    h1,
-    p {
-      opacity: 0;
-      visibility: hidden;
-    }
-    img {
-      max-width: 300px;
-      width: 100%;
-      animation: slideInFromRight 0.6s ease-out forwards;
-    }
-    h1 {
-      animation: slideInFromLeft 0.6s ease-out 0.2s forwards;
-    }
-    p {
-      margin: 10px auto 20px;
-      animation: slideInFromLeft 0.6s ease-out 0.4s forwards;
-    }
-    .buttons-social {
-      gap: 20px;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-500%);
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.header-banner {
+  @include flex-column-center;
+  text-align: center;
+  img,
+  h1,
+  p {
+    opacity: 0;
+    visibility: hidden;
+  }
+  img {
+    max-width: 300px;
+    width: 100%;
+    animation: slideInFromRight 0.6s ease-out forwards;
+  }
+  h1 {
+    animation: slideInFromLeft 0.6s ease-out 0.2s forwards;
+  }
+  p {
+    margin: 10px auto 20px;
+    animation: slideInFromLeft 0.6s ease-out 0.4s forwards;
+  }
+  .buttons-social {
+    gap: 20px;
+    display: flex;
+    margin: 20px auto;
+    a {
       display: flex;
-      margin: 20px auto;
-      a {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        background-color: $main-color;
-        color: white;
-        @include btn;
-        @include zoom-btn;
-      }
-    }
-    .toggle-button {
-      margin: 10px auto;
+      align-items: center;
+      gap: 5px;
+      background-color: $main-color;
+      color: white;
+      @include btn;
       @include zoom-btn;
     }
   }
-
-.hook-about {
-    width: 100%;
-    .container-hook-about {
-        gap: $gap;
-        @media (min-width: 768px) {
-            @include flex-row-center;
-        }
-        .profile {
-            .card-user {
-                @include flex-column-center;
-                margin: 0 0 10px;
-                svg {
-                    font-size: 20px;
-                    margin: 10px 0;
-                }
-                li {
-                    margin: 2px 0;
-                }
-            }
-            li {
-                margin: 7px 0;
-                svg {
-                    margin: 0 5px;
-                }
-            } 
-        }
-        .tags {
-            display: flex;
-            justify-content: space-around;
-            gap: 20px;
-            .tag {
-                @include tags;
-            }
-        }
-        .text-hook-about {
-            @include flex-column-center;
-        }
-    }
+  .toggle-button {
+    margin: 10px auto;
+    @include zoom-btn;
+  }
 }
 
-.hook-works,.hook-services {
-    @include flex-column-center;
+.hook-about {
+  width: 100%;
+  .container-hook-about {
+    gap: $gap;
+    @media (min-width: 768px) {
+      @include flex-row-center;
+    }
+    .profile {
+      .card-user {
+        p {
+          margin: 0;
+        }
+        @include flex-column-center;
+        margin: 0 0 10px;
+        svg {
+          font-size: 20px;
+        }
+      }
+      li {
+        margin: 7px 0;
+        svg {
+          margin: 0 5px;
+        }
+      }
+    }
+    .tags {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      .tag {
+        @include tags;
+      }
+    }
+    .text-hook-about {
+      @include flex-column-center;
+    }
+  }
+}
+
+.hook-works,
+.hook-services {
+  @include flex-column-center;
 }
 
 .container-hook-services {
-    width: 100%;
-    @include flex-column-center;
-    gap: $gap;
-    @media (min-width: 932px) {
-        @include flex-row-center;
-    } 
-    .service {
-        text-align: center;
-        padding-bottom: inherit;
-        padding-top: inherit;
-        @include zoom-btn;
-        img {
-          max-width: 175px;
-          margin-top: 20px;
-        }
+  width: 100%;
+  @include flex-column-center;
+  gap: $gap;
+  @media (min-width: 932px) {
+    @include flex-row-center;
+  }
+  .service {
+    text-align: center;
+    padding-bottom: inherit;
+    padding-top: inherit;
+    @include zoom-btn;
+    img {
+      max-width: 175px;
+      margin-top: 20px;
     }
+  }
 }

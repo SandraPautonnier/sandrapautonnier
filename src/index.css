@@ -673,12 +673,11 @@ form div textarea {
   align-items: center;
   margin: 0 0 10px;
 }
+.hook-about .container-hook-about .profile .card-user p {
+  margin: 0;
+}
 .hook-about .container-hook-about .profile .card-user svg {
   font-size: 20px;
-  margin: 10px 0;
-}
-.hook-about .container-hook-about .profile .card-user li {
-  margin: 2px 0;
 }
 .hook-about .container-hook-about .profile li {
   margin: 7px 0;
@@ -702,7 +701,8 @@ form div textarea {
   align-items: center;
 }
 
-.hook-works, .hook-services {
+.hook-works,
+.hook-services {
   display: flex;
   flex-direction: column;
   align-items: center;
