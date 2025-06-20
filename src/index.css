@@ -272,20 +272,24 @@ body.light-mode .background-color .tag {
   border: 1px solid #C2B0FF;
 }
 body.light-mode .background-color .modal-content {
-  color: #723AD7;
+  color: #E3DAFF;
 }
 body.light-mode .background-color .modal-content input, body.light-mode .background-color .modal-content textarea {
   background-color: #EFF0F3;
   color: #723AD7;
 }
 body.light-mode .background-color .modal-content .btn-submit-form, body.light-mode .background-color .modal-content .close-btn {
-  background-color: #7F45ED;
-  color: white;
+  background: rgba(25, 20, 43, 0.8);
+  color: #E3DAFF;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  padding: 6px 8px;
+  font-size: 15px;
   transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
 }
 body.light-mode .background-color .modal-content .btn-submit-form:hover, body.light-mode .background-color .modal-content .close-btn:hover {
-  background: rgba(242, 239, 255, 0.7);
-  color: #723AD7;
+  background: #E3DAFF;
+  color: #7F45ED;
   border: #7F45ED 1px solid;
   text-decoration: none;
 }

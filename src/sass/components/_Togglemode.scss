@@ -54,17 +54,20 @@ body.light-mode {
             @include balight-codark-tags;
         }
         .modal-content {
-            color: $light-text;
+            color: $dark-text;
             input, textarea {
                 background-color: $light-input;
                 color: $light-text;
             }
             .btn-submit-form, .close-btn {
-                @include btn-color-main;
+                background: $dark-background;
+                color: $dark-text;
+                @include btn;
+                
                 @include transition-btn;
                 &:hover {
-                    background: $light-background;
-                    color: $light-text;
+                    background: $dark-text;
+                    color: $main-color;
                     border: $main-color 1px solid;
                     text-decoration: none;
                 }
