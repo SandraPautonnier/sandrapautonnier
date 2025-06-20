@@ -74,6 +74,7 @@
         align-items: center;
         gap: 5px;
         background-color: $main-color;
+        color: white;
         @include btn;
         @include zoom-btn;
       }
