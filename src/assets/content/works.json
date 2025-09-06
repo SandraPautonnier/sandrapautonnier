@@ -1,6 +1,31 @@
 [
     {
+        "id": 1,
+        "titlework": "Pulsar42",
+        "description": "En juin 2025, j’ai participé au développement du site Pulsar42.sc, un projet collaboratif porté par une association autour du jeu Star Citizen. C’est l’un de mes premiers travaux en équipe sur un projet concret en TypeScript ! J’ai intégré le footer du site et ajouté la page des mentions légales, conforme au RGPD et à la LCEN. Ce projet m’a permis de consolider mes compétences en intégration front-end, en responsive design, et de collaborer avec d'autres développeurs dans un cadre associatif.",
+        "cover": "https://gentle-pony-095b6f.netlify.app/pulsar42.webp",
+        "category": "React",
+        "link": "https://pulsar42.sc",
+        "language": [
+            "React"
+        ],
+        "tools": "Vite"
+    },
+    {
         "id": 2,
+        "titlework": "Le Mans School of AI",
+        "description": "J'ai réalisé la refonte du site web de Le Mans School of AI. C'est un groupe d'entraide pour les étudiants et professionnel autour de l'IA. J'ai conçu avec Javascript une gestion des évènements dynamiques : un évenement passé se mettra automatiquement dans la colonne Évènements passées",
+        "cover": "https://gentle-pony-095b6f.netlify.app/lemansschoolofai.webp",
+        "category": "Javascript",
+        "link": "https://lemans-schoolofai.github.io/",
+        "language": [
+            "html css /",
+            "Javascript"
+        ],
+        "tools": "Awesome"
+    },
+    {
+        "id": 3,
         "titlework": "Kasa",
         "description": "Kasa est un projet fictif d'Openclassrooms représentant une entreprise de location d'appartements entre particuliers. J'ai développé le front-end de cette application en utilisant React et React Router pour une navigation fluide entre les pages. En suivant des maquettes et en manipulant des données simulées depuis un fichier JSON, j'ai conçu une interface réactive et moderne. J'ai initialisé le projet avec Create App React.",
         "cover": "https://gentle-pony-095b6f.netlify.app/kasa.webp",
@@ -10,18 +35,5 @@
             "React"
         ],
         "tools": "CRA"
-    },
-    {
-        "id": 3,
-        "titlework": "Argent bank",
-        "description": "Dans le cadre d’un projet OpenClassrooms, Argent Bank, une nouvelle banque en ligne vise à s'imposer dans le secteur bancaire. En initialisant le projet avec Vite, j’ai développé le front-end d’une application bancaire avec React et Redux pour une expérience utilisateur dynamique. J’ai intégré le front-end avec le back-end via des appels API REST, assurant une communication fluide. En gérant l’état global avec Redux, j'ai conçu une application performante. J’ai également utilisé Swagger pour définir les points d’accès de l’API et Node.js pour exécuter le code côté serveur.",
-        "cover": "https://gentle-pony-095b6f.netlify.app/argentbank.webp",
-        "category": "React",
-        "link": "https://github.com/SandraPautonnier/argentbank.git",
-        "language": [
-            "React /",
-            "Redux"
-        ],
-        "tools": "Vite"
     }
 ]
