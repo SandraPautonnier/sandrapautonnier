@@ -14,7 +14,7 @@
     {
         "id": 2,
         "titlework": "Le Mans School of AI",
-        "description": "J'ai réalisé la refonte du site web de Le Mans School of AI. C'est un groupe d'entraide pour les étudiants et professionnel autour de l'IA. J'ai conçu avec Javascript une gestion des évènements dynamiques : un évenement passé se mettra automatiquement dans la colonne Évènements passées",
+        "description": "J'ai réalisé la refonte intégral du site web de Le Mans School of AI. C'est un groupe d'entraide pour les étudiants et professionnel autour de l'IA. J'ai conçu avec Javascript une gestion des évènements dynamiques : un évenement passé se mettra automatiquement dans la colonne Évènements passées",
         "cover": "https://gentle-pony-095b6f.netlify.app/lemansschoolofai.webp",
         "category": "Javascript",
         "link": "https://lemans-schoolofai.github.io/",

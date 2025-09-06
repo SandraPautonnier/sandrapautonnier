@@ -9,6 +9,11 @@ import Works from "../Sections/Works";
 import BgDark from "../../assets/images/Background-image-dark.webp";
 import BgLight from "../../assets/images/Background-image-light.webp";
 import useThemeStore from "../../store/useThemeStore";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUpRightAndDownLeftFromCenter,
+  faDownLeftAndUpRightToCenter,
+} from "@fortawesome/free-solid-svg-icons";
 
 
 const Portfolio = () => {
@@ -35,6 +40,23 @@ const Portfolio = () => {
                             <h2>Mes projets</h2>
                             <div className="card card-banner">
                                 <p className='intro'>Passionnée par le web et toujours à l’écoute des besoins, je conçois des solutions sur mesure pour donner vie à chaque idée. Découvrez les projets qui ont enrichi mon parcours.</p>
+                            </div>
+                        </div>
+                        <div className='card-works'>
+                            <a href="http://sandrapautonnier.com">
+                                <img src="" alt="" />
+                                <h3></h3>
+                                <span></span>
+                                <span></span>
+                            </a>
+                            <div className="description-collapse">
+                                <button
+                                    className="collapse-button"
+                                    onClick={() => "text"}
+                                >
+                                <i></i>
+                                </button>
+                                <div></div>
                             </div>
                         </div>                    
                 </header>
