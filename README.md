@@ -17,7 +17,7 @@ Passionnée par la création d’expériences web modernes et intuitives.
 
 ## 🚀 Projets
 - **[sandrapautonnier.com](https://sandrapautonnier.com)** – Mon portfolio en React  
-- **[Pulsar42](https://sukana.fr](https://pulsar42.sc/)** – Site web d'un association autour du jeu vidéo Star Citizen
+- **[Pulsar42](https://pulsar42.sc/)** – Site web d'un association autour du jeu vidéo Star Citizen
 - **[Le Mans school of AI](https://lemans-schoolofai.github.io/)** – Refonte du site web d'un groupe d'entraide autour de l'IA  
 
 ---
