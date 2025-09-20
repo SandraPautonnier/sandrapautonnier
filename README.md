@@ -8,7 +8,7 @@ Passionnée par la création d’expériences web modernes et intuitives.
 ## 🛠️ Stack technique
 - **Langages 💻** : JavaScript (ES6+), HTML5, CSS3  
 - **Frontend 🎨** : React, Redux, Zustand  
-- **Backend & DB 🗄️** : Node.js, Express, MongoDB, Mongoose, MongoDB Compass  
+- **Backend & DB 🗄️** : Node.js, Express, MongoDB, MongoDB Compass  
 - **Déploiement ☁️** : Vercel, Netlify, OVH, Hostinger, GitHub Pages 
 - **Outils 🛠️** : Git/GitHub, EmailJS  
 - **Autres 🌐** : REST API, SEO, Responsive Design  
