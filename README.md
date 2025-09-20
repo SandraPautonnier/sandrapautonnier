@@ -24,8 +24,8 @@ Passionnée par la création d’expériences web modernes et intuitives.
 
 ## 📫 Me contacter
 - 🌐 [Portfolio](https://sandrapautonnier.com)  
-- 💼 [LinkedIn](https://www.linkedin.com/in/ton-lien/)  
-- ✉️ sandra.pautonnier@email.com  
+- 💼 [LinkedIn](https://www.linkedin.com/in/sandrapautonnier/)
+- ✉️ sandrapautonnier@gmail.com  
 
 ---
 ✨ Toujours curieuse d’apprendre, je m’intéresse aussi à l’IA, Python et Angular pour mes futurs projets.
