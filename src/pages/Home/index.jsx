@@ -40,7 +40,7 @@ const Home = () => {
             <div className='header-banner' id="home">
               <img src={Sandra1} alt="Portrait de Sandra"/>
               <h1>Sandra Pautonnier</h1>
-              <p>Développeuse web full stack</p>
+              <p>Développeuse d'application Web</p>
               <div className="buttons-social">
                 <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faSquareGithub} />Github</a>
                 <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} />Linkedin</a>
