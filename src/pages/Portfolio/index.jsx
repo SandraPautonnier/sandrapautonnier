@@ -4,7 +4,6 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Docs from '../../assets/images/Portfolio.svg';
 import Meta from "../../components/Meta";
-import ContactModal from "../../components/ContactModal";
 import Works from "../Sections/Works";
 import BgDark from "../../assets/images/Background-image-dark.webp";
 import BgLight from "../../assets/images/Background-image-light.webp";
@@ -15,13 +14,7 @@ import {
   faDownLeftAndUpRightToCenter,
 } from "@fortawesome/free-solid-svg-icons";
 
-
 const Portfolio = () => {
-
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    
-    const openModal = () => setIsModalOpen(true);
-    const closeModal = () => setIsModalOpen(false);
 
     const isDarkMode = useThemeStore((state) => state.isDarkMode);
 
@@ -34,7 +27,7 @@ const Portfolio = () => {
         <div className='background-color'>
             <div className="header-main">
                 <header>
-                    <Navbar openModal={openModal}/>
+                    <Navbar />
                         <div className='banner'>
                             <img src={Docs} alt="Illustration de documents" />
                             <h2>Mes projets</h2>
@@ -64,13 +57,8 @@ const Portfolio = () => {
                     <Works />
                 </main>
             </div>
-            <Link to="/services" className="btn dim">Voir les prestations</Link>
-            <Footer openModal={openModal}/>
-            <ContactModal 
-                isOpen={isModalOpen} 
-                onClose={closeModal} 
-                title="Contactez-moi" 
-            />
+            <Link to="/contact" className="btn">Contactez-moi</Link>
+            <Footer />
         </div>
     </div>
   )

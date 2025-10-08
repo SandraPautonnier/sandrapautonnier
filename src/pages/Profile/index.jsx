@@ -1,11 +1,9 @@
-import { useState } from 'react';
 import { Link } from "react-router-dom";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Meta from "../../components/Meta";
 import Sandra3 from '../../assets/images/Sandra3.webp';
 import Coupe from '../../assets/images/coupe.svg';
-import ContactModal from "../../components/ContactModal";
 import Skills from '../Sections/Skills';
 import BgDark from "../../assets/images/Background-image-dark.webp";
 import BgLight from "../../assets/images/Background-image-light.webp";
@@ -143,12 +141,7 @@ const Profile = () => {
                 </main>
             </div>
             <Link to="/portfolio" className="btn dim">Découvrez mes réalisations</Link>
-            <Footer openModal={openModal}/>
-            <ContactModal 
-                isOpen={isModalOpen} 
-                onClose={closeModal} 
-                title="Contactez-moi" 
-            />
+            <Footer />
         </div>
     </div>
   )

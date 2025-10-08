@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
@@ -13,17 +12,10 @@ import BgLight from "../../assets/images/Background-image-light.webp";
 import useThemeStore from "../../store/useThemeStore";
 import Carousel from "../../features/Carousel";
 import HookWorks from "../../assets/content/works.json";
-import Services from "../../assets/content/services.json";
 import Meta from "../../components/Meta";
 
 
 const Home = () => {
-  
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
   const isDarkMode = useThemeStore((state) => state.isDarkMode);
 
   return (
@@ -115,7 +107,7 @@ const Home = () => {
             </section>
           </main>
         </div>
-        <Footer openModal={openModal}/>
+        <Footer />
       </div>
     </div>
   )

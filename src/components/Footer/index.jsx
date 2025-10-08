@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Link } from "react-router-dom";
 import Sandra2 from "../../assets/images/sandra2.webp";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,7 +6,7 @@ import { faLinkedin , faSquareGithub , faCodepen } from '@fortawesome/free-brand
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 
-const Footer = ({openModal}) => {
+const Footer = () => {
 
   const [isChecked, setIsChecked] = useState(false);
 
@@ -14,9 +14,7 @@ const Footer = ({openModal}) => {
     <footer>
         <div className='footer-main'>
             <div className='contact-mail'>
-                <button className="main-button" onClick={openModal}>
-                  Contactez-moi
-                </button>
+              <Link to="/contact" className="btn">Contactez-moi</Link>
             </div>
             <img src={Sandra2} alt="Photo de Sandra" />
             <div className='social-media'>

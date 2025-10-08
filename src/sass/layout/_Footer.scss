@@ -14,12 +14,12 @@ footer {
             grid-template-columns: 1fr 1fr 1fr;
         } 
         gap:20px;
-        .contact-mail {
+        /*.contact-mail {
             @include flex-column-center;
             .main-button {
                 @include zoom-btn;
             }
-        }
+        }*/
         img {
             max-width: 100px;
             margin: 15px 0;
