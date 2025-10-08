@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import ContactModal from "../../components/ContactModal";
 import Sandra1 from '../../assets/images/sandra1.webp';
 import Cv from '../../assets/pdf/CV-Sandra-Pautonnier.pdf';
 import AgeCalculator from "../../features/AgeCalculator";
@@ -40,7 +39,7 @@ const Home = () => {
             <div className='header-banner' id="home">
               <img src={Sandra1} alt="Portrait de Sandra"/>
               <h1>Sandra Pautonnier</h1>
-              <p>Développeuse d'application Web</p>
+              <p>Développeuse d'application web React</p>
               <div className="buttons-social">
                 <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faSquareGithub} />Github</a>
                 <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} />Linkedin</a>
@@ -111,17 +110,12 @@ const Home = () => {
                   </div>
                 ))}
               </div>
-              <Link to="/services" className="btn">Voir les tarifs</Link>
+              <Link to="/contact" className="btn">Contactez-moi</Link>
               <p className="catch">Flexible, moderne et humaine. C’est ça, le sur-mesure.</p>
             </section>
           </main>
         </div>
         <Footer openModal={openModal}/>
-        <ContactModal 
-          isOpen={isModalOpen} 
-          onClose={closeModal} 
-          title="Contactez-moi" 
-        />
       </div>
     </div>
   )

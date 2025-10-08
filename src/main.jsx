@@ -8,7 +8,7 @@ import {
 import Home from '../src/pages/Home/index';
 import Profile from '../src/pages/Profile'
 import Portfolio from './pages/Portfolio';
-import Services from './pages/Services';
+import Contact from './pages/Contact';
 import Legalnotice from './pages/Legalnotice';
 import "@fontsource/montserrat";
 
@@ -26,8 +26,8 @@ const router = createBrowserRouter([
     element: <Portfolio />,
   },
   {
-    path: "/services",
-    element: <Services />,
+    path: "/contact",
+    element: <Contact />,
   },
   {
     path: "/legalnotice",

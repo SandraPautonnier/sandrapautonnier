@@ -173,7 +173,7 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   width: 50px;
   height: 50px;
   border: 5px solid #7F45ED;
-  border-top: 5px solid #E3DAFF;
+  border-top: 5px solid white;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -189,7 +189,7 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
 .loading-screen p {
   margin-top: 10px;
   text-align: center;
-  color: #E3DAFF;
+  color: white;
 }
 
 .fondu-out {
@@ -272,7 +272,7 @@ body.light-mode .background-color .tag {
   border: 1px solid #C2B0FF;
 }
 body.light-mode .background-color .modal-content {
-  color: #E3DAFF;
+  color: white;
 }
 body.light-mode .background-color .modal-content input, body.light-mode .background-color .modal-content textarea {
   background-color: #EFF0F3;
@@ -280,7 +280,7 @@ body.light-mode .background-color .modal-content input, body.light-mode .backgro
 }
 body.light-mode .background-color .modal-content .btn-submit-form, body.light-mode .background-color .modal-content .close-btn {
   background: rgba(25, 20, 43, 0.8);
-  color: #E3DAFF;
+  color: white;
   border-radius: 12px;
   border: 1px solid transparent;
   padding: 6px 8px;
@@ -288,7 +288,7 @@ body.light-mode .background-color .modal-content .btn-submit-form, body.light-mo
   transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
 }
 body.light-mode .background-color .modal-content .btn-submit-form:hover, body.light-mode .background-color .modal-content .close-btn:hover {
-  background: #E3DAFF;
+  background: white;
   color: #7F45ED;
   border: #7F45ED 1px solid;
   text-decoration: none;
@@ -345,11 +345,11 @@ body.light-mode .background-color tr:hover {
 body.dark-mode .background-color {
   background: linear-gradient(180deg, rgba(25, 20, 43, 0.8) 0%, rgba(25, 25, 27, 0.8) 20%);
   backdrop-filter: blur(20px);
-  color: #E3DAFF;
+  color: white;
 }
 body.dark-mode .background-color .nav-ul {
   background-color: #291A4E;
-  color: #E3DAFF;
+  color: white;
 }
 @media (min-width: 768px) {
   body.dark-mode .background-color .nav-ul {
@@ -358,7 +358,7 @@ body.dark-mode .background-color .nav-ul {
   }
 }
 body.dark-mode .background-color .nav-ul .nav-li {
-  background: linear-gradient(to top, #E3DAFF 0%, #E3DAFF 1px, transparent 2px) no-repeat;
+  background: linear-gradient(to top, white 0%, white 1px, transparent 2px) no-repeat;
   background-size: 0 100%;
   transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
 }
@@ -366,12 +366,12 @@ body.dark-mode .background-color .nav-ul .nav-li:hover {
   background-size: 100% 100%;
 }
 body.dark-mode .background-color .nav-ul .nav-li .active {
-  background: linear-gradient(to top, #E3DAFF 0%, #E3DAFF 1px, transparent 2px) no-repeat;
+  background: linear-gradient(to top, white 0%, white 1px, transparent 2px) no-repeat;
   background-size: 100% 100%;
   transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
 }
 body.dark-mode .background-color .bar {
-  background-color: #E3DAFF;
+  background-color: white;
 }
 body.dark-mode .background-color button.toggle-button {
   border-radius: 12px;
@@ -383,33 +383,33 @@ body.dark-mode .background-color button.toggle-button {
 }
 body.dark-mode .background-color .card {
   background-color: #291A4E;
-  color: #E3DAFF;
+  color: white;
 }
 body.dark-mode .background-color .card:hover {
   background-color: #361B69;
 }
 body.dark-mode .background-color .formation {
   background-color: #291A4E;
-  color: #E3DAFF;
+  color: white;
 }
 body.dark-mode .background-color select {
   background-color: #291A4E;
-  color: #E3DAFF;
+  color: white;
 }
 body.dark-mode .background-color .tag {
   background-color: #19142B;
-  color: #E3DAFF;
+  color: white;
   border: 1px solid #5A3CA0;
 }
 body.dark-mode .background-color .modal-content {
-  color: #E3DAFF;
+  color: white;
 }
 body.dark-mode .background-color .modal-content input, body.dark-mode .background-color .modal-content textarea {
   background-color: #19191B;
-  color: #E3DAFF;
+  color: white;
 }
 body.dark-mode .background-color .modal-content .btn-submit-form, body.dark-mode .background-color .modal-content .close-btn {
-  background: #E3DAFF;
+  background: white;
   color: #723AD7;
   border-radius: 12px;
   border: 1px solid transparent;
@@ -420,7 +420,7 @@ body.dark-mode .background-color .modal-content .btn-submit-form, body.dark-mode
 body.dark-mode .background-color .modal-content .btn-submit-form:hover, body.dark-mode .background-color .modal-content .close-btn:hover {
   background: linear-gradient(180deg, rgba(25, 20, 43, 0.8) 0%, rgba(25, 25, 27, 0.8) 20%);
   backdrop-filter: blur(20px);
-  color: #E3DAFF;
+  color: white;
   border: #C2B0FF 1px solid;
   text-decoration: none;
 }
@@ -429,18 +429,18 @@ body.dark-mode .background-color button.modal-button {
   padding: 0;
   font-size: 16px;
   border: none;
-  color: #E3DAFF;
+  color: white;
 }
 body.dark-mode .background-color .label-work .base {
   background-color: #291A4E;
-  color: #E3DAFF;
+  color: white;
 }
 body.dark-mode .background-color .label-work .pointer {
   border-bottom: 59px solid #291A4E;
 }
 body.dark-mode .background-color footer {
   background-color: #291A4E;
-  color: #E3DAFF;
+  color: white;
 }
 body.dark-mode .background-color footer .main-button {
   border-radius: 12px;
@@ -451,7 +451,7 @@ body.dark-mode .background-color footer .main-button {
   color: white;
 }
 body.dark-mode .background-color footer .link {
-  background: linear-gradient(to top, #E3DAFF 0%, #E3DAFF 1px, transparent 2px) no-repeat;
+  background: linear-gradient(to top, white 0%, white 1px, transparent 2px) no-repeat;
   background-size: 0 100%;
   transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
 }
@@ -460,7 +460,7 @@ body.dark-mode .background-color footer .link:hover {
 }
 body.dark-mode .background-color tr {
   background-color: #291A4E;
-  color: #E3DAFF;
+  color: white;
 }
 body.dark-mode .background-color tr:hover {
   background-color: #361B69;
@@ -468,7 +468,7 @@ body.dark-mode .background-color tr:hover {
 @media (min-width: 600px) {
   body.dark-mode .background-color .table {
     background-color: #291A4E;
-    color: #E3DAFF;
+    color: white;
   }
   body.dark-mode .background-color .table:hover {
     background-color: #361B69;
@@ -932,7 +932,7 @@ form div textarea {
   padding: 10px;
   border-radius: 7px;
   background-color: #291A4E;
-  color: #E3DAFF;
+  color: white;
   transform: scale(1);
   transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }

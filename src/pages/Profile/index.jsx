@@ -15,11 +15,6 @@ import { faReact, faJs, faSass, faGithub, faNode } from '@fortawesome/free-brand
 
 const Profile = () => {
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
-    const openModal = () => setIsModalOpen(true);
-    const closeModal = () => setIsModalOpen(false);
-
     const isDarkMode = useThemeStore((state) => state.isDarkMode);
 
   return (
@@ -31,7 +26,7 @@ const Profile = () => {
         <div className='background-color'>
             <div className="header-main">
                 <header>
-                    <Navbar openModal={openModal}/>
+                    <Navbar />
                     <div className='banner'>
                         <img src={Sandra3} alt="Photo de Sandra" />
                         <h2>A propos de moi</h2>

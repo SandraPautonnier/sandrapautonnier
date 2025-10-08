@@ -12,11 +12,6 @@ const Navbar = ({ openModal }) => {
     setMenuOpen(!menuOpen);
   };
 
-  const handleContactClick = () => {
-    openModal();  
-    setMenuOpen(false);  
-  };
-
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuOpen && navRef.current && !navRef.current.contains(event.target)) {
@@ -55,18 +50,13 @@ const Navbar = ({ openModal }) => {
             <Link to="/" onClick={() => setMenuOpen(false)} className={activeUrl === '/' ? 'active' : ''}>ACCUEIL</Link>
           </li>
           <li className="nav-li">
-            <Link to="/profile"  onClick={() => setMenuOpen(false)} className={activeUrl === '/profile' ? 'active' : ''}>PROFIL</Link>
-          </li>
-          <li className="nav-li">
             <Link to="/portfolio"  onClick={() => setMenuOpen(false)} className={activeUrl === '/portfolio' ? 'active' : ''}>PORTFOLIO</Link>
           </li>
           <li className="nav-li">
-            <Link to="/services"  onClick={() => setMenuOpen(false)} className={activeUrl === '/services' ? 'active' : ''}>PRESTATIONS</Link>
+            <Link to="/profile"  onClick={() => setMenuOpen(false)} className={activeUrl === '/profile' ? 'active' : ''}>À PROPOS</Link>
           </li>
           <li className="nav-li">
-            <button onClick={handleContactClick} className="modal-button">
-              CONTACT
-            </button>
+            <Link to="/contact"  onClick={() => setMenuOpen(false)} className={activeUrl === '/contact' ? 'active' : ''}>CONTACT</Link>
           </li>
         </ul>
       </nav>
