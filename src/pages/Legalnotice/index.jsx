@@ -1,17 +1,10 @@
-import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import BgDark from "../../assets/images/Background-image-dark.webp";
 import BgLight from "../../assets/images/Background-image-light.webp";
 import useThemeStore from "../../store/useThemeStore";
-import ContactModal from "../../components/ContactModal";
 
 const Legalnotice = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
   const isDarkMode = useThemeStore((state) => state.isDarkMode);
 
   return (
@@ -505,12 +498,7 @@ const Legalnotice = () => {
             </p>
           </main>
         </div>
-        <Footer openModal={openModal} />
-        <ContactModal
-          isOpen={isModalOpen}
-          onClose={closeModal}
-          title="Contactez-moi"
-        />
+        <Footer />
       </div>
     </div>
   );

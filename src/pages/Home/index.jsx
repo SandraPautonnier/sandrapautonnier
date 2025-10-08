@@ -13,6 +13,7 @@ import useThemeStore from "../../store/useThemeStore";
 import Carousel from "../../features/Carousel";
 import HookWorks from "../../assets/content/works.json";
 import Meta from "../../components/Meta";
+import Services from "../../assets/content/services.json";
 
 
 const Home = () => {
@@ -27,7 +28,7 @@ const Home = () => {
       <div className='background-color'>
         <div className="header-main">
           <header>
-            <Navbar openModal={openModal}/>
+            <Navbar />
             <div className='header-banner' id="home">
               <img src={Sandra1} alt="Portrait de Sandra"/>
               <h1>Sandra Pautonnier</h1>
