@@ -19,7 +19,7 @@ const Portfolio = () => {
     const isDarkMode = useThemeStore((state) => state.isDarkMode);
 
   return (
-    <div className="background-image" style={{background: `url(${isDarkMode ? BgDark : BgLight}) no-repeat center/cover`, height: '100%', minHeight: '100vh'}}> 
+    <div className="portfolio"> 
         <Meta 
             title="Portfolio - Développeuse Web fullstack" 
             description="Développeuse web fullstack freelance spécialisée en React & Node. Création de sites performants, modernes et sur-mesure." 
@@ -57,7 +57,6 @@ const Portfolio = () => {
                     <Works />
                 </main>
             </div>
-            <Link to="/contact" className="btn">Contactez-moi</Link>
             <Footer />
         </div>
     </div>

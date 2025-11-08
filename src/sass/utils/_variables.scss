@@ -1,30 +1,20 @@
 //Color
 
-$main-color: #7F45ED; //#8C52FF
+$main-color: #8F72AF; //#8C52FF
 $secondary-color: rgba(255,204,251,1);
 
-//Dark Mode
-$dark-background: rgba(25, 20, 43, 0.8); //#19142B
-$dark-text: white; //#E3DAFF;
-$dark-border: #5A3CA0;
-$dark-tags: #19142B;
-$dark-component-hover: #361B69;
-$dark-component: #291A4E;
-$dark-input: #19191B;
+//Elements
+$background: rgba(25, 20, 43, 0.8); //#19142B
+$text: black; //#E3DAFF;
+$border: #5A3CA0;
+$tags: #F3EFF8;
+$tags-text: #2D1F3C;
+$component-hover: #9B7EBD;
+$component: #f5f1ed;
+$input: #19191B;
 
-//Light Mode
-$light-background: rgba(242, 239, 255, 0.7); //#F2EFFF
-$light-text: #723AD7;
-$light-border: #C2B0FF;
-$light-tags: #E0D6FF;
-$light-component-hover: #EAE3FF;
-$light-component: #F2EFFF;
-$light-input: #EFF0F3;
-
-$dark-color-background: rgba(25, 25, 27, 0.8);
-$dark-color: #19191B;
-$light-color-background: rgba(249, 249, 251, 0.7);
-$light-color: #F9F9FB;
+$light-color: white;
+$light-text: #19191B;
 
 //width
 

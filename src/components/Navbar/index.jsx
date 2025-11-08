@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import ToggleMode from '../../features/Mode';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -60,7 +59,6 @@ const Navbar = () => {
           </li>
         </ul>
       </nav>
-      <ToggleMode />
     </div>
 
   );

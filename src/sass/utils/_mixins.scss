@@ -74,45 +74,30 @@
 
 //colors
 
+@mixin gradient-color {
+    background: linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%);
+}
+
 @mixin badark-colight {
-    background: linear-gradient(180deg, $dark-background 0%, $dark-color-background 20%);
+    background-color: #f5f1ed;
     backdrop-filter: blur(20px);
-    color: $dark-text;
+    color: $text;
 }
 
 @mixin badark-colight-component {
-    background-color: $dark-component;
-    color: $dark-text;
+    background-color: $component;
+    color: $text;
     
 }
 
 @mixin badark-colight-tags {
-    background-color: $dark-tags;
-    color: $dark-text;
-    border: 1px solid $dark-border;
-}
-
-@mixin balight-codark {
-    background: linear-gradient(180deg, $light-background 0%, $light-color-background 20%);
-    backdrop-filter: blur(20px);
-    color: $light-text;
-}
-
-@mixin balight-codark-component {
-    background-color: $light-component;
-    color: $light-text;
-    border: 1px solid $light-border;
-    
-}
-
-@mixin balight-codark-tags {
-    background-color: $light-tags;
-    color: $light-text;
-    border: 1px solid $light-border;
+    background-color: $tags;
+    color: $tags-text;
+    border: 1px solid $border;
 }
 
 @mixin underline-active-dark {
-    background: linear-gradient(to top, $dark-text 0%, $dark-text 1px, transparent 2px) no-repeat;
+    background: linear-gradient(to top, $text 0%, $text 1px, transparent 2px) no-repeat;
     background-size: 100% 100%;
     transition: background-size 0.3s cubic-bezier(.77,0,.18,1);
 }
@@ -126,7 +111,7 @@
 //animations
 
 @mixin underline-anim-dark {
-    background: linear-gradient(to top, $dark-text 0%, $dark-text 1px, transparent 2px) no-repeat;
+    background: linear-gradient(to top, $text 0%, $text 1px, transparent 2px) no-repeat;
     background-size: 0 100%;
     transition: background-size 0.3s cubic-bezier(.77,0,.18,1);
     &:hover {
@@ -144,10 +129,10 @@
 }
 
 @mixin zoom-btn {
-    transform: scale(1); 
+    transform: scale(100%); 
     transition: transform 0.3s cubic-bezier(.68,-0.55,.27,1.55);
     &:hover {
-      transform: scale(1.1);
+      transform: scale(110%);
     }
 }
 

@@ -5,8 +5,6 @@ import Meta from "../../components/Meta";
 import Sandra3 from '../../assets/images/Sandra3.webp';
 import Coupe from '../../assets/images/coupe.svg';
 import Skills from '../Sections/Skills';
-import BgDark from "../../assets/images/Background-image-dark.webp";
-import BgLight from "../../assets/images/Background-image-light.webp";
 import useThemeStore from "../../store/useThemeStore";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faReact, faJs, faSass, faGithub, faNode } from '@fortawesome/free-brands-svg-icons';
@@ -16,7 +14,7 @@ const Profile = () => {
     const isDarkMode = useThemeStore((state) => state.isDarkMode);
 
   return (
-    <div className="background-image" style={{background: `url(${isDarkMode ? BgDark : BgLight}) no-repeat center/cover`, height: '100%', minHeight: '100vh'}}> 
+    <div className="profile">
         <Meta 
             title="Profil - Développeuse Web fullstack" 
             description="Développeuse web fullstack freelance spécialisée en React & Node. Création de sites performants, modernes et sur-mesure." 

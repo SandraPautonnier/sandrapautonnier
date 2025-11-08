@@ -7,9 +7,6 @@ import AgeCalculator from "../../features/AgeCalculator";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin , faSquareGithub , faReact } from '@fortawesome/free-brands-svg-icons';
 import { faFileArrowDown , faUser , faFlask , faCode , faAward } from '@fortawesome/free-solid-svg-icons';
-import BgDark from "../../assets/images/Background-image-dark.webp";
-import BgLight from "../../assets/images/Background-image-light.webp";
-import useThemeStore from "../../store/useThemeStore";
 import Carousel from "../../features/Carousel";
 import HookWorks from "../../assets/content/works.json";
 import Meta from "../../components/Meta";
@@ -17,10 +14,10 @@ import Services from "../../assets/content/services.json";
 
 
 const Home = () => {
-  const isDarkMode = useThemeStore((state) => state.isDarkMode);
+
 
   return (
-    <div className="background-image" style={{background: `url(${isDarkMode ? BgDark : BgLight}) no-repeat center/cover`, height: '100%', minHeight: '100vh'}}> 
+    <div className="home">
       <Meta 
         title="Accueil - Développeuse Web fullstack" 
         description="Développeuse web fullstack freelance spécialisée en React & Node. Création de sites performants, modernes et sur-mesure."  
@@ -30,9 +27,10 @@ const Home = () => {
           <header>
             <Navbar />
             <div className='header-banner' id="home">
-              <img src={Sandra1} alt="Portrait de Sandra"/>
               <h1>Sandra Pautonnier</h1>
-              <p>Développeuse d'application web React</p>
+              <img src={Sandra1} alt="Portrait de Sandra"/>
+              <h2>Développeuse & Créatrice Web Intuitive</h2>
+              <p>Créativité, écoute & clarté ! Au service de votre image en ligne.</p>
               <div className="buttons-social">
                 <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faSquareGithub} />Github</a>
                 <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} />Linkedin</a>
@@ -41,38 +39,23 @@ const Home = () => {
             </div>
           </header>
           <main>
-            <section className="hook-about">
-              <h2>Qui suis-je?</h2>
-              <div className="container-hook-about">
-                <div className="card-hook-about">
-                  <ul className="card profile">
-                    <li>
-                      <div className="card-user">
-                        <FontAwesomeIcon icon={faUser} />
-                        <p><strong>Prénom :</strong> Sandra</p>
-                        <p><strong>Âge :</strong> <AgeCalculator birthDate="1992-07-28" /> ans</p>
-                      </div>
-                    </li>
-                    <li><FontAwesomeIcon icon={faReact} /><strong>Technos :</strong> React, Node et MongoDB</li>
-                    <li><FontAwesomeIcon icon={faCode} /><strong>Compétences principales :</strong> Réaliser un site web dynamique avec une interface dédiée et créer une application web fluide et sécurisée</li>
-                    <li><FontAwesomeIcon icon={faAward} /><strong>Dernière formation :</strong> Titre RNCP Développeur Informatique</li>
-                    <li><FontAwesomeIcon icon={faFlask} /><strong>Autres expériences :</strong> Commerce et gestion de projet</li>
-                  </ul>
-                </div>
-                <div className="text-hook-about">
-                  <p>Curieuse et créative, je m’intéresse à de nombreux domaines et cherche constamment à comprendre comment les choses fonctionnent. <br /> Mon autonomie me permet de relever des défis variés et d’acquérir rapidement de nouvelles compétences.<br /> Grâce à cela, j’ai une riche expérience dans différents domaines.</p>
-                  <ul className='tags'>
-                    <li className='tag'>#curieuse</li>
-                    <li className='tag'>#créative</li>
-                    <li className='tag'>#autonome</li>
-                  </ul>
-                  <Link to="/profile" className="btn">En savoir plus</Link>
-                </div>
+            <section className="hook-services">
+              <h2>Ce que je propose</h2>
+              <div className="container-hook-services">
+                {Services.map(Service => (
+                  <div key={Service.index} className="card service">
+                    <img src={Service.img} alt={Service.alt} />
+                    <h3>{Service.title}</h3>
+                    <p>{Service.description}</p>
+                  </div>
+                ))}
               </div>
-              <p className="catch">Une développeuse qui parle votre langue (et aussi JavaScript !).</p>
+              <Link to="/contact" className="btn">Contactez-moi</Link>
+              <p className="catch">Flexible, moderne et humaine. C’est ça, le sur-mesure.</p>
             </section>
+            
             <section className="hook-works">
-              <h2>Ce que je sais faire</h2>
+              <h2>Quelques projets</h2>
                 <Carousel>
                 {HookWorks.map((item) => (
                   <div key={item.index} className="carousel-slide"> 
@@ -92,19 +75,22 @@ const Home = () => {
               <Link to="/portfolio" className="btn">Voir plus de projets</Link>
               <p className="catch">Des projets réalisés avec passion !</p>
             </section>
-            <section className="hook-services">
-              <h2>Ce que je vous propose</h2>
-              <div className="container-hook-services">
-                {Services.map(Service => (
-                  <div key={Service.index} className="card service">
-                    <img src={Service.img} alt={Service.alt} />
-                    <h3>{Service.title}</h3>
-                    <p>{Service.description}</p>
-                  </div>
-                ))}
+            <section className="hook-about">
+              <h2>Qui suis-je?</h2>
+              <div className="container-hook-about">
+                
+                <div className="text-hook-about">
+                  <p>Développeuse Fullstack passionnée de <AgeCalculator birthDate="1992-07-28" /> ans. J'aime analyser, créer et développer pour donner vie à des projets web uniques. <br />
+                  Mon parcours mêle artistique, commerce, gestion de projet, création de contenu et développement web. Une combinaison qui me permet de comprendre les besoins réels de mes clients.</p>
+                  <ul className='tags'>
+                    <li className='tag'>#curieuse</li>
+                    <li className='tag'>#créative</li>
+                    <li className='tag'>#autonome</li>
+                  </ul>
+                  <Link to="/profile" className="btn">En savoir plus</Link>
+                </div>
               </div>
-              <Link to="/contact" className="btn">Contactez-moi</Link>
-              <p className="catch">Flexible, moderne et humaine. C’est ça, le sur-mesure.</p>
+              <p className="catch">Une développeuse qui parle votre langue (et aussi JavaScript !).</p>
             </section>
           </main>
         </div>

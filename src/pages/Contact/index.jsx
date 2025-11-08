@@ -2,11 +2,8 @@ import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import Sandra from "../../assets/images/Sandra.webp";
 import Meta from "../../components/Meta";
-import BgDark from "../../assets/images/Background-image-dark.webp";
-import BgLight from "../../assets/images/Background-image-light.webp";
-import useThemeStore from "../../store/useThemeStore";
+
 
 const Contact = () => {
     const [confirmationMessage, setConfirmationMessage] = useState("");
@@ -15,7 +12,6 @@ const Contact = () => {
     const [fromObject, setFromObject] = useState("");
     const [fromEmail, setFromEmail] = useState("");
     const [message, setMessage] = useState("");
-    const isDarkMode = useThemeStore((state) => state.isDarkMode);
 
     useEffect(() => {
         emailjs.init("0GoSVF1YIRg3i22PD");
@@ -53,7 +49,7 @@ const Contact = () => {
     };
 
     return (
-        <div className="background-image" style={{ background: `url(${isDarkMode ? BgDark : BgLight}) no-repeat center/cover`, height: '100%', minHeight: '100vh' }}>
+        <div className="contact">
             <Meta
                 title="Profil - Développeuse Web fullstack"
                 description="Développeuse web fullstack freelance spécialisée en React & Node. Création de sites performants, modernes et sur-mesure."
@@ -66,8 +62,6 @@ const Contact = () => {
                     <main className="contact-container">
                         <section className="contact-section">
                             <h1>Contactez-moi</h1>
-
-
                             {confirmationMessage ? (
                                 <p className="confirmation-message">{confirmationMessage}</p>
                             ) : (

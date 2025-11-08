@@ -1,6 +1,5 @@
 @import "../utils/variables";
 @import "../utils/mixins";
-@import "../components/Togglemode";
 
 .btn {
   @include btn;
@@ -139,7 +138,6 @@
     text-align: center;
     padding-bottom: inherit;
     padding-top: inherit;
-    @include zoom-btn;
     img {
       max-width: 175px;
       margin-top: 20px;
