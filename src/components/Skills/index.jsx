@@ -1,5 +1,5 @@
 import React from 'react'
-import skills from '../../../../src/assets/content/skillsList.json'
+import skills from '../../assets/content/skillsList.json'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCode, faPen, faDiagramProject, faBullseye } from '@fortawesome/free-solid-svg-icons';
 

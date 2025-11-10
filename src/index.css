@@ -1,12 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Marko+One&display=swap");
-/*@mixin modal-btn {
-    background: none;
-    padding: 0;
-    font-size: 16px;
-    border: none;
-}*/
 .menu-nav nav {
   position: relative;
   display: flex;
@@ -87,12 +81,6 @@
     transform: translateY(0);
   }
 }
-/*@mixin modal-btn {
-    background: none;
-    padding: 0;
-    font-size: 16px;
-    border: none;
-}*/
 footer {
   padding: 30px;
   position: relative;
@@ -203,12 +191,6 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   pointer-events: none;
 }
 
-/*@mixin modal-btn {
-    background: none;
-    padding: 0;
-    font-size: 16px;
-    border: none;
-}*/
 .btn {
   border-radius: 12px;
   border: 1px solid transparent;
@@ -390,12 +372,6 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   margin-top: 20px;
 }
 
-/*@mixin modal-btn {
-    background: none;
-    padding: 0;
-    font-size: 16px;
-    border: none;
-}*/
 .experiences {
   margin-bottom: 30px;
 }
@@ -528,60 +504,9 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
 }
 @media (min-width: 1100px) {
   .container-mobile {
-    display: none;
-  }
-}
-
-.container-desktop {
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  gap: 20px;
-  grid-auto-flow: row;
-  grid-template-areas: ". . . . . . . . Experience5" ". . . . . . . Certificate4 ." ". . . Experience2 Certificate3 Experience3 Experience4 . ." ". Certificate2 Experience1 . . Personal3 Personal4 . ." "Certificate1 Personal2 . . . . . . ." "Personal1 . . . . . . . .";
-}
-.container-desktop .experience1 {
-  grid-area: Experience1;
-}
-.container-desktop .experience2 {
-  grid-area: Experience2;
-}
-.container-desktop .experience3 {
-  grid-area: Experience3;
-}
-.container-desktop .experience4 {
-  grid-area: Experience4;
-}
-.container-desktop .experience5 {
-  grid-area: Experience5;
-}
-.container-desktop .certificate1 {
-  grid-area: Certificate1;
-}
-.container-desktop .certificate2 {
-  grid-area: Certificate2;
-}
-.container-desktop .certificate3 {
-  grid-area: Certificate3;
-}
-.container-desktop .certificate4 {
-  grid-area: Certificate4;
-}
-.container-desktop .personal1 {
-  grid-area: Personal1;
-}
-.container-desktop .personal2 {
-  grid-area: Personal2;
-}
-.container-desktop .personal3 {
-  grid-area: Personal3;
-}
-.container-desktop .personal4 {
-  grid-area: Personal4;
-}
-@media (max-width: 1100px) {
-  .container-desktop {
-    display: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 }
 
@@ -639,12 +564,6 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   }
 }
 
-/*@mixin modal-btn {
-    background: none;
-    padding: 0;
-    font-size: 16px;
-    border: none;
-}*/
 @media (max-width: 600px) {
   table, thead, tbody, th, td, tr {
     display: block;
@@ -697,12 +616,91 @@ table th {
   font-weight: bold;
 }
 
-/*@mixin modal-btn {
-    background: none;
-    padding: 0;
-    font-size: 16px;
-    border: none;
-}*/
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  margin: auto;
+  overflow: hidden;
+}
+.carousel .carousel-slide {
+  min-width: 100%;
+  height: 300px;
+}
+.carousel .carousel-slide .slide-content {
+  position: relative;
+}
+.carousel .carousel-slide .slide-content img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  filter: grayscale(0%) brightness(70%);
+}
+.carousel .carousel-slide .slide-content h3 {
+  position: absolute;
+  color: white;
+  margin: 0;
+  top: 10px;
+  left: 15px;
+  font-size: 16px;
+}
+@media (min-width: 450px) {
+  .carousel .carousel-slide .slide-content h3 {
+    font-size: 20px;
+  }
+}
+.carousel .carousel-slide .slide-content .work-language {
+  position: absolute;
+  color: white;
+  top: 10px;
+  right: 15px;
+}
+.carousel .carousel-slide .slide-content .work-tools {
+  position: absolute;
+  color: white;
+  bottom: 15px;
+  right: 15px;
+}
+.carousel .carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.carousel .carousel-button.left {
+  left: 10px;
+}
+.carousel .carousel-button.right {
+  right: 10px;
+}
+.carousel .carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+}
+.carousel .carousel-indicators .indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: gray;
+  border: none;
+  cursor: pointer;
+}
+.carousel .carousel-indicators .indicator.active {
+  background: white;
+}
+
 .works {
   margin-bottom: 30px;
 }
@@ -809,103 +807,6 @@ table th {
   transform: scale(0); /* Replié */
 }
 
-/*@mixin modal-btn {
-    background: none;
-    padding: 0;
-    font-size: 16px;
-    border: none;
-}*/
-.carousel {
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-  border-radius: 10px;
-  margin: auto;
-  overflow: hidden;
-}
-.carousel .carousel-slide {
-  min-width: 100%;
-  height: 300px;
-}
-.carousel .carousel-slide .slide-content {
-  position: relative;
-}
-.carousel .carousel-slide .slide-content img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 10px;
-  filter: grayscale(0%) brightness(70%);
-}
-.carousel .carousel-slide .slide-content h3 {
-  position: absolute;
-  color: white;
-  margin: 0;
-  top: 10px;
-  left: 15px;
-  font-size: 16px;
-}
-@media (min-width: 450px) {
-  .carousel .carousel-slide .slide-content h3 {
-    font-size: 20px;
-  }
-}
-.carousel .carousel-slide .slide-content .work-language {
-  position: absolute;
-  color: white;
-  top: 10px;
-  right: 15px;
-}
-.carousel .carousel-slide .slide-content .work-tools {
-  position: absolute;
-  color: white;
-  bottom: 15px;
-  right: 15px;
-}
-.carousel .carousel-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 5px;
-  color: white;
-  border: none;
-  padding: 15px;
-  font-size: 20px;
-  cursor: pointer;
-}
-.carousel .carousel-button.left {
-  left: 10px;
-}
-.carousel .carousel-button.right {
-  right: 10px;
-}
-.carousel .carousel-indicators {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 5px;
-}
-.carousel .carousel-indicators .indicator {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: gray;
-  border: none;
-  cursor: pointer;
-}
-.carousel .carousel-indicators .indicator.active {
-  background: white;
-}
-
-/*@mixin modal-btn {
-    background: none;
-    padding: 0;
-    font-size: 16px;
-    border: none;
-}*/
 body.mode .background-color {
   background-color: #f5f1ed;
   backdrop-filter: blur(20px);
@@ -946,9 +847,8 @@ body.mode .background-color button.toggle-button {
   color: white;
 }
 body.mode .background-color .card {
-  background-color: #f5f1ed;
-  color: black;
-  border: 1px solid #9B7EBD;
+  border: 2px solid transparent;
+  border-image: linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%) 1;
 }
 body.mode .background-color .card:hover {
   background: #9B7EBD;

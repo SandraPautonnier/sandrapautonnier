@@ -6,8 +6,8 @@
 @use "./pages/profile";
 @use "./pages/services";
 @use "./pages/Legalnotice";
-@use "./pages/sections/works";
 @use "./components/Carousel";
+@use "./components/works";
 @use "./utils/variables" as *;
 @use "./utils/mixins";
 @use "./utils/colors";

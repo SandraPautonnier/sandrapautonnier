@@ -4,7 +4,7 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Docs from '../../assets/images/Portfolio.svg';
 import Meta from "../../components/Meta";
-import Works from "../Sections/Works";
+import Works from "../../components/Works";
 import BgDark from "../../assets/images/Background-image-dark.webp";
 import BgLight from "../../assets/images/Background-image-light.webp";
 import useThemeStore from "../../store/useThemeStore";
@@ -32,7 +32,7 @@ const Portfolio = () => {
                             <img src={Docs} alt="Illustration de documents" />
                             <h2>Mes projets</h2>
                             <div className="card card-banner">
-                                <p className='intro'>Passionnée par le web et toujours à l’écoute des besoins, je conçois des solutions sur mesure pour donner vie à chaque idée. Découvrez les projets qui ont enrichi mon parcours.</p>
+                                <p className='intro'>Passionnée par le web et toujours à l’écoute des besoins, je conçois des solutions sur mesure pour donner vie à chaque idée. Découvrez ici les projets qui ont enrichi mon parcours.</p>
                             </div>
                         </div>
                         <div className='card-works'>

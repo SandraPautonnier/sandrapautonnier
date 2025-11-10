@@ -101,41 +101,7 @@ svg {
   @include flex-column-center;
   gap: 20px;
   @media (min-width: 1100px) {
-    display: none;
-} 
-}
-
-.container-desktop {
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  gap: 20px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    ". . . . . . . . Experience5"
-    ". . . . . . . Certificate4 ."
-    ". . . Experience2 Certificate3 Experience3 Experience4 . ."
-    ". Certificate2 Experience1 . . Personal3 Personal4 . ."
-    "Certificate1 Personal2 . . . . . . ."
-    "Personal1 . . . . . . . .";
-
-  .experience1 { grid-area: Experience1; }
-  .experience2 { grid-area: Experience2; }
-  .experience3 { grid-area: Experience3; }
-  .experience4 { grid-area: Experience4; }
-  .experience5 { grid-area: Experience5; }
-
-  .certificate1 { grid-area: Certificate1; }
-  .certificate2 { grid-area: Certificate2; }
-  .certificate3 { grid-area: Certificate3; }
-  .certificate4 { grid-area: Certificate4; }
-
-  .personal1 { grid-area: Personal1; }
-  .personal2 { grid-area: Personal2; }
-  .personal3 { grid-area: Personal3; }
-  .personal4 { grid-area: Personal4; }
-  @media (max-width: 1100px) {
-    display: none;
+    @include flex-row-center;
 } 
 }
 

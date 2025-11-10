@@ -5,7 +5,7 @@ import {
   faUpRightAndDownLeftFromCenter,
   faDownLeftAndUpRightToCenter,
 } from "@fortawesome/free-solid-svg-icons";
-import workslist from "../../../assets/content/worksList.json";
+import workslist from "../../assets/content/worksList.json";
 
 const Works = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
