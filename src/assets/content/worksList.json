@@ -1,15 +1,16 @@
 [
     {
-        "id": 1,
-        "titlework": "Pulsar42",
-        "description": "En juin 2025, j’ai participé au développement du site Pulsar42.sc, un projet collaboratif porté par une association autour du jeu Star Citizen. C’est l’un de mes premiers travaux en équipe sur un projet concret en TypeScript ! J’ai intégré le footer du site et ajouté la page des mentions légales, conforme au RGPD et à la LCEN. Ce projet m’a permis de consolider mes compétences en intégration front-end, en responsive design, et de collaborer avec d'autres développeurs dans un cadre associatif.",
-        "cover": "https://gentle-pony-095b6f.netlify.app/pulsar42.webp",
+        "id": 3,
+        "titlework": "SpeakTime",
+        "description": "Avec SpeakTime, donnez à chacun la parole équitablement. Fixez la durée, ajoutez vos participants, et laissez l’application répartir le temps de parole automatiquement.",
+        "cover": "https://gentle-pony-095b6f.netlify.app/speaktime.webp",
         "category": "React",
-        "link": "https://pulsar42.sc",
+        "link": "https://github.com/SandraPautonnier/SpeakTime",
         "language": [
-            "React"
+            "React",
+            "/ Node.js avec Express"
         ],
-        "tools": "Vite"
+        "tools": "Zustand"
     },
     {
         "id": 2,
@@ -23,18 +24,18 @@
             "Javascript"
         ],
         "tools": "Awesome"
-    },
+    },    
     {
-        "id": 3,
-        "titlework": "sandrapautonnier v1",
-        "description": "Avant ma formation, fin 2022, une ancienne version de mon site portfolio existait. J'étais encore chargée de projet chez Enedis ! J'ai appris les bases de HTML et CSS, ainsi que le déploiement de mon site sur un serveur OVH via FileZilla.",
-        "cover": "https://gentle-pony-095b6f.netlify.app/sandrapautonnierv1.webp",
-        "category": "HTML/CSS",
-        "link": "https://sandrapautonnier.github.io/sandrapautonnier_V1/",
+        "id": 1,
+        "titlework": "Pulsar42",
+        "description": "En juin 2025, j’ai participé au développement du site Pulsar42.sc, un projet collaboratif porté par une association autour du jeu Star Citizen. C’est l’un de mes premiers travaux en équipe sur un projet concret en TypeScript ! J’ai intégré le footer du site et ajouté la page des mentions légales, conforme au RGPD et à la LCEN. Ce projet m’a permis de consolider mes compétences en intégration front-end, en responsive design, et de collaborer avec d'autres développeurs dans un cadre associatif.",
+        "cover": "https://gentle-pony-095b6f.netlify.app/pulsar42.webp",
+        "category": "React",
+        "link": "https://pulsar42.sc",
         "language": [
-            "HTML/CSS"
+            "React"
         ],
-        "tools": "FileZila"
+        "tools": "Vite"
     },
     {
         "id": 4,

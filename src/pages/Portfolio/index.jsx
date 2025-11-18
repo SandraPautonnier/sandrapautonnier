@@ -16,8 +16,6 @@ import {
 
 const Portfolio = () => {
 
-    const isDarkMode = useThemeStore((state) => state.isDarkMode);
-
   return (
     <div className="portfolio"> 
         <Meta 
@@ -42,15 +40,6 @@ const Portfolio = () => {
                                 <span></span>
                                 <span></span>
                             </a>
-                            <div className="description-collapse">
-                                <button
-                                    className="collapse-button"
-                                    onClick={() => "text"}
-                                >
-                                <i></i>
-                                </button>
-                                <div></div>
-                            </div>
                         </div>                    
                 </header>
                 <main>
