@@ -2,7 +2,7 @@
     {
         "id": 3,
         "titlework": "SpeakTime",
-        "description": "Avec SpeakTime, donnez à chacun la parole équitablement. Fixez la durée, ajoutez vos participants, et laissez l’application répartir le temps de parole automatiquement.",
+        "description": "SpeakTime est une application que je développe pour gérer le temps de parole lors de réunions ou discussions. Simple et intuitive, elle permet de suivre, répartir et contrôler le temps de chacun en un clin d’œil.",
         "cover": "https://gentle-pony-095b6f.netlify.app/speaktime.webp",
         "category": "React",
         "link": "https://github.com/SandraPautonnier/SpeakTime",

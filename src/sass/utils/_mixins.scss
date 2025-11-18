@@ -89,31 +89,16 @@
     border: 1px solid $border;
 }
 
-@mixin underline-active-dark {
-    background: linear-gradient(to top, $text 0%, $text 1px, transparent 2px) no-repeat;
-    background-size: 100% 100%;
-    transition: background-size 0.3s cubic-bezier(.77,0,.18,1);
-}
-
-@mixin underline-active-light {
-    background: linear-gradient(to top, $light-text 0%, $light-text 1px, transparent 2px) no-repeat;
+@mixin underline-active {
+    background: linear-gradient(to top, $main-color 0%, $main-color 1px, transparent 2px) no-repeat;
     background-size: 100% 100%;
     transition: background-size 0.3s cubic-bezier(.77,0,.18,1);
 }
 
 //animations
 
-@mixin underline-anim-dark {
-    background: linear-gradient(to top, $text 0%, $text 1px, transparent 2px) no-repeat;
-    background-size: 0 100%;
-    transition: background-size 0.3s cubic-bezier(.77,0,.18,1);
-    &:hover {
-        background-size: 100% 100%;
-    }
-}
-
-@mixin underline-anim-light {
-    background: linear-gradient(to top, $light-text 0%, $light-text 1px, transparent 2px) no-repeat;
+@mixin underline-anim {
+    background: linear-gradient(to top, $main-color 0%, $main-color 1px, transparent 2px) no-repeat;
     background-size: 0 100%;
     transition: background-size 0.3s cubic-bezier(.77,0,.18,1);
     &:hover {

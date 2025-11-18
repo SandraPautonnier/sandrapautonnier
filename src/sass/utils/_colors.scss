@@ -3,9 +3,12 @@
 
 // Mode Styles
 body.mode {
+    span {
+        color: $main-color;
+        font-weight: bold;
+    }
     .background-color {
         @include mixins.badark-colight;
-        
         .nav-ul {
             @include mixins.badark-colight-component;
             @media (min-width: 768px) {
@@ -13,15 +16,19 @@ body.mode {
                 border: none;
             }
             .nav-li {
-                @include mixins.underline-anim-dark;
+                @include mixins.underline-anim;
+                a {
+                    
+                    color: $main-color;
+                }
                 .active {
-                    @include mixins.underline-active-dark;
+                    @include mixins.underline-active;
                 }
             }
         }
         
         .bar {
-            background-color: $text;
+            background-color: $main-color;
         }
         
         button.toggle-button {
@@ -80,13 +87,14 @@ body.mode {
         }
         
         footer {
-            @include mixins.badark-colight-component;
+            background-color: #f5f1ed;
+            color: $main-color;
             .main-button {
                 @include mixins.btn;
                 @include mixins.btn-color-main;
             }
             .link {
-                @include mixins.underline-anim-dark;
+                @include mixins.underline-anim;
             }
         }
         

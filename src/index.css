@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: center;
   margin: 20px 0;
+  font-weight: bold;
 }
 .menu-nav nav .nav-ul {
   display: flex;
@@ -807,6 +808,10 @@ table th {
   transform: scale(0); /* Replié */
 }
 
+body.mode span {
+  color: #8F72AF;
+  font-weight: bold;
+}
 body.mode .background-color {
   background-color: #f5f1ed;
   backdrop-filter: blur(20px);
@@ -823,20 +828,23 @@ body.mode .background-color .nav-ul {
   }
 }
 body.mode .background-color .nav-ul .nav-li {
-  background: linear-gradient(to top, black 0%, black 1px, transparent 2px) no-repeat;
+  background: linear-gradient(to top, #8F72AF 0%, #8F72AF 1px, transparent 2px) no-repeat;
   background-size: 0 100%;
   transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
 }
 body.mode .background-color .nav-ul .nav-li:hover {
   background-size: 100% 100%;
 }
+body.mode .background-color .nav-ul .nav-li a {
+  color: #8F72AF;
+}
 body.mode .background-color .nav-ul .nav-li .active {
-  background: linear-gradient(to top, black 0%, black 1px, transparent 2px) no-repeat;
+  background: linear-gradient(to top, #8F72AF 0%, #8F72AF 1px, transparent 2px) no-repeat;
   background-size: 100% 100%;
   transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
 }
 body.mode .background-color .bar {
-  background-color: black;
+  background-color: #8F72AF;
 }
 body.mode .background-color button.toggle-button {
   border-radius: 12px;
@@ -899,7 +907,7 @@ body.mode .background-color .label-work .pointer {
 }
 body.mode .background-color footer {
   background-color: #f5f1ed;
-  color: black;
+  color: #8F72AF;
 }
 body.mode .background-color footer .main-button {
   border-radius: 12px;
@@ -910,7 +918,7 @@ body.mode .background-color footer .main-button {
   color: white;
 }
 body.mode .background-color footer .link {
-  background: linear-gradient(to top, black 0%, black 1px, transparent 2px) no-repeat;
+  background: linear-gradient(to top, #8F72AF 0%, #8F72AF 1px, transparent 2px) no-repeat;
   background-size: 0 100%;
   transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
 }
