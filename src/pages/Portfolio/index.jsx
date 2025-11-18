@@ -32,6 +32,7 @@ const Portfolio = () => {
                             <div className="card card-banner">
                                 <p className='intro'>Passionnée par le web et toujours à l’écoute des besoins, je conçois des solutions sur mesure pour donner vie à chaque idée. Découvrez ici les projets qui ont enrichi mon parcours.</p>
                             </div>
+                            <p>Site en cours de refonte ...</p>
                         </div>
                         <div className='card-works'>
                             <a href="http://sandrapautonnier.com">

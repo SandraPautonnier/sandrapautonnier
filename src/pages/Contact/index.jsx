@@ -61,7 +61,8 @@ const Contact = () => {
                     </header>
                     <main className="contact-container">
                         <section className="contact-section">
-                            <h1>Contactez-moi</h1>
+                            <h2>Contactez-moi</h2>
+                            <p>Site en cours de refonte ...</p>
                             {confirmationMessage ? (
                                 <p className="confirmation-message">{confirmationMessage}</p>
                             ) : (

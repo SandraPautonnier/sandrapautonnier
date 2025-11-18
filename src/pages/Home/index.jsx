@@ -30,7 +30,9 @@ const Home = () => {
               <h1>Sandra Pautonnier</h1>
               <img src={Sandra1} alt="Portrait de Sandra"/>
               <h2>Développeuse & Créatrice Web Intuitive</h2>
-              <p>Créativité, écoute & clarté ! Au service de votre image en ligne.</p>
+              <p>Créativité, écoute & clarté ! Au service de votre image en ligne. <br />
+                Site en cours de refonte ...
+              </p>
               <div className="buttons-social">
                 <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faSquareGithub} />Github</a>
                 <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} />Linkedin</a>

@@ -32,6 +32,7 @@ const Profile = () => {
                         Aujourd’hui, je mets toute cette richesse au service du développement web. <strong>Curieuse</strong>, <strong>autonome</strong> et toujours en quête de sens, je m’épanouis dans les projets qui allient technique, créativité et utilité.<br></br> 
                         Mon ambition : continuer à apprendre, à expérimenter et à créer des outils numériques qui ont de l’impact.</p>
                         </div>
+                        <p>Site en cours de refonte ...</p>
                     </div>
                     <div className='technos'>
                         <FontAwesomeIcon icon={faSass} />
