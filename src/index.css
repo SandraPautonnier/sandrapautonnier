@@ -1,13 +1,15 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Marko+One&display=swap");
-.menu-nav nav {
-  position: relative;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap");
+.menu-nav {
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  margin: 20px 0;
+}
+.menu-nav nav {
+  font-family: "Space Grotesk", sans-serif;
+  position: relative;
+  margin: 20px 40px;
   font-weight: bold;
 }
 .menu-nav nav .nav-ul {
@@ -20,12 +22,11 @@
   flex-direction: row;
   align-items: center;
 }
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   .menu-nav nav {
     display: block;
     position: absolute;
     left: 20px;
-    margin-top: -50px;
     z-index: 5;
   }
 }
@@ -56,6 +57,14 @@
 }
 
 @media (max-width: 768px) {
+  h1 {
+    opacity: 0;
+  }
+}
+@media (max-width: 991px) {
+  h1 {
+    opacity: 0;
+  }
   .hamburger {
     display: flex;
     margin: 20px 10px;
@@ -247,16 +256,16 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   align-items: center;
   text-align: center;
 }
-.header-banner img,
 .header-banner h1,
 .header-banner p {
   opacity: 0;
   visibility: hidden;
 }
 .header-banner img {
-  max-width: 300px;
+  max-width: 768px;
   width: 100%;
-  animation: slideInFromRight 0.6s ease-out forwards;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .header-banner h1 {
   animation: slideInFromLeft 0.6s ease-out 0.2s forwards;
@@ -947,11 +956,12 @@ body.mode .background-color tr:hover {
 }
 
 h1, h2 {
-  font-family: "Marko One", serif;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 h1 {
-  margin: 30px auto 20px;
+  font-size: 1.7rem;
+  margin: 20px 40px;
   color: #8F72AF;
 }
 
@@ -985,7 +995,6 @@ body .background-color {
 .header-main {
   display: flex;
   flex-direction: column;
-  align-items: center;
   max-width: 1240px;
   width: 100%;
   margin: 0px auto;

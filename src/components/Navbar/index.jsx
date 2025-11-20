@@ -30,6 +30,7 @@ const Navbar = () => {
 
   return (
     <div className="menu-nav">
+      <h1>Sandra Pautonnier</h1>
       <nav ref={navRef}>
         {/* Bouton hamburger */}
         <div className="hamburger" onClick={toggleMenu}>

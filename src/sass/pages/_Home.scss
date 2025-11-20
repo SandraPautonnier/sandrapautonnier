@@ -45,16 +45,19 @@
 .header-banner {
   @include flex-column-center;
   text-align: center;
-  img,
+  
   h1,
   p {
     opacity: 0;
     visibility: hidden;
   }
   img {
-    max-width: 300px;
+    max-width: 768px;
     width: 100%;
-    animation: slideInFromRight 0.6s ease-out forwards;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    
   }
   h1 {
     animation: slideInFromLeft 0.6s ease-out 0.2s forwards;

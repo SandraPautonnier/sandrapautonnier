@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import Sandra1 from '../../assets/images/sandra1.webp';
+import HeaderImage from '../../assets/images/image_portrait_dessin_sandra_header.webp';
 import Cv from '../../assets/pdf/CV-Sandra-Pautonnier.pdf';
 import AgeCalculator from "../../features/AgeCalculator";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -27,8 +27,9 @@ const Home = () => {
           <header>
             <Navbar />
             <div className='header-banner' id="home">
-              <h1>Sandra Pautonnier</h1>
-              <img src={Sandra1} alt="Portrait de Sandra"/>
+              
+              <img src={HeaderImage} alt="Portrait de Sandra"/>
+              
               <h2>Développeuse & Créatrice Web Intuitive</h2>
               <p>Créativité, écoute & clarté ! Au service de votre image en ligne. <br />
                 Site en cours de refonte ...

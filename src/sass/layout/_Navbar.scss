@@ -3,11 +3,13 @@
 
 
 .menu-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     nav {
+        font-family: "Space Grotesk", sans-serif;
         position: relative;
-        @include flex-row-center;
-        justify-content: center;
-        margin: 20px 0;
+        margin: 20px 40px;
         font-weight: bold;
         .nav-ul {
             display: flex;
@@ -18,14 +20,13 @@
             }
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 991px) {
             display: block;
             position: absolute;
             left: 20px;
-            margin-top: -50px;
+            
             z-index: 5;
         }
-        
     }
     .toggle-button {
         position: absolute;
@@ -55,9 +56,16 @@
     }
 }
 
-
-
 @media (max-width: 768px) {
+    h1 {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 991px) {
+    h1 {
+        opacity: 0;
+    }
     .hamburger {
         display: flex;
         margin: 20px 10px;

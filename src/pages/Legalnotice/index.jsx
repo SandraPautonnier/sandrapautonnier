@@ -1,27 +1,14 @@
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import BgDark from "../../assets/images/Background-image-dark.webp";
-import BgLight from "../../assets/images/Background-image-light.webp";
-import useThemeStore from "../../store/useThemeStore";
 
 const Legalnotice = () => {
-  const isDarkMode = useThemeStore((state) => state.isDarkMode);
 
   return (
-    <div
-      className="background-image"
-      style={{
-        background: `url(${
-          isDarkMode ? BgDark : BgLight
-        }) no-repeat center/cover`,
-        height: "100%",
-        minHeight: "100vh",
-      }}
-    >
+    <div className="legalnotice">
       <div className="background-color">
         <div className="header-main">
           <header>
-            <Navbar openModal={openModal} />
+            <Navbar/>
           </header>
           <main>
             <h2>Mentions légales et conditions d’utilisations</h2>
