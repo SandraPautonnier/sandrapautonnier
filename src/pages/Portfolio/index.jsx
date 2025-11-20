@@ -5,8 +5,6 @@ import Footer from '../../components/Footer';
 import Docs from '../../assets/images/Portfolio.svg';
 import Meta from "../../components/Meta";
 import Works from "../../components/Works";
-import BgDark from "../../assets/images/Background-image-dark.webp";
-import BgLight from "../../assets/images/Background-image-light.webp";
 import useThemeStore from "../../store/useThemeStore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

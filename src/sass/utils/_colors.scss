@@ -37,9 +37,11 @@ body.mode {
         }
         
         .card {
+            position: relative;
+            border-radius: 10px;
+            background: linear-gradient($component, $component) padding-box, linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%) border-box;
             border: 2px solid transparent;
-            border-image: linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%) 1;
-            
+            color: $light-text;
             &:hover {
                 background: $component-hover;
                 color: #f5f1ed;

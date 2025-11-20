@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from "react-router-dom";
-import Sandra2 from "../../assets/images/sandra2.webp";
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin , faSquareGithub , faCodepen } from '@fortawesome/free-brands-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -16,7 +16,7 @@ const Footer = () => {
             <div className='contact-mail'>
               <Link to="/contact" className="btn">Contactez-moi</Link>
             </div>
-            <img src={Sandra2} alt="Photo de Sandra" />
+            
             <div className='social-media'>
                 <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer" aria-label="Lien vers le profil Linkedin de Sandra"><FontAwesomeIcon icon={faLinkedin} /></a>
                 <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer" aria-label="Lien vers le profil Github de Sandra"><FontAwesomeIcon icon={faSquareGithub} /></a>
