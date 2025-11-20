@@ -1,33 +1,52 @@
 @import "../utils/variables";
 @import "../utils/mixins";
 
-
 .menu-nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     nav {
         font-family: "Space Grotesk", sans-serif;
         position: relative;
         margin: 20px 40px;
         font-weight: bold;
+        
         .nav-ul {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: $gap;
+            
             .nav-li {
                 @include flex-row-center;
             }
         }
         
-        @media (max-width: 991px) {
-            display: block;
-            position: absolute;
-            left: 20px;
+        @media (max-width: 768px) {
+            margin: 20px auto;
             
-            z-index: 5;
+            .nav-ul {
+                position: absolute;
+                right: -5px;
+                top: 100%;
+                flex-direction: column;
+                background: white;
+                border-radius: 5px;
+                padding: 10px;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-20px);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+                z-index: 5;
+                
+                &.open {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateY(0);
+                }
+            }
         }
     }
+    
     .toggle-button {
         position: absolute;
         cursor: pointer;
@@ -38,11 +57,11 @@
     }
 }
 
-
 .hamburger {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    
     .bar {
         width: 25px;
         height: 4px;
@@ -50,47 +69,37 @@
         margin: 2px 0;
         transition: background-color 0.3s ease;
     }
+    
     .close-nav {
         font-size: 50px;
         padding: 0;
+        line-height: 27px;
+        margin: -1.5px -2px;
     }
 }
 
 @media (max-width: 768px) {
-    h1 {
-        opacity: 0;
-    }
-}
-
-@media (max-width: 991px) {
-    h1 {
-        opacity: 0;
-    }
     .hamburger {
         display: flex;
-        margin: 20px 10px;
-        .close-nav {
-            line-height: 27px;
-            margin: -1.5px -2px;
-        }
+        position: fixed;
+        right: 20px;
+        top: 23px;
+        z-index: 10;
     }
-    .nav-ul {
-        position: absolute;
-        margin-left: 10px;
-        top: 40px;
-        flex-direction: column;
-        border-radius: 5px;
-        padding: 10px;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-20px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        &.open {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0)
-        }
-        
-    }
+
     
+}
+
+@media (max-width: 992px) {
+    .menu-nav {
+        justify-content: space-between;
+    }
+
+    nav {
+        margin: 20px 5px !important;
+    }
+
+    h1 {
+        margin: 20px 5px !important;
+    }
 }
