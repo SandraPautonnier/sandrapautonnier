@@ -86,11 +86,9 @@
         top: 23px;
         z-index: 10;
     }
-
-    
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
     .menu-nav {
         justify-content: space-between;
     }

@@ -83,7 +83,7 @@
     z-index: 10;
   }
 }
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .menu-nav {
     justify-content: space-between;
   }
@@ -386,6 +386,35 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   margin-top: 20px;
 }
 
+@media (min-width: 992px) {
+  .header-banner h2 {
+    background-color: rgba(0, 0, 0, 0.329);
+    border-radius: 7px;
+    padding: 5px 10px;
+    position: relative;
+    z-index: 10;
+    color: white;
+    left: -225px;
+    top: -250px;
+  }
+  .header-banner p {
+    background-color: rgba(0, 0, 0, 0.329);
+    border-radius: 7px;
+    padding: 5px 10px;
+    position: relative;
+    z-index: 10;
+    color: white;
+    left: -190px;
+    top: -270px;
+    font-weight: bold;
+  }
+  .header-banner .buttons-social {
+    position: relative;
+    z-index: 10;
+    left: -320px;
+    top: -290px;
+  }
+}
 .experiences {
   margin-bottom: 30px;
 }

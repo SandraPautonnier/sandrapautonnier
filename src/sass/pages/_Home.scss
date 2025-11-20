@@ -148,3 +148,37 @@
     }
   }
 }
+
+@media (min-width: 992px) {
+  
+  .header-banner {
+    h2 {
+      background-color: rgba(0, 0, 0, 0.329);
+      border-radius: 7px;
+      padding: 5px 10px;
+      position: relative;
+      z-index: 10;
+      color: white;
+      left: -225px;
+      top: -250px;
+
+    }
+    p {
+      background-color: rgba(0, 0, 0, 0.329);
+      border-radius: 7px;
+      padding: 5px 10px;
+      position: relative;
+      z-index: 10;
+      color: white;
+      left: -190px;
+      top: -270px;
+      font-weight: bold;
+    }
+    .buttons-social {
+      position: relative;
+      z-index: 10;
+      left: -320px;
+      top: -290px;
+    }
+  }
+}
