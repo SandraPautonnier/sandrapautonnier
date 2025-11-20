@@ -59,7 +59,7 @@ const Home = () => {
                 })}
               </div>
               <Link to="/contact" className="btn">Contactez-moi</Link>
-              <p className="catch">Flexible, moderne et humaine. C'est ça, le sur-mesure.</p>
+              <p className="catch">Flexible, moderne et humaine. <br />C'est ça, le sur-mesure !</p>
             </section>
             <section className="hook-works">
               <h2>Quelques projets</h2>
