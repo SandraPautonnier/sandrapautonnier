@@ -5,36 +5,59 @@ footer {
     padding: 30px;
     position: relative;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%);
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: 
+            url("data:image/svg+xml,%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 1;
+    }
+    
     .footer-main {
         @include flex-column-center;
-        @media (min-width: 800px) {
-            width: 100%;
-            display: grid;
-            justify-items: center;
-            grid-template-columns: 1fr 1fr 1fr;
-        } 
-        gap:20px;
-        /*.contact-mail {
-            @include flex-column-center;
-            .main-button {
-                @include zoom-btn;
-            }
-        }*/
-        img {
-            max-width: 100px;
-            margin: 15px 0;
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        gap: 15px;
+        
+        .footer-title {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
         }
+        
         .social-media {
             display: flex;
             font-size: 24px;
             gap: 15px;
+            justify-content: center;
             a {
                 @include zoom-btn;
+            }
+        }
+        
+        .contact-mail {
+            @include flex-column-center;
+            width: 100%;
+            
+            .btn {
+                @include zoom-btn;
+                margin: 0;
             }
         }
     }
     .footer-secondary {
         @include flex-column-center;
+        position: relative;
+        z-index: 2;
         text-align: center;
         .heart {
             @include flex-row-center;

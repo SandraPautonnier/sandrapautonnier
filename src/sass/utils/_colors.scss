@@ -89,8 +89,7 @@ body.mode {
         }
         
         footer {
-            background-color: #f5f1ed;
-            color: $main-color;
+            color: $light-color;
             .main-button {
                 @include mixins.btn;
                 @include mixins.btn-color-main;

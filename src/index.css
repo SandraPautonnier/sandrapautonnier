@@ -98,35 +98,39 @@ footer {
   padding: 30px;
   position: relative;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%);
+}
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
 }
 footer .footer-main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  /*.contact-mail {
-      @include flex-column-center;
-      .main-button {
-          @include zoom-btn;
-      }
-  }*/
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  gap: 15px;
 }
-@media (min-width: 800px) {
-  footer .footer-main {
-    width: 100%;
-    display: grid;
-    justify-items: center;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-footer .footer-main img {
-  max-width: 100px;
-  margin: 15px 0;
+footer .footer-main .footer-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
 }
 footer .footer-main .social-media {
   display: flex;
   font-size: 24px;
   gap: 15px;
+  justify-content: center;
 }
 footer .footer-main .social-media a {
   transform: scale(100%);
@@ -135,10 +139,26 @@ footer .footer-main .social-media a {
 footer .footer-main .social-media a:hover {
   transform: scale(110%);
 }
+footer .footer-main .contact-mail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+footer .footer-main .contact-mail .btn {
+  transform: scale(100%);
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  margin: 0;
+}
+footer .footer-main .contact-mail .btn:hover {
+  transform: scale(110%);
+}
 footer .footer-secondary {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  z-index: 2;
   text-align: center;
 }
 footer .footer-secondary .heart {
@@ -978,8 +998,7 @@ body.mode .background-color .label-work .pointer {
   border-bottom: 59px solid #f5f1ed;
 }
 body.mode .background-color footer {
-  background-color: #f5f1ed;
-  color: #8F72AF;
+  color: white;
 }
 body.mode .background-color footer .main-button {
   border-radius: 12px;
