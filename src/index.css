@@ -161,6 +161,14 @@ footer .footer-secondary {
   z-index: 2;
   text-align: center;
 }
+footer .footer-secondary p {
+  background-color: rgba(0, 0, 0, 0.329);
+  border-radius: 7px;
+  padding: 5px 10px;
+  position: relative;
+  z-index: 10;
+  color: white;
+}
 footer .footer-secondary .heart {
   display: flex;
   flex-direction: row;

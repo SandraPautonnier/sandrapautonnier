@@ -59,11 +59,15 @@ footer {
         position: relative;
         z-index: 2;
         text-align: center;
+        p {
+            @include highlight;
+        }
         .heart {
             @include flex-row-center;
             gap: 7px;
             p {
                 margin: 0;
+                
             }
             .btn-fav {
                 font-size: 20px;

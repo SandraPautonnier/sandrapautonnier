@@ -7,19 +7,27 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import workslist from "../../assets/content/worksList.json";
 
-const Works = () => {
+const Works = ({ projectType }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [expandedCard, setExpandedCard] = useState(null); 
 
+  // Filtrer par type si fourni, sinon afficher tous
+  const worksByType = projectType 
+    ? workslist.filter((work) => work.type === projectType)
+    : workslist;
+
+  // Si pas de projectType (page home), afficher que les 3 derniers
+  const worksList = !projectType ? worksByType.slice(-3) : worksByType;
+
   const categories = [
     "All",
-    ...new Set(workslist.map((work) => work.category)),
+    ...new Set(worksList.map((work) => work.category)),
   ];
 
   const filteredWorks =
     selectedCategory === "All"
-      ? workslist
-      : workslist.filter((work) => work.category === selectedCategory);
+      ? worksList
+      : worksList.filter((work) => work.category === selectedCategory);
 
   const toggleDescription = (id) => {
     setExpandedCard(expandedCard === id ? null : id);

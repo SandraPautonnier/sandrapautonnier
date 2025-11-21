@@ -30,28 +30,21 @@ const Portfolio = () => {
                             <div className="card card-banner">
                                 <p className='intro'>Passionnée par le web et toujours à l’écoute des besoins, je conçois des solutions sur mesure pour donner vie à chaque idée. Découvrez ici les projets qui ont enrichi mon parcours.</p>
                             </div>
-                            <p>Site en cours de refonte ...</p>
                         </div>                  
                 </header>
                 <main>
                     <section>
                         <h2>Projets professionnels et personnels</h2>
+                        <Works projectType="Projets professionnels et personnels" />
                     </section>
                     <section>
                         <h2>Projets professionnalisants</h2>
+                        <Works projectType="Projets professionnalisants" />
                     </section>
                     <section>
                         <h2>Projets divers</h2>
+                        <Works projectType="Projets divers" />
                     </section>
-                    <div className='card-works'>
-                        <a href="http://sandrapautonnier.com">
-                            <img src="" alt="" />
-                            <h3></h3>
-                            <span></span>
-                            <span></span>
-                        </a>
-                    </div>   
-                    <Works />
                 </main>
             </div>
             <Footer />
