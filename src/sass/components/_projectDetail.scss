@@ -130,8 +130,8 @@
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
-            
             a {
+                margin: 0;;
                 &:hover {
                     transform: scale(1.05);
                 }

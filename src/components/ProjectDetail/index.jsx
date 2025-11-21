@@ -92,9 +92,9 @@ const ProjectDetail = () => {
                                         Lien vers le projet
                                     </a>
                                     {project.github && (
-                                        <a href={project.github} target='_blank' rel='noopener noreferrer' className='btn github-button'>
+                                    <a href={project.github} target='_blank' rel='noopener noreferrer' className='btn github-button'>
                                             <FontAwesomeIcon icon={faGithub} /> GitHub
-                                        </a>
+                                    </a>
                                     )}
                                 </div>
                             </div>
