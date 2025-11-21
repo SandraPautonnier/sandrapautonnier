@@ -832,6 +832,7 @@ table th {
   height: 225px;
   object-fit: cover;
   filter: grayscale(0%) brightness(60%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 @media (min-width: 1200px) {
   .works .container-card-works .card-works img {
@@ -851,17 +852,29 @@ table th {
     font-size: 20px;
   }
 }
-.works .container-card-works .card-works .work-language {
+.works .container-card-works .card-works .work-category {
   position: absolute;
   color: white;
-  top: 10px;
-  right: 15px;
+  bottom: 15px;
+  left: 15px;
 }
 .works .container-card-works .card-works .work-tools {
   position: absolute;
   color: white;
   bottom: 15px;
   right: 15px;
+}
+.works .container-card-works .card-works .btn {
+  position: absolute;
+  bottom: -15px;
+  right: 15px;
+  color: white;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  padding: 6px 8px;
+  font-size: 15px;
+  font-size: 14px;
+  z-index: 10;
 }
 .works .container-card-works .card-works .description-collapse .collapse-button {
   background-color: rgba(0, 0, 0, 0.9);

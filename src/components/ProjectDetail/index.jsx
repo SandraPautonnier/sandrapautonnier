@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import works from '../../assets/content/works.json';
+import works from '../../assets/content/worksList.json';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';

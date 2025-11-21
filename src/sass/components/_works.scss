@@ -22,6 +22,7 @@
                 height: 225px;
                 object-fit: cover;
                 filter: grayscale(0%) brightness(60%);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 @media (min-width: 1200px) {
                     height: 275px;
                 }
@@ -37,17 +38,26 @@
                     font-size: 20px;
                 }
             }
-            .work-language {
+            .work-category {
                 position:absolute;
                 color: white;
-                top: 10px;
-                right: 15px;
+                bottom: 15px;
+                left: 15px;
             }
             .work-tools {
                 position:absolute;
                 color: white;
                 bottom: 15px;
                 right: 15px;
+            }
+            .btn {
+                position: absolute;
+                bottom: -15px;
+                right: 15px;           
+                color: white;
+                @include btn;
+                font-size: 14px;
+                z-index: 10;
             }
             .description-collapse {
                 .collapse-button {

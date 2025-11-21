@@ -9,13 +9,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin , faSquareGithub , faReact } from '@fortawesome/free-brands-svg-icons';
 import { faFileArrowDown , faUser , faFlask , faCode , faAward , faMagnifyingGlass , faWrench } from '@fortawesome/free-solid-svg-icons';
 import Carousel from "../../features/Carousel";
-import HookWorks from "../../assets/content/works.json";
+import HookWorks from "../../assets/content/worksList.json";
 import Meta from "../../components/Meta";
 import Services from "../../assets/content/services.json";
 
 
 const Home = () => {
-
+  const handleScrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
 
   return (
     <div className="home">
@@ -79,7 +81,7 @@ const Home = () => {
                   </div>  
                 ))}
               </Carousel>
-              <Link to="/portfolio" className="btn">Voir plus de projets</Link>
+              <Link to="/portfolio" onClick={handleScrollToTop} className="btn">Voir plus de projets</Link>
               <p className="catch">Des projets réalisés avec passion !</p>
             </section>
             <section className="hook-about">

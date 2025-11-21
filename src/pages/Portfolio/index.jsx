@@ -41,10 +41,6 @@ const Portfolio = () => {
                         <h2>Projets professionnalisants</h2>
                         <Works projectType="Projets professionnalisants" />
                     </section>
-                    <section>
-                        <h2>Projets divers</h2>
-                        <Works projectType="Projets divers" />
-                    </section>
                 </main>
             </div>
             <Footer />
