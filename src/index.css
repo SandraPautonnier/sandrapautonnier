@@ -261,26 +261,6 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   font-style: italic;
 }
 
-@keyframes slideInFromRight {
-  from {
-    transform: translateX(500%);
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-    visibility: visible;
-  }
-}
-@keyframes slideInFromLeft {
-  from {
-    transform: translateX(-500%);
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-    visibility: visible;
-  }
-}
 .header-banner {
   display: flex;
   flex-direction: column;
@@ -297,9 +277,6 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   width: 100%;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.header-banner h1 {
-  animation: slideInFromLeft 0.6s ease-out 0.2s forwards;
 }
 .header-banner p {
   margin: 10px auto 20px;
@@ -803,7 +780,6 @@ table th {
   margin-bottom: 30px;
 }
 .works .container-card-works {
-  margin: 20px 0;
   gap: 20px;
   display: flex;
   flex-direction: column;
@@ -820,6 +796,14 @@ table th {
   position: relative;
   width: 100%;
   height: 225px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: #8F72AF;
 }
 @media (min-width: 1200px) {
   .works .container-card-works .card-works {
@@ -827,16 +811,15 @@ table th {
   }
 }
 .works .container-card-works .card-works img {
-  border-radius: 15px;
-  width: 100%;
-  height: 225px;
+  width: calc(100% - 4px);
+  height: 180px;
   object-fit: cover;
   filter: grayscale(0%) brightness(60%);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 @media (min-width: 1200px) {
   .works .container-card-works .card-works img {
-    height: 275px;
+    height: 230px;
   }
 }
 .works .container-card-works .card-works h3 {
@@ -1058,7 +1041,7 @@ body.mode .background-color tr:hover {
   font-family: "Montserrat", sans-serif;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-family: "Space Grotesk", sans-serif;
 }
 
@@ -1123,7 +1106,9 @@ section {
   box-sizing: border-box;
   width: 100%;
   padding: 0px 30px;
-  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 ul {
@@ -1159,6 +1144,40 @@ button {
   margin: 0;
 }
 
+.banner img {
+  max-width: 768px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 992px) {
+  .banner h2 {
+    background-color: rgba(0, 0, 0, 0.329);
+    border-radius: 7px;
+    padding: 5px 10px;
+    position: relative;
+    z-index: 10;
+    color: white;
+    left: -220px;
+    top: -175px;
+  }
+  .banner p {
+    background-color: rgba(0, 0, 0, 0.329);
+    border-radius: 7px;
+    padding: 5px 10px;
+    position: relative;
+    z-index: 10;
+    color: white;
+    max-width: 700px;
+    left: 0px;
+    top: -180px;
+    font-weight: bold;
+  }
+  .margin {
+    margin-top: -170px;
+  }
+}
 .card-banner {
   max-width: 768px;
 }

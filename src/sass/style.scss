@@ -1,16 +1,16 @@
 
-@use "layout/Navbar";
-@use "layout/Footer";
-@use "layout/loader";
-@use "./pages/Home";
-@use "./pages/profile";
-@use "./pages/services";
-@use "./pages/Legalnotice";
-@use "./components/Carousel";
-@use "./components/works";
-@use "./utils/variables" as *;
-@use "./utils/mixins";
-@use "./utils/colors";
+@import "./utils/variables";
+@import "./utils/mixins";
+@import "layout/Navbar";
+@import "layout/Footer";
+@import "layout/loader";
+@import "./pages/Home";
+@import "./pages/profile";
+@import "./pages/services";
+@import "./pages/Legalnotice";
+@import "./components/Carousel";
+@import "./components/works";
+@import "./utils/colors";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap');
 
@@ -18,9 +18,11 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-h1,h2 {
+h1,h2,h3 {
     font-family: "Space Grotesk", sans-serif;
 }
+
+
 
 h1 {
     font-size: 1.7rem;
@@ -83,7 +85,7 @@ section {
     box-sizing: border-box;
     width: 100%;
     padding: 0px 30px;
-    margin: 30px 0;
+    @include flex-column-center;
 }
 
 ul {
@@ -117,6 +119,35 @@ button {
 
 .intro {
     margin: 0;
+}
+
+.banner {
+    img {
+        max-width: 768px;
+        @include img-card;
+        
+    }
+}
+
+@media (min-width: 992px) {
+  .banner {
+    h2 {
+      @include highlight;
+      left: -220px;
+      top: -175px;
+
+    }
+    p {
+      @include highlight;
+      max-width: 700px;
+      left: 0px;
+      top: -180px;
+      font-weight: bold;
+    }
+  }
+  .margin {
+    margin-top: -170px;
+  }
 }
 
 .card-banner {

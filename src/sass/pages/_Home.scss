@@ -19,28 +19,7 @@
   font-style: italic;
 }
 
-//header
-@keyframes slideInFromRight {
-  from {
-    transform: translateX(500%);
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-    visibility: visible;
-  }
-}
 
-@keyframes slideInFromLeft {
-  from {
-    transform: translateX(-500%);
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-    visibility: visible;
-  }
-}
 
 .header-banner {
   @include flex-column-center;
@@ -53,14 +32,7 @@
   }
   img {
     max-width: 991px;
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    
-    
-  }
-  h1 {
-    animation: slideInFromLeft 0.6s ease-out 0.2s forwards;
+    @include img-card;
   }
   p {
     margin: 10px auto 20px;

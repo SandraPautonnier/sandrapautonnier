@@ -1,16 +1,9 @@
-import { useState } from 'react';
-import { Link } from "react-router-dom";
+
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import Docs from '../../assets/images/Portfolio.svg';
+import Docs from '../../assets/images/image_portfolio.webp';
 import Meta from "../../components/Meta";
 import Works from "../../components/Works";
-import useThemeStore from "../../store/useThemeStore";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUpRightAndDownLeftFromCenter,
-  faDownLeftAndUpRightToCenter,
-} from "@fortawesome/free-solid-svg-icons";
 
 const Portfolio = () => {
 
@@ -26,14 +19,14 @@ const Portfolio = () => {
                     <Navbar />
                         <div className='banner'>
                             <img src={Docs} alt="Illustration de documents" />
-                            <h2>Mes projets</h2>
-                            <div className="card card-banner">
-                                <p className='intro'>Passionnée par le web et toujours à l’écoute des besoins, je conçois des solutions sur mesure pour donner vie à chaque idée. Découvrez ici les projets qui ont enrichi mon parcours.</p>
+                            <h2>Portfolio - Mes projets</h2>
+                            <div className="card-banner">
+                                <p className='intro'>Passionnée par le web, je crée des solutions sur mesure pour donner vie à vos idées. Découvrez ici les projets qui ont enrichi mon parcours.</p>
                             </div>
                         </div>                  
                 </header>
                 <main>
-                    <section>
+                    <section className='margin'>
                         <h2>Projets professionnels et personnels</h2>
                         <Works projectType="Projets professionnels et personnels" />
                     </section>

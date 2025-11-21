@@ -29,8 +29,8 @@ const Home = () => {
         <div className="header-main">
           <header>
             <Navbar />
-            <div className='header-banner' id="home">
-              <img src={HeaderImage} alt="Portrait de Sandra"/>
+            <div className='header-banner ' id="home">
+              <img src={HeaderImage} alt="Portrait dessin de Sandra réalisé par IA"/>
               <h2>Développeuse & Créatrice Web Intuitive</h2>
               <p>Créativité, écoute & clarté ! Au service de votre image en ligne.
               </p>
@@ -66,7 +66,7 @@ const Home = () => {
             <section className="hook-works">
               <h2>Quelques projets</h2>
                 <Carousel>
-                {HookWorks.map((item) => (
+                {HookWorks.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 3).map((item) => (
                   <div key={item.index} className="carousel-slide"> 
                     <Link to={item.link} target='_blank'>
                       <div className="slide-content">

@@ -1,5 +1,5 @@
-@use "./variables" as *;
-@use "./mixins";
+@import "./variables";
+@import "./mixins";
 
 // Mode Styles
 body.mode {
@@ -7,21 +7,21 @@ body.mode {
         font-weight: bold;
     }
     .background-color {
-        @include mixins.badark-colight;
+        @include badark-colight;
         .nav-ul {
-            @include mixins.badark-colight-component;
+            @include badark-colight-component;
             @media (min-width: 768px) {
                 background: transparent;
                 border: none;
             }
             .nav-li {
-                @include mixins.underline-anim;
+                @include underline-anim;
                 a {
                     
                     color: $main-color;
                 }
                 .active {
-                    @include mixins.underline-active;
+                    @include underline-active;
                 }
             }
         }
@@ -31,8 +31,8 @@ body.mode {
         }
         
         button.toggle-button {
-            @include mixins.btn;
-            @include mixins.btn-color-main;
+            @include btn;
+            @include btn-color-main;
         }
         
         .card {
@@ -49,15 +49,15 @@ body.mode {
         }
         
         .formation {
-            @include mixins.badark-colight-component;
+            @include badark-colight-component;
         }
         
         select {
-            @include mixins.badark-colight-component;
+            @include badark-colight-component;
         }
         
         .tag {
-            @include mixins.badark-colight-tags;
+            @include badark-colight-tags;
         }
         
         .contact-form {
@@ -69,10 +69,10 @@ body.mode {
             .btn-submit-form {
                 background: $text;
                 color: $light-color;
-                @include mixins.btn;
-                @include mixins.transition-btn;
+                @include btn;
+                @include transition-btn;
                 &:hover {
-                    @include mixins.badark-colight;
+                    @include badark-colight;
                     border: $light-color 1px solid;
                     text-decoration: none;
                 }
@@ -81,7 +81,7 @@ body.mode {
         
         .label-work {
             .base {
-                @include mixins.badark-colight-component;
+                @include badark-colight-component;
             }
             .pointer {
                 border-bottom: 59px solid $component;
@@ -91,16 +91,16 @@ body.mode {
         footer {
             color: $light-color;
             .main-button {
-                @include mixins.btn;
-                @include mixins.btn-color-main;
+                @include btn;
+                @include btn-color-main;
             }
             .link {
-                @include mixins.underline-anim;
+                @include underline-anim;
             }
         }
         
         tr {
-            @include mixins.badark-colight-component;
+            @include badark-colight-component;
             &:hover {
                 background-color: $component-hover;
             }
@@ -108,7 +108,7 @@ body.mode {
         
         @media (min-width: 600px) {
             .table {
-                @include mixins.badark-colight-component;
+                @include badark-colight-component;
                 &:hover {
                     background-color: $component-hover;
                 }
