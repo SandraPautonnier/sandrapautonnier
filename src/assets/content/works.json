@@ -2,10 +2,11 @@
     {
         "id": 1,
         "titlework": "Pulsar42",
-        "description": "En juin 2025, j’ai participé au développement du site Pulsar42.sc, un projet collaboratif porté par une association autour du jeu Star Citizen. C’est l’un de mes premiers travaux en équipe sur un projet concret en TypeScript ! J’ai intégré le footer du site et ajouté la page des mentions légales, conforme au RGPD et à la LCEN. Ce projet m’a permis de consolider mes compétences en intégration front-end, en responsive design, et de collaborer avec d'autres développeurs dans un cadre associatif.",
+        "description": "En juin 2025, j'ai participé au développement du site Pulsar42.sc, un projet collaboratif porté par une association autour du jeu Star Citizen. C'est l'un de mes premiers travaux en équipe sur un projet concret en TypeScript ! J'ai intégré le footer du site et ajouté la page des mentions légales, conforme au RGPD et à la LCEN. Ce projet m'a permis de consolider mes compétences en intégration front-end, en responsive design, et de collaborer avec d'autres développeurs dans un cadre associatif.",
         "cover": "https://gentle-pony-095b6f.netlify.app/pulsar42.webp",
         "category": "React",
         "link": "https://pulsar42.sc",
+        "github": "https://github.com/pulsar42/pulsar42",
         "language": [
             "React"
         ],
@@ -18,6 +19,7 @@
         "cover": "https://gentle-pony-095b6f.netlify.app/lemansschoolofai.webp",
         "category": "Javascript",
         "link": "https://lemans-schoolofai.github.io/",
+        "github": "https://github.com/lemans-schoolofai/website",
         "language": [
             "html css /",
             "Javascript"
@@ -31,6 +33,7 @@
         "cover": "https://gentle-pony-095b6f.netlify.app/kasa.webp",
         "category": "React",
         "link": "https://sandrapautonnier.github.io/kasa/",
+        "github": "https://github.com/SandraPautonnier/kasa",
         "language": [
             "React"
         ],

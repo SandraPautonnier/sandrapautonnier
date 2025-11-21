@@ -1,0 +1,153 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+.project-container {
+    max-width: 991px;
+    margin: 0 auto;
+}
+
+.project-detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    animation: slideInFromLeft 0.6s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    .back-button {
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+
+        &:hover {
+            transform: translateX(-5px);
+        }
+    }
+
+    .project-title {
+        font-size: 36px;
+        margin-bottom: 0;
+        font-weight: 700;
+        text-align: left;
+        flex: 1;
+
+        @media (max-width: 768px) {
+            font-size: 28px;
+            flex-direction: column;
+        }
+    }
+}
+
+.project-detail {
+    animation: slideInFromLeft 0.8s ease-in-out;
+
+    .project-cover {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-info {
+        display: flex;
+        align-content: center;
+        justify-content: space-around;
+        gap: 30px;
+        
+
+        .info-item {
+            text-align: center;
+            h3 {
+                font-size: 18px;
+                margin-bottom: 12px;
+                font-weight: 600;
+            }
+
+            .category-badge {
+                @include badark-colight-component;
+                display: inline-block;
+                border-radius: 20px;
+                font-size: 14px;
+                font-weight: 500;
+            }
+
+            .languages-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+
+                .language-tag {
+                    @include badark-colight-tags;
+                    display: inline-block;
+                    padding: 6px 12px;
+                    border-radius: 6px;
+                    font-size: 13px;
+                    font-weight: 500;
+                }
+            }
+            p {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+        }
+    }
+
+    .project-description {
+        background: $component;
+        margin: 40px;
+        border-radius: 12px;
+        
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: $text;
+        }
+        @media (max-width: 768px) {
+            margin: 40px 20px;
+
+            h2 {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .project-link {
+        .project-link-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            
+            a {
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+        }
+
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

@@ -25,6 +25,10 @@ const Works = () => {
     setExpandedCard(expandedCard === id ? null : id);
   };
 
+  const handleProjectClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <section className="works" id="portfolio">
       {/* Menu déroulant pour sélectionner une catégorie */}
@@ -45,12 +49,10 @@ const Works = () => {
       <div className="container-card-works">
         {filteredWorks.map((works) => (
           <div className="card-works" key={works.id}>
-            <Link to={works.link} target='_blank'>
-              <img src={`${works.cover}`} alt={`${works.description}`} />
-              <h3>{works.titlework}</h3>
-              <span className="work-language">{works.language}</span>
-              <span className="work-tools">{works.tools}</span>
-            </Link>
+            <img src={`${works.cover}`} alt={`${works.description}`} />
+            <h3>{works.titlework}</h3>
+            <span className="work-language">{works.language}</span>
+            <span className="work-tools">{works.tools}</span>
             {/* Description repliable */}
             <div className="description-collapse">
               <button
@@ -72,7 +74,10 @@ const Works = () => {
               >
                 <p>{works.description}</p>
               </div>
-              </div>
+            </div>
+            <Link to={`/portfolio/${works.id}`} className="project-link-button" onClick={handleProjectClick}>
+              Voir le projet
+            </Link>
             </div>
         ))}
       </div>
