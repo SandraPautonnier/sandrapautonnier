@@ -7,41 +7,78 @@
   max-width: 600px;
   border-radius: 10px;
   margin: auto;
-  overflow: hidden;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  .carousel-container {
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+  }
   .carousel-slide {
     min-width: 100%;
-    height: 300px;
+    height: auto;
     .slide-content {
         position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        border-radius: 15px;
+        background-color: white;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         img {
             width: 100%;
-            height: 300px;
+            height: 200px;
             object-fit: cover;
-            border-radius: 10px;
-            filter: grayscale(0%) brightness(70%);
+            @media (min-width: 1200px) {
+                height: 240px;
+            }
+        }
+        .slide-description {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 15px 15px 20px 15px;
+            justify-content: space-between;
         }
         h3 {
-            position: absolute;
-            color: white;
+            color: $main-color;
             margin: 0;
-            top: 10px;
-            left: 15px;
             font-size: 16px;
             @media (min-width: 450px) {
-                font-size: 20px;
+                font-size: 18px;
             }
         }
         .work-language {
-            position:absolute;
-            color: white;
-            top: 10px;
-            right: 15px;
+            color: $text;
+            font-size: 13px;
         }
         .work-tools {
-            position:absolute;
+            color: $text;
+            font-size: 13px;
+        }
+        .btn {
+            align-self: center;
             color: white;
-            bottom: 15px;
-            right: 15px;
+            font-size: 13px;
+            background-color: $main-color;
+            border: none;
+            border-radius: 12px;
+            padding: 6px 8px;
+            margin: 0;
+            display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+            text-align: center;
+            
+            &:hover {
+                background-color: white;
+                color: $main-color;
+                border: 1px solid $main-color;
+                transform: scale(100%);
+            }
         }
     }
   }
@@ -49,37 +86,71 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    color: white;
+    background: transparent;
+    border-radius: 0;
+    color: $main-color;
     border: none;
-    padding: 15px;
-    font-size: 20px;
+    padding: 0;
+    font-size: 40px;
     cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    @media (max-width: 768px) {
+        color: white;
+        font-size: 32px;
+        width: 56px;
+        height: 56px;
+        top: 50%;
+    }
+    &:hover {
+        background-color: $main-color;
+        color: white;
+        border-radius: 50%;
+        transform: translateY(-50%) scale(1.1);
+    }
+    
     &.left {
-        left: 10px;
+        left: -70px;
+        @media (max-width: 768px) {
+            left: 10px;
+        }
     }
     &.right {
-        right: 10px;
+        right: -70px;
+        @media (max-width: 768px) {
+            right: 10px;
+        }
     }
   }
   .carousel-indicators {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
     display: flex;
     gap: 5px;
+    justify-content: center;
+    margin-top: 15px;
     .indicator {
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background: gray;
+        background: $main-color;
         border: none;
         cursor: pointer;
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
         &.active {
-            background: white;
-        } 
+            background: $main-color;
+            opacity: 1;
+        }
+        &:hover {
+            opacity: 0.8;
+        }
     }
   }
 }

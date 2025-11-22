@@ -40,11 +40,15 @@ const Works = ({ projectType }) => {
         {filteredWorks.map((works) => (
           <div className="card-works" key={works.id}>
             <img src={`${works.cover}`} alt={`${works.description}`} />
-            <h3>{works.titlework}</h3>
-            <span className="work-category">{works.category}</span>
-            <Link to={`/portfolio/${works.id}`} className="btn" onClick={handleProjectClick}>
-              Voir le projet
-            </Link>
+            <div className="card-content">
+              <div>
+                <h3>{works.titlework}</h3>
+                <p className="work-category">{works.category}</p>
+              </div>
+              <Link to={`/portfolio/${works.id}`} className="btn" onClick={handleProjectClick}>
+                Voir le projet
+              </Link>
+            </div>
             </div>
         ))}
       </div>

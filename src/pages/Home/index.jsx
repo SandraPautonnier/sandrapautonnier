@@ -67,18 +67,18 @@ const Home = () => {
               <h2>Quelques projets</h2>
                 <Carousel>
                 {HookWorks.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 3).map((item) => (
-                  <div key={item.index} className="carousel-slide"> 
-                    <Link to={item.link} target='_blank'>
-                      <div className="slide-content">
-                        <img src={`${item.cover}`} alt={`Projet ${item.titlework}`} />
-                        <div className="slide-description">
-                          <h3>{`${item.titlework}`}</h3>
-                          <span className="work-language">{item.language}</span>
-                          <span className="work-tools">{item.tools}</span>
+                    <div className="slide-content" key={item.id}>
+                      <img src={`${item.cover}`} alt={`Projet ${item.titlework}`} />
+                      <div className="slide-description">
+                        <div>
+                          <h3>{item.titlework}</h3>
+                          <span className="work-language">{item.category}</span>
                         </div>
+                        <Link to={`/portfolio/${item.id}`} className="btn" onClick={() => window.scrollTo(0, 0)}>
+                          Voir le projet
+                        </Link>
                       </div>
-                    </Link>
-                  </div>  
+                    </div>
                 ))}
               </Carousel>
               <Link to="/portfolio" onClick={handleScrollToTop} className="btn">Voir plus de projets</Link>
