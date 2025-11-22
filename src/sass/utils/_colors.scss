@@ -60,24 +60,7 @@ body.mode {
             @include badark-colight-tags;
         }
         
-        .contact-form {
-            color: $text;
-            input, textarea {
-                background-color: $input;
-                color: $text;
-            }
-            .btn-submit-form {
-                background: $text;
-                color: $light-color;
-                @include btn;
-                @include transition-btn;
-                &:hover {
-                    @include badark-colight;
-                    border: $light-color 1px solid;
-                    text-decoration: none;
-                }
-            }
-        }
+
         
         .label-work {
             .base {

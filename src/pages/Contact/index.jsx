@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin, faSquareGithub } from "@fortawesome/free-brands-svg-icons";
+import { faMapLocationDot, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import ImageContact from "../../assets/images/image_contact.webp";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Meta from "../../components/Meta";
-
+import "../../sass/pages/_contact.scss";
 
 const Contact = () => {
     const [confirmationMessage, setConfirmationMessage] = useState("");
@@ -51,83 +55,136 @@ const Contact = () => {
     return (
         <div className="contact">
             <Meta
-                title="Profil - Développeuse Web fullstack"
-                description="Développeuse web fullstack freelance spécialisée en React & Node. Création de sites performants, modernes et sur-mesure."
+                title="Contact - Développeuse Web fullstack"
+                description="Contactez Sandra Pautonnier, développeuse web fullstack spécialisée en React & Node. Création de sites performants, modernes et sur-mesure."
             />
             <div className='background-color'>
                 <div className="header-main">
                     <header>
                         <Navbar />
+                        <div className='banner'>
+                            <img src={ImageContact} alt="Photo de Sandra" />
+                             <h2>Contactez-moi</h2>
+                             <p>Une question, une idée, un projet : parlons-en !</p>
+                        </div>
                     </header>
                     <main className="contact-container">
-                        <section className="contact-section">
-                            <h2>Contactez-moi</h2>
-                            <p>Site en cours de refonte ...</p>
-                            {confirmationMessage ? (
-                                <p className="confirmation-message">{confirmationMessage}</p>
-                            ) : (
-                                <form onSubmit={handleSubmit} className="contact-form">
-                                    <div className="form-group">
-                                        <label htmlFor="from_email">E-mail</label>
-                                        <input
-                                            type="email"
-                                            id="from_email"
-                                            name="from_email"
-                                            value={fromEmail}
-                                            onChange={(e) => setFromEmail(e.target.value)}
-                                            required
-                                        />
+                        <section className="contact-section margin margin-desktop">
+                            <h2>A l'aide de mon formulaire ou par e-mail</h2>
+                            <div className="contact-wrapper">
+                                {/* Colonne gauche : Formulaire */}
+                                <div className="contact-column contact-form-column">
+                                    {confirmationMessage ? (
+                                        <p className="confirmation-message">{confirmationMessage}</p>
+                                    ) : (
+                                        <form onSubmit={handleSubmit} className="contact-form">
+                                            <div className="form-group">
+                                                <label htmlFor="from_name">Nom</label>
+                                                <input
+                                                    type="text"
+                                                    id="from_name"
+                                                    name="from_name"
+                                                    value={fromName}
+                                                    onChange={(e) => setFromName(e.target.value)}
+                                                    maxLength={200}
+                                                    required
+                                                />
+                                            </div>
+
+                                            <div className="form-group">
+                                                <label htmlFor="from_email">E-mail</label>
+                                                <input
+                                                    type="email"
+                                                    id="from_email"
+                                                    name="from_email"
+                                                    value={fromEmail}
+                                                    onChange={(e) => setFromEmail(e.target.value)}
+                                                    required
+                                                />
+                                            </div>
+
+                                            <div className="form-group">
+                                                <label htmlFor="from_object">Objet</label>
+                                                <input
+                                                    type="text"
+                                                    id="from_object"
+                                                    name="from_object"
+                                                    value={fromObject}
+                                                    onChange={(e) => setFromObject(e.target.value)}
+                                                    maxLength={200}
+                                                    required
+                                                />
+                                            </div>
+
+                                            <div className="form-group">
+                                                <label htmlFor="message">Message</label>
+                                                <textarea
+                                                    id="message"
+                                                    name="message"
+                                                    value={message}
+                                                    onChange={(e) => setMessage(e.target.value)}
+                                                    maxLength={2000}
+                                                    required
+                                                ></textarea>
+                                            </div>
+
+                                            <button className="btn" type="submit" disabled={isSending}>
+                                                {isSending ? "Envoi en cours..." : "Envoyer"}
+                                            </button>
+                                        </form>
+                                    )}
+                                </div>
+
+                                {/* Colonne droite : Informations de contact */}
+                                <div className="contact-column contact-info-column">
+                                    <div className="contact-info-item">
+                                        <FontAwesomeIcon icon={faEnvelope} className="contact-icon" />
+                                        <div className="contact-info-content">
+                                            <h3>Email</h3>
+                                            <a href="mailto:sandra.pautonnier@gmail.com">
+                                                sandra.pautonnier@gmail.com
+                                            </a>
+                                        </div>
                                     </div>
 
-                                    <div className="form-group">
-                                        <label htmlFor="from_name">Nom</label>
-                                        <input
-                                            type="text"
-                                            id="from_name"
-                                            name="from_name"
-                                            value={fromName}
-                                            onChange={(e) => setFromName(e.target.value)}
-                                            maxLength={200}
-                                            required
-                                        />
+                                    <div className="contact-info-item">
+                                        <FontAwesomeIcon icon={faMapLocationDot} className="contact-icon" />
+                                        <div className="contact-info-content">
+                                            <h3>Localisation</h3>
+                                            <p>72000, Le Mans</p>
+                                        </div>
                                     </div>
 
-                                    <div className="form-group">
-                                        <label htmlFor="from_object">Objet</label>
-                                        <input
-                                            type="text"
-                                            id="from_object"
-                                            name="from_object"
-                                            value={fromObject}
-                                            onChange={(e) => setFromObject(e.target.value)}
-                                            maxLength={200}
-                                            required
-                                        />
+                                    <div className="contact-info-item social">
+                                        <h3>Réseaux sociaux</h3>
+                                        <div className="social-links">
+                                            <a 
+                                                href="https://www.linkedin.com/in/sandra-pautonnier/" 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
+                                                aria-label="LinkedIn"
+                                            >
+                                                <FontAwesomeIcon icon={faLinkedin} />
+                                            </a>
+                                            <a 
+                                                href="https://github.com/sandrapautonnier" 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
+                                                aria-label="GitHub"
+                                            >
+                                                <FontAwesomeIcon icon={faSquareGithub} />
+                                            </a>
+                                        </div>
                                     </div>
-
-                                    <div className="form-group">
-                                        <label htmlFor="message">Message</label>
-                                        <textarea
-                                            id="message"
-                                            name="message"
-                                            value={message}
-                                            onChange={(e) => setMessage(e.target.value)}
-                                            maxLength={2000}
-                                            required
-                                        ></textarea>
-                                    </div>
-
-                                    <button className="btn-submit-form" type="submit" disabled={isSending}>
-                                        {isSending ? "Envoi en cours..." : "Envoyer"}
-                                    </button>
-                                </form>
-                            )}
+                                </div>
+                            </div>
                         </section>
                     </main>
                 </div>
                 <Footer />
             </div>
         </div>
-        )}
+    );
+}
 
 export default Contact;
