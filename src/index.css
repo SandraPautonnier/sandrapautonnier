@@ -759,7 +759,7 @@ table th {
   color: white;
   font-size: 13px;
   background-color: #8F72AF;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 12px;
   padding: 6px 8px;
   margin: 0;
@@ -807,6 +807,7 @@ table th {
   color: white;
   border-radius: 50%;
   transform: translateY(-50%) scale(1.1);
+  justify-content: center;
 }
 .carousel .carousel-button.left {
   left: -70px;

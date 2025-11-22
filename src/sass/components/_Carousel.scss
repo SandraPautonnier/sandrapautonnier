@@ -63,7 +63,7 @@
             color: white;
             font-size: 13px;
             background-color: $main-color;
-            border: none;
+            border: 1px solid transparent;
             border-radius: 12px;
             padding: 6px 8px;
             margin: 0;
@@ -72,7 +72,6 @@
             cursor: pointer;
             transition: all 0.3s cubic-bezier(.68,-0.55,.27,1.55);
             text-align: center;
-            
             &:hover {
                 background-color: white;
                 color: $main-color;
@@ -111,6 +110,8 @@
         color: white;
         border-radius: 50%;
         transform: translateY(-50%) scale(1.1);
+    
+        justify-content: center;
     }
     
     &.left {
