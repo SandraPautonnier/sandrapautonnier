@@ -638,6 +638,16 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   }
 }
 
+.profile .card-banner {
+  max-width: 768px;
+}
+@media (min-width: 992px) {
+  .profile .banner h2 {
+    left: -257px;
+    top: -175px;
+  }
+}
+
 @media (max-width: 600px) {
   table, thead, tbody, th, td, tr {
     display: block;

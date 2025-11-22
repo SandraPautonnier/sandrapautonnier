@@ -151,3 +151,20 @@ svg {
         }
     }
 }
+
+.profile {
+    .card-banner {
+        max-width: 768px;
+    }
+
+    @media (min-width: 992px) {
+        .banner {
+            h2 {
+                left: -257px;
+                top: -175px;
+
+            }
+
+        }
+    }
+}
