@@ -3,40 +3,40 @@
         "id": 1,
         "icon": "fa-code",
         "titlecard": "Web",
-        "listcard": [  "➡️ Créer des sites dynamiques avec JavaScript",
-        "➡️ Développer des interfaces avec React",
-        "➡️ Gérer l'état global d'une application avec Redux Toolkit",
-        "➡️ Intégrer des API pour connecter le front-end et le back-end"
+        "listcard": [  "Créer des sites dynamiques avec JavaScript",
+        "Développer des interfaces avec React",
+        "Gérer l'état global d'une application avec Redux Toolkit",
+        "Intégrer des API pour connecter le front-end et le back-end"
         ]
     },
     {
         "id": 2,
         "icon": "fa-pen",
         "titlecard": "Création de contenu",
-        "listcard": [ "➡️ Créer des visuels pour divers supports et projets", 
-        "➡️ Monter des vidéos en utilisant Davinci Resolve",
-        "➡️ Animer des contenus pour des diffusions en direct",
-        "➡️ Gérer les réseaux sociaux"
+        "listcard": [ "Créer des visuels pour divers supports et projets", 
+        "Monter des vidéos en utilisant Davinci Resolve",
+        "Animer des contenus pour des diffusions en direct",
+        "Gérer les réseaux sociaux"
         ]
     },
     {
         "id": 3,
         "icon": "fa-diagram-project",
         "titlecard": "Gestion de projet",
-        "listcard": [ "➡️ Créer un tableau Kanban avec Notion ou Trello", 
-        "➡️ Organiser des événements de A à Z",
-        "➡️ Coordonner les collaborateurs avec Slack",
-        "➡️ Gérer des projets avec la méthode Agile et Scrum"
+        "listcard": [ "Créer un tableau Kanban avec Notion ou Trello", 
+        "Organiser des événements de A à Z",
+        "Coordonner les collaborateurs avec Slack",
+        "Gérer des projets avec la méthode Agile et Scrum"
         ]
     },
     {
         "id": 4,
         "icon": "fa-bullseye",
         "titlecard": "Marketing SEO",
-        "listcard": [ "➡️ Gérer des campagnes de marketing digital",
-        "➡️ Réaliser des sondages en ligne pour recueillir les avis clients",
-        "➡️ Analyser les performances web avec Google Analytics",
-        "➡️ Réaliser un audit SEO afin de l'optimiser"
+        "listcard": [ "Gérer des campagnes de marketing digital",
+        "Réaliser des sondages en ligne pour recueillir les avis clients",
+        "Analyser les performances web avec Google Analytics",
+        "Réaliser un audit SEO afin de l'optimiser"
         ]
     }
 ]

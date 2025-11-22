@@ -1,7 +1,7 @@
 import React from 'react'
 import skills from '../../assets/content/skillsList.json'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCode, faPen, faDiagramProject, faBullseye } from '@fortawesome/free-solid-svg-icons';
+import { faCode, faPen, faDiagramProject, faBullseye, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 function Skills() {
 
@@ -23,7 +23,7 @@ function Skills() {
               <FontAwesomeIcon icon={iconMap[skill.icon]} />
               <h3>{skill.titlecard}</h3>
               <div className='li-skills'>{skill.listcard.map((item, idx) => (
-                <li key={idx}>{item}</li>
+                <li key={idx}><FontAwesomeIcon icon={faArrowRight} /> {item}</li>
               ))}</div>
             </div>
           ))}

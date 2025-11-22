@@ -563,6 +563,7 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
 .technos svg {
   transform: scale(100%);
   transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  color: #8F72AF;
 }
 .technos svg:hover {
   transform: scale(110%);
@@ -823,26 +824,6 @@ table th {
   }
 }
 
-.btn {
-  text-align: center;
-  margin: 0;
-  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}
-.btn:hover {
-  background-color: white;
-  color: #8F72AF;
-  transform: scale(100%);
-  border: 1px solid #8F72AF;
-}
-.btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(143, 114, 175, 0.3);
-}
-.btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
 .confirmation-message {
   padding: 20px;
   border-radius: 6px;
@@ -978,6 +959,25 @@ table th {
   transform: translateY(-3px);
 }
 
+.contact .btn {
+  text-align: center;
+  margin: 0;
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.contact .btn:hover {
+  background-color: white;
+  color: #8F72AF;
+  transform: scale(100%);
+  border: 1px solid #8F72AF;
+}
+.contact .btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(143, 114, 175, 0.3);
+}
+.contact .btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 .contact .card-banner {
   max-width: 768px;
 }

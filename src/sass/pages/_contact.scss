@@ -121,29 +121,7 @@
     }
 }
 
-.btn {
-    text-align: center;
-    margin: 0;
-    transition: transform 0.3s cubic-bezier(.68, -0.55, .27, 1.55);
 
-    &:hover {
-        background-color: white;
-        color: $main-color;
-        transform: scale(100%);
-        border: 1px solid $main-color;
-    }
-
-    &:hover:not(:disabled) {
-
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba($main-color, 0.3);
-    }
-
-    &:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-    }
-}
 
 .confirmation-message {
     padding: 20px;
@@ -284,6 +262,29 @@
 }
 
 .contact {
+    .btn {
+    text-align: center;
+    margin: 0;
+    transition: transform 0.3s cubic-bezier(.68, -0.55, .27, 1.55);
+
+    &:hover {
+        background-color: white;
+        color: $main-color;
+        transform: scale(100%);
+        border: 1px solid $main-color;
+    }
+
+    &:hover:not(:disabled) {
+
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba($main-color, 0.3);
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
     .card-banner {
         max-width: 768px;
     }

@@ -92,6 +92,7 @@
 } 
 svg {
   @include zoom-btn;
+  color: $main-color;
 }
 }
 
