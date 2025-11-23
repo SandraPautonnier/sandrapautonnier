@@ -1118,14 +1118,14 @@ table th {
     width: 56px;
     height: 56px;
     top: 50%;
+    transform: translateY(-50%);
   }
 }
 .carousel .carousel-button:hover {
-  background-color: #8F72AF;
+  background: #8F72AF;
   color: white;
   border-radius: 50%;
-  transform: translateY(-50%) scale(1.1);
-  justify-content: center;
+  transform: translateY(-50%);
 }
 .carousel .carousel-button.left {
   left: -70px;

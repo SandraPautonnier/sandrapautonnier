@@ -97,6 +97,7 @@
     width: 64px;
     height: 64px;
     display: flex;
+    
     justify-content: center;
     @media (max-width: 768px) {
         color: white;
@@ -104,14 +105,15 @@
         width: 56px;
         height: 56px;
         top: 50%;
+        transform: translateY(-50%);
     }
     &:hover {
-        background-color: $main-color;
+        background: $main-color;
         color: white;
         border-radius: 50%;
-        transform: translateY(-50%) scale(1.1);
+        transform: translateY(-50%);
     
-        justify-content: center;
+        
     }
     
     &.left {
