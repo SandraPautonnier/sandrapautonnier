@@ -1,97 +1,137 @@
 [
     {
-        "id": 3,
-        "titlework": "SpeakTime",
-        "description": "SpeakTime est une application que je développe pour gérer le temps de parole lors de réunions ou discussions. Simple et intuitive, elle permet de suivre, répartir et contrôler le temps de chacun en un clin d'œil.",
-        "cover": "https://gentle-pony-095b6f.netlify.app/speaktime.webp",
-        "category": "Création d'une application",
+        "id": 1,
         "type": "Projets professionnels et personnels",
-        "link": "https://speaktime.vercel.app/",
-        "github": "https://github.com/SandraPautonnier/SpeakTime",
+        "titlework": "SpeakTime",
         "date": "2025-02",
+        "category": "Création d'une application",
         "language": [
             "React",
             "Node.js avec Express"
         ],
-        "tools": "Zustand"
+        "tools": "Zustand",
+        "cover": "https://gentle-pony-095b6f.netlify.app/speaktime.webp",
+        "context": "SpeakTime est une application que je développe pour gérer le temps de parole lors de réunions ou discussions. Simple et intuitive, elle permet de suivre, répartir et contrôler le temps de chacun en un clin d'œil.",
+        "todo": [
+            "Développement du front-end avec React",
+            "Mise en place du back-end avec Node.js et Express",
+            "Gestion de l'état global avec Zustand",
+            "Intégration d'une interface utilisateur intuitive"
+        ],
+        "conclusion": "SpeakTime vise à améliorer la gestion du temps de parole dans les réunions, favorisant ainsi une communication plus équilibrée et efficace. En combinant des technologies modernes, j'ai créé une application qui répond aux besoins des utilisateurs tout en offrant une expérience fluide et agréable.",
+        "link": "https://speaktime.vercel.app/",
+        "github": "https://github.com/SandraPautonnier/SpeakTime"
     },
     {
         "id": 2,
-        "titlework": "Le Mans School of AI",
-        "description": "J'ai réalisé la refonte intégral du site web de Le Mans School of AI. C'est un groupe d'entraide pour les étudiants et professionnel autour de l'IA. J'ai conçu avec Javascript une gestion des évènements dynamiques : un évenement passé se mettra automatiquement dans la colonne Évènements passées",
-        "cover": "https://gentle-pony-095b6f.netlify.app/lemansschoolofai.webp",
-        "category": "Refonte de site vitrine",
         "type": "Projets professionnels et personnels",
-        "link": "https://lemans-schoolofai.github.io/",
-        "github": "https://github.com/LeMans-SchoolofAI/LeMans-SchoolofAI.github.io.git",
+        "titlework": "Le Mans School of AI",
         "date": "2025-03",
+        "category": "Refonte de site vitrine",
         "language": [
             "html css",
             "Javascript"
         ],
-        "tools": "Awesome"
-    },    
+        "tools": "Awesome",
+        "cover": "https://gentle-pony-095b6f.netlify.app/lemansschoolofai.webp",
+        "context": "Le Mans School of AI est un groupe d'entraide pour les étudiants et professionnels autour de l'IA. J'ai réalisé la refonte intégrale du site web de cette organisation.",
+        "todo": [
+            "Refonte complète du design du site",
+            "Développement en HTML/CSS et Javascript",
+            "Création d'une gestion des événements dynamiques",
+            "Mise à jour automatique des événements passés"
+        ],
+        "conclusion": "Avec cette refonte, j'ai créé un système intelligent où les événements passés se mettent automatiquement dans la colonne 'Événements passés'. Le site offre maintenant une meilleure expérience utilisateur et reflète mieux les valeurs de la communauté.",
+        "link": "https://lemans-schoolofai.github.io/",
+        "github": "https://github.com/LeMans-SchoolofAI/LeMans-SchoolofAI.github.io.git"
+    },
     {
-        "id": 1,
-        "titlework": "Pulsar42",
-        "description": "En juin 2025, j'ai participé au développement du site Pulsar42.sc, un projet collaboratif porté par une association autour du jeu Star Citizen. C'est l'un de mes premiers travaux en équipe sur un projet concret en TypeScript ! J'ai intégré le footer du site et ajouté la page des mentions légales, conforme au RGPD et à la LCEN. Ce projet m'a permis de consolider mes compétences en intégration front-end, en responsive design, et de collaborer avec d'autres développeurs dans un cadre associatif.",
-        "cover": "https://gentle-pony-095b6f.netlify.app/pulsar42.webp",
-        "category": "Création de site web",
+        "id": 3,
         "type": "Projets professionnels et personnels",
-        "link": "https://pulsar42.sc",
-        "github": "https://github.com/Pulsar42sc/Pulsar42Web",
+        "titlework": "Pulsar42",
         "date": "2025-06",
+        "category": "Création de site web",
         "language": [
             "React"
         ],
-        "tools": "Vite"
+        "tools": "Vite",
+        "cover": "https://gentle-pony-095b6f.netlify.app/pulsar42.webp",
+        "context": "Pulsar42 est un projet collaboratif porté par une association autour du jeu Star Citizen. En juin 2025, j'ai participé au développement du site Pulsar42.sc, l'un de mes premiers travaux en équipe sur un projet concret en TypeScript.",
+        "todo": [
+            "Intégration du footer du site",
+            "Développement de la page des mentions légales",
+            "Conformité RGPD et LCEN",
+            "Collaboration avec d'autres développeurs"
+        ],
+        "conclusion": "Ce projet m'a permis de consolider mes compétences en intégration front-end, en responsive design, et de collaborer avec d'autres développeurs dans un cadre associatif. L'expérience a été enrichissante et m'a préparée pour des projets d'équipe futurs.",
+        "link": "https://pulsar42.sc",
+        "github": "https://github.com/Pulsar42sc/Pulsar42Web"
     },
     {
         "id": 4,
-        "titlework": "Ohmyfood",
-        "description": "Dans le cadre d'un projet fictif d'OpenClassrooms, Ohmyfood est une jeune startup qui voudrait s'imposer sur le marché de la restauration. Dans ce projet, ma mission est de développer l'interface mobile-first du site en intégrant une maquette fournie. J'ai utilisé Sass pour optimiser les styles, implémenté des animations CSS pour enrichir l'expérience utilisateur et assurer un design adaptatif. Le projet a été versionné avec Git et GitHub, me permettant de renforcer mes compétences en gestion de code et en collaboration.",
-        "cover": "https://gentle-pony-095b6f.netlify.app/ohmyfood.webp",
-        "category": "Création de site web",
         "type": "Projets professionnalisants",
-        "link": "https://sandrapautonnier.github.io/ohmyfood/",
-        "github": "https://github.com/SandraPautonnier/ohmyfood",
+        "titlework": "Ohmyfood",
         "date": "2024-11",
+        "category": "Création de site web",
         "language": [
             "HTML/SCSS"
         ],
-        "tools": "SASS"
+        "tools": "SASS",
+        "cover": "https://gentle-pony-095b6f.netlify.app/ohmyfood.webp",
+        "context": "Ohmyfood est une jeune startup qui veut s'imposer sur le marché de la restauration. Ma mission était de développer l'interface mobile-first du site en intégrant une maquette fournie.",
+        "todo": [
+            "Intégration de la maquette fournie",
+            "Développement mobile-first",
+            "Optimisation des styles avec Sass",
+            "Implémentation des animations CSS"
+        ],
+        "conclusion": "J'ai créé une interface responsive et animée qui offre une excellente expérience utilisateur. Le projet, versionné avec Git et GitHub, m'a permis de renforcer mes compétences en gestion de code et en collaboration.",
+        "link": "https://sandrapautonnier.github.io/ohmyfood/",
+        "github": "https://github.com/SandraPautonnier/ohmyfood"
     },
     {
         "id": 5,
-        "titlework": "Kasa",
-        "description": "Kasa est un projet fictif d'Openclassrooms représentant une entreprise de location d'appartements entre particuliers. J'ai développé le front-end de cette application en utilisant React et React Router pour une navigation fluide entre les pages. En suivant des maquettes et en manipulant des données simulées depuis un fichier JSON, j'ai conçu une interface réactive et moderne. J'ai initialisé le projet avec Create App React.",
-        "cover": "https://gentle-pony-095b6f.netlify.app/kasa.webp",
-        "category": "Création d'une application",
         "type": "Projets professionnalisants",
-        "link": "https://sandrapautonnier.github.io/kasa/",
-        "github": "https://github.com/SandraPautonnier/kasa",
+        "titlework": "Kasa",
         "date": "2024-12",
+        "category": "Création d'une application",
         "language": [
             "React"
         ],
-        "tools": "CRA"
+        "tools": "CRA",
+        "cover": "https://gentle-pony-095b6f.netlify.app/kasa.webp",
+        "context": "Kasa est une entreprise de location d'appartements entre particuliers. J'ai développé le front-end de cette application en utilisant React et React Router pour une navigation fluide.",
+        "todo": [
+            "Développement du front-end avec React",
+            "Mise en place de React Router",
+            "Gestion des données depuis un fichier JSON",
+            "Création d'une interface réactive et moderne"
+        ],
+        "conclusion": "J'ai conçu une application réactive qui offre une excellente expérience utilisateur. Ce projet m'a permis de maîtriser React et React Router, essentiels pour développer des applications web modernes.",
+        "link": "https://sandrapautonnier.github.io/kasa/",
+        "github": "https://github.com/SandraPautonnier/kasa"
     },
     {
         "id": 6,
-        "titlework": "Argent bank",
-        "description": "Dans le cadre d'un projet OpenClassrooms, Argent Bank, une nouvelle banque en ligne vise à s'imposer dans le secteur bancaire. En initialisant le projet avec Vite, j'ai développé le front-end d'une application bancaire avec React et Redux pour une expérience utilisateur dynamique. J'ai intégré le front-end avec le back-end via des appels API REST, assurant une communication fluide. En gérant l'état global avec Redux, j'ai conçu une application performante. J'ai également utilisé Swagger pour définir les points d'accès de l'API et Node.js pour exécuter le code côté serveur.",
-        "cover": "https://gentle-pony-095b6f.netlify.app/argentbank.webp",
-        "category": "Création d'une application",
         "type": "Projets professionnalisants",
-        "link": null,
-        "github": "https://github.com/SandraPautonnier/argentbank",
+        "titlework": "Argent bank",
         "date": "2025-01",
+        "category": "Création d'une application",
         "language": [
-            "React /",
+            "React",
             "Redux"
         ],
-        "tools": "Vite"
+        "tools": "Vite",
+        "cover": "https://gentle-pony-095b6f.netlify.app/argentbank.webp",
+        "context": "Argent Bank est une nouvelle banque en ligne qui vise à s'imposer dans le secteur bancaire. J'ai développé le front-end d'une application bancaire avec React et Redux pour une expérience utilisateur dynamique.",
+        "todo": [
+            "Développement du front-end avec React",
+            "Gestion de l'état global avec Redux",
+            "Intégration avec le back-end via des appels API REST",
+            "Utilisation de Swagger pour les points d'accès API"
+        ],
+        "conclusion": "En gérant l'état global avec Redux et en intégrant le front-end avec le back-end, j'ai créé une application bancaire performante et sécurisée. Ce projet m'a approfondi ma compréhension des architectures d'applications modernes.",
+        "link": null,
+        "github": "https://github.com/SandraPautonnier/argentbank"
     }
-    
-    
 ]

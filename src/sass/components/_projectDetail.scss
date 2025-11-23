@@ -1,12 +1,17 @@
 @import "../utils/variables";
 @import "../utils/mixins";
 
+.project-page {
+    overflow: hidden;
+    will-change: transform, opacity;
+}
+
 .project-container {
     max-width: 991px;
     margin: 0 auto;
 }
 
-.project-detail-container {
+.project-header {
     max-width: 1200px;
     margin: 0 auto;
     animation: slideInFromLeft 0.6s ease-in-out;
@@ -14,130 +19,224 @@
     align-items: center;
     gap: 30px;
 
-    .back-button {
-        margin-bottom: 0;
+    button {
         display: flex;
         align-items: center;
         gap: 10px;
-        flex-shrink: 0;
 
         &:hover {
             transform: translateX(-5px);
         }
     }
 
-    .project-title {
+    h2 {
+        margin: 0;
         font-size: 36px;
-        margin-bottom: 0;
         font-weight: 700;
-        text-align: left;
         flex: 1;
 
         @media (max-width: 768px) {
             font-size: 28px;
-            flex-direction: column;
+        }
+    }
+
+    .project-date {
+        font-size: 14px;
+        color: $main-color;
+        font-weight: 600;
+        margin: 0;
+        flex-shrink: 0;
+    }
+}
+
+.project-meta {
+    max-width: 1200px;
+    margin: 20px auto 0;
+    animation: slideInFromLeft 0.7s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+
+    @media (max-width: 768px) {
+        margin: 15px auto 0;
+        gap: 20px;
+    }
+
+    .project-category {
+        font-size: 15px;
+        font-weight: 500;
+        margin: 0;
+        color: $text;
+        flex-shrink: 0;
+    }
+
+    .project-langs,
+    .project-tools {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
+
+        @media (max-width: 768px) {
+            width: 100%;
+        }
+
+        strong {
+            font-weight: 600;
+            color: $text;
+            white-space: nowrap;
+        }
+
+        p {
+            margin: 0;
+            color: #666;
+        }
+    }
+
+    .languages-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        .language-tag {
+            @include badark-colight-tags;
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
         }
     }
 }
 
 .project-detail {
+    max-width: 1200px;
+    margin: 40px auto 0;
     animation: slideInFromLeft 0.8s ease-in-out;
 
     .project-cover {
         width: 100%;
         height: auto;
-        max-height: 400px;
+        max-height: 500px;
         object-fit: cover;
         border-radius: 12px;
-        margin-bottom: 40px;
+        margin-bottom: 50px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+        @media (max-width: 768px) {
+            max-height: 300px;
+            margin-bottom: 35px;
+        }
     }
 
-    .project-info {
-        display: flex;
-        align-content: center;
-        justify-content: space-around;
-        gap: 30px;
-        
+    .project-section {
+        margin-bottom: 50px;
 
-        .info-item {
-            text-align: center;
-            h3 {
+        @media (max-width: 768px) {
+            margin-bottom: 35px;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: $text;
+            font-weight: 600;
+
+            @media (max-width: 768px) {
                 font-size: 18px;
                 margin-bottom: 12px;
-                font-weight: 600;
-            }
-
-            .category-badge {
-                @include badark-colight-component;
-                display: inline-block;
-                border-radius: 20px;
-                font-size: 14px;
-                font-weight: 500;
-            }
-
-            .languages-list {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-
-                .language-tag {
-                    @include badark-colight-tags;
-                    display: inline-block;
-                    padding: 6px 12px;
-                    border-radius: 6px;
-                    font-size: 13px;
-                    font-weight: 500;
-                }
-            }
-            p {
-                font-size: 15px;
-                line-height: 1.6;
             }
         }
-    }
 
-    .project-description {
-        background: $component;
-        margin: 40px;
-        border-radius: 12px;
-        
-        h2 {
-            font-size: 28px;
-            font-weight: 600;
-        }
         p {
-            font-size: 16px;
+            font-size: 15px;
             line-height: 1.8;
-            color: $text;
-        }
-        @media (max-width: 768px) {
-            margin: 40px 20px;
+            color: #333;
+            margin: 0;
 
-            h2 {
-                font-size: 22px;
-            }
-
-            p {
+            @media (max-width: 768px) {
                 font-size: 14px;
+                line-height: 1.7;
             }
         }
     }
 
-    .project-link {
+    .todo-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        li {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #333;
+            padding-left: 25px;
+            position: relative;
+
+            @media (max-width: 768px) {
+                font-size: 14px;
+            }
+
+            &:before {
+                content: "✓";
+                position: absolute;
+                left: 0;
+                color: $main-color;
+                font-weight: bold;
+                font-size: 18px;
+            }
+        }
+    }
+
+    .project-links {
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 1px solid #eee;
+
+        @media (max-width: 768px) {
+            margin-top: 35px;
+            padding-top: 25px;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: $text;
+            font-weight: 600;
+
+            @media (max-width: 768px) {
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
+        }
+
         .project-link-buttons {
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
+
+            @media (max-width: 768px) {
+                flex-direction: column;
+            }
+
             a {
-                margin: 0;;
-                &:hover {
-                    transform: scale(1.05);
+                @include btn;
+                @include btn-color-main;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                text-decoration: none;
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                    justify-content: center;
                 }
             }
         }
-
     }
 }
 
@@ -149,5 +248,24 @@
     to {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+@keyframes slideOutToRight {
+    from {
+        opacity: 1;
+        transform: translateX(0) scaleX(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(30px) scaleX(0.95);
+    }
+}
+
+.project-page.exiting {
+    animation: slideOutToRight 0.3s ease-in-out forwards;
+    
+    * {
+        animation: slideOutToRight 0.3s ease-in-out forwards;
     }
 }

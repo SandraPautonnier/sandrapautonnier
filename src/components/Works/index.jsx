@@ -25,6 +25,8 @@ const Works = ({ projectType }) => {
       : worksList.filter((work) => work.category === selectedCategory);
 
   const handleProjectClick = () => {
+    // Sauvegarder la position du scroll actuelle
+    localStorage.setItem('portfolioScrollPosition', window.scrollY);
     window.scrollTo(0, 0);
   };
 

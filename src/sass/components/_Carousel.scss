@@ -40,7 +40,7 @@
             flex-direction: column;
             flex: 1;
             padding: 15px 15px 20px 15px;
-            justify-content: space-between;
+            text-align: center;
         }
         h3 {
             color: $main-color;
@@ -66,7 +66,7 @@
             border: 1px solid transparent;
             border-radius: 12px;
             padding: 6px 8px;
-            margin: 0;
+            margin: 10px 5px ;
             display: inline-block;
             text-decoration: none;
             cursor: pointer;
@@ -86,7 +86,7 @@
     top: 50%;
     transform: translateY(-50%);
     background: transparent;
-    border-radius: 0;
+    border-radius: 50%;
     color: $main-color;
     border: none;
     padding: 0;
@@ -97,23 +97,18 @@
     width: 64px;
     height: 64px;
     display: flex;
-    
+    align-items: center;
     justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
     @media (max-width: 768px) {
         color: white;
         font-size: 32px;
         width: 56px;
         height: 56px;
-        top: 50%;
-        transform: translateY(-50%);
     }
     &:hover {
         background: $main-color;
         color: white;
-        border-radius: 50%;
-        transform: translateY(-50%);
-    
-        
     }
     
     &.left {

@@ -1052,7 +1052,7 @@ table th {
   flex-direction: column;
   flex: 1;
   padding: 15px 15px 20px 15px;
-  justify-content: space-between;
+  text-align: center;
 }
 .carousel .carousel-slide .slide-content h3 {
   color: #8F72AF;
@@ -1080,7 +1080,7 @@ table th {
   border: 1px solid transparent;
   border-radius: 12px;
   padding: 6px 8px;
-  margin: 0;
+  margin: 10px 5px;
   display: inline-block;
   text-decoration: none;
   cursor: pointer;
@@ -1098,7 +1098,7 @@ table th {
   top: 50%;
   transform: translateY(-50%);
   background: transparent;
-  border-radius: 0;
+  border-radius: 50%;
   color: #8F72AF;
   border: none;
   padding: 0;
@@ -1109,7 +1109,9 @@ table th {
   width: 64px;
   height: 64px;
   display: flex;
+  align-items: center;
   justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 @media (max-width: 768px) {
   .carousel .carousel-button {
@@ -1117,15 +1119,11 @@ table th {
     font-size: 32px;
     width: 56px;
     height: 56px;
-    top: 50%;
-    transform: translateY(-50%);
   }
 }
 .carousel .carousel-button:hover {
   background: #8F72AF;
   color: white;
-  border-radius: 50%;
-  transform: translateY(-50%);
 }
 .carousel .carousel-button.left {
   left: -70px;
