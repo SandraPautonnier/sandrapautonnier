@@ -53,6 +53,41 @@
     }
 }
 
+@mixin btn-animated-link {
+    background: 
+        linear-gradient($component, $component) padding-box,
+        linear-gradient(135deg, #E8B4C8, #C8A8D8, #A8C8B8) border-box;
+    border: 1px solid transparent;
+    color: $main-color;
+    position: relative;
+    z-index: 1;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, $main-color 0%, $main-color 0%) no-repeat;
+        background-size: 0% 100%;
+        background-position: left center;
+        border-radius: 10px;
+        pointer-events: none;
+        z-index: -1;
+        transition: background-size 0.3s cubic-bezier(.77,0,.18,1), background-position 0.3s cubic-bezier(.77,0,.18,1);
+    }
+    
+    &:hover {
+        color: $component;
+        
+        &::before {
+            background-size: 100% 100%;
+            background-position: right center;
+        }
+    }
+}
+
 @mixin tags {
     font-size: 14px;
     border-radius: 15px;

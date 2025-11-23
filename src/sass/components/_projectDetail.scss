@@ -13,7 +13,7 @@
 
 .project-header {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 20px auto 0;
     animation: slideInFromLeft 0.6s ease-in-out;
     display: flex;
     align-items: baseline;
@@ -111,7 +111,7 @@
 
 .project-detail {
     max-width: 1200px;
-    margin: 40px auto 0;
+    margin: 30px auto 20px;
     animation: slideInFromLeft 0.8s ease-in-out;
 
     .project-cover {
@@ -208,7 +208,7 @@
 
             a {
                 @include btn;
-                @include btn-color-main;
+                @include btn-animated-link;
                 display: flex;
                 align-items: center;
                 gap: 8px;
@@ -247,7 +247,7 @@
 
             a {
                 @include btn;
-                @include btn-color-main;
+                @include btn-animated-link;
                 display: flex;
                 align-items: center;
                 gap: 8px;

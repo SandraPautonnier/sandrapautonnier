@@ -26,12 +26,12 @@
   border: 1px solid transparent;
   padding: 8px 16px;
   font-size: 14px;
-  color: #8F72AF;
-  text-decoration: none;
   background: linear-gradient(#f5f1ed, #f5f1ed) padding-box, linear-gradient(135deg, #E8B4C8, #C8A8D8, #A8C8B8) border-box;
   border: 1px solid transparent;
+  color: #8F72AF;
   position: relative;
   z-index: 1;
+  text-decoration: none;
 }
 .menu-nav nav .nav-ul .nav-li a::before {
   content: "";
@@ -42,23 +42,18 @@
   bottom: 0;
   background: linear-gradient(90deg, #8F72AF 0%, #8F72AF 0%) no-repeat;
   background-size: 0% 100%;
-  border-radius: 7px;
+  background-position: left center;
+  border-radius: 10px;
+  pointer-events: none;
   z-index: -1;
   transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1), background-position 0.3s cubic-bezier(0.77, 0, 0.18, 1);
 }
 .menu-nav nav .nav-ul .nav-li a:hover {
   color: #f5f1ed;
-  border: 1px solid #8F72AF;
 }
 .menu-nav nav .nav-ul .nav-li a:hover::before {
   background-size: 100% 100%;
-}
-.menu-nav nav .nav-ul .nav-li a.active {
-  color: #f5f1ed;
-  border: 1px solid #8F72AF;
-}
-.menu-nav nav .nav-ul .nav-li a.active::before {
-  background-size: 100% 100%;
+  background-position: right center;
 }
 @media (max-width: 768px) {
   .menu-nav nav {

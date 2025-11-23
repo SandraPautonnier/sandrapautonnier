@@ -108,12 +108,12 @@ const ProjectDetail = () => {
                                 <div className='project-links-main'>
                                     <div className='project-link-buttons'>
                                         {project.link && (
-                                            <a href={project.link} target='_blank' rel='noopener noreferrer' className='btn'>
+                                            <a href={project.link} target='_blank' rel='noopener noreferrer'>
                                                 Lien vers le projet
                                             </a>
                                         )}
                                         {project.github && (
-                                            <a href={project.github} target='_blank' rel='noopener noreferrer' className='btn github-button'>
+                                            <a href={project.github} target='_blank' rel='noopener noreferrer' className='github-button'>
                                                 <FontAwesomeIcon icon={faGithub} /> GitHub
                                             </a>
                                         )}
@@ -142,12 +142,12 @@ const ProjectDetail = () => {
                                 <div className='project-links-footer'>
                                     <div className='project-link-buttons'>
                                         {project.link && (
-                                            <a href={project.link} target='_blank' rel='noopener noreferrer' className='btn'>
+                                            <a href={project.link} target='_blank' rel='noopener noreferrer'>
                                                 Lien vers le projet
                                             </a>
                                         )}
                                         {project.github && (
-                                            <a href={project.github} target='_blank' rel='noopener noreferrer' className='btn github-button'>
+                                            <a href={project.github} target='_blank' rel='noopener noreferrer' className='github-button'>
                                                 <FontAwesomeIcon icon={faGithub} /> GitHub
                                             </a>
                                         )}
