@@ -15,6 +15,16 @@ const ProjectDetail = () => {
     const [isExiting, setIsExiting] = useState(false);
     const project = works.find(work => work.id === parseInt(id));
 
+    const formatDate = (dateString) => {
+        const [year, month] = dateString.split('-');
+        const months = {
+            '01': 'janvier', '02': 'février', '03': 'mars', '04': 'avril',
+            '05': 'mai', '06': 'juin', '07': 'juillet', '08': 'août',
+            '09': 'septembre', '10': 'octobre', '11': 'novembre', '12': 'décembre'
+        };
+        return `${months[month]} ${year}`;
+    };
+
     const handleGoBack = () => {
         setIsExiting(true);
         setTimeout(() => {
@@ -76,32 +86,42 @@ const ProjectDetail = () => {
                                     <FontAwesomeIcon icon={faArrowLeft} /> Retour
                                 </button>
                                 <h2>{project.titlework}</h2>
-                                <p className='project-date'>{project.date}</p>
+                                <p className='project-date'>{formatDate(project.date)}</p>
                             </div>
 
                             <div className='project-meta'>
                                 <p className='project-category'>{project.category}</p>
                                 
-                                <div className='project-langs'>
-                                    <strong>Languages :</strong>
-                                    <div className='languages-list'>
-                                        {project.language.map((lang, index) => (
-                                            <span key={index} className='language-tag'>{lang}</span>
+                                <div className='project-techs'>
+                                    <strong>Technologies & Outils utilisés :</strong>
+                                    <div className='tech-list'>
+                                        {project.technologies.map((tech, index) => (
+                                            <span key={index} className='tech-tag'>{tech}</span>
                                         ))}
                                     </div>
-                                </div>
-
-                                <div className='project-tools'>
-                                    <strong>Outils :</strong>
-                                    <p>{project.tools}</p>
                                 </div>
                             </div>
 
                             <div className='project-detail'>
                                 <img src={project.cover} alt={project.titlework} className='project-cover' />
                                 
+                                <div className='project-links-main'>
+                                    <div className='project-link-buttons'>
+                                        {project.link && (
+                                            <a href={project.link} target='_blank' rel='noopener noreferrer' className='btn'>
+                                                Lien vers le projet
+                                            </a>
+                                        )}
+                                        {project.github && (
+                                            <a href={project.github} target='_blank' rel='noopener noreferrer' className='btn github-button'>
+                                                <FontAwesomeIcon icon={faGithub} /> GitHub
+                                            </a>
+                                        )}
+                                    </div>
+                                </div>
+                                
                                 <div className='project-section'>
-                                    <h3>Contexte</h3>
+                                    <h3>{project.type === "Projets professionnalisants" ? "Contexte fictif" : "Contexte"}</h3>
                                     <p>{project.context}</p>
                                 </div>
 
@@ -119,8 +139,7 @@ const ProjectDetail = () => {
                                     <p>{project.conclusion}</p>
                                 </div>
 
-                                <div className='project-links'>
-                                    <h3>Liens</h3>
+                                <div className='project-links-footer'>
                                     <div className='project-link-buttons'>
                                         {project.link && (
                                             <a href={project.link} target='_blank' rel='noopener noreferrer' className='btn'>

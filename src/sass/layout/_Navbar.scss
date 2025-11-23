@@ -14,10 +14,56 @@
         .nav-ul {
             display: flex;
             align-items: center;
-            gap: $gap;
+            gap: 30px;
             
             .nav-li {
                 @include flex-row-center;
+                
+                a {
+                    @include btn;
+                    color: $main-color;
+                    text-decoration: none;
+                    background: 
+                        linear-gradient($component, $component) padding-box,
+                        linear-gradient(135deg, #E8B4C8, #C8A8D8, #A8C8B8) border-box;
+                    border: 1px solid transparent;
+                    position: relative;
+                    z-index: 1;
+                    
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: linear-gradient(90deg, $main-color 0%, $main-color 0%) no-repeat;
+                        background-size: 0% 100%;
+                        
+                        border-radius: 7px;
+                        
+                        z-index: -1;
+                        transition: background-size 0.3s cubic-bezier(.77,0,.18,1), background-position 0.3s cubic-bezier(.77,0,.18,1);
+                    }
+                    
+                    &:hover {
+                        color: $component;
+                        border: 1px solid $main-color;
+                        &::before {
+                            background-size: 100% 100%;
+                            
+                        }
+                    }
+                    
+                    &.active {
+                        color: $component;
+                        border: 1px solid $main-color;
+                        &::before {
+                            background-size: 100% 100%;
+                            
+                        }
+                    }
+                }
             }
         }
         
@@ -75,6 +121,7 @@
         padding: 0;
         line-height: 27px;
         margin: -1.5px -2px;
+        color: $main-color;
     }
 }
 
@@ -95,6 +142,10 @@
 
     nav {
         margin: 20px 5px !important;
+        
+        .nav-ul {
+            gap: 10px !important;
+        }
     }
 
     h1 {

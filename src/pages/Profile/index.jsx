@@ -25,7 +25,7 @@ const Profile = () => {
                     <Navbar />
                     <div className='banner'>
                         <img src={ImageProfile} alt="Photo de Sandra" />
-                        <h2>A propos de moi</h2>
+                        <h2>A propos - Profil</h2>
                         <div className="card-banner">
                         <p className='intro'>Développeuse web fullstack, je conçois des applications modernes centrées utilisateur avec React, Node.js et MongoDB.</p>
                         </div>

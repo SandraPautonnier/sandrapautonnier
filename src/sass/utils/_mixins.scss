@@ -29,15 +29,28 @@
 //buttons, tags
 
 @mixin btn {
-    border-radius: 12px;
+    border-radius: 10px;
     border: 1px solid transparent;
-    padding: 6px 8px;
-    font-size: 15px;
+    padding: 8px 16px;
+    font-size: 14px;
 }
 
 @mixin btn-color-main {
     background-color: $main-color;
     color: white;
+}
+
+@mixin btn-link {
+    border: 1px solid $main-color;
+    color: $main-color;
+    background-color: transparent;
+    transition: all 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+    
+    &:hover {
+        background-color: $main-color;
+        color: white;
+        transform: scale(100%);
+    }
 }
 
 @mixin tags {

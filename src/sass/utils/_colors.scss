@@ -14,16 +14,6 @@ body.mode {
                 background: transparent;
                 border: none;
             }
-            .nav-li {
-                @include underline-anim;
-                a {
-                    
-                    color: $main-color;
-                }
-                .active {
-                    @include underline-active;
-                }
-            }
         }
         
         .bar {

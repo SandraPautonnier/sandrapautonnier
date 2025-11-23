@@ -21,6 +21,45 @@
   flex-direction: row;
   align-items: center;
 }
+.menu-nav nav .nav-ul .nav-li a {
+  border-radius: 10px;
+  border: 1px solid transparent;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #8F72AF;
+  text-decoration: none;
+  background: linear-gradient(#f5f1ed, #f5f1ed) padding-box, linear-gradient(135deg, #E8B4C8, #C8A8D8, #A8C8B8) border-box;
+  border: 1px solid transparent;
+  position: relative;
+  z-index: 1;
+}
+.menu-nav nav .nav-ul .nav-li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #8F72AF 0%, #8F72AF 0%) no-repeat;
+  background-size: 0% 100%;
+  border-radius: 7px;
+  z-index: -1;
+  transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1), background-position 0.3s cubic-bezier(0.77, 0, 0.18, 1);
+}
+.menu-nav nav .nav-ul .nav-li a:hover {
+  color: #f5f1ed;
+  border: 1px solid #8F72AF;
+}
+.menu-nav nav .nav-ul .nav-li a:hover::before {
+  background-size: 100% 100%;
+}
+.menu-nav nav .nav-ul .nav-li a.active {
+  color: #f5f1ed;
+  border: 1px solid #8F72AF;
+}
+.menu-nav nav .nav-ul .nav-li a.active::before {
+  background-size: 100% 100%;
+}
 @media (max-width: 768px) {
   .menu-nav nav {
     margin: 20px auto;
@@ -71,6 +110,7 @@
   padding: 0;
   line-height: 27px;
   margin: -1.5px -2px;
+  color: #8F72AF;
 }
 
 @media (max-width: 768px) {
@@ -88,6 +128,9 @@
   }
   nav {
     margin: 20px 5px !important;
+  }
+  nav .nav-ul {
+    gap: 10px !important;
   }
   h1 {
     margin: 20px 5px !important;
@@ -232,10 +275,10 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
 }
 
 .btn {
-  border-radius: 12px;
+  border-radius: 10px;
   border: 1px solid transparent;
-  padding: 6px 8px;
-  font-size: 15px;
+  padding: 8px 16px;
+  font-size: 14px;
   background-color: #8F72AF;
   color: white;
   transform: scale(100%);
@@ -293,10 +336,10 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   gap: 5px;
   background-color: #8F72AF;
   color: white;
-  border-radius: 12px;
+  border-radius: 10px;
   border: 1px solid transparent;
-  padding: 6px 8px;
-  font-size: 15px;
+  padding: 8px 16px;
+  font-size: 14px;
   transform: scale(100%);
   transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
@@ -983,7 +1026,7 @@ table th {
 }
 @media (min-width: 992px) {
   .contact .banner h2 {
-    left: -260px;
+    left: -205px;
     top: -160px;
   }
   .contact .banner p {
@@ -1248,10 +1291,10 @@ table th {
 .works .container-card-works .card-works .description-collapse .collapse-button {
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
-  border-radius: 12px;
+  border-radius: 10px;
   border: 1px solid transparent;
-  padding: 6px 8px;
-  font-size: 15px;
+  padding: 8px 16px;
+  font-size: 14px;
   position: absolute;
   z-index: 10;
   bottom: 15px;
@@ -1277,30 +1320,14 @@ body.mode .background-color .nav-ul {
     border: none;
   }
 }
-body.mode .background-color .nav-ul .nav-li {
-  background: linear-gradient(to top, #8F72AF 0%, #8F72AF 1px, transparent 2px) no-repeat;
-  background-size: 0 100%;
-  transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
-}
-body.mode .background-color .nav-ul .nav-li:hover {
-  background-size: 100% 100%;
-}
-body.mode .background-color .nav-ul .nav-li a {
-  color: #8F72AF;
-}
-body.mode .background-color .nav-ul .nav-li .active {
-  background: linear-gradient(to top, #8F72AF 0%, #8F72AF 1px, transparent 2px) no-repeat;
-  background-size: 100% 100%;
-  transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
-}
 body.mode .background-color .bar {
   background-color: #8F72AF;
 }
 body.mode .background-color button.toggle-button {
-  border-radius: 12px;
+  border-radius: 10px;
   border: 1px solid transparent;
-  padding: 6px 8px;
-  font-size: 15px;
+  padding: 8px 16px;
+  font-size: 14px;
   background-color: #8F72AF;
   color: white;
 }
@@ -1340,10 +1367,10 @@ body.mode .background-color footer {
   color: white;
 }
 body.mode .background-color footer .main-button {
-  border-radius: 12px;
+  border-radius: 10px;
   border: 1px solid transparent;
-  padding: 6px 8px;
-  font-size: 15px;
+  padding: 8px 16px;
+  font-size: 14px;
   background-color: #8F72AF;
   color: white;
 }

@@ -16,7 +16,7 @@
     margin: 0 auto;
     animation: slideInFromLeft 0.6s ease-in-out;
     display: flex;
-    align-items: center;
+    align-items: baseline;
     gap: 30px;
 
     button {
@@ -31,19 +31,19 @@
 
     h2 {
         margin: 0;
-        font-size: 36px;
-        font-weight: 700;
+        font-size: 48px;
+        font-weight: 800;
         flex: 1;
 
         @media (max-width: 768px) {
-            font-size: 28px;
+            font-size: 32px;
         }
     }
 
     .project-date {
-        font-size: 14px;
+        font-size: 16px;
         color: $main-color;
-        font-weight: 600;
+        font-weight: 700;
         margin: 0;
         flex-shrink: 0;
     }
@@ -64,18 +64,21 @@
     }
 
     .project-category {
-        font-size: 15px;
-        font-weight: 500;
+        font-size: 16px;
+        font-weight: 600;
         margin: 0;
-        color: $text;
+        color: $main-color;
         flex-shrink: 0;
+        background-color: rgba($main-color, 0.1);
+        padding: 8px 16px;
+        border-radius: 6px;
     }
 
-    .project-langs,
-    .project-tools {
+    .project-techs {
         display: flex;
         align-items: center;
         gap: 12px;
+        flex-wrap: wrap;
         flex-shrink: 0;
 
         @media (max-width: 768px) {
@@ -83,29 +86,25 @@
         }
 
         strong {
-            font-weight: 600;
-            color: $text;
-            white-space: nowrap;
-        }
-
-        p {
-            margin: 0;
+            font-weight: 500;
             color: #666;
+            white-space: nowrap;
+            font-size: 13px;
         }
     }
 
-    .languages-list {
+    .tech-list {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
 
-        .language-tag {
+        .tech-tag {
             @include badark-colight-tags;
             display: inline-block;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 400;
         }
     }
 }
@@ -116,16 +115,16 @@
     animation: slideInFromLeft 0.8s ease-in-out;
 
     .project-cover {
+        max-width: 600px;
         width: 100%;
         height: auto;
-        max-height: 500px;
         object-fit: cover;
         border-radius: 12px;
-        margin-bottom: 50px;
+        margin: 0 auto 50px;
+        display: block;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 
         @media (max-width: 768px) {
-            max-height: 300px;
             margin-bottom: 35px;
         }
     }
@@ -192,35 +191,58 @@
         }
     }
 
-    .project-links {
+    .project-links-main {
+        margin: 40px 0;
+        text-align: center;
+        animation: slideInFromLeft 0.8s ease-in-out;
+
+        .project-link-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            @media (max-width: 768px) {
+                flex-direction: column;
+            }
+
+            a {
+                @include btn;
+                @include btn-color-main;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                text-decoration: none;
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+
+    .project-links-footer {
         margin-top: 50px;
         padding-top: 30px;
         border-top: 1px solid #eee;
+        text-align: center;
 
         @media (max-width: 768px) {
             margin-top: 35px;
             padding-top: 25px;
         }
 
-        h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            color: $text;
-            font-weight: 600;
-
-            @media (max-width: 768px) {
-                font-size: 18px;
-                margin-bottom: 15px;
-            }
-        }
-
         .project-link-buttons {
             display: flex;
-            gap: 15px;
+            gap: 12px;
+            justify-content: center;
             flex-wrap: wrap;
+            opacity: 0.7;
 
             @media (max-width: 768px) {
                 flex-direction: column;
+                gap: 10px;
             }
 
             a {
