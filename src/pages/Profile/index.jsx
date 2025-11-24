@@ -46,30 +46,30 @@ const Profile = () => {
                     <section>
                         <h2>Mon parcours</h2>
                         <div className='container-mobile'>
-                            <div className="card insert cer certificate1">
+                            <div className="card insert">
                                 <span>2008-2010</span>
                                 <h3>BEP Métiers de la Mode</h3>
                                 </div>  
-                            <div className="card insert cer certificate2">
+                            <div className="card insert">
                                 <span>2012-2014</span>
                                 <h3>BAC PRO Commerce</h3>
                                 </div>
-                            <div className="card insert exp experience1">
+                            <div className="card insert">
                                 <span>2014-2016</span>
                                 <h3>Vendeuse Prêt-à-porter</h3>
                                 <p>Noz - Sergent Major</p></div>
-                            <div className="card insert exp experience2">
+                            <div className="card insert">
                                 <span>2016-2017</span>
                                 <h3>Chef de projet évenementiel</h3>
                                 <p>Service civique : Mission autonome de A à Z</p></div>
-                            <div className="card insert exp experience4">
+                            <div className="card insert">
                                 <span>2021-2024</span>
                                 <h3>Chargé de projets</h3>
                                 <p>Enedis</p></div>
-                            <div className="card insert cer certificate4">
+                            <div className="card insert">
                                 <span>2024-2025</span>
                                 <h3>Titre RNCP Développeur informatique</h3></div>
-                            <div className="card insert exp experience5">
+                            <div className="card insert">
                                 <span>2025-auj.</span>
                                 <h3>Développeuse web full stack</h3>
                                 <p>Freelance</p></div>

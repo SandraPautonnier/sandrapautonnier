@@ -10,19 +10,30 @@
   overflow: visible;
   display: flex;
   flex-direction: column;
-  .carousel-container {
+  .carousel-viewport {
     overflow: hidden;
     border-radius: 10px;
+    width: 100%;
+  }
+  .carousel-container {
+    overflow: visible;
+    border-radius: 10px;
     position: relative;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
   }
   .carousel-slide {
     min-width: 100%;
     height: auto;
+   
+    width: 100%;
     .slide-content {
         position: relative;
         display: flex;
         flex-direction: column;
-        height: 100%;
+        flex: 0 0 100%;
+        width: 100%;
         border-radius: 15px;
         background-color: white;
         overflow: hidden;

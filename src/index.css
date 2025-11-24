@@ -42,18 +42,22 @@
   bottom: 0;
   background: linear-gradient(90deg, #8F72AF 0%, #8F72AF 0%) no-repeat;
   background-size: 0% 100%;
-  background-position: left center;
   border-radius: 10px;
   pointer-events: none;
   z-index: -1;
-  transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1), background-position 0.3s cubic-bezier(0.77, 0, 0.18, 1);
+  transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1), background-position 0.3s cubic-bezier(0.77, 0, 0.18, 1), color 0.2s cubic-bezier(0.77, 0, 0.18, 1);
 }
 .menu-nav nav .nav-ul .nav-li a:hover {
   color: #f5f1ed;
 }
 .menu-nav nav .nav-ul .nav-li a:hover::before {
   background-size: 100% 100%;
-  background-position: right center;
+}
+.menu-nav nav .nav-ul .nav-li a.active {
+  color: #f5f1ed;
+}
+.menu-nav nav .nav-ul .nav-li a.active::before {
+  background-size: 100% 100%;
 }
 @media (max-width: 768px) {
   .menu-nav nav {
@@ -630,11 +634,6 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   border-radius: 7px;
   background-color: #f5f1ed;
   color: black;
-  transform: scale(100%);
-  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}
-.insert:hover {
-  transform: scale(110%);
 }
 .insert span {
   font-size: 10px;
@@ -1056,20 +1055,30 @@ table th {
   display: flex;
   flex-direction: column;
 }
-.carousel .carousel-container {
+.carousel .carousel-viewport {
   overflow: hidden;
   border-radius: 10px;
+  width: 100%;
+}
+.carousel .carousel-container {
+  overflow: visible;
+  border-radius: 10px;
   position: relative;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
 }
 .carousel .carousel-slide {
   min-width: 100%;
   height: auto;
+  width: 100%;
 }
 .carousel .carousel-slide .slide-content {
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 0 0 100%;
+  width: 100%;
   border-radius: 15px;
   background-color: white;
   overflow: hidden;
