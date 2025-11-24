@@ -61,7 +61,7 @@ const Home = () => {
                 })}
               </div>
               <Link to="/contact" className="btn">Contactez-moi</Link>
-              <p className="catch">Flexible, moderne et humaine. <br />C'est ça, le sur-mesure !</p>
+              <p className="catch">"Flexible, moderne et humaine. <br />C'est ça, le sur-mesure !"</p>
             </section>
             <section className="hook-works">
               <h2>Quelques projets</h2>
@@ -82,7 +82,7 @@ const Home = () => {
                 ))}
               </Carousel>
               <Link to="/portfolio" onClick={handleScrollToTop} className="btn">Voir plus de projets</Link>
-              <p className="catch">Des projets réalisés avec passion !</p>
+              <p className="catch">"Des projets réalisés avec passion !"</p>
             </section>
             <section className="hook-about">
               <h2>Qui suis-je?</h2>
@@ -101,7 +101,7 @@ const Home = () => {
                   <Link to="/profile" className="btn">En savoir plus</Link>
                 </div>
               </div>
-              <p className="catch">Une développeuse qui parle votre langue (et aussi JavaScript !).</p>
+              <p className="catch">"Une développeuse qui parle votre langue (et aussi JavaScript !)."</p>
             </section>
           </main>
         </div>

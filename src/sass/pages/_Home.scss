@@ -15,8 +15,11 @@
 }
 
 .catch {
+  color: $main-color;
+  font-weight: 700;
   text-align: center;
   font-style: italic;
+  @include project-category;
 }
 
 

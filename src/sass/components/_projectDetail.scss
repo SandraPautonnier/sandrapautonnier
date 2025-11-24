@@ -88,14 +88,8 @@
     }
 
     .project-category {
-        font-size: 16px;
-        font-weight: 600;
+        @include project-category;
         margin: 0;
-        color: $main-color;
-        flex-shrink: 0;
-        background-color: rgba($main-color, 0.1);
-        padding: 8px 16px;
-        border-radius: 6px;
     }
 
     .project-techs {
@@ -178,6 +172,67 @@
             @media (max-width: 768px) {
                 font-size: 14px;
                 line-height: 1.7;
+            }
+        }
+    }
+
+    .technical-skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin: 20px 0;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .skill-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+            &:hover {
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+                transform: translateY(-5px);
+            }
+
+            h4 {
+                margin: 0 0 15px 0;
+                font-size: 18px;
+                font-weight: 700;
+                color: $main-color;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .skill-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-size: 14px;
+                    color: #333;
+
+                    svg {
+                        color: $main-color;
+                        font-size: 16px;
+                        flex-shrink: 0;
+                    }
+
+                    span {
+                        font-weight: 500;
+                    }
+                }
             }
         }
     }

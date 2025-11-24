@@ -188,3 +188,13 @@
 @mixin transition-btn {
     transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
 }
+
+@mixin project-category {
+    font-size: 16px;
+    font-weight: 600;
+    color: $main-color;
+    flex-shrink: 0;
+    background-color: rgba($main-color, 0.1);
+    padding: 8px 16px;
+    border-radius: 6px;
+}

@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "category": "Frontend",
+        "skills": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React",
+            "React Router",
+            "Redux"
+        ]
+    },
+    {
+        "id": 2,
+        "category": "Backend",
+        "skills": [
+            "Node.js",
+            "Express",
+            "MongoDB",
+            "API REST",
+            "Authentification",
+            "Bases de données"
+        ]
+    },
+    {
+        "id": 3,
+        "category": "Outils de développement",
+        "skills": [
+            "Git",
+            "GitHub",
+            "VS Code",
+            "npm",
+            "Outils de développement",
+            "Débogage"
+        ]
+    },
+    {
+        "id": 4,
+        "category": "Design",
+        "skills": [
+            "Figma",
+            "Design UI",
+            "Design UX",
+            "Maquettage",
+            "Prototypage",
+            "Système de design"
+        ]
+    },
+    {
+        "id": 5,
+        "category": "Création de contenu",
+        "skills": [
+            "Montage vidéo",
+            "DaVinci Resolve",
+            "Animation",
+            "Design graphique",
+            "Réseaux sociaux",
+            "Création de contenu"
+        ]
+    },
+    {
+        "id": 6,
+        "category": "Marketing & SEO",
+        "skills": [
+            "SEO Technique",
+            "SEO On-page",
+            "Mots-clés",
+            "Analytiques",
+            "SEM",
+            "Marketing Digital"
+        ]
+    }
+]

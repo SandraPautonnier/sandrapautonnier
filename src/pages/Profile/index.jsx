@@ -4,10 +4,10 @@ import Footer from '../../components/Footer';
 import Meta from "../../components/Meta";
 import ImageProfile from '../../assets/images/image_profil.webp';
 import Coupe from '../../assets/images/coupe.svg';
-import Skills from '../../components/Skills';
+import technicalSkills from '../../assets/content/technicalSkills.json';
 import useThemeStore from "../../store/useThemeStore";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReact, faJs, faSass, faGithub, faNode } from '@fortawesome/free-brands-svg-icons';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Profile = () => {
 
@@ -33,46 +33,68 @@ const Profile = () => {
                 </header>
                 <main>
                     <section className='margin'>
-                        <h2>Mes technos</h2>
-                        <div className='technos'>
-                            <FontAwesomeIcon icon={faSass} />
-                            <FontAwesomeIcon icon={faJs} />
-                            <FontAwesomeIcon icon={faReact} />
-                            <FontAwesomeIcon icon={faNode} />
-                            <FontAwesomeIcon icon={faGithub} />
+                        <h2>Mes compétences techniques</h2>
+                        <div className='technical-skills-grid'>
+                            {technicalSkills.map((skillCategory) => (
+                                <div key={skillCategory.id} className='skill-card'>
+                                    <h4>{skillCategory.category}</h4>
+                                    <ul className='skill-list'>
+                                        {skillCategory.skills.map((skill, index) => (
+                                            <li key={index}>
+                                                <FontAwesomeIcon icon={faCheckCircle} />
+                                                <span>{skill}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))}
                         </div>
+                        <p className="catch">"Oui je m'interesse à tout, mais ce que je sais surtout faire c'est analyser les besoins <br /> et exploiter les outils adaptés à la situation en toute cohérence. <br />Chaque projet est une passion !"</p>
                     </section>
-                    <Skills />
                     <section>
                         <h2>Mon parcours</h2>
                         <div className='container-mobile'>
                             <div className="card insert">
                                 <span>2008-2010</span>
-                                <h3>BEP Métiers de la Mode</h3>
+                                <div className="center">
+                                    <h3>BEP Métiers de la Mode</h3>
+                                </div>
                                 </div>  
                             <div className="card insert">
                                 <span>2012-2014</span>
-                                <h3>BAC PRO Commerce</h3>
+                                <div className="center">
+                                    <h3>BAC PRO Commerce</h3>
+                                </div>
                                 </div>
                             <div className="card insert">
                                 <span>2014-2016</span>
-                                <h3>Vendeuse Prêt-à-porter</h3>
-                                <p>Noz - Sergent Major</p></div>
+                                <div className="center">
+                                    <h3>Vendeuse Prêt-à-porter</h3>
+                                    <p>Noz - Sergent Major</p>
+                                </div></div>
                             <div className="card insert">
                                 <span>2016-2017</span>
-                                <h3>Chef de projet évenementiel</h3>
-                                <p>Service civique : Mission autonome de A à Z</p></div>
+                                <div className="center">
+                                    <h3>Chef de projet évenementiel</h3>
+                                    <p>Service civique : Mission autonome de A à Z</p>
+                                </div></div>
                             <div className="card insert">
                                 <span>2021-2024</span>
-                                <h3>Chargé de projets</h3>
-                                <p>Enedis</p></div>
+                                <div className="center">
+                                    <h3>Chargé de projets</h3>
+                                    <p>Enedis</p>
+                                </div></div>
                             <div className="card insert">
                                 <span>2024-2025</span>
-                                <h3>Titre RNCP Développeur informatique</h3></div>
+                                <div className="center">
+                                    <h3>Titre RNCP Développeur informatique</h3>
+                                </div></div>
                             <div className="card insert">
                                 <span>2025-auj.</span>
-                                <h3>Développeuse web full stack</h3>
-                                <p>Freelance</p></div>
+                                <div className="center">
+                                    <h3>Développeuse web full stack</h3>
+                                    <p>Freelance</p>
+                                </div></div>
                         </div>
                     </section>
                     <section className="success">
