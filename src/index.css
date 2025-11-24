@@ -29,6 +29,7 @@
   background: linear-gradient(#f5f1ed, #f5f1ed) padding-box, linear-gradient(135deg, #E8B4C8, #C8A8D8, #A8C8B8) border-box;
   border: 1px solid transparent;
   color: #8F72AF;
+  font-weight: 700;
   position: relative;
   z-index: 1;
   text-decoration: none;
@@ -391,9 +392,9 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   gap: 20px;
 }
 .hook-about .container-hook-about .tags .tag {
-  font-size: 14px;
-  border-radius: 15px;
-  padding: 5px 7px;
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 4px 10px;
 }
 .hook-about .container-hook-about .text-hook-about {
   display: flex;
@@ -1357,8 +1358,8 @@ body.mode .background-color select {
 }
 body.mode .background-color .tag {
   background-color: #F3EFF8;
-  color: #2D1F3C;
-  border: 1px solid #5A3CA0;
+  color: #70588C;
+  border: 1px solid #70588C;
 }
 body.mode .background-color .label-work .base {
   background-color: #f5f1ed;

@@ -59,6 +59,7 @@
         linear-gradient(135deg, #E8B4C8, #C8A8D8, #A8C8B8) border-box;
     border: 1px solid transparent;
     color: $main-color;
+    font-weight: 700;
     position: relative;
     z-index: 1;
     
@@ -95,9 +96,9 @@
 }
 
 @mixin tags {
-    font-size: 14px;
-    border-radius: 15px;
-    padding: 5px 7px;
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 4px 10px;
 }
 
 @mixin highlight {
