@@ -47,6 +47,30 @@
         margin: 0;
         flex-shrink: 0;
     }
+
+    @media (max-width: 479px) {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+
+        button {
+            order: 1;
+            flex: 0 0 auto;
+        }
+
+        .project-date {
+            order: 2;
+            flex: 0 0 auto;
+        }
+
+        h2 {
+            order: 3;
+            flex-basis: 100%;
+            font-size: 28px;
+            margin-top: -20px;
+            margin-bottom: 20px;
+        }
+    }
 }
 
 .project-meta {
@@ -188,7 +212,7 @@
         }
     }
 
-    .project-links-main {
+    .project-links {
         margin: 40px 0;
         text-align: center;
         animation: slideInFromLeft 0.8s ease-in-out;
@@ -201,45 +225,6 @@
 
             @media (max-width: 768px) {
                 flex-direction: column;
-            }
-
-            a {
-                @include btn;
-                @include btn-animated-link;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                text-decoration: none;
-
-                @media (max-width: 768px) {
-                    width: 100%;
-                    justify-content: center;
-                }
-            }
-        }
-    }
-
-    .project-links-footer {
-        margin-top: 50px;
-        padding-top: 30px;
-        border-top: 1px solid #eee;
-        text-align: center;
-
-        @media (max-width: 768px) {
-            margin-top: 35px;
-            padding-top: 25px;
-        }
-
-        .project-link-buttons {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
-            opacity: 0.7;
-
-            @media (max-width: 768px) {
-                flex-direction: column;
-                gap: 10px;
             }
 
             a {

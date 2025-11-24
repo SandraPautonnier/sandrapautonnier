@@ -105,7 +105,7 @@ const ProjectDetail = () => {
                             <div className='project-detail'>
                                 <img src={project.cover} alt={project.titlework} className='project-cover' />
                                 
-                                <div className='project-links-main'>
+                                <div className='project-links'>
                                     <div className='project-link-buttons'>
                                         {project.link && (
                                             <a href={project.link} target='_blank' rel='noopener noreferrer'>
@@ -139,7 +139,7 @@ const ProjectDetail = () => {
                                     <p>{project.conclusion}</p>
                                 </div>
 
-                                <div className='project-links-footer'>
+                                <div className='project-links'>
                                     <div className='project-link-buttons'>
                                         {project.link && (
                                             <a href={project.link} target='_blank' rel='noopener noreferrer'>
