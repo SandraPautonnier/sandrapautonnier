@@ -7,8 +7,8 @@
             "CSS",
             "JavaScript",
             "React",
-            "React Router",
-            "Redux"
+            "React Router / Vite",
+            "Redux / Zustand"
         ]
     },
     {
@@ -18,7 +18,7 @@
             "Node.js",
             "Express",
             "MongoDB",
-            "API REST",
+            "API REST / API Tiers",
             "Authentification",
             "Bases de données"
         ]
@@ -27,48 +27,48 @@
         "id": 3,
         "category": "Outils de développement",
         "skills": [
-            "Git",
-            "GitHub",
+            "Github",
             "VS Code",
             "npm",
-            "Outils de développement",
+            "Tests",
+            "Déploiement et publication",
             "Débogage"
         ]
     },
     {
         "id": 4,
-        "category": "Design",
+        "category": "Gestion de projet",
         "skills": [
-            "Figma",
-            "Design UI",
-            "Design UX",
-            "Maquettage",
-            "Prototypage",
-            "Système de design"
+            "Méthode Agile",
+            "Scrum",
+            "Kanban",
+            "Suivi et planification",
+            "Notion",
+            "Trello"
         ]
     },
     {
         "id": 5,
         "category": "Création de contenu",
         "skills": [
-            "Montage vidéo",
-            "DaVinci Resolve",
-            "Animation",
-            "Design graphique",
+            "Création graphique",
+            "Identité visuelle",
             "Réseaux sociaux",
-            "Création de contenu"
+            "Diffusion et animation",
+            "Montage Vidéo",
+            "Organisation d'événements"
         ]
     },
     {
         "id": 6,
         "category": "Marketing & SEO",
         "skills": [
-            "SEO Technique",
-            "SEO On-page",
-            "Mots-clés",
-            "Analytiques",
+            "Référencement naturel",
+            "SEO",
+            "Google Lighthouse",
             "SEM",
-            "Marketing Digital"
+            "Mots-clés",
+            "Google Analytics"
         ]
     }
 ]

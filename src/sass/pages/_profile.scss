@@ -99,6 +99,7 @@ svg {
 .container-mobile {
   display:flex;
   text-align: center;
+  margin: 20px;
   @include flex-column-center;
   gap: 20px;
   @media (min-width: 1100px) {
