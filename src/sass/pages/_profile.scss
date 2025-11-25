@@ -153,11 +153,13 @@ svg {
         }
         img {
             width: 100%;
-            max-width: 300px;
+            max-width: 250px;
             margin: 0 auto;
             display: block;
+            border-radius: 7px;
         }
         .container-success {
+            margin: 20px;
             li {
                 padding: 10px;
                 @media (min-width: 1200px) {

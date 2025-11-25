@@ -490,7 +490,7 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   .header-banner .buttons-social {
     position: relative;
     z-index: 10;
-    left: -320px;
+    left: -303px;
     top: -290px;
   }
   .hook-services {
@@ -687,9 +687,13 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
 }
 .success .container-img-success img {
   width: 100%;
-  max-width: 300px;
+  max-width: 250px;
   margin: 0 auto;
   display: block;
+  border-radius: 7px;
+}
+.success .container-img-success .container-success {
+  margin: 20px;
 }
 .success .container-img-success .container-success li {
   padding: 10px;

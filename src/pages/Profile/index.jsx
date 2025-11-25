@@ -3,7 +3,7 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Meta from "../../components/Meta";
 import ImageProfile from '../../assets/images/image_profil.webp';
-import Coupe from '../../assets/images/coupe.svg';
+import Coupe from '../../assets/images/Image_coupe.webp';
 import technicalSkills from '../../assets/content/technicalSkills.json';
 import useThemeStore from "../../store/useThemeStore";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
