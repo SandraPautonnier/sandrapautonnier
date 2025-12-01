@@ -6,11 +6,6 @@
     will-change: transform, opacity;
 }
 
-.project-container {
-    max-width: 991px;
-    margin: 0 auto;
-}
-
 .project-header {
     max-width: 1200px;
     margin: 20px auto 0;
@@ -277,6 +272,7 @@
             gap: 15px;
             justify-content: center;
             flex-wrap: wrap;
+            max-width: 100%;
 
             @media (max-width: 768px) {
                 flex-direction: column;
@@ -289,9 +285,10 @@
                 align-items: center;
                 gap: 8px;
                 text-decoration: none;
+                max-width: 100%;
 
                 @media (max-width: 768px) {
-                    width: 100%;
+                  
                     justify-content: center;
                 }
             }

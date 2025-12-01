@@ -46,6 +46,14 @@
     gap: 20px;
     display: flex;
     margin: 20px auto;
+    flex-direction: column;
+    align-items: center;
+    
+    @media (min-width: 375px) {
+      flex-direction: row;
+      align-items: initial;
+    }
+    
     a {
       display: flex;
       align-items: center;
@@ -64,8 +72,14 @@
 
 .hook-about {
   width: 100%;
+  
   .container-hook-about {
     gap: $gap;
+    
+    @media (max-width: 374px) {
+      @include flex-column-center;
+    }
+    
     @media (min-width: 768px) {
       @include flex-row-center;
     }

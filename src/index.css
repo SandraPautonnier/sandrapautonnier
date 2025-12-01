@@ -337,6 +337,14 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   gap: 20px;
   display: flex;
   margin: 20px auto;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 375px) {
+  .header-banner .buttons-social {
+    flex-direction: row;
+    align-items: initial;
+  }
 }
 .header-banner .buttons-social a {
   display: flex;
@@ -368,6 +376,13 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
 }
 .hook-about .container-hook-about {
   gap: 30px;
+}
+@media (max-width: 374px) {
+  .hook-about .container-hook-about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 @media (min-width: 768px) {
   .hook-about .container-hook-about {
