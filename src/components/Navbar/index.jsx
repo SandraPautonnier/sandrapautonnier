@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
+import Logo from "../../assets/images/Logo.webp";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,7 +31,10 @@ const Navbar = () => {
 
   return (
     <div className="menu-nav">
-      <h1>Sandra Pautonnier</h1>
+      <div className="logo-h1">
+        <img className="logo" src={Logo} alt="Logo Sukiweb" />
+        <h1>Sukiweb</h1>
+      </div>
       <nav ref={navRef}>
         {/* Bouton hamburger */}
         <div className="hamburger" onClick={toggleMenu}>

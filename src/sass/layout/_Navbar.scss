@@ -1,6 +1,13 @@
 @import "../utils/variables";
 @import "../utils/mixins";
 
+.logo { 
+    max-width: 70px;
+    height: 100%;
+}
+
+//.logo-h1 {}
+
 .menu-nav {
     display: flex;
     justify-content: space-around;
