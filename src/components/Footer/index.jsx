@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin , faSquareGithub , faCodepen } from '@fortawesome/free-brands-svg-icons';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+
 
 
 const Footer = () => {
+  const [active, setActive] = useState(false);
+
   return (
     <footer>
         <div className='footer-main'>
-            <h3 className='footer-title'>Sandra Pautonnier</h3>
+            <h3 className='footer-title'>Sukiweb</h3>
             <div className='contact-mail'>
               <Link to="/contact" className="btn">Contactez-moi</Link>
             </div>
@@ -20,12 +23,6 @@ const Footer = () => {
         </div>
         <div className='footer-secondary'>
           <p> <Link to="/legalnotice" className='link'>Mentions Légales</Link> &copy; 2026 Sukiweb - Sandra Pautonnier</p>
-          <div className='heart'>
-            <p>Coder avec passion <FontAwesomeIcon
-              icon={faHeart}
-              className="fa-heart"
-            /></p>
-          </div>
         </div>
     </footer>
   )

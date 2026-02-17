@@ -169,7 +169,7 @@
 //animations
 
 @mixin underline-anim {
-    background: linear-gradient(to top, $main-color 0%, $main-color 1px, transparent 2px) no-repeat;
+    background: linear-gradient(to top, $light-color 0%, $light-color 1px, transparent 2px) no-repeat;
     background-size: 0 100%;
     transition: background-size 0.3s cubic-bezier(.77,0,.18,1);
     &:hover {

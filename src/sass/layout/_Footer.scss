@@ -5,7 +5,8 @@ footer {
     padding: 30px;
     position: relative;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%);
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.50'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%);
     
     &::before {
         content: '';
@@ -59,25 +60,6 @@ footer {
         position: relative;
         z-index: 2;
         text-align: center;
-        p {
-            @include highlight;
-        }
-        .heart {
-            @include flex-row-center;
-            gap: 7px;
-            p {
-                margin: 0;
-                
-            }
-            .btn-fav {
-                font-size: 20px;
-                cursor: pointer;
-                display: inline-flex;
-                align-items: center;
-                input[type="checkbox"] {
-                    display: none; 
-                }
-            }
-        }
+       
     }
 }

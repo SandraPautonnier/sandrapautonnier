@@ -152,7 +152,7 @@ footer {
   padding: 30px;
   position: relative;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%);
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.50'/%3E%3C/svg%3E"), linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%);
 }
 footer::before {
   content: "";
@@ -214,32 +214,6 @@ footer .footer-secondary {
   position: relative;
   z-index: 2;
   text-align: center;
-}
-footer .footer-secondary p {
-  background-color: rgba(0, 0, 0, 0.329);
-  border-radius: 7px;
-  padding: 5px 10px;
-  position: relative;
-  z-index: 10;
-  color: white;
-}
-footer .footer-secondary .heart {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 7px;
-}
-footer .footer-secondary .heart p {
-  margin: 0;
-}
-footer .footer-secondary .heart .btn-fav {
-  font-size: 20px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-}
-footer .footer-secondary .heart .btn-fav input[type=checkbox] {
-  display: none;
 }
 
 .loading-screen {
@@ -1497,7 +1471,7 @@ body.mode .background-color footer .main-button {
   color: white;
 }
 body.mode .background-color footer .link {
-  background: linear-gradient(to top, #70588C 0%, #70588C 1px, transparent 2px) no-repeat;
+  background: linear-gradient(to top, white 0%, white 1px, transparent 2px) no-repeat;
   background-size: 0 100%;
   transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
 }
