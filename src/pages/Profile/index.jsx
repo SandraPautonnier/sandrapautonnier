@@ -3,6 +3,8 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Meta from "../../components/Meta";
 import ImageProfile from '../../assets/images/image_profil.webp';
+import Sandra2 from "../../assets/images/sandra2.webp";
+import AgeCalculator from "../../features/AgeCalculator";
 import Coupe from '../../assets/images/Image_coupe.webp';
 import technicalSkills from '../../assets/content/technicalSkills.json';
 import useThemeStore from "../../store/useThemeStore";
@@ -16,8 +18,8 @@ const Profile = () => {
   return (
     <div className="profile">
         <Meta 
-            title="Profil - Développeuse Web fullstack" 
-            description="Développeuse web fullstack freelance spécialisée en React & Node. Création de sites performants, modernes et sur-mesure." 
+            title="Profil - Développeuse & Créatrice Web Intuitive" 
+            description="Développeuse & Créatrice web intuitive freelance spécialisée en React & Node. Création de sites performants, modernes et sur-mesure." 
         />
         <div className='background-color'>
             <div className="header-main">
@@ -27,12 +29,30 @@ const Profile = () => {
                         <img src={ImageProfile} alt="Photo de Sandra" />
                         <h2>A propos - Profil</h2>
                         <div className="card-banner">
-                        <p className='intro'>Développeuse web fullstack, je conçois des applications modernes centrées utilisateur avec React, Node.js et MongoDB.</p>
+                        <p className='intro'>Développeuse & Créatrice web intuitive, je conçois des applications modernes centrées utilisateur avec React, Node.js et MongoDB.</p>
                         </div>
                     </div>
                 </header>
                 <main>
-                    <section className='margin'>
+                    <section className='hook-about margin'>
+                        <h2>Qui suis-je?</h2>
+                        <div className="container-hook-about">
+                            <div className="text-hook-about">
+                            <div className="box">
+                            <img src={Sandra2} alt="Photo de Sandra" />
+                            <p><span>Sandra Pautonnier </span> <br />Développeuse & Créatrice web intuitive de <AgeCalculator birthDate="1992-07-28" /> ans. J'aime analyser, créer et développer pour donner vie à des projets web uniques. <br />
+                            Mon parcours mêle artistique, commerce, gestion de projet, création de contenu et développement web. Une combinaison qui me permet de comprendre les besoins réels de mes clients.</p>
+                            </div>
+                            <ul className='tags'>
+                                <li className='tag'>curieuse</li>
+                                <li className='tag'>créative</li>
+                                <li className='tag'>autonome</li>
+                            </ul>
+                            </div>
+                        </div>
+                        <p className="catch">Une développeuse qui parle votre langue (et aussi JavaScript !).</p>
+                    </section>
+                    <section >
                         <h2>Mes compétences techniques</h2>
                         <div className='technical-skills-grid'>
                             {technicalSkills.map((skillCategory) => (
@@ -49,7 +69,7 @@ const Profile = () => {
                                 </div>
                             ))}
                         </div>
-                        <p className="catch">"Oui je m'interesse à tout, mais ce que je sais surtout faire c'est analyser les besoins <br /> et exploiter les outils adaptés à la situation en toute cohérence. <br />Chaque projet est une passion !"</p>
+                        <p className="catch">Oui je m'interesse à tout, mais ce que je sais surtout faire c'est analyser les besoins <br /> et exploiter les outils adaptés à la situation en toute cohérence. <br />Chaque projet est une passion !</p>
                     </section>
                     <section>
                         <h2>Mon parcours</h2>
@@ -92,8 +112,8 @@ const Profile = () => {
                             <div className="card insert">
                                 <span>2025-auj.</span>
                                 <div className="center">
-                                    <h3>Développeuse web full stack</h3>
-                                    <p>Freelance</p>
+                                    <h3>Développeuse & Créatrice web intuitive</h3>
+                                    <p>Indépendante</p>
                                 </div></div>
                         </div>
                     </section>

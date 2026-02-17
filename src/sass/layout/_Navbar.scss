@@ -2,11 +2,17 @@
 @import "../utils/mixins";
 
 .logo { 
-    max-width: 70px;
+    max-width: 50px;
     height: 100%;
 }
 
-//.logo-h1 {}
+.logo-h1 {
+    display: flex;
+    align-items: center;
+    h1 {
+        margin: 20px 20px;
+    }
+}
 
 .menu-nav {
     display: flex;
@@ -116,6 +122,6 @@
     }
 
     h1 {
-        margin: 20px 5px !important;
+        margin: 20px !important;
     }
 }

@@ -1,7 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap");
 .logo {
-  max-width: 70px;
+  max-width: 50px;
   height: 100%;
+}
+
+.logo-h1 {
+  display: flex;
+  align-items: center;
+}
+.logo-h1 h1 {
+  margin: 20px 20px;
 }
 
 .menu-nav {
@@ -32,7 +40,7 @@
   font-size: 14px;
   background: linear-gradient(#f5f1ed, #f5f1ed) padding-box, linear-gradient(135deg, #E8B4C8, #C8A8D8, #A8C8B8) border-box;
   border: 1px solid transparent;
-  color: #8F72AF;
+  color: #70588C;
   font-weight: 700;
   position: relative;
   z-index: 1;
@@ -45,7 +53,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(90deg, #8F72AF 0%, #8F72AF 0%) no-repeat;
+  background: linear-gradient(90deg, #70588C 0%, #70588C 0%) no-repeat;
   background-size: 0% 100%;
   border-radius: 10px;
   pointer-events: none;
@@ -114,7 +122,7 @@
   padding: 0;
   line-height: 27px;
   margin: -1.5px -2px;
-  color: #8F72AF;
+  color: #70588C;
 }
 
 @media (max-width: 768px) {
@@ -137,7 +145,7 @@
     gap: 10px !important;
   }
   h1 {
-    margin: 20px 5px !important;
+    margin: 20px !important;
   }
 }
 footer {
@@ -253,7 +261,7 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
 .loader {
   width: 50px;
   height: 50px;
-  border: 5px solid #8F72AF;
+  border: 5px solid #70588C;
   border-top: 5px solid black;
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -283,7 +291,7 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   border: 1px solid transparent;
   padding: 8px 16px;
   font-size: 14px;
-  background-color: #8F72AF;
+  background-color: #70588C;
   color: white;
   transform: scale(100%);
   transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -303,15 +311,15 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
 }
 
 .catch {
-  color: #8F72AF;
+  color: #70588C;
   font-weight: 700;
   text-align: center;
   font-style: italic;
   font-size: 16px;
   font-weight: 600;
-  color: #8F72AF;
+  color: #70588C;
   flex-shrink: 0;
-  background-color: rgba(143, 114, 175, 0.1);
+  background-color: rgba(112, 88, 140, 0.1);
   padding: 8px 16px;
   border-radius: 6px;
 }
@@ -355,7 +363,7 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   display: flex;
   align-items: center;
   gap: 5px;
-  background-color: #8F72AF;
+  background-color: #70588C;
   color: white;
   border-radius: 10px;
   border: 1px solid transparent;
@@ -449,7 +457,7 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   max-width: 100px;
   border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.219);
-  border-color: #8F72AF;
+  border-color: #70588C;
   border-style: solid;
   border-width: 2px;
 }
@@ -634,7 +642,7 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
 .technos svg {
   transform: scale(100%);
   transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  color: #8F72AF;
+  color: #70588C;
 }
 .technos svg:hover {
   transform: scale(110%);
@@ -768,7 +776,7 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   margin: 0 0 15px 0;
   font-size: 18px;
   font-weight: 700;
-  color: #8F72AF;
+  color: #70588C;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -788,7 +796,7 @@ footer .footer-secondary .heart .btn-fav input[type=checkbox] {
   color: #333;
 }
 .technical-skills-grid .skill-card .skill-list li svg {
-  color: #8F72AF;
+  color: #70588C;
   font-size: 16px;
   flex-shrink: 0;
 }
@@ -953,8 +961,8 @@ table th {
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #8F72AF;
-  box-shadow: 0 0 0 3px rgba(143, 114, 175, 0.1);
+  border-color: #70588C;
+  box-shadow: 0 0 0 3px rgba(112, 88, 140, 0.1);
 }
 .form-group input::placeholder,
 .form-group textarea::placeholder {
@@ -977,8 +985,8 @@ table th {
   text-align: center;
   font-weight: 500;
   font-size: 16px;
-  background-color: rgba(143, 114, 175, 0.1);
-  color: #8F72AF;
+  background-color: rgba(112, 88, 140, 0.1);
+  color: #70588C;
   animation: slideIn 0.3s ease;
 }
 @media (max-width: 768px) {
@@ -1035,7 +1043,7 @@ table th {
   }
 }
 .contact-info-item a {
-  color: #8F72AF;
+  color: #70588C;
   text-decoration: none;
   font-size: 14px;
   transition: all 0.3s ease;
@@ -1052,7 +1060,7 @@ table th {
 
 .contact-icon {
   font-size: 24px;
-  color: #8F72AF;
+  color: #70588C;
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -1088,8 +1096,8 @@ table th {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: rgba(143, 114, 175, 0.1);
-  color: #8F72AF;
+  background-color: rgba(112, 88, 140, 0.1);
+  color: #70588C;
   font-size: 20px;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -1101,7 +1109,7 @@ table th {
   }
 }
 .social-links a:hover {
-  background-color: #8F72AF;
+  background-color: #70588C;
   color: white;
   transform: translateY(-3px);
 }
@@ -1113,13 +1121,13 @@ table th {
 }
 .contact .btn:hover {
   background-color: white;
-  color: #8F72AF;
+  color: #70588C;
   transform: scale(100%);
-  border: 1px solid #8F72AF;
+  border: 1px solid #70588C;
 }
 .contact .btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(143, 114, 175, 0.3);
+  box-shadow: 0 4px 12px rgba(112, 88, 140, 0.3);
 }
 .contact .btn:disabled {
   opacity: 0.6;
@@ -1212,7 +1220,7 @@ table th {
   text-align: center;
 }
 .carousel .carousel-slide .slide-content h3 {
-  color: #8F72AF;
+  color: #70588C;
   margin: 0;
   font-size: 16px;
 }
@@ -1233,7 +1241,7 @@ table th {
   align-self: center;
   color: white;
   font-size: 13px;
-  background-color: #8F72AF;
+  background-color: #70588C;
   border: 1px solid transparent;
   border-radius: 12px;
   padding: 6px 8px;
@@ -1246,8 +1254,8 @@ table th {
 }
 .carousel .carousel-slide .slide-content .btn:hover {
   background-color: white;
-  color: #8F72AF;
-  border: 1px solid #8F72AF;
+  color: #70588C;
+  border: 1px solid #70588C;
   transform: scale(100%);
 }
 .carousel .carousel-button {
@@ -1256,7 +1264,7 @@ table th {
   transform: translateY(-50%);
   background: transparent;
   border-radius: 50%;
-  color: #8F72AF;
+  color: #70588C;
   border: none;
   padding: 0;
   font-size: 40px;
@@ -1279,7 +1287,7 @@ table th {
   }
 }
 .carousel .carousel-button:hover {
-  background: #8F72AF;
+  background: #70588C;
   color: white;
 }
 .carousel .carousel-button.left {
@@ -1312,14 +1320,14 @@ table th {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #8F72AF;
+  background: #70588C;
   border: none;
   cursor: pointer;
   opacity: 0.5;
   transition: opacity 0.3s ease;
 }
 .carousel .carousel-indicators .indicator.active {
-  background: #8F72AF;
+  background: #70588C;
   opacity: 1;
 }
 .carousel .carousel-indicators .indicator:hover {
@@ -1376,7 +1384,7 @@ table th {
   justify-content: space-between;
 }
 .works .container-card-works .card-works h3 {
-  color: #8F72AF;
+  color: #70588C;
   margin: 0;
   font-size: 16px;
 }
@@ -1395,9 +1403,9 @@ table th {
 }
 .works .container-card-works .card-works .btn:hover {
   background-color: white;
-  color: #8F72AF;
+  color: #70588C;
   transform: scale(100%);
-  border: 1px solid #8F72AF;
+  border: 1px solid #70588C;
 }
 .works .container-card-works .card-works .work-tools {
   display: none;
@@ -1435,14 +1443,14 @@ body.mode .background-color .nav-ul {
   }
 }
 body.mode .background-color .bar {
-  background-color: #8F72AF;
+  background-color: #70588C;
 }
 body.mode .background-color button.toggle-button {
   border-radius: 10px;
   border: 1px solid transparent;
   padding: 8px 16px;
   font-size: 14px;
-  background-color: #8F72AF;
+  background-color: #70588C;
   color: white;
 }
 body.mode .background-color .card {
@@ -1485,11 +1493,11 @@ body.mode .background-color footer .main-button {
   border: 1px solid transparent;
   padding: 8px 16px;
   font-size: 14px;
-  background-color: #8F72AF;
+  background-color: #70588C;
   color: white;
 }
 body.mode .background-color footer .link {
-  background: linear-gradient(to top, #8F72AF 0%, #8F72AF 1px, transparent 2px) no-repeat;
+  background: linear-gradient(to top, #70588C 0%, #70588C 1px, transparent 2px) no-repeat;
   background-size: 0 100%;
   transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
 }
@@ -1524,7 +1532,7 @@ h1, h2, h3 {
 h1 {
   font-size: 1.7rem;
   margin: 20px 40px;
-  color: #8F72AF;
+  color: #70588C;
 }
 @media (max-width: 991px) {
   h1 {
@@ -1535,7 +1543,7 @@ h1 {
 h2 {
   text-align: center;
   margin: 30px 0;
-  color: #8F72AF;
+  color: #70588C;
 }
 
 h1, h2, p {

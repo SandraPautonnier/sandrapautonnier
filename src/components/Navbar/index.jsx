@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Logo from "../../assets/images/Logo.webp";
+import Logo from "../../assets/images/Logo_Sukiweb_mono.webp";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -32,7 +32,7 @@ const Navbar = () => {
   return (
     <div className="menu-nav">
       <div className="logo-h1">
-        <img className="logo" src={Logo} alt="Logo Sukiweb" />
+        <img className="logo" src={Logo} alt="Logo Sukiweb, une spirale violette" />
         <h1>Sukiweb</h1>
       </div>
       <nav ref={navRef}>

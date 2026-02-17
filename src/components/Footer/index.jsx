@@ -19,7 +19,7 @@ const Footer = () => {
             </div>
         </div>
         <div className='footer-secondary'>
-          <p><Link to="/legalnotice" className='link'>Mentions Légales</Link> - Copyright 2025</p>
+          <p> <Link to="/legalnotice" className='link'>Mentions Légales</Link> &copy; 2026 Sukiweb - Sandra Pautonnier</p>
           <div className='heart'>
             <p>Coder avec passion <FontAwesomeIcon
               icon={faHeart}

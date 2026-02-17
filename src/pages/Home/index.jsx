@@ -2,9 +2,7 @@ import { Link } from "react-router-dom";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import HeaderImage from '../../assets/images/image_portrait_dessin_sandra_header.webp';
-import Sandra2 from "../../assets/images/sandra2.webp";
 import Cv from '../../assets/pdf/CV-Sandra-Pautonnier.pdf';
-import AgeCalculator from "../../features/AgeCalculator";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin , faSquareGithub , faReact } from '@fortawesome/free-brands-svg-icons';
 import { faFileArrowDown , faUser , faFlask , faCode , faAward , faMagnifyingGlass , faWrench } from '@fortawesome/free-solid-svg-icons';
@@ -22,7 +20,7 @@ const Home = () => {
   return (
     <div className="home">
       <Meta 
-        title="Accueil - Développeuse Web fullstack" 
+        title="Sukiweb - Développeuse Web fullstack" 
         description="Développeuse web fullstack freelance spécialisée en React & Node. Création de sites performants, modernes et sur-mesure."  
       />
       <div className='background-color'>
@@ -61,7 +59,7 @@ const Home = () => {
                 })}
               </div>
               <Link to="/contact" className="btn">Contactez-moi</Link>
-              <p className="catch">"Flexible, moderne et humaine. <br />C'est ça, le sur-mesure !"</p>
+              <p className="catch">Flexible, moderne et humaine. <br />C'est ça, le sur-mesure !</p>
             </section>
             <section className="hook-works">
               <h2>Quelques projets</h2>
@@ -82,26 +80,10 @@ const Home = () => {
                 ))}
               </Carousel>
               <Link to="/portfolio" onClick={handleScrollToTop} className="btn">Voir plus de projets</Link>
-              <p className="catch">"Des projets réalisés avec passion !"</p>
+              <p className="catch">Des projets réalisés avec passion !</p>
             </section>
-            <section className="hook-about">
-              <h2>Qui suis-je?</h2>
-              <div className="container-hook-about">
-                <div className="text-hook-about">
-                  <div className="box">
-                  <img src={Sandra2} alt="Photo de Sandra" />
-                  <p><span>Sandra Pautonnier </span> <br />Développeuse Fullstack passionnée de <AgeCalculator birthDate="1992-07-28" /> ans. J'aime analyser, créer et développer pour donner vie à des projets web uniques. <br />
-                  Mon parcours mêle artistique, commerce, gestion de projet, création de contenu et développement web. Une combinaison qui me permet de comprendre les besoins réels de mes clients.</p>
-                  </div>
-                  <ul className='tags'>
-                    <li className='tag'>#curieuse</li>
-                    <li className='tag'>#créative</li>
-                    <li className='tag'>#autonome</li>
-                  </ul>
-                  <Link to="/profile" className="btn">En savoir plus</Link>
-                </div>
-              </div>
-              <p className="catch">"Une développeuse qui parle votre langue (et aussi JavaScript !)."</p>
+            <section>
+
             </section>
           </main>
         </div>

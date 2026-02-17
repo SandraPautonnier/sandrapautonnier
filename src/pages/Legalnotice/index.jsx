@@ -33,7 +33,7 @@ const Legalnotice = () => {
             <h2>2. Hébergement</h2>
             <p>
               Le site est hébergé par 
-              <strong>Hostinger International Ltd</strong><br />
+              <strong> Hostinger International Ltd</strong><br />
               61 Lordou Vironos Street, 6023 Larnaca, Chypre<br />
               Site web : https://www.hostinger.fr
             </p>
