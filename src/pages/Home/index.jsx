@@ -72,7 +72,7 @@ const Home = () => {
                           <h3>{item.titlework}</h3>
                           <span className="work-language">{item.category}</span>
                         </div>
-                        <Link to={`/portfolio/${item.id}`} className="btn" onClick={() => window.scrollTo(0, 0)}>
+                        <Link to={`/portfolio/${item.id}`} className="btn-secondary" onClick={() => window.scrollTo(0, 0)}>
                           Voir le projet
                         </Link>
                       </div>

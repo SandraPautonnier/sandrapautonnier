@@ -50,16 +50,9 @@
                 
                 font-size: 13px;
             }
-            .btn {
-                text-align: center;
+            .btn-secondary {
                 margin: 0;
-                transition: transform 0.3s cubic-bezier(.68,-0.55,.27,1.55);
-                &:hover {
-                    background-color: white;
-                    color: $main-color;
-                    transform: scale(100%); 
-                    border: 1px solid $main-color;
-                }
+                text-align: center;
             }
             .work-tools {
                 display: none;

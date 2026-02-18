@@ -35,7 +35,6 @@
 }
 .menu-nav nav .nav-ul .nav-li a {
   border-radius: 10px;
-  border: 1px solid transparent;
   padding: 8px 16px;
   font-size: 14px;
   background: linear-gradient(#f5f1ed, #f5f1ed) padding-box, linear-gradient(135deg, #E8B4C8, #C8A8D8, #A8C8B8) border-box;
@@ -174,6 +173,9 @@ footer .footer-main {
   width: 100%;
   gap: 15px;
 }
+footer .footer-main img {
+  width: 80px;
+}
 footer .footer-main .footer-title {
   margin: 0;
   font-size: 24px;
@@ -260,44 +262,6 @@ footer .footer-secondary {
   pointer-events: none;
 }
 
-.btn {
-  border-radius: 10px;
-  border: 1px solid transparent;
-  padding: 8px 16px;
-  font-size: 14px;
-  background-color: #70588C;
-  color: white;
-  transform: scale(100%);
-  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  display: inline-block;
-  margin: 30px 0;
-}
-.btn:hover {
-  transform: scale(110%);
-}
-
-.card {
-  box-sizing: border-box;
-  padding: 20px;
-  width: 100%;
-  border-radius: 7px;
-  transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
-}
-
-.catch {
-  color: #70588C;
-  font-weight: 700;
-  text-align: center;
-  font-style: italic;
-  font-size: 16px;
-  font-weight: 600;
-  color: #70588C;
-  flex-shrink: 0;
-  background-color: rgba(112, 88, 140, 0.1);
-  padding: 8px 16px;
-  border-radius: 6px;
-}
-
 .header-banner {
   display: flex;
   flex-direction: column;
@@ -340,7 +304,6 @@ footer .footer-secondary {
   background-color: #70588C;
   color: white;
   border-radius: 10px;
-  border: 1px solid transparent;
   padding: 8px 16px;
   font-size: 14px;
   transform: scale(100%);
@@ -1089,18 +1052,9 @@ table th {
 }
 
 .contact .btn {
-  text-align: center;
   margin: 0;
-  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}
-.contact .btn:hover {
-  background-color: white;
-  color: #70588C;
-  transform: scale(100%);
-  border: 1px solid #70588C;
 }
 .contact .btn:hover:not(:disabled) {
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(112, 88, 140, 0.3);
 }
 .contact .btn:disabled {
@@ -1211,26 +1165,8 @@ table th {
   color: black;
   font-size: 13px;
 }
-.carousel .carousel-slide .slide-content .btn {
-  align-self: center;
-  color: white;
-  font-size: 13px;
-  background-color: #70588C;
-  border: 1px solid transparent;
-  border-radius: 12px;
-  padding: 6px 8px;
+.carousel .carousel-slide .slide-content .btn-secondary {
   margin: 10px 5px;
-  display: inline-block;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  text-align: center;
-}
-.carousel .carousel-slide .slide-content .btn:hover {
-  background-color: white;
-  color: #70588C;
-  border: 1px solid #70588C;
-  transform: scale(100%);
 }
 .carousel .carousel-button {
   position: absolute;
@@ -1370,16 +1306,9 @@ table th {
 .works .container-card-works .card-works .work-category {
   font-size: 13px;
 }
-.works .container-card-works .card-works .btn {
-  text-align: center;
+.works .container-card-works .card-works .btn-secondary {
   margin: 0;
-  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}
-.works .container-card-works .card-works .btn:hover {
-  background-color: white;
-  color: #70588C;
-  transform: scale(100%);
-  border: 1px solid #70588C;
+  text-align: center;
 }
 .works .container-card-works .card-works .work-tools {
   display: none;
@@ -1388,7 +1317,6 @@ table th {
   background-color: rgba(0, 0, 0, 0.9);
   color: white;
   border-radius: 10px;
-  border: 1px solid transparent;
   padding: 8px 16px;
   font-size: 14px;
   position: absolute;
@@ -1421,10 +1349,10 @@ body.mode .background-color .bar {
 }
 body.mode .background-color button.toggle-button {
   border-radius: 10px;
-  border: 1px solid transparent;
   padding: 8px 16px;
   font-size: 14px;
   background-color: #70588C;
+  border: 1px solid transparent;
   color: white;
 }
 body.mode .background-color .card {
@@ -1460,14 +1388,14 @@ body.mode .background-color .label-work .pointer {
   border-bottom: 59px solid #f5f1ed;
 }
 body.mode .background-color footer {
-  color: white;
+  color: #70588C;
 }
 body.mode .background-color footer .main-button {
   border-radius: 10px;
-  border: 1px solid transparent;
   padding: 8px 16px;
   font-size: 14px;
   background-color: #70588C;
+  border: 1px solid transparent;
   color: white;
 }
 body.mode .background-color footer .link {
@@ -1592,6 +1520,65 @@ select {
 
 button {
   cursor: pointer;
+}
+
+.btn {
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: #70588C;
+  border: 1px solid transparent;
+  color: white;
+  transform: scale(100%);
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  display: inline-block;
+  margin: 30px 0;
+}
+.btn:hover {
+  transform: scale(110%);
+}
+
+.btn-secondary {
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 14px;
+  background-color: transparent;
+  color: #70588C;
+  border: 1px solid #70588C;
+  transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
+}
+.btn-secondary:hover {
+  background-color: #70588C;
+  color: white;
+}
+
+.card {
+  box-sizing: border-box;
+  padding: 20px;
+  width: 100%;
+  border-radius: 7px;
+  background-color: transparent;
+  color: #70588C;
+  border: 1px solid #70588C;
+  transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
+}
+.card:hover {
+  background-color: #70588C;
+  color: white;
+}
+
+.catch {
+  color: #70588C;
+  font-weight: 700;
+  text-align: center;
+  font-style: italic;
+  font-size: 16px;
+  font-weight: 600;
+  color: #70588C;
+  flex-shrink: 0;
+  background-color: rgba(112, 88, 140, 0.1);
+  padding: 8px 16px;
+  border-radius: 6px;
 }
 
 .bold {

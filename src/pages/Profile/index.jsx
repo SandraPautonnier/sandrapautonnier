@@ -40,7 +40,7 @@ const Profile = () => {
                             <div className="text-hook-about">
                             <div className="box">
                             <img src={Sandra2} alt="Photo de Sandra" />
-                            <p><span>Sandra Pautonnier </span> <br />Développeuse & Créatrice web intuitive de <AgeCalculator birthDate="1992-07-28" /> ans. J'aime analyser, créer et développer pour donner vie à des projets web uniques. <br />
+                            <p><span>Sandra Pautonnier </span> <br />Développeuse & Créatrice web intuitive de <AgeCalculator birthDate="1992-07-28" /> ans au Mans. J'aime analyser, créer et développer pour donner vie à des projets web uniques. <br />
                             Mon parcours mêle artistique, commerce, gestion de projet, création de contenu et développement web. Une combinaison qui me permet de comprendre les besoins réels de mes clients.</p>
                             </div>
                             <ul className='tags'>
@@ -95,13 +95,13 @@ const Profile = () => {
                             <div className="card insert">
                                 <span>2016-2017</span>
                                 <div className="center">
-                                    <h3>Chef de projet évenementiel</h3>
-                                    <p>Service civique : Mission autonome de A à Z</p>
+                                    <h3>Cheffe de projet évenementiel</h3>
+                                    <p>Mission autonome de A à Z</p>
                                 </div></div>
                             <div className="card insert">
                                 <span>2021-2024</span>
                                 <div className="center">
-                                    <h3>Chargé de projets</h3>
+                                    <h3>Chargée de projets</h3>
                                     <p>Enedis</p>
                                 </div></div>
                             <div className="card insert">

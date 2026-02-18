@@ -47,7 +47,7 @@ const Works = ({ projectType }) => {
                 <h3>{works.titlework}</h3>
                 <p className="work-category">{works.category}</p>
               </div>
-              <Link to={`/portfolio/${works.id}`} className="btn" onClick={handleProjectClick}>
+              <Link to={`/portfolio/${works.id}`} className="btn-secondary" onClick={handleProjectClick}>
                 Voir le projet
               </Link>
             </div>

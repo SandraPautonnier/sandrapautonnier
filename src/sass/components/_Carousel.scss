@@ -69,26 +69,8 @@
             color: $text;
             font-size: 13px;
         }
-        .btn {
-            align-self: center;
-            color: white;
-            font-size: 13px;
-            background-color: $main-color;
-            border: 1px solid transparent;
-            border-radius: 12px;
-            padding: 6px 8px;
-            margin: 10px 5px ;
-            display: inline-block;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(.68,-0.55,.27,1.55);
-            text-align: center;
-            &:hover {
-                background-color: white;
-                color: $main-color;
-                border: 1px solid $main-color;
-                transform: scale(100%);
-            }
+        .btn-secondary {
+            margin: 10px 5px;
         }
     }
   }

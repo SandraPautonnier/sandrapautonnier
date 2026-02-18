@@ -62,7 +62,7 @@ body.mode {
         }
         
         footer {
-            color: $light-color;
+            color: $main-color;
             .main-button {
                 @include btn;
                 @include btn-color-main;

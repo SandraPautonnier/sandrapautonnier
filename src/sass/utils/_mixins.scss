@@ -30,13 +30,19 @@
 
 @mixin btn {
     border-radius: 10px;
-    border: 1px solid transparent;
     padding: 8px 16px;
     font-size: 14px;
 }
 
+@mixin btn-secondary {
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 14px;
+}
+
 @mixin btn-color-main {
     background-color: $main-color;
+    border: 1px solid transparent;
     color: white;
 }
 
@@ -186,7 +192,14 @@
 }
 
 @mixin transition-btn {
+    background-color: transparent;
+    color: $main-color;
+    border: 1px solid $main-color;
     transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
+    &:hover {
+        background-color: $main-color;
+        color: white;
+    }
 }
 
 @mixin project-category {

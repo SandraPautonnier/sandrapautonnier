@@ -1,29 +1,6 @@
 @import "../utils/variables";
 @import "../utils/mixins";
 
-.btn {
-  @include btn;
-  @include btn-color-main;
-  @include zoom-btn;
-  display: inline-block;
-  margin: 30px 0;
-}
-
-.card {
-  @include card;
-  @include transition-btn;
-}
-
-.catch {
-  color: $main-color;
-  font-weight: 700;
-  text-align: center;
-  font-style: italic;
-  @include project-category;
-}
-
-
-
 .header-banner {
   @include flex-column-center;
   text-align: center;

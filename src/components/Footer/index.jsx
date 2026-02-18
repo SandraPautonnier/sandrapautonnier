@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import Logo from "../../assets/images/Logo_Sukiweb_mono.webp";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin , faSquareGithub , faCodepen } from '@fortawesome/free-brands-svg-icons';
 
 
 
 const Footer = () => {
-  const [active, setActive] = useState(false);
 
   return (
     <footer>
         <div className='footer-main'>
+            <img src={Logo} alt="Logo Sukiweb, une spirale violette" />
             <h3 className='footer-title'>Sukiweb</h3>
             <div className='contact-mail'>
               <Link to="/contact" className="btn">Contactez-moi</Link>
