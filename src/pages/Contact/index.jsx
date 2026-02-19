@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+import { InlineWidget } from "react-calendly";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faSquareGithub } from "@fortawesome/free-brands-svg-icons";
 import { faMapLocationDot, faEnvelope, faArrowRight, faShareNodes } from "@fortawesome/free-solid-svg-icons";
@@ -64,26 +65,32 @@ const Contact = () => {
                         <Navbar />
                         <div className='banner'>
                             <img src={ImageContact} alt="Photo de Sandra" />
-                             <h2>Contact - Contactez-moi</h2>
-                             <p>Une question, une idée, un projet : parlons-en !</p>
+                            <h2>Contactez-moi</h2>
+                            <p>Vous avez un projet de site web ou besoin d’améliorer votre visibilité ? Parlons-en !</p>
                         </div>
                     </header>
                     <main className="contact-container">
                         <section className="contact-section margin margin-desktop">
-                            <h2>Prenez RDV ou contactez-moi via mon formulaire</h2>
-                                <div style={{ width: "100%" }}>
-                                <iframe
-                                    src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2K3gz5-VgWxRI6J2DOVsq136uDDY-XCTRuNMAb2vrHOh97nILv8F1we6FZGAEdDVuXeN1fLLBO?gv=true"
-                                    style={{ border: 0 }}
-                                    width="100%"
-                                    height="600"
-                                    frameBorder="0"
-                                    title="Prendre rendez-vous"
-                                />
-                                </div>                           
+                            <h2>Discutons de votre projet</h2>
                             <div className="contact-wrapper">
-                                {/* Colonne gauche : Formulaire */}
+                                <div className="contact-column">
+                                    <div className="calendly-card">
+                                        <h3 className="rdv-title">Prendre rendez-vous</h3>
+                                        <p className="rdv-subtitle">
+                                        Un échange gratuit de 30 minutes pour comprendre vos besoins et voir comment je peux vous accompagner.
+                                        </p>
+
+                                        <InlineWidget
+                                        url="https://calendly.com/sandrapautonnier/rdv?hide_event_type_details=1&hide_gdpr_banner=1"
+                                        styles={{
+                                            height: "700px",
+                                            width: "100%",
+                                        }}
+                                        />
+                                    </div>
+                                </div>
                                 <div className="contact-column contact-form-column">
+                                    <h2>Vous préférez m'écrire ?</h2>
                                     {confirmationMessage ? (
                                         <p className="confirmation-message">{confirmationMessage}</p>
                                     ) : (
@@ -144,56 +151,53 @@ const Contact = () => {
                                         </form>
                                     )}
                                 </div>
+                            </div>
+                            <div className="contact-column contact-info">
+                                <div className="contact-info-item">
+                                    <FontAwesomeIcon icon={faMapLocationDot} className="contact-icon" />
+                                    <div className="contact-info-content">
+                                        <h3>Localisation</h3>
+                                        <ul>
+                                            <li><FontAwesomeIcon icon={faArrowRight} className="loc-icon" />En France à distance</li>
+                                            <li><FontAwesomeIcon icon={faArrowRight} className="loc-icon" />À Le Mans et aux alentours en présentiel</li>
+                                        </ul>
+                                    </div>
+                                </div>
 
-                                {/* Colonne en dessous : Informations de contact */}
-                                <div className="contact-column contact-info">
+                                <div className="contact-info-item">
+                                    <FontAwesomeIcon icon={faEnvelope} className="contact-icon" />
+                                    <div className="contact-info-content">
+                                        <h3>Email</h3>
+                                        <a href="mailto:contact@sandrapautonnier.com" aria-label="Envoyer un email à Sandra">
+                                            contact@sandrapautonnier.com
+                                        </a>
+                                    </div>
+                                </div>
 
-                                    <div className="contact-info-item">
-                                        <FontAwesomeIcon icon={faMapLocationDot} className="contact-icon" />
-                                        <div className="contact-info-content">
-                                            <h3>Localisation</h3>
-                                            <ul>
-                                                <li><FontAwesomeIcon icon={faArrowRight} className="loc-icon" />En France à distance</li>
-                                                <li><FontAwesomeIcon icon={faArrowRight} className="loc-icon" />À Le Mans et aux alentours en présentiel</li>
-                                            </ul>
-                                        </div>
-                                    </div>                                        
-
-                                    <div className="contact-info-item">
-                                        <FontAwesomeIcon icon={faEnvelope} className="contact-icon" />
-                                        <div className="contact-info-content">
-                                            <h3>Email</h3>
-                                            <a href="mailto:contact@sandrapautonnier.com" aria-label="Envoyer un email à Sandra">
-                                                contact@sandrapautonnier.com
+                                <div className="contact-info-item">
+                                    <FontAwesomeIcon icon={faShareNodes} className="contact-icon" />
+                                    <div className="social">
+                                        <h3>Réseaux sociaux</h3>
+                                        <div className="social-links">
+                                            <a
+                                                href="https://www.linkedin.com/in/sandra-pautonnier/"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                aria-label="LinkedIn"
+                                            >
+                                                <FontAwesomeIcon icon={faLinkedin} />
+                                            </a>
+                                            <a
+                                                href="https://github.com/sandrapautonnier"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                aria-label="GitHub"
+                                            >
+                                                <FontAwesomeIcon icon={faSquareGithub} />
                                             </a>
                                         </div>
                                     </div>
 
-                                    <div className="contact-info-item">
-                                        <FontAwesomeIcon icon={faShareNodes} className="contact-icon" />
-                                        <div className="social">
-                                        <h3>Réseaux sociaux</h3>
-                                            <div className="social-links">
-                                                <a 
-                                                    href="https://www.linkedin.com/in/sandra-pautonnier/" 
-                                                    target="_blank" 
-                                                    rel="noopener noreferrer"
-                                                    aria-label="LinkedIn"
-                                                >
-                                                    <FontAwesomeIcon icon={faLinkedin} />
-                                                </a>
-                                                <a 
-                                                    href="https://github.com/sandrapautonnier" 
-                                                    target="_blank" 
-                                                    rel="noopener noreferrer"
-                                                    aria-label="GitHub"
-                                                >
-                                                    <FontAwesomeIcon icon={faSquareGithub} />
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                    </div>
                                 </div>
                             </div>
                         </section>

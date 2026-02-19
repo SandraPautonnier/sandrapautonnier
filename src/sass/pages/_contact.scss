@@ -5,6 +5,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
+    
 
     @media (max-width: 768px) {
         padding: 30px 15px;
@@ -31,14 +32,9 @@
 .contact-form-column {
     display: flex;
     flex-direction: column;
-    flex: 0 0 60%;
     width: 100%;
     max-width: 768px;
-
-    @media (max-width: 768px) {
-        flex: 0 0 auto;
-        width: 100%;
-    }
+    margin: 0 auto;
 }
 
 .contact-info {
@@ -46,7 +42,7 @@
     flex-direction: row;
     gap: 30px;
     flex: 0 0 40%;
-
+    margin-top: 20px;
     @media (max-width: 768px) {
         flex-direction: column;
         gap: 25px;
@@ -262,13 +258,7 @@
 
 .contact {
     .btn {
-    
-    margin: 0;
-    
-
     &:hover:not(:disabled) {
-
-       
         box-shadow: 0 4px 12px rgba($main-color, 0.3);
     }
 
@@ -284,14 +274,14 @@
     @media (min-width: 992px) {
         .banner {
             h2 {
-                left: -205px;
+                left: -260px;
                 top: -160px;
 
             }
 
             p {
                 max-width: 700px;
-                left: -150px;
+                left: -2px;
                 top: -180px;
                 font-weight: bold;
             }
@@ -311,4 +301,29 @@
             margin-top: -70px;
         }
 }
+}
+
+.calendly-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+
+    @media (max-width: 768px) {
+        padding: 20px;
+    }
+}
+
+.rdv-title {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: $text;
+    font-weight: 600;
+}
+
+.rdv-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
 }
