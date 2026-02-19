@@ -810,15 +810,8 @@ table th {
 
 .contact-wrapper {
   display: flex;
+  flex-direction: column;
   gap: 40px;
-  align-items: flex-start;
-  width: 100%;
-}
-@media (max-width: 768px) {
-  .contact-wrapper {
-    flex-direction: column;
-    gap: 40px;
-  }
 }
 
 .contact-column {
@@ -829,6 +822,8 @@ table th {
   display: flex;
   flex-direction: column;
   flex: 0 0 60%;
+  width: 768px;
+  max-width: 100%;
 }
 @media (max-width: 768px) {
   .contact-form-column {
@@ -837,14 +832,15 @@ table th {
   }
 }
 
-.contact-info-column {
+.contact-info {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 30px;
   flex: 0 0 40%;
 }
 @media (max-width: 768px) {
-  .contact-info-column {
+  .contact-info {
+    flex-direction: column;
     gap: 25px;
     flex: 0 0 auto;
     width: 100%;
@@ -947,7 +943,6 @@ table th {
   display: flex;
   gap: 12px;
   padding: 20px 0;
-  border-bottom: 1px solid #eee;
 }
 @media (max-width: 768px) {
   .contact-info-item {
@@ -969,30 +964,26 @@ table th {
     font-size: 14px;
   }
 }
-.contact-info-item p {
+.contact-info-item ul {
   margin: 0;
-  color: #666;
+  color: #70588C;
   font-size: 14px;
+  max-width: 225px;
 }
 @media (max-width: 768px) {
-  .contact-info-item p {
+  .contact-info-item ul {
     font-size: 13px;
   }
 }
 .contact-info-item a {
-  color: #70588C;
-  text-decoration: none;
+  background: linear-gradient(to top, #70588C 0%, #70588C 1px, transparent 2px) no-repeat;
+  background-size: 0 100%;
+  transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
   font-size: 14px;
-  transition: all 0.3s ease;
-}
-@media (max-width: 768px) {
-  .contact-info-item a {
-    font-size: 13px;
-  }
+  color: #70588C;
 }
 .contact-info-item a:hover {
-  text-decoration: underline;
-  color: black;
+  background-size: 100% 100%;
 }
 
 .contact-icon {
@@ -1004,6 +995,17 @@ table th {
 @media (max-width: 768px) {
   .contact-icon {
     font-size: 20px;
+  }
+}
+
+.loc-icon {
+  font-size: 18px;
+  color: #70588C;
+  margin-right: 3px;
+}
+@media (max-width: 768px) {
+  .loc-icon {
+    font-size: 18px;
   }
 }
 
@@ -1019,7 +1021,6 @@ table th {
 .social-links {
   display: flex;
   gap: 20px;
-  margin-top: 10px;
 }
 @media (max-width: 768px) {
   .social-links {
@@ -1399,7 +1400,7 @@ body.mode .background-color footer .main-button {
   color: white;
 }
 body.mode .background-color footer .link {
-  background: linear-gradient(to top, white 0%, white 1px, transparent 2px) no-repeat;
+  background: linear-gradient(to top, #70588C 0%, #70588C 1px, transparent 2px) no-repeat;
   background-size: 0 100%;
   transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
 }

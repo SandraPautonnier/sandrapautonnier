@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faSquareGithub } from "@fortawesome/free-brands-svg-icons";
-import { faMapLocationDot, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faMapLocationDot, faEnvelope, faArrowRight, faShareNodes } from "@fortawesome/free-solid-svg-icons";
 import ImageContact from "../../assets/images/image_contact.webp";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -70,7 +70,7 @@ const Contact = () => {
                     </header>
                     <main className="contact-container">
                         <section className="contact-section margin margin-desktop">
-                            <h2>A l'aide de mon formulaire ou par e-mail</h2>
+                            <h2>A l'aide de mon formulaire ou par e-mail</h2>                           
                             <div className="contact-wrapper">
                                 {/* Colonne gauche : Formulaire */}
                                 <div className="contact-column contact-form-column">
@@ -136,45 +136,53 @@ const Contact = () => {
                                 </div>
 
                                 {/* Colonne droite : Informations de contact */}
-                                <div className="contact-column contact-info-column">
-                                    <div className="contact-info-item">
-                                        <FontAwesomeIcon icon={faEnvelope} className="contact-icon" />
-                                        <div className="contact-info-content">
-                                            <h3>Email</h3>
-                                            <a href="mailto:sandra.pautonnier@gmail.com">
-                                                sandra.pautonnier@gmail.com
-                                            </a>
-                                        </div>
-                                    </div>
+                                <div className="contact-column contact-info">
 
                                     <div className="contact-info-item">
                                         <FontAwesomeIcon icon={faMapLocationDot} className="contact-icon" />
                                         <div className="contact-info-content">
                                             <h3>Localisation</h3>
-                                            <p>72000, Le Mans</p>
+                                            <ul>
+                                                <li><FontAwesomeIcon icon={faArrowRight} className="loc-icon" />En France à distance</li>
+                                                <li><FontAwesomeIcon icon={faArrowRight} className="loc-icon" />À Le Mans et aux alentours en présentiel</li>
+                                            </ul>
+                                        </div>
+                                    </div>                                        
+
+                                    <div className="contact-info-item">
+                                        <FontAwesomeIcon icon={faEnvelope} className="contact-icon" />
+                                        <div className="contact-info-content">
+                                            <h3>Email</h3>
+                                            <a href="mailto:contact@sandrapautonnier.com" aria-label="Envoyer un email à Sandra">
+                                                contact@sandrapautonnier.com
+                                            </a>
                                         </div>
                                     </div>
 
-                                    <div className="contact-info-item social">
+                                    <div className="contact-info-item">
+                                        <FontAwesomeIcon icon={faShareNodes} className="contact-icon" />
+                                        <div className="social">
                                         <h3>Réseaux sociaux</h3>
-                                        <div className="social-links">
-                                            <a 
-                                                href="https://www.linkedin.com/in/sandra-pautonnier/" 
-                                                target="_blank" 
-                                                rel="noopener noreferrer"
-                                                aria-label="LinkedIn"
-                                            >
-                                                <FontAwesomeIcon icon={faLinkedin} />
-                                            </a>
-                                            <a 
-                                                href="https://github.com/sandrapautonnier" 
-                                                target="_blank" 
-                                                rel="noopener noreferrer"
-                                                aria-label="GitHub"
-                                            >
-                                                <FontAwesomeIcon icon={faSquareGithub} />
-                                            </a>
+                                            <div className="social-links">
+                                                <a 
+                                                    href="https://www.linkedin.com/in/sandra-pautonnier/" 
+                                                    target="_blank" 
+                                                    rel="noopener noreferrer"
+                                                    aria-label="LinkedIn"
+                                                >
+                                                    <FontAwesomeIcon icon={faLinkedin} />
+                                                </a>
+                                                <a 
+                                                    href="https://github.com/sandrapautonnier" 
+                                                    target="_blank" 
+                                                    rel="noopener noreferrer"
+                                                    aria-label="GitHub"
+                                                >
+                                                    <FontAwesomeIcon icon={faSquareGithub} />
+                                                </a>
+                                            </div>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
