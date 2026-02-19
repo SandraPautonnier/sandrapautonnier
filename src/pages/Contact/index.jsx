@@ -70,7 +70,17 @@ const Contact = () => {
                     </header>
                     <main className="contact-container">
                         <section className="contact-section margin margin-desktop">
-                            <h2>A l'aide de mon formulaire ou par e-mail</h2>                           
+                            <h2>Prenez RDV ou contactez-moi via mon formulaire</h2>
+                                <div style={{ width: "100%" }}>
+                                <iframe
+                                    src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2K3gz5-VgWxRI6J2DOVsq136uDDY-XCTRuNMAb2vrHOh97nILv8F1we6FZGAEdDVuXeN1fLLBO?gv=true"
+                                    style={{ border: 0 }}
+                                    width="100%"
+                                    height="600"
+                                    frameBorder="0"
+                                    title="Prendre rendez-vous"
+                                />
+                                </div>                           
                             <div className="contact-wrapper">
                                 {/* Colonne gauche : Formulaire */}
                                 <div className="contact-column contact-form-column">
@@ -135,7 +145,7 @@ const Contact = () => {
                                     )}
                                 </div>
 
-                                {/* Colonne droite : Informations de contact */}
+                                {/* Colonne en dessous : Informations de contact */}
                                 <div className="contact-column contact-info">
 
                                     <div className="contact-info-item">
