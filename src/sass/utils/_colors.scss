@@ -61,17 +61,6 @@ body.mode {
             }
         }
         
-        footer {
-            color: $main-color;
-            .main-button {
-                @include btn;
-                @include btn-color-main;
-            }
-            .link {
-                @include underline-anim;
-            }
-        }
-        
         tr {
             @include badark-colight-component;
             &:hover {

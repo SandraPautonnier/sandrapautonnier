@@ -37,20 +37,7 @@
     margin: 0 auto;
 }
 
-.contact-info {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-    flex: 0 0 40%;
-    margin-top: 20px;
-    @media (max-width: 768px) {
-        flex-direction: column;
-        gap: 25px;
-        flex: 0 0 auto;
-        width: 100%;
-        
-    }
-}
+
 
 // Formulaire
 .contact-form {
@@ -147,114 +134,6 @@
     }
 }
 
-// Informations de contact
-.contact-info-item {
-    display: flex;
-    gap: 12px;
-    padding: 20px 0;
-
-    @media (max-width: 768px) {
-        gap: 10px;
-        padding: 15px 0;
-    }
-
-    &:last-child {
-        border-bottom: none;
-    }
-
-    h3 {
-        font-size: 16px;
-        color: $text;
-        margin: 0 0 8px 0;
-        font-weight: 600;
-
-        @media (max-width: 768px) {
-            font-size: 14px;
-        }
-    }
-
-    ul {
-        margin: 0;
-        color: $main-color;
-        font-size: 14px;
-        max-width: 225px;
-
-        @media (max-width: 768px) {
-            font-size: 13px;
-        }
-    }
-
-    a {
-        @include underline-anim;
-        font-size: 14px;
-        color: $main-color;
-    }
-    
-}
-
-.contact-icon {
-    font-size: 24px;
-    color: $main-color;
-    flex-shrink: 0;
-    margin-top: 2px;
-
-    @media (max-width: 768px) {
-        font-size: 20px;
-    }
-}
-
-.loc-icon {
-    font-size: 18px;
-    color: $main-color;
-    
-    margin-right: 3px;
-
-    @media (max-width: 768px) {
-        font-size: 18px;
-    }
-}
-
-.contact-info-content {
-    flex: 1;
-}
-
-.social {
-    display: flex;
-    flex-direction: column;
-}
-
-.social-links {
-    display: flex;
-    gap: 20px;
-    @media (max-width: 768px) {
-        gap: 15px;
-    }
-
-    a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: rgba($main-color, 0.1);
-        color: $main-color;
-        font-size: 20px;
-        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-        @media (max-width: 768px) {
-            width: 36px;
-            height: 36px;
-            font-size: 18px;
-        }
-
-        &:hover {
-            background-color: $main-color;
-            color: white;
-            transform: translateY(-3px);
-        }
-    }
-}
 
 .contact {
     .btn {
