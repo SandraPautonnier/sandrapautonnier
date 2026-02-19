@@ -17,7 +17,8 @@
 
 .dim {
   text-align: center;
-  margin: 2rem auto;
+  margin: 0 auto;
+    max-width: max-content;
   justify-content: center;
   display: flex;
 }
@@ -174,11 +175,10 @@ svg {
     .card-banner {
         max-width: 768px;
     }
-
     @media (min-width: 992px) {
         .banner {
             h2 {
-                left: -257px;
+                left: -170px;
                 top: -175px;
 
             }
@@ -245,7 +245,6 @@ svg {
                     font-size: 16px;
                     flex-shrink: 0;
                 }
-
                 span {
                     font-weight: 500;
                 }

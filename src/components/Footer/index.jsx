@@ -23,16 +23,14 @@ const Footer = () => {
           <FontAwesomeIcon icon={faMapLocationDot} className="contact-icon" />
           <div className="contact-info-content">
             <h3>Localisation</h3>
-            <ul>
-              <p>En France à distance / Le Mans et alentours</p>
-            </ul>
+            <p>Le Mans et alentours<br />Et en France à distance</p>
           </div>
         </div>
 
         <div className="contact-info-item">
           <FontAwesomeIcon icon={faEnvelope} className="contact-icon" />
           <div className="contact-info-content">
-            <h3>Email</h3>
+            <h3>Email de contact</h3>
             <a href="mailto:contact@sandrapautonnier.com" aria-label="Envoyer un email à Sandra">
               contact@sandrapautonnier.com
             </a>

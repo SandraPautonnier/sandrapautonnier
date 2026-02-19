@@ -18,8 +18,8 @@ const Profile = () => {
   return (
     <div className="profile">
         <Meta 
-            title="Profil - Développeuse & Créatrice Web Intuitive" 
-            description="Développeuse & Créatrice web intuitive freelance spécialisée en React & Node. Création de sites performants, modernes et sur-mesure." 
+            title="A propos de Sandra Pautonnier" 
+            description="Profil de Sandra Pautonnier, développeuse web fullstack. Découvrez son parcours, ses compétences techniques et ses réussites." 
         />
         <div className='background-color'>
             <div className="header-main">
@@ -27,7 +27,7 @@ const Profile = () => {
                     <Navbar />
                     <div className='banner'>
                         <img src={ImageProfile} alt="Photo de Sandra" />
-                        <h2>A propos - Profil</h2>
+                        <h2>A propos de Sandra Pautonnier</h2>
                         <div className="card-banner">
                         <p className='intro'>Développeuse & Créatrice web intuitive, je conçois des applications modernes centrées utilisateur avec React, Node.js et MongoDB.</p>
                         </div>
