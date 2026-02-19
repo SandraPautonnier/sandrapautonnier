@@ -256,13 +256,13 @@ footer .contact-info {
 }
 footer .contact-info-item {
   display: flex;
-  gap: 12px;
-  padding: 20px 0;
+  gap: 10px;
+  padding: 10px 0;
 }
 @media (max-width: 768px) {
   footer .contact-info-item {
     gap: 10px;
-    padding: 15px 0;
+    padding: 10px 0;
   }
 }
 footer .contact-info-item:last-child {
@@ -279,22 +279,22 @@ footer .contact-info-item h3 {
     font-size: 14px;
   }
 }
-footer .contact-info-item ul {
+footer .contact-info-item p {
   margin: 0;
   color: #70588C;
-  font-size: 14px;
+  font-size: 12px;
   max-width: 225px;
 }
 @media (max-width: 768px) {
-  footer .contact-info-item ul {
-    font-size: 13px;
+  footer .contact-info-item p {
+    font-size: 12px;
   }
 }
 footer .contact-info-item a {
   background: linear-gradient(to top, #70588C 0%, #70588C 1px, transparent 2px) no-repeat;
   background-size: 0 100%;
   transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
-  font-size: 14px;
+  font-size: 12px;
   color: #70588C;
 }
 footer .contact-info-item a:hover {
@@ -1053,6 +1053,10 @@ table th {
     transform: translateY(0);
   }
 }
+.contact .btn {
+  margin: 0 auto;
+  max-width: max-content;
+}
 .contact .btn:hover:not(:disabled) {
   box-shadow: 0 4px 12px rgba(112, 88, 140, 0.3);
 }
@@ -1093,6 +1097,8 @@ table th {
 .calendly-card {
   background: white;
   padding: 25px;
+  margin: 0 auto;
+  max-width: 992px;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
@@ -1113,7 +1119,6 @@ table th {
 .rdv-subtitle {
   font-size: 14px;
   color: #666;
-  margin-bottom: 20px;
 }
 
 .carousel {

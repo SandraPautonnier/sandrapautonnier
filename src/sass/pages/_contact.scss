@@ -137,6 +137,8 @@
 
 .contact {
     .btn {
+        margin: 0 auto;
+        max-width: max-content;
     &:hover:not(:disabled) {
         box-shadow: 0 4px 12px rgba($main-color, 0.3);
     }
@@ -185,6 +187,8 @@
 .calendly-card {
     background: white;
     padding: 25px;
+    margin: 0 auto;
+    max-width: 992px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
@@ -204,5 +208,4 @@
 .rdv-subtitle {
     font-size: 14px;
     color: #666;
-    margin-bottom: 20px;
 }

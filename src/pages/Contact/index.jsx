@@ -73,7 +73,7 @@ const Contact = () => {
                             <div className="contact-wrapper">
                                 <div className="contact-column">
                                     <div className="calendly-card">
-                                        <h3 className="rdv-title">Prendre rendez-vous</h3>
+                                        <h3 className="rdv-title">Prendre un rendez-vous</h3>
                                         <p className="rdv-subtitle">
                                         Un échange gratuit de 30 minutes pour comprendre vos besoins et voir comment je peux vous accompagner.
                                         </p>
