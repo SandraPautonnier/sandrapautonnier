@@ -256,6 +256,8 @@ footer .contact-info {
 }
 footer .contact-info-item {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 10px;
   padding: 10px 0;
 }
@@ -267,6 +269,10 @@ footer .contact-info-item {
 }
 footer .contact-info-item:last-child {
   border-bottom: none;
+}
+footer .contact-info-item .content {
+  text-align: center;
+  margin: 0 10px 20px 10px;
 }
 footer .contact-info-item h3 {
   font-size: 16px;
@@ -311,11 +317,14 @@ footer .loc-icon {
   }
 }
 footer .contact-info-content {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 footer .social {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 footer .social-links {
   display: flex;
