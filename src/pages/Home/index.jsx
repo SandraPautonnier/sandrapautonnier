@@ -5,7 +5,7 @@ import HeaderImage from '../../assets/images/image_portrait_dessin_sandra_header
 import Cv from '../../assets/pdf/CV-Sandra-Pautonnier.pdf';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin , faSquareGithub , faReact } from '@fortawesome/free-brands-svg-icons';
-import { faFileArrowDown , faUser , faFlask , faCode , faAward , faMagnifyingGlass , faWrench } from '@fortawesome/free-solid-svg-icons';
+import { faFileArrowDown , faUser , faFlask , faCode , faAward , faMagnifyingGlass , faWrench, faCheck } from '@fortawesome/free-solid-svg-icons';
 import Carousel from "../../features/Carousel";
 import HookWorks from "../../assets/content/worksList.json";
 import Meta from "../../components/Meta";
@@ -50,7 +50,7 @@ const Home = () => {
                     'faWrench': faWrench,
                   };
                   return (
-                    <div key={Service.id} className="card service">
+                    <div key={Service.id} className="card">
                       <FontAwesomeIcon icon={iconMap[Service.icon]} />
                       <h3>{Service.title}</h3>
                       <p>{Service.description}</p>
@@ -58,8 +58,28 @@ const Home = () => {
                   );
                 })}
               </div>
-              <Link to="/contact" className="btn">Contactez-moi</Link>
-              <p className="catch">Flexible, moderne et humaine. <br />C'est ça, le sur-mesure !</p>
+              <p className="catch">Des solutions simples, claires et adaptées à votre budget.</p>
+              <Link to="/contact" className="btn">Voir les offres détaillées</Link>
+            </section>
+            <section>
+              <h2>Pourquoi moi ?</h2>
+              <div className="card">
+                <h3>Pourquoi travailler avec moi ?</h3>
+                <ul>
+                  <li><FontAwesomeIcon icon={faCheck} />  Accompagnement humain et personnalisé</li>
+                  <li><FontAwesomeIcon icon={faCheck} />  Tarifs transparents et sans surprise</li>
+                  <li><FontAwesomeIcon icon={faCheck} />  Expertise technique et créative</li>
+                  <li><FontAwesomeIcon icon={faCheck} />  Solutions adaptées aux indépendants et associations</li>
+                  <li><FontAwesomeIcon icon={faCheck} />  Approche stratégique et évolutive</li>
+                </ul>
+              </div>
+              <p className="catch">Je ne crée pas seulement un site. <br />Je crée un outil qui soutient votre activité et votre croissance.</p>
+            </section>
+            <section>
+              <h2>Mes offres</h2>
+              <div>
+
+              </div>
             </section>
             <section className="hook-works">
               <h2>Quelques projets</h2>
@@ -83,7 +103,11 @@ const Home = () => {
               <p className="catch">Des projets réalisés avec passion !</p>
             </section>
             <section>
-
+              <div className="cta">
+                <h2>Prêt(e) à développer votre présence en ligne ?</h2>
+                <p>Discutons de votre projet gratuitement et sans engagement.</p>
+                <Link to="/contact" className="btn">Prendre rendez-vous</Link>                
+              </div>
             </section>
           </main>
         </div>

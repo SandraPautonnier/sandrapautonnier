@@ -4,20 +4,20 @@
         "icon": "faCode",
         "alt": "Icône de création de site",
         "title": "Création de site web",
-        "description": "Transformez votre idée en ligne avec un site web moderne, responsive et sur-mesure, conçu pour attirer et fidéliser vos visiteurs."
+        "description": "Des sites modernes, rapides et adaptés à votre activité.\n Responsive, sécurisés et prêts à évoluer avec vous."
     },
     {
         "id": 2,
         "icon": "faMagnifyingGlass",
         "alt": "Icône du référencement et d'un audit SEO",
-        "title": "Audit SEO",
-        "description": "Optimisez la visibilité de votre site grâce à un audit SEO complet, qui met en lumière les opportunités pour améliorer votre référencement et attirer plus de trafic."
+        "title": "Audit & visibilité",
+        "description": "Analyse de votre site et de votre présence digitale pour identifier les leviers d’amélioration et booster votre visibilité."
     },
     {
         "id": 3,
         "icon": "faWrench",
         "alt": "Icône de la maintenance d'un site web",
-        "title": "Maintenance de site",
-        "description": "Gardez votre site performant et sécurisé avec mon service de maintenance continue, incluant mises à jour, sécurité et améliorations régulières."
+        "title": "Maintenance & optimisation",
+        "description": "Mises à jour, sécurité et performance pour un site fiable dans le temps."
     }
 ]

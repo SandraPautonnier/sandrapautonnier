@@ -25,18 +25,7 @@ body.mode {
             @include btn-color-main;
         }
         
-        .card {
-            position: relative;
-            border-radius: 10px;
-            background: linear-gradient($component, $component) padding-box, linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%) border-box;
-            border: 2px solid transparent;
-            color: $light-text;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            &:hover {
-                background: $component-hover;
-                color: #f5f1ed;
-            }
-        }
+
         
         .formation {
             @include badark-colight-component;

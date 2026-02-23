@@ -130,7 +130,6 @@
     box-sizing: border-box;
     padding: 20px;
     width: 100%;
-    border-radius: 7px;
 }
 
 //form
@@ -211,4 +210,39 @@
     background-color: rgba($main-color, 0.1);
     padding: 8px 16px;
     border-radius: 6px;
+}
+
+@mixin card {
+    background: linear-gradient($component, $component) padding-box, linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%) border-box;
+    border: 2px solid transparent;
+    color: $light-text;    
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        background: $component-hover;
+        color: #f5f1ed;
+    }       
+}
+
+@mixin highlight-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        transform: translateY(-5px);
+    }    
 }
