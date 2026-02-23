@@ -127,10 +127,7 @@ button {
     @include transition-btn
 }
 
-.card {
-  @include card;
-  @include transition-btn;
-}
+
 
 .catch {
   color: $main-color;

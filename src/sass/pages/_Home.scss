@@ -61,9 +61,15 @@
   }
   .card {
     @include highlight-card;
+    width: 100%;
     svg {
+      color: $main-color;
       font-size: 48px;
       margin-top: 20px;
+    }
+    h3 {
+      color: $main-color;
+      text-align: center;
     }
   }
 }

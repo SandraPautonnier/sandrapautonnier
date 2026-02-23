@@ -493,14 +493,20 @@ footer .social-links a:hover {
   height: auto;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 .container-hook-services .card:hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   transform: translateY(-5px);
 }
 .container-hook-services .card svg {
+  color: #70588C;
   font-size: 48px;
   margin-top: 20px;
+}
+.container-hook-services .card h3 {
+  color: #70588C;
+  text-align: center;
 }
 
 @media (min-width: 992px) {
@@ -1606,32 +1612,6 @@ button {
   transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
 }
 .btn-secondary:hover {
-  background-color: #70588C;
-  color: white;
-}
-
-.card {
-  background: linear-gradient(#f5f1ed, #f5f1ed) padding-box, linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%) border-box;
-  border: 2px solid transparent;
-  color: #404044;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  background-color: transparent;
-  color: #70588C;
-  border: 1px solid #70588C;
-  transition: background-color 0.2s ease-in-out, color 0.3s ease-in-out;
-}
-.card:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  background: #9B7EBD;
-  color: #f5f1ed;
-}
-.card:hover {
   background-color: #70588C;
   color: white;
 }
