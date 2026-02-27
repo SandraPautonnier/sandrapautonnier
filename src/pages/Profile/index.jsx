@@ -7,13 +7,15 @@ import Sandra2 from "../../assets/images/sandra2.webp";
 import AgeCalculator from "../../features/AgeCalculator";
 import Coupe from '../../assets/images/Image_coupe.webp';
 import technicalSkills from '../../assets/content/technicalSkills.json';
-import useThemeStore from "../../store/useThemeStore";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Profile = () => {
+    const handleScrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
 
-    const isDarkMode = useThemeStore((state) => state.isDarkMode);
+   
 
   return (
     <div className="profile">
@@ -90,19 +92,16 @@ const Profile = () => {
                                 <span>2014-2016</span>
                                 <div className="center">
                                     <h3>Vendeuse Prêt-à-porter</h3>
-                                    <p>Noz - Sergent Major</p>
                                 </div></div>
                             <div className="card insert">
                                 <span>2016-2017</span>
                                 <div className="center">
                                     <h3>Cheffe de projet évenementiel</h3>
-                                    <p>Mission autonome de A à Z</p>
                                 </div></div>
                             <div className="card insert">
                                 <span>2021-2024</span>
                                 <div className="center">
                                     <h3>Chargée de projets</h3>
-                                    <p>Enedis</p>
                                 </div></div>
                             <div className="card insert">
                                 <span>2024-2025</span>
@@ -113,7 +112,6 @@ const Profile = () => {
                                 <span>2025-auj.</span>
                                 <div className="center">
                                     <h3>Développeuse & Créatrice web intuitive</h3>
-                                    <p>Indépendante</p>
                                 </div></div>
                         </div>
                     </section>
@@ -128,10 +126,10 @@ const Profile = () => {
                                 <li><span className="bold">2023 :</span> Chez Enedis, j'ai été l'interlocutrice et référente de l'ACO (Automobile Club de l'Ouest) pour le centenaire des 24h du Mans (Bornes fixes).</li>
                             </ul>
                         </div>
+                        <Link to="/portfolio" onClick={handleScrollToTop} className="btn">Découvrez mes réalisations</Link>
                     </section>
                 </main>
             </div>
-            <Link to="/portfolio" className="btn dim">Découvrez mes réalisations</Link>
             <Footer />
         </div>
     </div>

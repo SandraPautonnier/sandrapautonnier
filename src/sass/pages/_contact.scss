@@ -136,15 +136,7 @@
 .contact {
     .btn {
         margin: 0 auto;
-        max-width: max-content;
-    &:hover:not(:disabled) {
-        box-shadow: 0 4px 12px rgba($main-color, 0.3);
-    }
 
-    &:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-    }
 }
     .card-banner {
         max-width: 768px;

@@ -54,6 +54,7 @@
 
 .container-hook-services {
   width: 100%;
+  margin-bottom: 20px;
   @include flex-column-center;
   gap: $gap;
   @media (min-width: 932px) {
@@ -117,10 +118,38 @@
 }
 
 .me {
-  @include highlight-card;
-                svg {
-                    color: $main-color;
-                    font-size: 16px;
-                    flex-shrink: 0;
-                }
+  @include card-color;
+  margin-bottom: 20px;
+  
+}
+
+.offers-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  
+  @media (min-width: 932px) {
+    flex-direction: row;
+  }
+  
+  .offer-card {
+    @include highlight-card;
+    width: 100%;
+    
+    h3 {
+      color: $main-color;
+      text-align: center;
+    }
+    
+    p {
+      text-align: center;
+    }
+    span {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  }
 }

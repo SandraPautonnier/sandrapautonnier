@@ -63,8 +63,7 @@ const Home = () => {
             </section>
             <section>
               <h2>Pourquoi moi ?</h2>
-              <div className="card">
-                <h3>Pourquoi travailler avec moi ?</h3>
+              <div className="me">
                 <ul>
                   <li><FontAwesomeIcon icon={faCheck} />  Accompagnement humain et personnalisé</li>
                   <li><FontAwesomeIcon icon={faCheck} />  Tarifs transparents et sans surprise</li>
@@ -76,10 +75,37 @@ const Home = () => {
               <p className="catch">Je ne crée pas seulement un site. <br />Je crée un outil qui soutient votre activité et votre croissance.</p>
             </section>
             <section>
-              <h2>Mes offres</h2>
-              <div>
-
-              </div>
+              <h2>Mes offres clé en main</h2>
+                <div className="offers-container">
+                  <div className="offer-card">
+                    <h3>Création site One Page</h3>
+                    <p>Idéal pour lancer votre activité avec une présence en ligne claire, simple et efficace.</p>
+                    <span>À partir de 390€</span>
+                  </div>
+                  <div className="offer-card">
+                    <h3>Création site 3 à 5 Pages</h3>
+                    <p>Une présence en ligne complète et professionnelle pour présenter votre activité avec clarté.</p>
+                    <span>À partir de 690€</span>
+                  </div>
+                  <div className="offer-card">
+                    <h3>Boutique en ligne Simple</h3>
+                    <p>Vendez en ligne facilement grâce à une solution simple et prête à l’emploi, jusqu’à 20 produits.</p>
+                    <span>À partir de 790€</span>
+                  </div>
+                  <div className="offer-card">
+                    <h3>Boutique en ligne Évolutive</h3>
+                    <p>Une solution professionnelle conçue pour accompagner la croissance de votre activité dans le temps.</p>
+                    <span>À partir de 990€</span>
+                  </div>
+                </div>
+            </section>
+            <section>
+              <h2>Services complémentaires</h2>
+              <div className="container">
+                <div className="card"></div>
+                <div className="card"></div>
+                <div className="card"></div>
+              </div>                         
             </section>
             <section className="hook-works">
               <h2>Quelques projets</h2>
