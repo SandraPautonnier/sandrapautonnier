@@ -124,18 +124,10 @@
 }
 
 .offers-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  
-  @media (min-width: 932px) {
-    flex-direction: row;
-  }
+@include grid-3;
   
   .offer-card {
     @include highlight-card;
-    width: 100%;
     
     h3 {
       color: $main-color;

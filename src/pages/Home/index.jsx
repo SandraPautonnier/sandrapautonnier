@@ -88,6 +88,11 @@ const Home = () => {
                     <span>À partir de 690€</span>
                   </div>
                   <div className="offer-card">
+                    <h3>Refonte de site existant</h3>
+                    <p>Donnez un coup de jeune à votre site actuel avec une refonte moderne, performante et adaptée à vos besoins.</p>
+                    <span>À partir de 490€</span>
+                  </div>
+                  <div className="offer-card">
                     <h3>Boutique en ligne Simple</h3>
                     <p>Vendez en ligne facilement grâce à une solution simple et prête à l’emploi, jusqu’à 20 produits.</p>
                     <span>À partir de 790€</span>
@@ -97,15 +102,14 @@ const Home = () => {
                     <p>Une solution professionnelle conçue pour accompagner la croissance de votre activité dans le temps.</p>
                     <span>À partir de 990€</span>
                   </div>
+                  <div className="offer-card">
+                    <h3>Audit & Conseil</h3>
+                    <p>Analyse approfondie de votre site actuel avec des recommandations pour l'améliorer et optimiser sa performance.</p>
+                    <span>À partir de 290€</span>
+                  </div>
                 </div>
-            </section>
-            <section>
-              <h2>Services complémentaires</h2>
-              <div className="container">
-                <div className="card"></div>
-                <div className="card"></div>
-                <div className="card"></div>
-              </div>                         
+                <p className="catch">Remplissez un formulaire pour estimer le prix de votre projet !</p>
+                <Link to="/price" onClick={handleScrollToTop} className="btn">Faire un devis</Link> 
             </section>
             <section className="hook-works">
               <h2>Quelques projets</h2>

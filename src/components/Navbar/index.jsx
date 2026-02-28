@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Logo from "../../assets/images/Logo_Sukiweb_color.webp";
+import Logo from "../../assets/images/Logo_Sukiweb_mono.webp";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);

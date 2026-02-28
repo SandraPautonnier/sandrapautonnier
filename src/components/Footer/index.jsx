@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Logo from "../../assets/images/Logo_Sukiweb_mono.webp";
+import Logo from "../../assets/images/Logo_Sukiweb_color.webp";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faSquareGithub, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faMapLocationDot, faEnvelope, faArrowRight, faShareNodes } from "@fortawesome/free-solid-svg-icons";
@@ -7,12 +7,15 @@ import { faMapLocationDot, faEnvelope, faArrowRight, faShareNodes } from "@forta
 
 
 const Footer = () => {
+  const handleScrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
 
   return (
     <footer>
       <div className='footer-main'>
         <img src={Logo} alt="Logo Sukiweb, une spirale violette" />
-        <h3 className='footer-title'>Sukiweb</h3>
+        <h3 className='footer-title'>Sukiweb - Sandra Pautonnier</h3>
         
       </div>
       
@@ -74,7 +77,7 @@ const Footer = () => {
 
         </div>
       </div>
-      <p className="text-notice"> <Link to="/legalnotice" className='link'>Mentions Légales</Link> &copy; {new Date().getFullYear()} Sukiweb - Sandra Pautonnier</p>
+      <p className="text-notice"> <Link to="/legalnotice" onClick={handleScrollToTop} className='link'>Mentions Légales</Link> &copy; {new Date().getFullYear()} Sukiweb - Sandra Pautonnier</p>
     </footer>
   )
 }

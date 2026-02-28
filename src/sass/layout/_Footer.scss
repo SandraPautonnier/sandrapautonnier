@@ -86,12 +86,12 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 25px;
+    gap: 50px;
     margin-top: 20px;
     @media (max-width: 768px) {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 5px;
         width: 100%;
     }
 }
