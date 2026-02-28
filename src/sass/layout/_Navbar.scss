@@ -56,6 +56,11 @@
                 transform: translateY(-20px);
                 transition: opacity 0.3s ease, transform 0.3s ease;
                 z-index: 5;
+                @include badark-colight-component;
+                @media (min-width: 768px) {
+                background: transparent;
+                border: none;
+                }
                 
                 &.open {
                     opacity: 1;
@@ -86,6 +91,7 @@
         height: 4px;
         border-radius: 25% / 25%;
         margin: 2px 0;
+        background-color: $main-color;
         transition: background-color 0.3s ease;
     }
     

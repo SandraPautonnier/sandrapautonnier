@@ -14,6 +14,7 @@
     overflow: hidden;
     border-radius: 10px;
     width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   .carousel-container {
     overflow: visible;
@@ -37,7 +38,7 @@
         border-radius: 15px;
         background-color: white;
         overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        
         img {
             width: 100%;
             height: 200px;
@@ -78,9 +79,10 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: transparent;
+    background-color: $main-color;
     border-radius: 50%;
-    color: $main-color;
+    border: 1px solid $main-color;
+    color: white;
     border: none;
     padding: 0;
     font-size: 40px;
@@ -94,14 +96,14 @@
     justify-content: center;
     transition: background-color 0.3s ease, color 0.3s ease;
     @media (max-width: 768px) {
-        color: white;
         font-size: 32px;
         width: 56px;
         height: 56px;
     }
     &:hover {
-        background: $main-color;
-        color: white;
+        background: white;
+        color: $main-color;
+        border: 1px solid $main-color;
     }
     
     &.left {

@@ -145,11 +145,7 @@
     background: linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%);
 }
 
-@mixin badark-colight {
-    background-color: #f5f1ed;
-    backdrop-filter: blur(20px);
-    color: $text;
-}
+
 
 @mixin badark-colight-component {
     background-color: $component;
@@ -162,7 +158,7 @@
       background:
     linear-gradient($component, $component) padding-box,
     linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%) border-box;
-    color:$main-color;
+    color:$text;
 }
 
 @mixin underline-active {

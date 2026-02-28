@@ -96,7 +96,7 @@ const ProjectDetail = () => {
                                     <strong>Technologies & Outils utilisés :</strong>
                                     <div className='tech-list'>
                                         {project.technologies.map((tech, index) => (
-                                            <span key={index} className='tech-tag'>{tech}</span>
+                                            <span key={index} className='tag'>{tech}</span>
                                         ))}
                                     </div>
                                 </div>

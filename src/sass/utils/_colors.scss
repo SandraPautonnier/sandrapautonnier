@@ -7,18 +7,6 @@ body.mode {
         font-weight: bold;
     }
     .background-color {
-        @include badark-colight;
-        .nav-ul {
-            @include badark-colight-component;
-            @media (min-width: 768px) {
-                background: transparent;
-                border: none;
-            }
-        }
-        
-        .bar {
-            background-color: $main-color;
-        }
         
         button.toggle-button {
             @include btn;
@@ -33,10 +21,6 @@ body.mode {
         
         select {
             @include badark-colight-component;
-        }
-        
-        .tag {
-            @include badark-colight-tags;
         }
         
 

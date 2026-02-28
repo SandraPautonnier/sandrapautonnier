@@ -71,7 +71,17 @@
     transform: translateY(-20px);
     transition: opacity 0.3s ease, transform 0.3s ease;
     z-index: 5;
+    background-color: #f5f1ed;
+    color: black;
   }
+}
+@media (max-width: 768px) and (min-width: 768px) {
+  .menu-nav nav .nav-ul {
+    background: transparent;
+    border: none;
+  }
+}
+@media (max-width: 768px) {
   .menu-nav nav .nav-ul.open {
     opacity: 1;
     visibility: visible;
@@ -97,6 +107,7 @@
   height: 4px;
   border-radius: 25%/25%;
   margin: 2px 0;
+  background-color: #70588C;
   transition: background-color 0.3s ease;
 }
 .hamburger .close-nav {
@@ -1210,6 +1221,7 @@ table th {
   overflow: hidden;
   border-radius: 10px;
   width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .carousel .carousel-container {
   overflow: visible;
@@ -1233,7 +1245,6 @@ table th {
   border-radius: 15px;
   background-color: white;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .carousel .carousel-slide .slide-content img {
   width: 100%;
@@ -1277,9 +1288,10 @@ table th {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: transparent;
+  background-color: #70588C;
   border-radius: 50%;
-  color: #70588C;
+  border: 1px solid #70588C;
+  color: white;
   border: none;
   padding: 0;
   font-size: 40px;
@@ -1295,15 +1307,15 @@ table th {
 }
 @media (max-width: 768px) {
   .carousel .carousel-button {
-    color: white;
     font-size: 32px;
     width: 56px;
     height: 56px;
   }
 }
 .carousel .carousel-button:hover {
-  background: #70588C;
-  color: white;
+  background: white;
+  color: #70588C;
+  border: 1px solid #70588C;
 }
 .carousel .carousel-button.left {
   left: -70px;
@@ -1434,24 +1446,6 @@ table th {
 body.mode span {
   font-weight: bold;
 }
-body.mode .background-color {
-  background-color: #f5f1ed;
-  backdrop-filter: blur(20px);
-  color: black;
-}
-body.mode .background-color .nav-ul {
-  background-color: #f5f1ed;
-  color: black;
-}
-@media (min-width: 768px) {
-  body.mode .background-color .nav-ul {
-    background: transparent;
-    border: none;
-  }
-}
-body.mode .background-color .bar {
-  background-color: #70588C;
-}
 body.mode .background-color button.toggle-button {
   border-radius: 10px;
   padding: 8px 16px;
@@ -1476,11 +1470,6 @@ body.mode .background-color .formation {
 body.mode .background-color select {
   background-color: #f5f1ed;
   color: black;
-}
-body.mode .background-color .tag {
-  border: 1px solid transparent;
-  background: linear-gradient(#f5f1ed, #f5f1ed) padding-box, linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%) border-box;
-  color: #70588C;
 }
 body.mode .background-color .label-work .base {
   background-color: #f5f1ed;
@@ -1550,6 +1539,9 @@ body .background-color {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-color: #f5f1ed;
+  backdrop-filter: blur(20px);
+  color: black;
 }
 
 .header-main {
@@ -1642,6 +1634,16 @@ button {
 .btn-secondary:hover {
   background-color: #70588C;
   color: white;
+}
+
+.tag {
+  border: 1px solid transparent;
+  background: linear-gradient(#f5f1ed, #f5f1ed) padding-box, linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%) border-box;
+  color: black;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 4px 10px;
 }
 
 .catch {

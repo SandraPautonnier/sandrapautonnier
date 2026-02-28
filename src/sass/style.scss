@@ -59,6 +59,9 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        background-color: #f5f1ed;
+        backdrop-filter: blur(20px);
+        color: $text;
     }
 }
 
@@ -124,10 +127,14 @@ button {
 
 .btn-secondary {
     @include btn-secondary;
-    @include transition-btn
+    @include transition-btn;
 }
 
-
+.tag {
+    @include badark-colight-tags;
+    display: inline-block;
+    @include tags;
+}
 
 .catch {
   color: $main-color;

@@ -60,6 +60,9 @@ const Navbar = () => {
             <Link to="/profile"  onClick={() => setMenuOpen(false)} className={activeUrl === '/profile' ? 'active' : ''}>À PROPOS</Link>
           </li>
           <li className="nav-li">
+            <Link to="/price"  onClick={() => setMenuOpen(false)} className={activeUrl === '/price' ? 'active' : ''}>DEVIS</Link>
+          </li>
+          <li className="nav-li">
             <Link to="/contact"  onClick={() => setMenuOpen(false)} className={activeUrl === '/contact' ? 'active' : ''}>CONTACT</Link>
           </li>
         </ul>

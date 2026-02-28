@@ -110,12 +110,6 @@
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
-
-        .tech-tag {
-            @include badark-colight-tags;
-            display: inline-block;
-            @include tags;
-        }
     }
 }
 

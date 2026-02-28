@@ -11,6 +11,7 @@ import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
 import Legalnotice from './pages/Legalnotice';
 import ProjectDetail from './components/ProjectDetail';
+import Price from './pages/Price';
 import "@fontsource/montserrat";
 
 const router = createBrowserRouter([
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/portfolio/:id",
     element: <ProjectDetail />,
+  },
+    {
+    path: "/price",
+    element: <Price />,
   },
   {
     path: "/contact",
