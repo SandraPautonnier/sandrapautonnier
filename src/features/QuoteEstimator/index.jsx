@@ -1,5 +1,7 @@
 import React, { useMemo, useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronUp, faArrowLeft, faArrowRight, faRotateRight } from '@fortawesome/free-solid-svg-icons';
 
 /**
  * QuoteEstimatorStepperEmail.jsx
@@ -283,7 +285,9 @@ export default function QuoteEstimatorStepperEmail() {
   const [step, setStep] = useState(1);
   const [detailsOpen, setDetailsOpen] = useState(true);
   const [showEmail, setShowEmail] = useState(false);
+  const [showProjectType, setShowProjectType] = useState(false);
   const emailFormRef = useRef(null);
+  const projectTypeRef = useRef(null);
 
   const isAudit = state.projectType === "auditVisibility";
   const isEcom = state.projectType === "ecommerceSimple" || state.projectType === "ecommerceAdvanced";
@@ -581,7 +585,7 @@ export default function QuoteEstimatorStepperEmail() {
 
   return (
     <section className="quote-estimator">
-      <h2>Estimez votre projet</h2>
+      <h2>💰 Estimez votre projet</h2>
 
       {step === 1 && (
         <p>
@@ -591,33 +595,64 @@ export default function QuoteEstimatorStepperEmail() {
         </p>
       )}
 
-      <div>
-        <strong>
+      <div style={{ marginTop: 20, marginBottom: 20 }}>
+        <div style={{ fontSize: '0.9em', color: '#70588C', fontWeight: 600 }}>
           Étape {stepLabel}/{totalSteps}
-        </strong>
+        </div>
       </div>
 
       {/* ÉTAPE 1 */}
       {step === 1 && (
         <div>
-          <h3>Quel est le type de votre projet ?</h3>
+          <h3 style={{ color: '#70588C', marginBottom: 20 }}>📦 Quel est le type de votre projet ?</h3>
 
-          <label>
-            <select value={state.projectType} onChange={(e) => onProjectTypeChange(e.target.value)}>
-              <option value="onePage">Site One Page</option>
-              <option value="pages2to4">Site 2 à 4 pages</option>
-              <option value="pages5plus">Site 5 pages et plus</option>
-              <option value="ecommerceSimple">Boutique en ligne (simple)</option>
-              <option value="ecommerceAdvanced">Boutique en ligne (avancée)</option>
-              <option value="refonte">Refonte de site</option>
-              <option value="auditVisibility">Audit de visibilité</option>
-            </select>
-          </label>
+          <div className="quote-estimator-project-dropdown">
+            <button
+              type="button"
+              className="quote-estimator-project-toggle"
+              onClick={() => setShowProjectType((v) => !v)}
+            >
+              {PRICING.bases[state.projectType]?.label || "Sélectionner un type"}
+              <FontAwesomeIcon
+                icon={faChevronUp}
+                style={{
+                  transition: 'transform 0.2s ease-in-out',
+                  transform: showProjectType ? 'rotate(-180deg)' : 'rotate(0deg)',
+                }}
+              />
+            </button>
+
+            <div
+              className={`quote-estimator-project-content ${showProjectType ? 'open' : 'closed'}`}
+              ref={projectTypeRef}
+              style={{
+                height: showProjectType ? `${projectTypeRef.current?.scrollHeight}px` : "0px",
+                overflow: "hidden",
+                transition: "height 0.2s ease-in-out",
+              }}
+            >
+              <ul className="quote-estimator-project-options">
+                {Object.entries(PRICING.bases).map(([key, item]) => (
+                  <li
+                    key={key}
+                    className={`quote-estimator-project-option ${state.projectType === key ? 'active' : ''}`}
+                    onClick={() => {
+                      onProjectTypeChange(key);
+                      setShowProjectType(false);
+                    }}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    {item.label}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
 
           {state.projectType === "pages2to4" && (
-            <div>
-              <label>
-                Nombre de pages (2 à 4) :{" "}
+            <div style={{ marginTop: 15 }}>
+              <label style={{ fontWeight: 500 }}>
+                📄 Nombre de pages (2 à 4) :{" "}
                 <input
                   type="number"
                   min={2}
@@ -632,9 +667,9 @@ export default function QuoteEstimatorStepperEmail() {
           )}
 
           {state.projectType === "pages5plus" && (
-            <div>
-              <label>
-                Nombre de pages (5 incluses) :{" "}
+            <div style={{ marginTop: 15 }}>
+              <label style={{ fontWeight: 500 }}>
+                📄 Nombre de pages (5 incluses) :{" "}
                 <input
                   type="number"
                   min={5}
@@ -646,9 +681,9 @@ export default function QuoteEstimatorStepperEmail() {
           )}
 
           {isEcom && (
-            <div>
-              <label>
-                Nombre de produits :{" "}
+            <div style={{ marginTop: 15 }}>
+              <label style={{ fontWeight: 500 }}>
+                🛒 Nombre de produits :{" "}
                 <select value={state.productsRange} onChange={(e) => setState((s) => ({ ...s, productsRange: e.target.value }))}>
                   <option value="0_20">0 à 20</option>
                   <option value="21_50">21 à 50</option>
@@ -663,19 +698,19 @@ export default function QuoteEstimatorStepperEmail() {
       {/* ÉTAPE 2 */}
       {step === 2 && !isAudit && (
         <div>
-          <h3>De quoi avez-vous besoin pour votre site ?</h3>
+          <h3 style={{ color: '#70588C', marginBottom: 20 }}>⚙️ De quoi avez-vous besoin pour votre site ?</h3>
 
-          <div>
-            <strong>Déjà inclus :</strong>
-            <ul>
-              <li>{PRICING.included.seoBasic}</li>
-              <li>{PRICING.included.accessibility}</li>
+          <div style={{ backgroundColor: '#f0f0f0', padding: 15, borderRadius: 8, marginBottom: 20 }}>
+            <strong style={{ fontSize: '1.05em', color: '#70588C' }}>✅ Déjà inclus :</strong>
+            <ul style={{ marginTop: 10, marginBottom: 0 }}>
+              <li>🔍 {PRICING.included.seoBasic}</li>
+              <li>♿ {PRICING.included.accessibility}</li>
             </ul>
           </div>
 
           {/* ✅ Fieldset SEO / Analytics (au-dessus) */}
           <fieldset>
-            <legend>SEO & Analyse</legend>
+            <legend>🔍 SEO & Analyse</legend>
             {renderBasicOption("seoAdvanced")}
             {renderBasicOption("analyticsBasic")}
 
@@ -684,7 +719,7 @@ export default function QuoteEstimatorStepperEmail() {
 
           {/* ✅ Fieldset Fonctionnalités (en dessous) */}
           <fieldset style={{ marginTop: 12 }}>
-            <legend>Fonctionnalités à la carte</legend>
+            <legend>⭐ Fonctionnalités à la carte</legend>
             {renderBasicOption("contactForm")}
             {renderBasicOption("booking")}
             {renderBasicOption("mapSection")}
@@ -700,7 +735,7 @@ export default function QuoteEstimatorStepperEmail() {
                   }))
                 }
               />{" "}
-              Multilingue (2 langues) + {formatEUR(PRICING.multilingual.perExtra)} / langue supplémentaire
+              🌍 Multilingue (2 langues) + {formatEUR(PRICING.multilingual.perExtra)} / langue supplémentaire
             </label>
 
             {state.multilingualEnabled && (
@@ -725,7 +760,7 @@ export default function QuoteEstimatorStepperEmail() {
 
           {state.optionsBasic.backOffice && (
             <fieldset style={{ marginTop: 12 }}>
-              <legend>Back-office : que souhaitez-vous gérer ?</legend>
+              <legend>🎛️ Back-office : que souhaitez-vous gérer ?</legend>
 
               <p>Pages du site (Accueil, À propos, Services, Contact…) : inclus</p>
 
@@ -749,7 +784,7 @@ export default function QuoteEstimatorStepperEmail() {
 
           {isEcom && (
             <fieldset style={{ marginTop: 12 }}>
-              <legend>E-commerce</legend>
+              <legend>🛍️ E-commerce</legend>
               {Object.keys(PRICING.ecommerce.features).map((key) => (
                 <label key={key} style={{ display: "block", marginBottom: 6 }}>
                   <input
@@ -773,10 +808,10 @@ export default function QuoteEstimatorStepperEmail() {
       {/* ÉTAPE 3 */}
       {step === 3 && !isAudit && (
         <div>
-          <h3>Avez-vous déjà un nom de domaine et un hébergement ?</h3>
+          <h3 style={{ color: '#70588C', marginBottom: 20 }}>🌐 Avez-vous déjà un nom de domaine et un hébergement ?</h3>
 
           <fieldset style={{ marginTop: 12 }}>
-            <legend>Nom de domaine</legend>
+            <legend>🏠 Nom de domaine</legend>
 
             <label style={{ display: "block", marginBottom: 6 }}>
               <input
@@ -808,13 +843,13 @@ export default function QuoteEstimatorStepperEmail() {
           </fieldset>
 
           <fieldset style={{ marginTop: 12 }}>
-            <legend>Maintenance & Hébergement</legend>
+            <legend>🔧 Maintenance & Hébergement</legend>
 
             {!maintenanceAvailable ? (
-              <p>Non incluse pour cette offre (sur devis).</p>
+              <p style={{ fontStyle: 'italic', color: '#666' }}>📌 Non incluse pour cette offre (sur devis).</p>
             ) : (
               <>
-                <p>L'option maintenance comprend la publication, les mises à jour et la sécurité.</p>
+                <p style={{ backgroundColor: '#fff9f0', padding: 10, borderLeft: '4px solid #70588C', borderRadius: 4, marginBottom: 15 }}>L'option maintenance comprend 📤 la publication, 🔄 les mises à jour et 🔒 la sécurité.</p>
 
                 <label style={{ display: "block", marginBottom: 6 }}>
                   <input
@@ -854,11 +889,11 @@ export default function QuoteEstimatorStepperEmail() {
       {/* ÉTAPE 4 */}
       {step === 4 && !isAudit && (
         <div>
-          <h3>Avez-vous besoin de services supplémentaires ?</h3>
+          <h3 style={{ color: '#70588C', marginBottom: 20 }}>🤝 Avez-vous besoin de services supplémentaires ?</h3>
 
           <RadioGroup
             name="design"
-            title="Design"
+            title="🎨 Design"
             value={state.designChoice}
             onChange={(v) => setState((s) => ({ ...s, designChoice: v }))}
             choices={PRICING.partnerChoices.design}
@@ -866,7 +901,7 @@ export default function QuoteEstimatorStepperEmail() {
 
           <RadioGroup
             name="copy"
-            title="Rédaction"
+            title="✍️ Rédaction"
             value={state.copyChoice}
             onChange={(v) => setState((s) => ({ ...s, copyChoice: v }))}
             choices={PRICING.partnerChoices.copy}
@@ -874,7 +909,7 @@ export default function QuoteEstimatorStepperEmail() {
 
           <RadioGroup
             name="social"
-            title="Réseaux sociaux"
+            title="📱 Réseaux sociaux"
             value={state.socialChoice}
             onChange={(v) => setState((s) => ({ ...s, socialChoice: v }))}
             choices={PRICING.partnerChoices.social}
@@ -885,19 +920,19 @@ export default function QuoteEstimatorStepperEmail() {
       {/* ÉTAPE 5 */}
       {step === 5 && (
         <div>
-          <h3>Votre estimation</h3>
+          <h3 style={{ color: "$main-color", marginBottom: 20 }}>✓ Votre estimation</h3>
 
-          <div style={{ textAlign: "center", fontSize: "1.2em", fontWeight: 600, marginTop: 15 }}>
+          <div style={{ textAlign: "center", fontSize: "1.5em", fontWeight: 700, marginTop: 15, color: "#70588C", letterSpacing: "0.5px" }}>
             {estimateTotal}
           </div>
 
-          <div style={{ marginTop: 10, display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
+          <div style={{ marginTop: 15, display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
             <a href="/contact">
-              <button type="button">Prendre un rdv</button>
+              <button type="button">📅 Prendre un RDV</button>
             </a>
 
             <a href="/contact">
-              <button type="button">Me contacter</button>
+              <button type="button">💬 Me contacter</button>
             </a>
           </div>
 
@@ -912,7 +947,7 @@ export default function QuoteEstimatorStepperEmail() {
                 transition: 'transform 0.2s ease-in-out',
                 transform: showEmail ? 'rotate(-180deg)' : 'rotate(0deg)',
               }}>▼</span>
-              {showEmail ? "Fermer" : "Recevoir l'estimation par email (optionnel)"}
+              {showEmail ? "Fermer" : "📧 Recevoir l'estimation par email"}
             </button>
 
             <div
@@ -934,7 +969,7 @@ export default function QuoteEstimatorStepperEmail() {
 
                 <div>
                   <label>
-                    Email * :
+                    Email :
                     <input required type="email" value={clientEmail} onChange={(e) => setClientEmail(e.target.value)} />
                   </label>
                 </div>
@@ -948,8 +983,9 @@ export default function QuoteEstimatorStepperEmail() {
             </div>
           </div>
 
-          <p style={{ fontSize: "0.85em", color: "#666", marginTop: 10, textAlign: "center" }}>
-            Vos données ne sont pas collectées à des fins commerciales.
+          <p style={{ fontSize: "0.9em", color: "#555", marginTop: 10, textAlign: "center", fontWeight: "500", lineHeight: "1.5" }}>
+            Vos données <strong>ne sont pas collectées à des fins de prospection.</strong><br />
+            Je collecte seulement les réponses <strong>à des fins d'amélioration de service.</strong>
           </p>
 
           <hr />
@@ -961,7 +997,7 @@ export default function QuoteEstimatorStepperEmail() {
               onClick={() => setDetailsOpen(!detailsOpen)}
             >
               <span className={`quote-details-icon ${detailsOpen ? 'open' : ''}`}>▼</span>
-              Récapitulatif de votre projet
+              📋 Détails de votre projet
             </button>
             
             <div className={`quote-details-content ${detailsOpen ? 'open' : ''}`}>
@@ -979,19 +1015,19 @@ export default function QuoteEstimatorStepperEmail() {
       <div>
         {step > 1 && (
           <button type="button" onClick={prev}>
-            Retour
+            <FontAwesomeIcon icon={faArrowLeft} /> Retour
           </button>
         )}
 
         {(isAudit ? step < 5 : step < 5) && (
           <button type="button" onClick={next}>
-            Suivant
+            Suivant <FontAwesomeIcon icon={faArrowRight} />
           </button>
         )}
 
         {step === 5 && (
           <button type="button" onClick={restart}>
-            Recommencer
+            <FontAwesomeIcon icon={faRotateRight} /> Recommencer
           </button>
         )}
       </div>
