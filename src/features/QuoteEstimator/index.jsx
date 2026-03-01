@@ -21,7 +21,7 @@ const PRICING = {
     ecommerceAdvanced: { label: "Boutique en ligne (avancée)", min: 990, max: 990 },
 
     refonte: { label: "Refonte de site", min: 590, max: 890 },
-    auditVisibility: { label: "Audit de visibilité", min: 190, max: 290 },
+    auditVisibility: { label: "Audit de visibilité", min: 190, max: 190 },
   },
 
   included: {
@@ -30,29 +30,29 @@ const PRICING = {
   },
 
   optionsBasic: {
-    contactForm: { label: "Formulaire de contact + anti-spam", min: 60, max: 120 },
-    seoAdvanced: { label: "SEO avancé (mini-audit + optimisations + reco)", min: 250, max: 450 },
-    analyticsBasic: { label: "Analytics de base", min: 50, max: 120 },
+    contactForm: { label: "Formulaire de contact", min: 50, max: 50 },
+    booking: { label: "Prise de RDV", min: 50, max: 50 },
     blog: { label: "Blog", min: 180, max: 350 },
-    booking: { label: "Prise de RDV (Calendly)", min: 80, max: 180 },
-    multilingual: { label: "Multilingue (2 langues)", min: 250, max: 450 },
+    seoAdvanced: { label: "SEO avancé (optimisations)", min: 190, max: 190 },
+    analyticsBasic: { label: "Google Analytics", min: 50, max: 50 },
+    multilingual: { label: "Multilingue (2 langues)", min: 250, max: 250 },
   },
 
   partnerChoices: {
     design: {
-      none: { label: "Aucune", min: 0, max: 0 },
-      simple: { label: "Charte graphique simple (logo simple + éléments graphiques)", min: 180, max: 180 },
-      partner: { label: "Appel à un graphiste partenaire", min: 0, max: 0, partnerOnly: true },
+      none: { label: "J'ai déjà un super logo et une magnifique charte graphique", min: 0, max: 0 },
+      simple: { label: "Charte graphique simple (logo simple + éléments graphiques + template réseaux sociaux)", min: 90, max: 90 },
+      partner: { label: "Je souhaite faire appel à un(e) graphiste partenaire", min: 0, max: 0, partnerOnly: true },
     },
     copy: {
-      none: { label: "Aucune", min: 0, max: 0 },
+      none: { label: "J'ai déjà un contenu prêt à l'emploi", min: 0, max: 0 },
       basic: { label: "Rédaction (jusqu’à 5 sections)", min: 180, max: 180 },
-      partner: { label: "Appel à un copywriting partenaire", min: 0, max: 0, partnerOnly: true },
+      partner: { label: "Je souhaite faire appel à un(e) rédacteur(trice) partenaire", min: 0, max: 0, partnerOnly: true },
     },
     social: {
-      none: { label: "Aucune", min: 0, max: 0 },
+      none: { label: "Je n'ai pas besoin d'aide pour les réseaux sociaux", min: 0, max: 0 },
       basic: { label: "Aide réseaux sociaux (mise en place + conseils)", min: 90, max: 90 },
-      partner: { label: "Community manager partenaire", min: 0, max: 0, partnerOnly: true },
+      partner: { label: "Je souhaite faire appel à un(e) community manager partenaire", min: 0, max: 0, partnerOnly: true },
     },
   },
 
@@ -104,14 +104,18 @@ function calcEstimate(state) {
     const extra = Math.max(0, pagesCount - included);
     if (extra > 0) {
       const per = PRICING.pages.extraPage;
-      items.push({ label: `${per.label} × ${extra}`, min: per.min * extra, max: per.max * extra });
+      items.push({
+        label: `${per.label} × ${extra}`,
+        min: per.min * extra,
+        max: per.max * extra,
+      });
     }
   }
 
   const isEcom = state.projectType === "ecommerceSimple" || state.projectType === "ecommerceAdvanced";
-
-  // IMPORTANT: Audit visibilité => aucune option
   const isAudit = state.projectType === "auditVisibility";
+
+  // Audit visibilité => aucune option
   if (!isAudit) {
     // Options basiques (checkbox)
     Object.entries(state.optionsBasic).forEach(([key, enabled]) => {
@@ -163,6 +167,9 @@ const defaultState = {
   projectType: "pages3to5",
   pagesCount: 5,
 
+  // CHOIX maintenance: "yes" | "no"
+  maintenanceChoice: "yes",
+
   optionsBasic: {
     contactForm: true,
     seoAdvanced: false,
@@ -191,7 +198,11 @@ function RadioGroup({ name, title, value, onChange, choices }) {
       <legend>{title}</legend>
       {Object.entries(choices).map(([key, item]) => {
         const priceHint =
-          item.partnerOnly ? " (sur devis)" : item.min === item.max && item.min > 0 ? ` — ${formatEUR(item.min)}` : "";
+          item.partnerOnly
+            ? " (sur devis)"
+            : item.min === item.max && item.min > 0
+              ? ` — ${formatEUR(item.min)}`
+              : "";
         return (
           <label key={key} style={{ display: "block", marginBottom: 6 }}>
             <input type="radio" name={name} checked={value === key} onChange={() => onChange(key)} />{" "}
@@ -206,15 +217,18 @@ function RadioGroup({ name, title, value, onChange, choices }) {
 
 export default function QuoteEstimatorStepperEmail() {
   const [state, setState] = useState(defaultState);
-  const [step, setStep] = useState(1); // 1 type, 2 options basiques, 3 spécifiques, 4 récap
+  const [step, setStep] = useState(1);
 
   const isAudit = state.projectType === "auditVisibility";
   const isEcom = state.projectType === "ecommerceSimple" || state.projectType === "ecommerceAdvanced";
 
   const estimate = useMemo(() => calcEstimate(state), [state]);
 
-  const hasMaintenance = Object.prototype.hasOwnProperty.call(PRICING.maintenanceMonthlyByProject, state.projectType);
-  const maintenanceMonthly = hasMaintenance ? PRICING.maintenanceMonthlyByProject[state.projectType] : 0;
+  // Maintenance dispo uniquement si le projet est dans maintenanceMonthlyByProject
+  const maintenanceAvailable = Object.prototype.hasOwnProperty.call(PRICING.maintenanceMonthlyByProject, state.projectType);
+  const maintenanceMonthly = maintenanceAvailable ? PRICING.maintenanceMonthlyByProject[state.projectType] : 0;
+
+  const maintenanceSelected = maintenanceAvailable && state.maintenanceChoice === "yes";
 
   const projectTypeLabel = PRICING.bases[state.projectType]?.label || "";
 
@@ -276,13 +290,16 @@ export default function QuoteEstimatorStepperEmail() {
       lines.push("Options : aucune (audit uniquement)");
     }
 
+    // Maintenance choisie
     lines.push("");
-    if (maintenanceMonthly > 0) {
-      lines.push(
-        `Maintenance (mensuelle) : ${formatEUR(maintenanceMonthly)}/mois (hébergement + mises à jour + sécurité)`
-      );
-    } else {
+    if (!maintenanceAvailable) {
       lines.push("Maintenance : non incluse (sur devis)");
+    } else {
+      lines.push(
+        `Maintenance : ${maintenanceSelected ? "Oui" : "Non"}${
+          maintenanceSelected ? ` — ${formatEUR(maintenanceMonthly)}/mois` : ""
+        } (hébergement + mises à jour + sécurité)`
+      );
     }
 
     lines.push("");
@@ -304,12 +321,14 @@ export default function QuoteEstimatorStepperEmail() {
     state.designChoice,
     state.copyChoice,
     state.socialChoice,
+    maintenanceAvailable,
+    maintenanceSelected,
     maintenanceMonthly,
     pricedLines,
     estimateTotal,
   ]);
 
-  // Email optionnel (uniquement en step 4)
+  // Email optionnel (uniquement step 4)
   const [showEmail, setShowEmail] = useState(false);
   const [clientName, setClientName] = useState("");
   const [clientEmail, setClientEmail] = useState("");
@@ -332,7 +351,11 @@ export default function QuoteEstimatorStepperEmail() {
         project_type: projectTypeLabel,
         estimate_total: estimateTotal,
         details: detailsText,
-        maintenance_monthly: maintenanceMonthly > 0 ? `${formatEUR(maintenanceMonthly)}/mois` : "Non incluse",
+        maintenance_monthly: !maintenanceAvailable
+          ? "Non incluse"
+          : maintenanceSelected
+            ? `${formatEUR(maintenanceMonthly)}/mois`
+            : "Non",
       };
 
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, { publicKey: PUBLIC_KEY });
@@ -349,7 +372,6 @@ export default function QuoteEstimatorStepperEmail() {
   };
 
   const next = () => {
-    // si audit visibilité, step 1 -> step 4 direct
     if (step === 1 && state.projectType === "auditVisibility") {
       setStep(4);
       return;
@@ -360,7 +382,6 @@ export default function QuoteEstimatorStepperEmail() {
   };
 
   const prev = () => {
-    // si on revient depuis audit (step 4) -> step 1
     if (step === 4 && state.projectType === "auditVisibility") {
       setStep(1);
       return;
@@ -370,10 +391,34 @@ export default function QuoteEstimatorStepperEmail() {
     setStatus("");
   };
 
+  const restart = () => {
+    setState(defaultState);
+    setStep(1);
+    setShowEmail(false);
+    setStatus("");
+    setClientName("");
+    setClientEmail("");
+  };
+
+  // Quand le type change, on remet le choix maintenance par défaut sur "yes"
+  const onProjectTypeChange = (value) => {
+    setState((s) => ({
+      ...s,
+      projectType: value,
+      pagesCount: value === "pages5plus" ? Math.max(5, s.pagesCount) : s.pagesCount,
+      maintenanceChoice: "yes",
+    }));
+  };
+
   return (
     <section>
-      <h2>Estimation du prix</h2>
-      <p>Estimation indicative (le devis final dépendra du besoin exact).</p>
+      <h2>Estimez votre projet</h2>
+      {step === 1 && (
+        <p>
+        Sélectionnez les caractéristiques de votre projet <br />
+        pour obtenir une estimation indicative (le devis final dépendra du besoin exact).
+        </p>
+      )}
 
       <div style={{ marginBottom: 10 }}>
         <strong>Étape {step}/4</strong>
@@ -381,20 +426,11 @@ export default function QuoteEstimatorStepperEmail() {
 
       {step === 1 && (
         <div>
-          <h3>1) Type de projet</h3>
+          <h3>Quel est le type de votre projet ?</h3>
 
           <label>
             Projet :{" "}
-            <select
-              value={state.projectType}
-              onChange={(e) =>
-                setState((s) => ({
-                  ...s,
-                  projectType: e.target.value,
-                  pagesCount: e.target.value === "pages5plus" ? Math.max(5, s.pagesCount) : s.pagesCount,
-                }))
-              }
-            >
+            <select value={state.projectType} onChange={(e) => onProjectTypeChange(e.target.value)}>
               <option value="onePage">Site One Page</option>
               <option value="pages3to5">Site 3 à 5 pages</option>
               <option value="pages5plus">Site 5 pages et plus</option>
@@ -439,7 +475,15 @@ export default function QuoteEstimatorStepperEmail() {
 
       {step === 2 && !isAudit && (
         <div>
-          <h3>2) Options basiques</h3>
+          <h3>Qu'avez-vous besoin ?</h3>
+
+              <div style={{ marginBottom: 12 }}>
+                <strong>Déjà inclus :</strong>
+                <ul>
+                  <li>{PRICING.included.seoBasic}</li>
+                  <li>{PRICING.included.accessibility}</li>
+                </ul>
+              </div>
 
           <fieldset>
             <legend>Options</legend>
@@ -458,6 +502,37 @@ export default function QuoteEstimatorStepperEmail() {
                 {PRICING.optionsBasic[key].label}
               </label>
             ))}
+          </fieldset>
+
+          {/* Choix maintenance */}
+          <fieldset style={{ marginTop: 12 }}>
+            <legend>Maintenance</legend>
+
+            {!maintenanceAvailable ? (
+              <p>Non incluse pour cette offre (sur devis).</p>
+            ) : (
+              <>
+                <label style={{ display: "block", marginBottom: 6 }}>
+                  <input
+                    type="radio"
+                    name="maintenance"
+                    checked={state.maintenanceChoice === "yes"}
+                    onChange={() => setState((s) => ({ ...s, maintenanceChoice: "yes" }))}
+                  />{" "}
+                  Oui — {formatEUR(maintenanceMonthly)}/mois (hébergement + mises à jour + sécurité)
+                </label>
+
+                <label style={{ display: "block", marginBottom: 6 }}>
+                  <input
+                    type="radio"
+                    name="maintenance"
+                    checked={state.maintenanceChoice === "no"}
+                    onChange={() => setState((s) => ({ ...s, maintenanceChoice: "no" }))}
+                  />{" "}
+                  Non - J'ai déjà un hébergement ou je préfère gérer ça de mon côté
+                </label>
+              </>
+            )}
           </fieldset>
 
           {isEcom && (
@@ -485,7 +560,7 @@ export default function QuoteEstimatorStepperEmail() {
 
       {step === 3 && !isAudit && (
         <div>
-          <h3>3) Options spécifiques</h3>
+          <h3>Avez-vous besoin de services supplémentaires ?</h3>
 
           <RadioGroup
             name="design"
@@ -515,11 +590,13 @@ export default function QuoteEstimatorStepperEmail() {
 
       {step === 4 && (
         <div>
-          <h3>4) Récapitulatif</h3>
+          <h3>Récapitulatif</h3>
 
           <div>
             <strong>Votre estimation :</strong> {estimateTotal}
-            {maintenanceMonthly > 0 && <span> (+ {formatEUR(maintenanceMonthly)}/mois maintenance)</span>}
+            {maintenanceAvailable && maintenanceSelected && (
+              <span> (+ {formatEUR(maintenanceMonthly)}/mois maintenance)</span>
+            )}
           </div>
 
           <div style={{ marginTop: 10 }}>
@@ -540,12 +617,7 @@ export default function QuoteEstimatorStepperEmail() {
               <div>
                 <label>
                   Email * :
-                  <input
-                    required
-                    type="email"
-                    value={clientEmail}
-                    onChange={(e) => setClientEmail(e.target.value)}
-                  />
+                  <input required type="email" value={clientEmail} onChange={(e) => setClientEmail(e.target.value)} />
                 </label>
               </div>
 
@@ -569,8 +641,21 @@ export default function QuoteEstimatorStepperEmail() {
       <hr />
 
       <div>
-        {step > 1 && <button type="button" onClick={prev}>Retour</button>}
-        {step < 4 && <button type="button" onClick={next}>Suivant</button>}
+        {step > 1 && (
+          <button type="button" onClick={prev}>
+            Retour
+          </button>
+        )}
+        {step < 4 && (
+          <button type="button" onClick={next}>
+            Suivant
+          </button>
+        )}
+        {step === 4 && (
+          <button type="button" onClick={restart}>
+            Recommencer
+          </button>
+        )}
       </div>
     </section>
   );

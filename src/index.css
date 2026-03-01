@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap");
 .logo {
   max-width: 50px;
@@ -1369,6 +1370,370 @@ table th {
   bottom: 15px;
   left: 15px;
   font-size: 17px;
+}
+
+section {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 30px;
+}
+section:has(h2:nth-of-type(1)) h2 {
+  margin-bottom: 15px;
+}
+@media (max-width: 768px) {
+  section {
+    padding: 0 20px;
+  }
+}
+
+div[style*="marginBottom: 10"] {
+  padding: 12px 20px;
+  background-color: rgba(112, 88, 140, 0.08);
+  border-left: 4px solid #70588C;
+  border-radius: 4px;
+  font-weight: 500;
+  color: #70588C;
+  margin-bottom: 20px !important;
+}
+
+section > div:not([style*=margin]) {
+  margin: 30px 0;
+}
+section > div:not([style*=margin]) h3 {
+  color: #70588C;
+  font-size: 1.3rem;
+  margin: 20px 0 15px 0;
+}
+section > div:not([style*=margin]) p {
+  color: black;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: black;
+}
+label select,
+label input[type=number],
+label input[type=email],
+label input[type=text] {
+  margin-left: 8px;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  color: black;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+label select:focus,
+label input[type=number]:focus,
+label input[type=email]:focus,
+label input[type=text]:focus {
+  outline: none;
+  border-color: #70588C;
+  box-shadow: 0 0 0 3px rgba(112, 88, 140, 0.1);
+}
+label select::placeholder,
+label input[type=number]::placeholder,
+label input[type=email]::placeholder,
+label input[type=text]::placeholder {
+  color: #999;
+}
+label select {
+  cursor: pointer;
+  appearance: none;
+  padding-right: 30px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2370588C' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+fieldset {
+  border: none;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: rgba(245, 241, 237, 0.5);
+  margin: 20px 0;
+}
+fieldset legend {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #70588C;
+  padding: 0 10px;
+  margin-bottom: 15px;
+}
+fieldset label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+fieldset label:hover {
+  color: #70588C;
+}
+fieldset label input[type=checkbox],
+fieldset label input[type=radio] {
+  margin-right: 10px;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  accent-color: #70588C;
+}
+fieldset p {
+  font-style: italic;
+  color: #666;
+  margin: 10px 0;
+}
+fieldset ul {
+  margin-left: 20px;
+}
+fieldset ul li {
+  color: black;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+div:has(strong:contains("estimation")) {
+  padding: 25px;
+  background: linear-gradient(135deg, rgba(112, 88, 140, 0.08) 0%, rgba(255, 204, 251, 0.08) 100%);
+  border: 2px solid #70588C;
+  border-radius: 10px;
+  margin: 25px 0;
+  text-align: center;
+}
+div:has(strong:contains("estimation")) strong {
+  display: block;
+  color: black;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+div:has(strong:contains("estimation")) span {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #70588C;
+  margin-top: 10px;
+}
+@media (max-width: 768px) {
+  div:has(strong:contains("estimation")) span {
+    font-size: 1.8rem;
+  }
+}
+@italic {
+  div:has(strong:contains("estimation")) span {
+    font-size: 0.85rem;
+    color: #666;
+    font-weight: 400;
+    display: inline-block;
+    margin-left: 10px;
+  }
+}
+
+button {
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: #70588C;
+  border: 1px solid transparent;
+  color: white;
+  margin: 0 auto;
+  max-width: max-content;
+  cursor: pointer;
+  border: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin: 5px 5px 5px 0;
+}
+button:hover:not(:disabled) {
+  box-shadow: 0 4px 12px rgba(112, 88, 140, 0.3);
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+@media (max-width: 768px) {
+  button {
+    display: block;
+    width: 100%;
+  }
+}
+
+section > div:last-of-type {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+@media (max-width: 768px) {
+  section > div:last-of-type {
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+  section > div:last-of-type button {
+    width: 100%;
+  }
+}
+
+form {
+  padding: 20px;
+  background-color: rgba(245, 241, 237, 0.3);
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin: 15px 0;
+}
+form > div {
+  margin-bottom: 15px;
+}
+form > div:last-of-type {
+  margin-bottom: 0;
+}
+form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+form label input {
+  width: 100%;
+  box-sizing: border-box;
+}
+form button {
+  margin-top: 15px;
+  width: auto;
+}
+form p {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 500;
+}
+form p:contains("✅") {
+  background-color: rgba(76, 175, 80, 0.15);
+  color: #2e7d32;
+}
+form p:contains("Échec") {
+  background-color: rgba(244, 67, 54, 0.15);
+  color: #c62828;
+}
+
+details {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: rgba(245, 241, 237, 0.4);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #70588C;
+  padding: 10px 0;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+details summary:hover {
+  color: #70588C;
+  opacity: 0.8;
+}
+details pre {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 13px;
+  line-height: 1.6;
+  color: black;
+  border-left: 4px solid #70588C;
+}
+
+hr {
+  margin: 30px 0;
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #70588C, transparent);
+}
+
+@media (max-width: 768px) {
+  fieldset {
+    padding: 15px;
+  }
+  fieldset legend {
+    font-size: 0.95rem;
+  }
+  label {
+    font-size: 14px;
+  }
+  label select,
+  label input {
+    margin-left: 6px;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  section > div:has(strong:contains("estimation")) {
+    padding: 18px;
+    margin: 20px 0;
+  }
+  section > div:has(strong:contains("estimation")) span {
+    font-size: 1.5rem;
+  }
+  button {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+  details pre {
+    font-size: 12px;
+    padding: 12px;
+  }
+}
+body.mode section h3 {
+  color: #70588C;
+}
+body.mode label {
+  color: #404044;
+}
+body.mode label select,
+body.mode label input {
+  background-color: #f5f1ed;
+  color: black;
+  border-color: rgba(112, 88, 140, 0.3);
+}
+body.mode label select:focus,
+body.mode label input:focus {
+  border-color: #70588C;
+}
+body.mode fieldset {
+  background-color: rgba(112, 88, 140, 0.1);
+}
+body.mode form {
+  background-color: rgba(112, 88, 140, 0.08);
+  border-color: rgba(112, 88, 140, 0.3);
+}
+body.mode details {
+  background-color: rgba(112, 88, 140, 0.08);
+  border-color: rgba(112, 88, 140, 0.3);
+}
+body.mode details pre {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #f5f1ed;
 }
 
 body.mode span {

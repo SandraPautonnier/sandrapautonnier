@@ -1,0 +1,406 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+// QuoteEstimator Section Container
+section {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 30px;
+
+  &:has(h2:nth-of-type(1)) {
+    h2 {
+      margin-bottom: 15px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
+}
+
+// Step indicator
+div[style*="marginBottom: 10"] {
+  padding: 12px 20px;
+  background-color: rgba($main-color, 0.08);
+  border-left: 4px solid $main-color;
+  border-radius: 4px;
+  font-weight: 500;
+  color: $main-color;
+  margin-bottom: 20px !important;
+}
+
+// Main container for step content
+section > div:not([style*="margin"]) {
+  margin: 30px 0;
+
+  h3 {
+    color: $main-color;
+    font-size: 1.3rem;
+    margin: 20px 0 15px 0;
+  }
+
+  p {
+    color: $text;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+}
+
+
+// Selects and Inputs
+label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: $text;
+
+  select,
+  input[type="number"],
+  input[type="email"],
+  input[type="text"] {
+    margin-left: 8px;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 14px;
+    color: $text;
+    background-color: white;
+    transition: all 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $main-color;
+      box-shadow: 0 0 0 3px rgba($main-color, 0.1);
+    }
+
+    &::placeholder {
+      color: #999;
+    }
+  }
+
+  select {
+    cursor: pointer;
+    appearance: none;
+    padding-right: 30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2370588C' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+  }
+}
+
+// Fieldsets & Legends
+fieldset {
+  border: none;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: rgba($component, 0.5);
+  margin: 20px 0;
+
+  legend {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: $main-color;
+    padding: 0 10px;
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $main-color;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      margin-right: 10px;
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
+      accent-color: $main-color;
+    }
+  }
+
+  p {
+    font-style: italic;
+    color: #666;
+    margin: 10px 0;
+  }
+
+  ul {
+    margin-left: 20px;
+
+    li {
+      color: $text;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+  }
+}
+
+// Estimation Box - prominent display
+div:has(strong:contains("estimation")) {
+  padding: 25px;
+  background: linear-gradient(135deg, rgba($main-color, 0.08) 0%, rgba($secondary-color, 0.08) 100%);
+  border: 2px solid $main-color;
+  border-radius: 10px;
+  margin: 25px 0;
+  text-align: center;
+
+  strong {
+    display: block;
+    color: $text;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  span {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: $main-color;
+    margin-top: 10px;
+
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+    }
+
+    @italic {
+      font-size: 0.85rem;
+      color: #666;
+      font-weight: 400;
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+}
+
+// Buttons
+button {
+  @include btn;
+  @include btn-color-main;
+  cursor: pointer;
+  border: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin: 5px 5px 5px 0;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 768px) {
+    display: block;
+    width: 100%;
+  }
+}
+
+// Button container at bottom
+section > div:last-of-type {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  button {
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+}
+
+// Email Form
+form {
+  padding: 20px;
+  background-color: rgba($component, 0.3);
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin: 15px 0;
+
+  > div {
+    margin-bottom: 15px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    input {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+  button {
+    margin-top: 15px;
+    width: auto;
+  }
+
+  p {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+
+    &:contains("✅") {
+      background-color: rgba(76, 175, 80, 0.15);
+      color: #2e7d32;
+    }
+
+    &:contains("Échec") {
+      background-color: rgba(244, 67, 54, 0.15);
+      color: #c62828;
+    }
+  }
+}
+
+// Details/Recap
+details {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: rgba($component, 0.4);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: $main-color;
+    padding: 10px 0;
+    user-select: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $main-color;
+      opacity: 0.8;
+    }
+  }
+
+  pre {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.6;
+    color: $text;
+    border-left: 4px solid $main-color;
+  }
+}
+
+// HR separators
+hr {
+  margin: 30px 0;
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, $main-color, transparent);
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  fieldset {
+    padding: 15px;
+
+    legend {
+      font-size: 0.95rem;
+    }
+  }
+
+  label {
+    font-size: 14px;
+
+    select,
+    input {
+      margin-left: 6px;
+      padding: 8px 10px;
+      font-size: 13px;
+    }
+  }
+
+  section > div:has(strong:contains("estimation")) {
+    padding: 18px;
+    margin: 20px 0;
+
+    span {
+      font-size: 1.5rem;
+    }
+  }
+
+  button {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  details pre {
+    font-size: 12px;
+    padding: 12px;
+  }
+}
+
+// Dark mode support
+body.mode {
+  section {
+    h3 {
+      color: $main-color;
+    }
+  }
+
+  label {
+    color: $light-text;
+
+    select,
+    input {
+      background-color: $component;
+      color: $text;
+      border-color: rgba($main-color, 0.3);
+
+      &:focus {
+        border-color: $main-color;
+      }
+    }
+  }
+
+  fieldset {
+    background-color: rgba($main-color, 0.1);
+  }
+
+  form {
+    background-color: rgba($main-color, 0.08);
+    border-color: rgba($main-color, 0.3);
+  }
+
+  details {
+    background-color: rgba($main-color, 0.08);
+    border-color: rgba($main-color, 0.3);
+
+    pre {
+      background-color: rgba(0, 0, 0, 0.3);
+      color: #f5f1ed;
+    }
+  }
+}
