@@ -1372,23 +1372,22 @@ table th {
   font-size: 17px;
 }
 
-section {
+.quote-estimator {
   max-width: 1240px;
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
   padding: 0 30px;
 }
-section:has(h2:nth-of-type(1)) h2 {
+.quote-estimator:has(h2:nth-of-type(1)) h2 {
   margin-bottom: 15px;
 }
 @media (max-width: 768px) {
-  section {
+  .quote-estimator {
     padding: 0 20px;
   }
 }
-
-div[style*="marginBottom: 10"] {
+.quote-estimator div[style*="marginBottom: 10"] {
   padding: 12px 20px;
   background-color: rgba(112, 88, 140, 0.08);
   border-left: 4px solid #70588C;
@@ -1397,31 +1396,40 @@ div[style*="marginBottom: 10"] {
   color: #70588C;
   margin-bottom: 20px !important;
 }
-
-section > div:not([style*=margin]) {
+.quote-estimator h3 {
+  color: #70588C;
+  font-size: 1.3rem;
+  margin: 20px 0;
+  text-align: center;
+}
+.quote-estimator p {
+  width: 768px;
+  max-width: 100%;
+}
+.quote-estimator section > div:not([style*=margin]) {
   margin: 30px 0;
 }
-section > div:not([style*=margin]) h3 {
+.quote-estimator section > div:not([style*=margin]) h3 {
   color: #70588C;
   font-size: 1.3rem;
   margin: 20px 0 15px 0;
+  text-align: center;
 }
-section > div:not([style*=margin]) p {
+.quote-estimator section > div:not([style*=margin]) p {
   color: black;
   margin-bottom: 20px;
   line-height: 1.6;
 }
-
-label {
+.quote-estimator label {
   display: block;
   margin-bottom: 15px;
   font-weight: 500;
   color: black;
 }
-label select,
-label input[type=number],
-label input[type=email],
-label input[type=text] {
+.quote-estimator label select,
+.quote-estimator label input[type=number],
+.quote-estimator label input[type=email],
+.quote-estimator label input[type=text] {
   margin-left: 8px;
   padding: 10px 12px;
   border: 1px solid #ddd;
@@ -1432,21 +1440,21 @@ label input[type=text] {
   background-color: white;
   transition: all 0.3s ease;
 }
-label select:focus,
-label input[type=number]:focus,
-label input[type=email]:focus,
-label input[type=text]:focus {
+.quote-estimator label select:focus,
+.quote-estimator label input[type=number]:focus,
+.quote-estimator label input[type=email]:focus,
+.quote-estimator label input[type=text]:focus {
   outline: none;
   border-color: #70588C;
   box-shadow: 0 0 0 3px rgba(112, 88, 140, 0.1);
 }
-label select::placeholder,
-label input[type=number]::placeholder,
-label input[type=email]::placeholder,
-label input[type=text]::placeholder {
+.quote-estimator label select::placeholder,
+.quote-estimator label input[type=number]::placeholder,
+.quote-estimator label input[type=email]::placeholder,
+.quote-estimator label input[type=text]::placeholder {
   color: #999;
 }
-label select {
+.quote-estimator label select {
   cursor: pointer;
   appearance: none;
   padding-right: 30px;
@@ -1454,22 +1462,19 @@ label select {
   background-repeat: no-repeat;
   background-position: right 10px center;
 }
-
-fieldset {
+.quote-estimator fieldset {
   border: none;
   padding: 20px;
   border-radius: 8px;
   background-color: rgba(245, 241, 237, 0.5);
-  margin: 20px 0;
 }
-fieldset legend {
+.quote-estimator fieldset legend {
   font-weight: 600;
   font-size: 1.05rem;
   color: #70588C;
   padding: 0 10px;
-  margin-bottom: 15px;
 }
-fieldset label {
+.quote-estimator fieldset label {
   display: flex;
   align-items: center;
   margin-bottom: 12px;
@@ -1477,46 +1482,45 @@ fieldset label {
   cursor: pointer;
   transition: color 0.2s ease;
 }
-fieldset label:hover {
+.quote-estimator fieldset label:hover {
   color: #70588C;
 }
-fieldset label input[type=checkbox],
-fieldset label input[type=radio] {
+.quote-estimator fieldset label input[type=checkbox],
+.quote-estimator fieldset label input[type=radio] {
   margin-right: 10px;
   cursor: pointer;
   width: 18px;
   height: 18px;
   accent-color: #70588C;
 }
-fieldset p {
+.quote-estimator fieldset p {
   font-style: italic;
   color: #666;
   margin: 10px 0;
 }
-fieldset ul {
+.quote-estimator fieldset ul {
   margin-left: 20px;
 }
-fieldset ul li {
+.quote-estimator fieldset ul li {
   color: black;
   margin-bottom: 8px;
   line-height: 1.5;
 }
-
-div:has(strong:contains("estimation")) {
-  padding: 25px;
+.quote-estimator div:has(strong:contains("estimation")) {
+  padding: 20px;
   background: linear-gradient(135deg, rgba(112, 88, 140, 0.08) 0%, rgba(255, 204, 251, 0.08) 100%);
   border: 2px solid #70588C;
   border-radius: 10px;
   margin: 25px 0;
   text-align: center;
 }
-div:has(strong:contains("estimation")) strong {
+.quote-estimator div:has(strong:contains("estimation")) strong {
   display: block;
   color: black;
   font-size: 14px;
   margin-bottom: 10px;
 }
-div:has(strong:contains("estimation")) span {
+.quote-estimator div:has(strong:contains("estimation")) span {
   display: block;
   font-size: 2.2rem;
   font-weight: 700;
@@ -1524,21 +1528,11 @@ div:has(strong:contains("estimation")) span {
   margin-top: 10px;
 }
 @media (max-width: 768px) {
-  div:has(strong:contains("estimation")) span {
+  .quote-estimator div:has(strong:contains("estimation")) span {
     font-size: 1.8rem;
   }
 }
-@italic {
-  div:has(strong:contains("estimation")) span {
-    font-size: 0.85rem;
-    color: #666;
-    font-weight: 400;
-    display: inline-block;
-    margin-left: 10px;
-  }
-}
-
-button {
+.quote-estimator button:not(.quote-estimator-email-toggle) {
   border-radius: 10px;
   padding: 8px 16px;
   font-size: 14px;
@@ -1553,108 +1547,135 @@ button {
   transition: all 0.3s ease;
   margin: 5px 5px 5px 0;
 }
-button:hover:not(:disabled) {
+.quote-estimator button:not(.quote-estimator-email-toggle):hover:not(:disabled) {
   box-shadow: 0 4px 12px rgba(112, 88, 140, 0.3);
 }
-button:disabled {
+.quote-estimator button:not(.quote-estimator-email-toggle):disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
-button:hover:not(:disabled) {
+.quote-estimator button:not(.quote-estimator-email-toggle):hover:not(:disabled) {
   transform: translateY(-2px);
 }
-button:disabled {
+.quote-estimator button:not(.quote-estimator-email-toggle):disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 @media (max-width: 768px) {
-  button {
+  .quote-estimator button:not(.quote-estimator-email-toggle) {
     display: block;
     width: 100%;
   }
 }
-
-section > div:last-of-type {
+.quote-estimator > div:last-of-type {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 30px;
+  margin-bottom: 20px;
   flex-wrap: wrap;
 }
 @media (max-width: 768px) {
-  section > div:last-of-type {
+  .quote-estimator > div:last-of-type {
     flex-direction: column;
   }
 }
 @media (max-width: 768px) {
-  section > div:last-of-type button {
+  .quote-estimator > div:last-of-type button {
     width: 100%;
   }
 }
-
-form {
+.quote-estimator form {
   padding: 20px;
   background-color: rgba(245, 241, 237, 0.3);
   border-radius: 8px;
   border: 1px solid #ddd;
   margin: 15px 0;
 }
-form > div {
+.quote-estimator form > div {
   margin-bottom: 15px;
 }
-form > div:last-of-type {
+.quote-estimator form > div:last-of-type {
   margin-bottom: 0;
 }
-form label {
+.quote-estimator form label {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
-form label input {
+.quote-estimator form label input {
   width: 100%;
   box-sizing: border-box;
 }
-form button {
+.quote-estimator form button {
   margin-top: 15px;
   width: auto;
 }
-form p {
+.quote-estimator form p {
   margin-top: 15px;
   padding: 12px;
   border-radius: 6px;
   text-align: center;
   font-weight: 500;
 }
-form p:contains("✅") {
+.quote-estimator form p:contains("✅") {
   background-color: rgba(76, 175, 80, 0.15);
   color: #2e7d32;
 }
-form p:contains("Échec") {
+.quote-estimator form p:contains("Échec") {
   background-color: rgba(244, 67, 54, 0.15);
   color: #c62828;
 }
-
-details {
+.quote-estimator .quote-details-wrapper {
   margin: 20px 0;
-  padding: 15px;
   background-color: rgba(245, 241, 237, 0.4);
-  border: 1px solid #ddd;
   border-radius: 8px;
 }
-details summary {
+.quote-estimator .quote-details-trigger {
+  width: 100%;
+  padding: 15px 20px;
+  background-color: rgba(112, 88, 140, 0.05);
+  border: 2px solid #70588C;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
   color: #70588C;
-  padding: 10px 0;
-  user-select: none;
-  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  font-family: inherit;
+  text-align: left;
+  margin: 0;
+  position: relative;
 }
-details summary:hover {
-  color: #70588C;
-  opacity: 0.8;
+.quote-estimator .quote-details-trigger:hover {
+  background-color: rgba(112, 88, 140, 0.1);
+  box-shadow: 0 0 0 1px rgba(112, 88, 140, 0.3);
 }
-details pre {
-  margin-top: 15px;
+.quote-estimator .quote-details-trigger:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(112, 88, 140, 0.2), 0 0 0 1px rgba(112, 88, 140, 0.3);
+}
+.quote-estimator .quote-details-icon {
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-size: 0.8em;
+}
+.quote-estimator .quote-details-icon.open {
+  transform: rotate(180deg);
+}
+.quote-estimator .quote-details-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: 0 0 8px 8px;
+}
+.quote-estimator .quote-details-content.open {
+  max-height: 2000px;
+}
+.quote-estimator .quote-details-content .quote-details-text {
+  margin: 20px;
   padding: 15px;
   background-color: white;
   border-radius: 6px;
@@ -1663,75 +1684,193 @@ details pre {
   line-height: 1.6;
   color: black;
   border-left: 4px solid #70588C;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
-
-hr {
+.quote-estimator .quote-details-content .quote-details-text strong {
+  font-weight: 700;
+  color: #70588C;
+}
+.quote-estimator hr {
   margin: 30px 0;
   border: none;
   height: 1px;
   background: linear-gradient(to right, transparent, #70588C, transparent);
 }
-
 @media (max-width: 768px) {
-  fieldset {
+  .quote-estimator fieldset {
     padding: 15px;
   }
-  fieldset legend {
+  .quote-estimator fieldset legend {
     font-size: 0.95rem;
   }
-  label {
+  .quote-estimator label {
     font-size: 14px;
   }
-  label select,
-  label input {
+  .quote-estimator label select,
+  .quote-estimator label input {
     margin-left: 6px;
     padding: 8px 10px;
     font-size: 13px;
   }
-  section > div:has(strong:contains("estimation")) {
+  .quote-estimator > div:has(strong:contains("estimation")) {
     padding: 18px;
     margin: 20px 0;
   }
-  section > div:has(strong:contains("estimation")) span {
+  .quote-estimator > div:has(strong:contains("estimation")) span {
     font-size: 1.5rem;
   }
-  button {
+  .quote-estimator button {
     padding: 10px 16px;
     font-size: 13px;
   }
-  details pre {
+  .quote-estimator details pre {
     font-size: 12px;
     padding: 12px;
   }
 }
-body.mode section h3 {
+.quote-estimator .quote-estimator-email-dropdown {
+  position: relative;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 512px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
+  overflow: hidden;
+}
+.quote-estimator .quote-estimator-email-dropdown .quote-estimator-email-toggle {
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #70588C;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease-in-out;
+  font-family: inherit;
+}
+.quote-estimator .quote-estimator-email-dropdown .quote-estimator-email-toggle:hover {
+  background-color: rgb(86.9473684211, 68.3157894737, 108.6842105263);
+}
+.quote-estimator .quote-estimator-email-dropdown .quote-estimator-email-toggle:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 3px rgba(112, 88, 140, 0.2);
+}
+.quote-estimator .quote-estimator-email-dropdown .quote-estimator-email-toggle span {
+  display: inline-block;
+  font-size: 12px;
+}
+.quote-estimator .quote-estimator-email-dropdown .quote-estimator-email-content {
+  background-color: white;
+  overflow: hidden;
+  transition: height 0.2s ease-in-out;
+  border-radius: 0 0 7px 7px;
+  border-top: 1px solid #eee;
+}
+.quote-estimator .quote-estimator-email-dropdown .quote-estimator-email-content.open {
+  height: auto;
+}
+.quote-estimator .quote-estimator-email-dropdown .quote-estimator-email-content.closed {
+  height: 0;
+}
+.quote-estimator .quote-estimator-email-dropdown .quote-estimator-email-content .quote-estimator-email-form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.quote-estimator .quote-estimator-email-dropdown .quote-estimator-email-content .quote-estimator-email-form div {
+  display: flex;
+  flex-direction: column;
+}
+.quote-estimator .quote-estimator-email-dropdown .quote-estimator-email-content .quote-estimator-email-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: black;
+  margin-bottom: 6px;
+}
+.quote-estimator .quote-estimator-email-dropdown .quote-estimator-email-content .quote-estimator-email-form label input {
+  margin-top: 8px;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  color: black;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+.quote-estimator .quote-estimator-email-dropdown .quote-estimator-email-content .quote-estimator-email-form label input:focus {
+  outline: none;
+  border-color: #70588C;
+  box-shadow: 0 0 0 3px rgba(112, 88, 140, 0.1);
+}
+.quote-estimator .quote-estimator-email-dropdown .quote-estimator-email-content .quote-estimator-email-form button {
+  padding: 12px 20px;
+  background-color: #70588C;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background-color 0.2s ease-in-out;
+  font-family: inherit;
+}
+.quote-estimator .quote-estimator-email-dropdown .quote-estimator-email-content .quote-estimator-email-form button:hover:not(:disabled) {
+  background-color: rgb(86.9473684211, 68.3157894737, 108.6842105263);
+}
+.quote-estimator .quote-estimator-email-dropdown .quote-estimator-email-content .quote-estimator-email-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.quote-estimator .quote-estimator-email-dropdown .quote-estimator-email-content .quote-estimator-email-form button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(112, 88, 140, 0.2);
+}
+.quote-estimator .quote-estimator-email-dropdown .quote-estimator-email-content .quote-estimator-email-form p {
+  margin: 0;
+  padding: 10px;
+  background-color: rgba(112, 88, 140, 0.1);
+  border-radius: 4px;
+  color: #70588C;
+  font-size: 13px;
+  text-align: center;
+}
+
+body.mode .quote-estimator h3 {
   color: #70588C;
 }
-body.mode label {
+body.mode .quote-estimator label {
   color: #404044;
 }
-body.mode label select,
-body.mode label input {
+body.mode .quote-estimator label select,
+body.mode .quote-estimator label input {
   background-color: #f5f1ed;
   color: black;
   border-color: rgba(112, 88, 140, 0.3);
 }
-body.mode label select:focus,
-body.mode label input:focus {
+body.mode .quote-estimator label select:focus,
+body.mode .quote-estimator label input:focus {
   border-color: #70588C;
 }
-body.mode fieldset {
+body.mode .quote-estimator fieldset {
   background-color: rgba(112, 88, 140, 0.1);
 }
-body.mode form {
+body.mode .quote-estimator form {
   background-color: rgba(112, 88, 140, 0.08);
   border-color: rgba(112, 88, 140, 0.3);
 }
-body.mode details {
+body.mode .quote-estimator details {
   background-color: rgba(112, 88, 140, 0.08);
   border-color: rgba(112, 88, 140, 0.3);
 }
-body.mode details pre {
+body.mode .quote-estimator details pre {
   background-color: rgba(0, 0, 0, 0.3);
   color: #f5f1ed;
 }

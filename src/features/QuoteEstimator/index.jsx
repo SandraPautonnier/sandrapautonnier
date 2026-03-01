@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 
 /**
@@ -14,45 +14,82 @@ import emailjs from "@emailjs/browser";
 const PRICING = {
   bases: {
     onePage: { label: "Site One Page", min: 390, max: 390 },
-    pages3to5: { label: "Site 3 à 5 pages", min: 690, max: 690 },
+    pages2to4: { label: "Site 2 à 4 pages", min: 690, max: 690 },
     pages5plus: { label: "Site 5 pages et plus", min: 890, max: 890 },
 
     ecommerceSimple: { label: "Boutique en ligne (simple)", min: 790, max: 790 },
     ecommerceAdvanced: { label: "Boutique en ligne (avancée)", min: 990, max: 990 },
 
     refonte: { label: "Refonte de site", min: 590, max: 890 },
-    auditVisibility: { label: "Audit de visibilité", min: 190, max: 190 },
+    auditVisibility: { label: "Audit de visibilité", min: 290, max: 290 },
   },
 
   included: {
     seoBasic: "SEO de base (structure + balises + indexabilité)",
-    accessibility: "Accessibilité (bonnes pratiques)",
+    accessibility: "Accessibilité (respect des bonnes pratiques d’accessibilité pour une meilleure expérience pour tous)",
   },
 
   optionsBasic: {
     contactForm: { label: "Formulaire de contact", min: 50, max: 50 },
     booking: { label: "Prise de RDV", min: 50, max: 50 },
-    blog: { label: "Blog", min: 180, max: 350 },
-    seoAdvanced: { label: "SEO avancé (optimisations)", min: 190, max: 190 },
+    backOffice: { label: "Back-office pour modifier vous-même vos contenus + formation", min: 250, max: 250 },
+
+    // on les affichera dans un fieldset séparé
+    seoAdvanced: { label: "SEO avancé (optimisations)", min: 90, max: 90 },
     analyticsBasic: { label: "Google Analytics", min: 50, max: 50 },
-    multilingual: { label: "Multilingue (2 langues)", min: 250, max: 250 },
+
+    mapSection: { label: "Section lieu avec carte interactive", min: 120, max: 220 },
+    thirdPartyFeature: { label: "Fonctionnalité avec un service tiers", min: 50, max: 250 },
+    customIdeaHelp: {
+      label:
+        "J'ai une idée de fonctionnalité mais je ne sais pas comment la définir - pas de panique je suis là pour vous aider",
+      min: 190,
+      max: 290,
+    },
+    // multilingue géré à part
+  },
+
+  multilingual: {
+    baseFor2: 180,
+    perExtra: 90,
+  },
+
+  backOfficeModules: {
+    blog: { label: "Blog / actualités", min: 120, max: 120 },
+    portfolio: { label: "Portfolio / réalisations", min: 120, max: 120 },
+    faq: { label: "Témoignages / FAQ / partenaires", min: 80, max: 80 },
+    seoFields: { label: "SEO de base (titre, description, image de partage)", min: 60, max: 60 },
   },
 
   partnerChoices: {
     design: {
       none: { label: "J'ai déjà un super logo et une magnifique charte graphique", min: 0, max: 0 },
-      simple: { label: "Charte graphique simple (logo simple + éléments graphiques + template réseaux sociaux)", min: 90, max: 90 },
+      simple: {
+        label: "Charte graphique simple (logo simple + éléments graphiques + template réseaux sociaux)",
+        min: 90,
+        max: 90,
+      },
       partner: { label: "Je souhaite faire appel à un(e) graphiste partenaire", min: 0, max: 0, partnerOnly: true },
     },
     copy: {
       none: { label: "J'ai déjà un contenu prêt à l'emploi", min: 0, max: 0 },
       basic: { label: "Rédaction (jusqu’à 5 sections)", min: 180, max: 180 },
-      partner: { label: "Je souhaite faire appel à un(e) rédacteur(trice) partenaire", min: 0, max: 0, partnerOnly: true },
+      partner: {
+        label: "Je souhaite faire appel à un(e) rédacteur(trice) partenaire",
+        min: 0,
+        max: 0,
+        partnerOnly: true,
+      },
     },
     social: {
       none: { label: "Je n'ai pas besoin d'aide pour les réseaux sociaux", min: 0, max: 0 },
       basic: { label: "Aide réseaux sociaux (mise en place + conseils)", min: 90, max: 90 },
-      partner: { label: "Je souhaite faire appel à un(e) community manager partenaire", min: 0, max: 0, partnerOnly: true },
+      partner: {
+        label: "Je souhaite faire appel à un(e) community manager partenaire",
+        min: 0,
+        max: 0,
+        partnerOnly: true,
+      },
     },
   },
 
@@ -76,7 +113,7 @@ const PRICING = {
 
   maintenanceMonthlyByProject: {
     onePage: 29,
-    pages3to5: 39,
+    pages2to4: 39,
     pages5plus: 49,
     ecommerceSimple: 29,
     ecommerceAdvanced: 39,
@@ -90,6 +127,15 @@ function clampInt(value, fallback) {
 function formatEUR(n) {
   return new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR" }).format(n);
 }
+function optionPriceLabel(opt) {
+  if (!opt) return "";
+  if (opt.min === 0 && opt.max === 0) return "";
+  return opt.min === opt.max ? ` — ${formatEUR(opt.min)}` : ` — ${formatEUR(opt.min)} à ${formatEUR(opt.max)}`;
+}
+function calcMultilingualPrice(languageCount) {
+  const count = Math.max(2, languageCount || 2);
+  return PRICING.multilingual.baseFor2 + (count - 2) * PRICING.multilingual.perExtra;
+}
 
 function calcEstimate(state) {
   const items = [];
@@ -97,27 +143,20 @@ function calcEstimate(state) {
   if (!base) return { min: 0, max: 0, items: [] };
   items.push({ label: base.label, min: base.min, max: base.max });
 
-  // Pages seulement pour pages5plus
+  const isEcom = state.projectType === "ecommerceSimple" || state.projectType === "ecommerceAdvanced";
+  const isAudit = state.projectType === "auditVisibility";
+
   if (state.projectType === "pages5plus") {
     const included = 5;
     const pagesCount = Math.max(included, state.pagesCount);
     const extra = Math.max(0, pagesCount - included);
     if (extra > 0) {
       const per = PRICING.pages.extraPage;
-      items.push({
-        label: `${per.label} × ${extra}`,
-        min: per.min * extra,
-        max: per.max * extra,
-      });
+      items.push({ label: `${per.label} × ${extra}`, min: per.min * extra, max: per.max * extra });
     }
   }
 
-  const isEcom = state.projectType === "ecommerceSimple" || state.projectType === "ecommerceAdvanced";
-  const isAudit = state.projectType === "auditVisibility";
-
-  // Audit visibilité => aucune option
   if (!isAudit) {
-    // Options basiques (checkbox)
     Object.entries(state.optionsBasic).forEach(([key, enabled]) => {
       if (!enabled) return;
       const opt = PRICING.optionsBasic[key];
@@ -125,7 +164,24 @@ function calcEstimate(state) {
       items.push({ label: opt.label, min: opt.min, max: opt.max });
     });
 
-    // Choix partenaires (radio)
+    if (state.multilingualEnabled) {
+      const price = calcMultilingualPrice(state.languageCount);
+      items.push({
+        label: `Multilingue (${Math.max(2, state.languageCount)} langues)`,
+        min: price,
+        max: price,
+      });
+    }
+
+    if (state.optionsBasic.backOffice) {
+      Object.entries(state.backOfficeModules || {}).forEach(([key, enabled]) => {
+        if (!enabled) return;
+        const mod = PRICING.backOfficeModules[key];
+        if (!mod) return;
+        items.push({ label: `Back-office : ${mod.label}`, min: mod.min, max: mod.max });
+      });
+    }
+
     const designChoice = PRICING.partnerChoices.design[state.designChoice] || PRICING.partnerChoices.design.none;
     const copyChoice = PRICING.partnerChoices.copy[state.copyChoice] || PRICING.partnerChoices.copy.none;
     const socialChoice = PRICING.partnerChoices.social[state.socialChoice] || PRICING.partnerChoices.social.none;
@@ -140,7 +196,6 @@ function calcEstimate(state) {
       items.push({ label: socialChoice.label, min: socialChoice.min, max: socialChoice.max });
     }
 
-    // E-commerce extras
     if (isEcom) {
       const prod = PRICING.ecommerce.products[state.productsRange];
       if (prod) items.push({ label: `Catalogue : ${prod.label}`, min: prod.min, max: prod.max });
@@ -164,19 +219,32 @@ function calcEstimate(state) {
 }
 
 const defaultState = {
-  projectType: "pages3to5",
-  pagesCount: 5,
+  projectType: "pages2to4",
+  pagesCount: 2,
 
-  // CHOIX maintenance: "yes" | "no"
-  maintenanceChoice: "yes",
+  hostingMaintenanceChoice: "noHosting_withMaintenance",
+  domainChoice: "already",
 
   optionsBasic: {
     contactForm: true,
+    booking: false,
+    backOffice: false,
     seoAdvanced: false,
     analyticsBasic: false,
+
+    mapSection: false,
+    thirdPartyFeature: false,
+    customIdeaHelp: false,
+  },
+
+  multilingualEnabled: false,
+  languageCount: 2,
+
+  backOfficeModules: {
     blog: false,
-    booking: false,
-    multilingual: false,
+    portfolio: false,
+    faq: false,
+    seoFields: false,
   },
 
   designChoice: "none",
@@ -198,15 +266,10 @@ function RadioGroup({ name, title, value, onChange, choices }) {
       <legend>{title}</legend>
       {Object.entries(choices).map(([key, item]) => {
         const priceHint =
-          item.partnerOnly
-            ? " (sur devis)"
-            : item.min === item.max && item.min > 0
-              ? ` — ${formatEUR(item.min)}`
-              : "";
+          item.partnerOnly ? " (sur devis)" : item.min === item.max && item.min > 0 ? ` — ${formatEUR(item.min)}` : "";
         return (
           <label key={key} style={{ display: "block", marginBottom: 6 }}>
-            <input type="radio" name={name} checked={value === key} onChange={() => onChange(key)} />{" "}
-            {item.label}
+            <input type="radio" name={name} checked={value === key} onChange={() => onChange(key)} /> {item.label}
             {priceHint}
           </label>
         );
@@ -218,17 +281,27 @@ function RadioGroup({ name, title, value, onChange, choices }) {
 export default function QuoteEstimatorStepperEmail() {
   const [state, setState] = useState(defaultState);
   const [step, setStep] = useState(1);
+  const [detailsOpen, setDetailsOpen] = useState(true);
+  const [showEmail, setShowEmail] = useState(false);
+  const emailFormRef = useRef(null);
 
   const isAudit = state.projectType === "auditVisibility";
   const isEcom = state.projectType === "ecommerceSimple" || state.projectType === "ecommerceAdvanced";
 
+  const totalSteps = isAudit ? 2 : 5;
+
   const estimate = useMemo(() => calcEstimate(state), [state]);
 
-  // Maintenance dispo uniquement si le projet est dans maintenanceMonthlyByProject
   const maintenanceAvailable = Object.prototype.hasOwnProperty.call(PRICING.maintenanceMonthlyByProject, state.projectType);
   const maintenanceMonthly = maintenanceAvailable ? PRICING.maintenanceMonthlyByProject[state.projectType] : 0;
 
-  const maintenanceSelected = maintenanceAvailable && state.maintenanceChoice === "yes";
+  const maintenanceSelected =
+    maintenanceAvailable &&
+    (state.hostingMaintenanceChoice === "noHosting_withMaintenance" ||
+      state.hostingMaintenanceChoice === "hasHosting_withMaintenance");
+
+  const isMaintenanceVariable =
+    maintenanceAvailable && state.hostingMaintenanceChoice === "hasHosting_withMaintenance";
 
   const projectTypeLabel = PRICING.bases[state.projectType]?.label || "";
 
@@ -246,6 +319,9 @@ export default function QuoteEstimatorStepperEmail() {
     const lines = [];
     lines.push(`Type : ${projectTypeLabel}`);
 
+    if (state.projectType === "pages2to4") {
+      lines.push(`Pages : ${Math.min(4, Math.max(2, state.pagesCount))}`);
+    }
     if (state.projectType === "pages5plus") {
       lines.push(`Pages : ${Math.max(5, state.pagesCount)} (5 incluses)`);
     }
@@ -272,34 +348,64 @@ export default function QuoteEstimatorStepperEmail() {
         .map(([key]) => PRICING.optionsBasic[key]?.label)
         .filter(Boolean);
 
+      lines.push("");
+      if (selectedBasic.length) {
+        lines.push("Options :");
+        selectedBasic.forEach((opt) => lines.push(`- ${opt}`));
+      } else {
+        lines.push("Options : aucune");
+      }
+
+      if (state.multilingualEnabled) {
+        lines.push("");
+        lines.push(`Multilingue : ${Math.max(2, state.languageCount)} langues`);
+      }
+
+      if (state.optionsBasic.backOffice) {
+        lines.push("");
+        const modules = Object.entries(state.backOfficeModules)
+          .filter(([, enabled]) => enabled)
+          .map(([key]) => PRICING.backOfficeModules[key]?.label)
+          .filter(Boolean);
+        lines.push(modules.length ? `Back-office : ${modules.join(", ")}` : "Back-office : pages du site (inclus)");
+      }
+
       const designChoice = PRICING.partnerChoices.design[state.designChoice];
       const copyChoice = PRICING.partnerChoices.copy[state.copyChoice];
       const socialChoice = PRICING.partnerChoices.social[state.socialChoice];
-
       const partnerInfo = [
         designChoice?.partnerOnly ? `${designChoice.label} (sur devis)` : designChoice?.label,
         copyChoice?.partnerOnly ? `${copyChoice.label} (sur devis)` : copyChoice?.label,
         socialChoice?.partnerOnly ? `${socialChoice.label} (sur devis)` : socialChoice?.label,
       ].filter(Boolean);
-
-      lines.push("");
-      lines.push(selectedBasic.length ? `Options : ${selectedBasic.join(", ")}` : "Options : aucune");
-      if (partnerInfo.length) lines.push(`Prestataires : ${partnerInfo.join(" | ")}`);
+      if (partnerInfo.length) {
+        lines.push("");
+        lines.push("Prestataires :");
+        partnerInfo.forEach((info) => lines.push(`- ${info}`));
+      }
     } else {
       lines.push("");
       lines.push("Options : aucune (audit uniquement)");
     }
 
-    // Maintenance choisie
     lines.push("");
     if (!maintenanceAvailable) {
-      lines.push("Maintenance : non incluse (sur devis)");
+      lines.push("Hébergement / maintenance : non incluse (sur devis)");
     } else {
-      lines.push(
-        `Maintenance : ${maintenanceSelected ? "Oui" : "Non"}${
-          maintenanceSelected ? ` — ${formatEUR(maintenanceMonthly)}/mois` : ""
-        } (hébergement + mises à jour + sécurité)`
-      );
+      const hostingText =
+        state.hostingMaintenanceChoice === "noHosting_withMaintenance"
+          ? `Je n’ai pas d’hébergement → je prends l’option maintenance — ${formatEUR(maintenanceMonthly)}/mois`
+          : state.hostingMaintenanceChoice === "hasHosting_withMaintenance"
+            ? "J’ai déjà un hébergement → je veux la maintenance (prix variable) — je vous accompagne avec ce que vous avez déjà"
+            : "J’ai déjà un hébergement → je ne veux pas de maintenance (je gère la publication / MAJ / sécurité)";
+
+      const domainText =
+        state.domainChoice === "need"
+          ? "Je n’ai pas de nom de domaine (aide incluse, nom de domaine payant selon le nom et l’hébergeur)"
+          : "J’ai déjà un nom de domaine";
+
+      lines.push(`Hébergement / maintenance : ${hostingText}`);
+      lines.push(`Nom de domaine : ${domainText}`);
     }
 
     lines.push("");
@@ -318,18 +424,20 @@ export default function QuoteEstimatorStepperEmail() {
     state.productsRange,
     state.ecommerceFeatures,
     state.optionsBasic,
+    state.multilingualEnabled,
+    state.languageCount,
+    state.backOfficeModules,
     state.designChoice,
     state.copyChoice,
     state.socialChoice,
     maintenanceAvailable,
-    maintenanceSelected,
     maintenanceMonthly,
+    state.hostingMaintenanceChoice,
+    state.domainChoice,
     pricedLines,
     estimateTotal,
   ]);
 
-  // Email optionnel (uniquement step 4)
-  const [showEmail, setShowEmail] = useState(false);
   const [clientName, setClientName] = useState("");
   const [clientEmail, setClientEmail] = useState("");
   const [sending, setSending] = useState(false);
@@ -353,9 +461,11 @@ export default function QuoteEstimatorStepperEmail() {
         details: detailsText,
         maintenance_monthly: !maintenanceAvailable
           ? "Non incluse"
-          : maintenanceSelected
+          : state.hostingMaintenanceChoice === "noHosting_withMaintenance"
             ? `${formatEUR(maintenanceMonthly)}/mois`
-            : "Non",
+            : state.hostingMaintenanceChoice === "hasHosting_withMaintenance"
+              ? "Prix variable (hébergement existant) — accompagnement avec l’existant"
+              : "Non",
       };
 
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, { publicKey: PUBLIC_KEY });
@@ -372,18 +482,22 @@ export default function QuoteEstimatorStepperEmail() {
   };
 
   const next = () => {
-    if (step === 1 && state.projectType === "auditVisibility") {
-      setStep(4);
+    if (step === 1 && isAudit) {
+      setStep(5);
+      setShowEmail(false);
+      setStatus("");
       return;
     }
-    setStep((s) => Math.min(4, s + 1));
+    setStep((s) => Math.min(5, s + 1));
     setShowEmail(false);
     setStatus("");
   };
 
   const prev = () => {
-    if (step === 4 && state.projectType === "auditVisibility") {
+    if (step === 5 && isAudit) {
       setStep(1);
+      setShowEmail(false);
+      setStatus("");
       return;
     }
     setStep((s) => Math.max(1, s - 1));
@@ -400,39 +514,98 @@ export default function QuoteEstimatorStepperEmail() {
     setClientEmail("");
   };
 
-  // Quand le type change, on remet le choix maintenance par défaut sur "yes"
   const onProjectTypeChange = (value) => {
     setState((s) => ({
       ...s,
       projectType: value,
-      pagesCount: value === "pages5plus" ? Math.max(5, s.pagesCount) : s.pagesCount,
-      maintenanceChoice: "yes",
+      pagesCount: value === "pages5plus" ? Math.max(5, s.pagesCount) : value === "pages2to4" ? 2 : s.pagesCount,
+      hostingMaintenanceChoice: "noHosting_withMaintenance",
+      domainChoice: "already",
     }));
   };
 
+  const stepLabel = isAudit ? (step === 5 ? 2 : 1) : step;
+
+  // ✅ Formater le texte récapitulatif avec caractéristiques en gras (uniquement les labels)
+  const formatDetailsWithBold = (text) => {
+    return text
+      .split("\n")
+      .map((line) => {
+        const keywords = [
+          "Type :",
+          "Pages :",
+          "Produits :",
+          "E-commerce :",
+          "Inclus :",
+          "Options :",
+          "Multilingue :",
+          "Back-office :",
+          "Prestataires :",
+          "Hébergement / maintenance :",
+          "Nom de domaine :",
+          "Détail du prix :",
+          "Estimation :",
+        ];
+        // Mettre en gras uniquement le label avant le ':', pas la valeur
+        for (const kw of keywords) {
+          if (line.includes(kw)) {
+            return line.replace(kw, `<strong>${kw}</strong>`);
+          }
+        }
+        return line;
+      })
+      .join("<br />");
+  };
+
+  // ✅ helper pour rendre une checkbox d'option basique
+  const renderBasicOption = (key) => {
+    const opt = PRICING.optionsBasic[key];
+    if (!opt) return null;
+    return (
+      <label key={key} style={{ display: "block", marginBottom: 6 }}>
+        <input
+          type="checkbox"
+          checked={!!state.optionsBasic[key]}
+          onChange={() =>
+            setState((s) => ({
+              ...s,
+              optionsBasic: { ...s.optionsBasic, [key]: !s.optionsBasic[key] },
+            }))
+          }
+        />{" "}
+        {opt.label}
+        {optionPriceLabel(opt)}
+      </label>
+    );
+  };
+
   return (
-    <section>
+    <section className="quote-estimator">
       <h2>Estimez votre projet</h2>
+
       {step === 1 && (
         <p>
-        Sélectionnez les caractéristiques de votre projet <br />
-        pour obtenir une estimation indicative (le devis final dépendra du besoin exact).
+          Sélectionnez les caractéristiques de votre projet pour obtenir une estimation indicative (le devis final dépendra du besoin exact).
+          Si vous ne savez pas exactement ce dont vous avez besoin, choisissez l’option qui s’en rapproche le plus ou n’hésitez pas à me contacter
+          pour en discuter ! Gardez en tête que votre site pourra évoluer dans le temps, et que je serai là pour vous accompagner même après la livraison du projet.
         </p>
       )}
 
-      <div style={{ marginBottom: 10 }}>
-        <strong>Étape {step}/4</strong>
+      <div>
+        <strong>
+          Étape {stepLabel}/{totalSteps}
+        </strong>
       </div>
 
+      {/* ÉTAPE 1 */}
       {step === 1 && (
         <div>
           <h3>Quel est le type de votre projet ?</h3>
 
           <label>
-            Projet :{" "}
             <select value={state.projectType} onChange={(e) => onProjectTypeChange(e.target.value)}>
               <option value="onePage">Site One Page</option>
-              <option value="pages3to5">Site 3 à 5 pages</option>
+              <option value="pages2to4">Site 2 à 4 pages</option>
               <option value="pages5plus">Site 5 pages et plus</option>
               <option value="ecommerceSimple">Boutique en ligne (simple)</option>
               <option value="ecommerceAdvanced">Boutique en ligne (avancée)</option>
@@ -441,8 +614,25 @@ export default function QuoteEstimatorStepperEmail() {
             </select>
           </label>
 
+          {state.projectType === "pages2to4" && (
+            <div>
+              <label>
+                Nombre de pages (2 à 4) :{" "}
+                <input
+                  type="number"
+                  min={2}
+                  max={4}
+                  value={Math.min(4, Math.max(2, state.pagesCount))}
+                  onChange={(e) =>
+                    setState((s) => ({ ...s, pagesCount: clampInt(Math.min(4, Math.max(2, e.target.value)), 2) }))
+                  }
+                />
+              </label>
+            </div>
+          )}
+
           {state.projectType === "pages5plus" && (
-            <div style={{ marginTop: 10 }}>
+            <div>
               <label>
                 Nombre de pages (5 incluses) :{" "}
                 <input
@@ -456,13 +646,10 @@ export default function QuoteEstimatorStepperEmail() {
           )}
 
           {isEcom && (
-            <div style={{ marginTop: 10 }}>
+            <div>
               <label>
                 Nombre de produits :{" "}
-                <select
-                  value={state.productsRange}
-                  onChange={(e) => setState((s) => ({ ...s, productsRange: e.target.value }))}
-                >
+                <select value={state.productsRange} onChange={(e) => setState((s) => ({ ...s, productsRange: e.target.value }))}>
                   <option value="0_20">0 à 20</option>
                   <option value="21_50">21 à 50</option>
                   <option value="51_plus">51+</option>
@@ -473,67 +660,92 @@ export default function QuoteEstimatorStepperEmail() {
         </div>
       )}
 
+      {/* ÉTAPE 2 */}
       {step === 2 && !isAudit && (
         <div>
-          <h3>Qu'avez-vous besoin ?</h3>
+          <h3>De quoi avez-vous besoin pour votre site ?</h3>
 
-              <div style={{ marginBottom: 12 }}>
-                <strong>Déjà inclus :</strong>
-                <ul>
-                  <li>{PRICING.included.seoBasic}</li>
-                  <li>{PRICING.included.accessibility}</li>
-                </ul>
-              </div>
+          <div>
+            <strong>Déjà inclus :</strong>
+            <ul>
+              <li>{PRICING.included.seoBasic}</li>
+              <li>{PRICING.included.accessibility}</li>
+            </ul>
+          </div>
 
+          {/* ✅ Fieldset SEO / Analytics (au-dessus) */}
           <fieldset>
-            <legend>Options</legend>
-            {Object.keys(PRICING.optionsBasic).map((key) => (
-              <label key={key} style={{ display: "block", marginBottom: 6 }}>
-                <input
-                  type="checkbox"
-                  checked={!!state.optionsBasic[key]}
-                  onChange={() =>
-                    setState((s) => ({
-                      ...s,
-                      optionsBasic: { ...s.optionsBasic, [key]: !s.optionsBasic[key] },
-                    }))
-                  }
-                />{" "}
-                {PRICING.optionsBasic[key].label}
-              </label>
-            ))}
+            <legend>SEO & Analyse</legend>
+            {renderBasicOption("seoAdvanced")}
+            {renderBasicOption("analyticsBasic")}
+
+
           </fieldset>
 
-          {/* Choix maintenance */}
+          {/* ✅ Fieldset Fonctionnalités (en dessous) */}
           <fieldset style={{ marginTop: 12 }}>
-            <legend>Maintenance</legend>
+            <legend>Fonctionnalités à la carte</legend>
+            {renderBasicOption("contactForm")}
+            {renderBasicOption("booking")}
+            {renderBasicOption("mapSection")}
+            <label style={{ display: "block", marginBottom: 6, marginTop: 6 }}>
+              <input
+                type="checkbox"
+                checked={!!state.multilingualEnabled}
+                onChange={() =>
+                  setState((s) => ({
+                    ...s,
+                    multilingualEnabled: !s.multilingualEnabled,
+                    languageCount: Math.max(2, s.languageCount || 2),
+                  }))
+                }
+              />{" "}
+              Multilingue (2 langues) + {formatEUR(PRICING.multilingual.perExtra)} / langue supplémentaire
+            </label>
 
-            {!maintenanceAvailable ? (
-              <p>Non incluse pour cette offre (sur devis).</p>
-            ) : (
-              <>
-                <label style={{ display: "block", marginBottom: 6 }}>
+            {state.multilingualEnabled && (
+              <div style={{ marginTop: 6 }}>
+                <label>
+                  Nombre de langues :{" "}
                   <input
-                    type="radio"
-                    name="maintenance"
-                    checked={state.maintenanceChoice === "yes"}
-                    onChange={() => setState((s) => ({ ...s, maintenanceChoice: "yes" }))}
-                  />{" "}
-                  Oui — {formatEUR(maintenanceMonthly)}/mois (hébergement + mises à jour + sécurité)
+                    type="number"
+                    min={2}
+                    value={Math.max(2, state.languageCount)}
+                    onChange={(e) => setState((s) => ({ ...s, languageCount: clampInt(e.target.value, 2) }))}
+                  />
                 </label>
-
-                <label style={{ display: "block", marginBottom: 6 }}>
-                  <input
-                    type="radio"
-                    name="maintenance"
-                    checked={state.maintenanceChoice === "no"}
-                    onChange={() => setState((s) => ({ ...s, maintenanceChoice: "no" }))}
-                  />{" "}
-                  Non - J'ai déjà un hébergement ou je préfère gérer ça de mon côté
-                </label>
-              </>
+                <div>Prix : {formatEUR(calcMultilingualPrice(state.languageCount))}</div>
+              </div>
             )}
+            {renderBasicOption("backOffice")}
+            {renderBasicOption("thirdPartyFeature")}
+            {renderBasicOption("customIdeaHelp")}
+            
           </fieldset>
+
+          {state.optionsBasic.backOffice && (
+            <fieldset style={{ marginTop: 12 }}>
+              <legend>Back-office : que souhaitez-vous gérer ?</legend>
+
+              <p>Pages du site (Accueil, À propos, Services, Contact…) : inclus</p>
+
+              {Object.entries(PRICING.backOfficeModules).map(([key, mod]) => (
+                <label key={key} style={{ display: "block", marginBottom: 6 }}>
+                  <input
+                    type="checkbox"
+                    checked={!!state.backOfficeModules?.[key]}
+                    onChange={() =>
+                      setState((s) => ({
+                        ...s,
+                        backOfficeModules: { ...(s.backOfficeModules || {}), [key]: !s.backOfficeModules?.[key] },
+                      }))
+                    }
+                  />{" "}
+                  {mod.label} — {formatEUR(mod.min)}
+                </label>
+              ))}
+            </fieldset>
+          )}
 
           {isEcom && (
             <fieldset style={{ marginTop: 12 }}>
@@ -558,7 +770,89 @@ export default function QuoteEstimatorStepperEmail() {
         </div>
       )}
 
+      {/* ÉTAPE 3 */}
       {step === 3 && !isAudit && (
+        <div>
+          <h3>Avez-vous déjà un nom de domaine et un hébergement ?</h3>
+
+          <fieldset style={{ marginTop: 12 }}>
+            <legend>Nom de domaine</legend>
+
+            <label style={{ display: "block", marginBottom: 6 }}>
+              <input
+                type="radio"
+                name="domain"
+                checked={state.domainChoice === "already"}
+                onChange={() => setState((s) => ({ ...s, domainChoice: "already" }))}
+              />{" "}
+              J’ai déjà un nom de domaine
+            </label>
+
+            <label style={{ display: "block", marginBottom: 6 }}>
+              <input
+                type="radio"
+                name="domain"
+                checked={state.domainChoice === "need"}
+                onChange={() => setState((s) => ({ ...s, domainChoice: "need" }))}
+              />{" "}
+              Non, je n’ai pas de nom de domaine
+            </label>
+
+            {state.domainChoice === "need" && (
+              <p>
+                Je peux vous aider à choisir et configurer votre nom de domaine (service inclus).
+                <br />
+                Le nom de domaine n’est pas gratuit : le prix dépend du nom choisi et de l’hébergeur.
+              </p>
+            )}
+          </fieldset>
+
+          <fieldset style={{ marginTop: 12 }}>
+            <legend>Maintenance & Hébergement</legend>
+
+            {!maintenanceAvailable ? (
+              <p>Non incluse pour cette offre (sur devis).</p>
+            ) : (
+              <>
+                <p>L'option maintenance comprend la publication, les mises à jour et la sécurité.</p>
+
+                <label style={{ display: "block", marginBottom: 6 }}>
+                  <input
+                    type="radio"
+                    name="hostingMaintenance"
+                    checked={state.hostingMaintenanceChoice === "noHosting_withMaintenance"}
+                    onChange={() => setState((s) => ({ ...s, hostingMaintenanceChoice: "noHosting_withMaintenance" }))}
+                  />{" "}
+                  Je n’ai pas d’hébergement et je prends l’option maintenance — {formatEUR(maintenanceMonthly)}/mois
+                </label>
+
+                <label style={{ display: "block", marginBottom: 6 }}>
+                  <input
+                    type="radio"
+                    name="hostingMaintenance"
+                    checked={state.hostingMaintenanceChoice === "hasHosting_withMaintenance"}
+                    onChange={() => setState((s) => ({ ...s, hostingMaintenanceChoice: "hasHosting_withMaintenance" }))}
+                  />{" "}
+                  J’ai déjà un hébergement mais je souhaite l'option maintenance (prix variable) — je vous accompagne avec ce que vous avez déjà
+                </label>
+
+                <label style={{ display: "block", marginBottom: 6 }}>
+                  <input
+                    type="radio"
+                    name="hostingMaintenance"
+                    checked={state.hostingMaintenanceChoice === "hasHosting_noMaintenance"}
+                    onChange={() => setState((s) => ({ ...s, hostingMaintenanceChoice: "hasHosting_noMaintenance" }))}
+                  />{" "}
+                  J’ai déjà un hébergement mais je ne veux pas de maintenance (je gère moi-même publication / mises à jour / sécurité)
+                </label>
+              </>
+            )}
+          </fieldset>
+        </div>
+      )}
+
+      {/* ÉTAPE 4 */}
+      {step === 4 && !isAudit && (
         <div>
           <h3>Avez-vous besoin de services supplémentaires ?</h3>
 
@@ -588,53 +882,95 @@ export default function QuoteEstimatorStepperEmail() {
         </div>
       )}
 
-      {step === 4 && (
+      {/* ÉTAPE 5 */}
+      {step === 5 && (
         <div>
-          <h3>Récapitulatif</h3>
+          <h3>Votre estimation</h3>
 
-          <div>
-            <strong>Votre estimation :</strong> {estimateTotal}
-            {maintenanceAvailable && maintenanceSelected && (
-              <span> (+ {formatEUR(maintenanceMonthly)}/mois maintenance)</span>
-            )}
+          <div style={{ textAlign: "center", fontSize: "1.2em", fontWeight: 600, marginTop: 15 }}>
+            {estimateTotal}
           </div>
 
-          <div style={{ marginTop: 10 }}>
-            <button type="button" onClick={() => setShowEmail((v) => !v)}>
-              {showEmail ? "Fermer" : "Recevoir l’estimation par email (optionnel)"}
+          <div style={{ marginTop: 10, display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
+            <a href="/contact">
+              <button type="button">Prendre un rdv</button>
+            </a>
+
+            <a href="/contact">
+              <button type="button">Me contacter</button>
+            </a>
+          </div>
+
+          <div className="quote-estimator-email-dropdown">
+            <button 
+              type="button" 
+              className="quote-estimator-email-toggle"
+              onClick={() => setShowEmail((v) => !v)}
+            >
+              <span style={{
+                display: 'inline-block',
+                transition: 'transform 0.2s ease-in-out',
+                transform: showEmail ? 'rotate(-180deg)' : 'rotate(0deg)',
+              }}>▼</span>
+              {showEmail ? "Fermer" : "Recevoir l'estimation par email (optionnel)"}
             </button>
+
+            <div
+              className={`quote-estimator-email-content ${showEmail ? 'open' : 'closed'}`}
+              ref={emailFormRef}
+              style={{
+                height: showEmail ? `${emailFormRef.current?.scrollHeight}px` : "0px",
+                overflow: "hidden",
+                transition: "height 0.2s ease-in-out",
+              }}
+            >
+              <form onSubmit={sendEmail} className="quote-estimator-email-form">
+                <div>
+                  <label>
+                    Nom :
+                    <input value={clientName} onChange={(e) => setClientName(e.target.value)} />
+                  </label>
+                </div>
+
+                <div>
+                  <label>
+                    Email * :
+                    <input required type="email" value={clientEmail} onChange={(e) => setClientEmail(e.target.value)} />
+                  </label>
+                </div>
+
+                <button type="submit" disabled={sending}>
+                  {sending ? "Envoi..." : "Envoyer"}
+                </button>
+
+                {status && <p>{status}</p>}
+              </form>
+            </div>
           </div>
 
-          {showEmail && (
-            <form onSubmit={sendEmail} style={{ marginTop: 10 }}>
-              <div>
-                <label>
-                  Nom :
-                  <input value={clientName} onChange={(e) => setClientName(e.target.value)} />
-                </label>
-              </div>
-
-              <div>
-                <label>
-                  Email * :
-                  <input required type="email" value={clientEmail} onChange={(e) => setClientEmail(e.target.value)} />
-                </label>
-              </div>
-
-              <button type="submit" disabled={sending}>
-                {sending ? "Envoi..." : "Envoyer"}
-              </button>
-
-              {status && <p>{status}</p>}
-            </form>
-          )}
+          <p style={{ fontSize: "0.85em", color: "#666", marginTop: 10, textAlign: "center" }}>
+            Vos données ne sont pas collectées à des fins commerciales.
+          </p>
 
           <hr />
 
-          <details open>
-            <summary>Récapitulatif</summary>
-            <pre>{detailsText}</pre>
-          </details>
+          <div className="quote-details-wrapper">
+            <button 
+              type="button" 
+              className="quote-details-trigger"
+              onClick={() => setDetailsOpen(!detailsOpen)}
+            >
+              <span className={`quote-details-icon ${detailsOpen ? 'open' : ''}`}>▼</span>
+              Récapitulatif de votre projet
+            </button>
+            
+            <div className={`quote-details-content ${detailsOpen ? 'open' : ''}`}>
+              <div 
+                className="quote-details-text"
+                dangerouslySetInnerHTML={{ __html: formatDetailsWithBold(detailsText) }}
+              />
+            </div>
+          </div>
         </div>
       )}
 
@@ -646,12 +982,14 @@ export default function QuoteEstimatorStepperEmail() {
             Retour
           </button>
         )}
-        {step < 4 && (
+
+        {(isAudit ? step < 5 : step < 5) && (
           <button type="button" onClick={next}>
             Suivant
           </button>
         )}
-        {step === 4 && (
+
+        {step === 5 && (
           <button type="button" onClick={restart}>
             Recommencer
           </button>
