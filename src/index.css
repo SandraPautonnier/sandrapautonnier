@@ -2228,4 +2228,13 @@ button {
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
+.base-text {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
 /*# sourceMappingURL=index.css.map */

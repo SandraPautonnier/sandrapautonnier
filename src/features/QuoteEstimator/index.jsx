@@ -20,8 +20,8 @@ const PRICING = {
     pages2to4: { label: "Site 2 à 4 pages", min: 690, max: 690 },
     pages5plus: { label: "Site 5 pages et plus", min: 890, max: 890 },
 
-    ecommerceSimple: { label: "Boutique en ligne (simple)", min: 790, max: 790 },
-    ecommerceAdvanced: { label: "Boutique en ligne (avancée)", min: 990, max: 990 },
+    ecommerceSimple: { label: "Boutique en ligne Essentielle (SumUp)", min: 790, max: 790 },
+    ecommerceAdvanced: { label: "Boutique en ligne Évolutive (Shopify)", min: 990, max: 990 },
 
     refonte: { label: "Refonte de site", min: 590, max: 890 },
     auditVisibility: { label: "Audit de visibilité", min: 290, max: 290 },
@@ -34,7 +34,7 @@ const PRICING = {
 
   optionsBasic: {
     contactForm: { label: "Formulaire de contact", min: 50, max: 50 },
-    booking: { label: "Prise de RDV", min: 50, max: 50 },
+    booking: { label: "Réservation / Prise de RDV", min: 50, max: 50 },
     backOffice: { label: "Back-office pour modifier vous-même vos contenus + formation", min: 250, max: 250 },
 
     // on les affichera dans un fieldset séparé
@@ -103,14 +103,14 @@ const PRICING = {
   ecommerce: {
     products: {
       "0_20": { label: "0 à 20 produits", min: 0, max: 0 },
-      "21_50": { label: "21 à 50 produits", min: 200, max: 350 },
-      "51_plus": { label: "51+ produits", min: 450, max: 800 },
+      "21_50": { label: "21 à 50 produits", min: 250, max: 450 },
+      "51_100": { label: "51 à 100 produits", min: 500, max: 900 },
+      "101_plus": { label: "101+ produits (sur devis)", min: 0, max: 0 },
     },
     features: {
-      payment: { label: "Paiement en ligne", min: 120, max: 250 },
-      shipping: { label: "Livraison / click & collect", min: 120, max: 260 },
-      variants: { label: "Variantes (taille/couleur)", min: 120, max: 240 },
-      promos: { label: "Codes promo", min: 80, max: 180 },
+      shipping: { label: "Configuration livraison / click & collect", min: 90, max: 180 },
+      variants: { label: "Variantes (taille/couleur) + organisation", min: 90, max: 220 },
+      promos: { label: "Codes promo + règles de réduction", min: 60, max: 140 },
     },
   },
 
@@ -232,7 +232,7 @@ const defaultState = {
   domainChoice: "already",
 
   optionsBasic: {
-    contactForm: true,
+    contactForm: false,
     booking: false,
     backOffice: false,
     seoAdvanced: false,
@@ -259,7 +259,6 @@ const defaultState = {
 
   productsRange: "0_20",
   ecommerceFeatures: {
-    payment: true,
     shipping: false,
     variants: false,
     promos: false,
@@ -323,7 +322,7 @@ export default function QuoteEstimatorStepperEmail() {
     }));
   }, [estimate.items]);
 
-  // ✅ résumé des prestations (fusion colonne 2+3)
+  // ✅ résumé des prestations
   const prestationsSummary = useMemo(() => {
     const bullets = [];
 
@@ -615,7 +614,15 @@ export default function QuoteEstimatorStepperEmail() {
     setState((s) => ({
       ...s,
       projectType: value,
-      pagesCount: value === "pages5plus" ? Math.max(5, s.pagesCount) : value === "pages2to4" ? 2 : s.pagesCount,
+
+      // ✅ forcer 0-20 sur l’offre SumUp
+      productsRange: value === "ecommerceSimple" ? "0_20" : s.productsRange,
+
+      pagesCount:
+        value === "pages5plus" ? Math.max(5, s.pagesCount) :
+        value === "pages2to4" ? 2 :
+        s.pagesCount,
+
       hostingMaintenanceChoice: "noHosting_withMaintenance",
       domainChoice: "already",
     }));
@@ -673,6 +680,14 @@ export default function QuoteEstimatorStepperEmail() {
     );
   };
 
+  const ecommercePriceLabel = (opt) => {
+  if (!opt) return "";
+  if (opt.min === 0 && opt.max === 0) return " — inclus";
+  return opt.min === opt.max
+    ? ` — ${formatEUR(opt.min)}`
+    : ` — ${formatEUR(opt.min)} à ${formatEUR(opt.max)}`;
+  };
+
   // ✅ Bloc 2 colonnes réutilisable (étapes 2, 3, 4)
   const TwoColumnsSummary = () => (
     <div className="border-text" style={{ marginBottom: 20 }}>
@@ -691,6 +706,14 @@ export default function QuoteEstimatorStepperEmail() {
             <li><FontAwesomeIcon icon={faCheck} /> {PRICING.included.seoBasic}</li>
             <li><FontAwesomeIcon icon={faCheck} /> {PRICING.included.accessibility}</li>
           </ul>
+          {isEcom && (
+            <>
+              <li><FontAwesomeIcon icon={faCheck} /> Hébergement inclus via la plateforme (SumUp / Shopify)</li>
+              <li><FontAwesomeIcon icon={faCheck} /> Paiements en ligne configurés</li>
+              <li><FontAwesomeIcon icon={faCheck} /> Page contact simple (email / lien / formulaire standard)</li>
+              <li><FontAwesomeIcon icon={faCheck} /> Sécurité et infrastructure gérées par la plateforme</li>
+            </>
+          )}
         </div>
 
         {/* Col 2 : résumé des prestations */}
@@ -879,7 +902,7 @@ const downloadPdf = () => {
       <h2>💰 Estimez votre projet</h2>
 
       {step === 1 && (
-        <p className="border-text">
+        <p className="border-text base-text">
           Sélectionnez les caractéristiques de votre projet pour obtenir une estimation indicative (le devis final dépendra du besoin exact).
           Si vous ne savez pas exactement ce dont vous avez besoin, choisissez l’option qui s’en rapproche le plus ou n’hésitez pas à me contacter
           pour en discuter ! Gardez en tête que votre site pourra évoluer dans le temps, et que je serai là pour vous accompagner même après la livraison du projet.
@@ -942,7 +965,7 @@ const downloadPdf = () => {
 
           {state.projectType === "pages2to4" && (
             <div style={{ marginTop: 15 }}>
-              <label style={{ fontWeight: 500 }}>
+              <label className="base-text">
                 📄 Nombre de pages (2 à 4) :{" "}
                 <input
                   type="number"
@@ -959,7 +982,7 @@ const downloadPdf = () => {
 
           {state.projectType === "pages5plus" && (
             <div style={{ marginTop: 15 }}>
-              <label style={{ fontWeight: 500 }}>
+              <label className="base-text">
                 📄 Nombre de pages (5 incluses) :{" "}
                 <input
                   type="number"
@@ -971,14 +994,24 @@ const downloadPdf = () => {
             </div>
           )}
 
-          {isEcom && (
+          {state.projectType === "ecommerceSimple" && (
             <div style={{ marginTop: 15 }}>
-              <label style={{ fontWeight: 500 }}>
+              <p className="base-text">🛒 Catalogue : jusqu'à 20 produits <br /> Pour plus de 20 produits choisir l'offre : Boutique en ligne Évolutive (Shopify)</p>
+            </div>
+          )}
+
+          {state.projectType === "ecommerceAdvanced" && (
+            <div style={{ marginTop: 15 }}>
+              <label className="base-text">
                 🛒 Nombre de produits :{" "}
-                <select value={state.productsRange} onChange={(e) => setState((s) => ({ ...s, productsRange: e.target.value }))}>
+                <select
+                  value={state.productsRange}
+                  onChange={(e) => setState((s) => ({ ...s, productsRange: e.target.value }))}
+                >
                   <option value="0_20">0 à 20</option>
                   <option value="21_50">21 à 50</option>
-                  <option value="51_plus">51+</option>
+                  <option value="51_100">51 à 100</option>
+                  <option value="101_plus">101+ (sur devis)</option>
                 </select>
               </label>
             </div>
@@ -1000,7 +1033,7 @@ const downloadPdf = () => {
 
           <fieldset style={{ marginTop: 12 }}>
             <legend>⭐ Fonctionnalités à la carte</legend>
-            {renderBasicOption("contactForm")}
+            {!isEcom && renderBasicOption("contactForm")}
             {renderBasicOption("booking")}
             {renderBasicOption("mapSection")}
 
@@ -1034,7 +1067,7 @@ const downloadPdf = () => {
               </div>
             )}
 
-            {renderBasicOption("backOffice")}
+            {!isEcom && renderBasicOption("backOffice")}
             {renderBasicOption("thirdPartyFeature")}
             {renderBasicOption("customIdeaHelp")}
           </fieldset>
@@ -1065,8 +1098,9 @@ const downloadPdf = () => {
 
           {isEcom && (
             <fieldset style={{ marginTop: 12 }}>
-              <legend>🛍️ E-commerce</legend>
-              {Object.keys(PRICING.ecommerce.features).map((key) => (
+              <legend>🛍️ Options e-commerce</legend>
+
+              {Object.entries(PRICING.ecommerce.features).map(([key, feat]) => (
                 <label key={key} style={{ display: "block", marginBottom: 6 }}>
                   <input
                     type="checkbox"
@@ -1074,11 +1108,17 @@ const downloadPdf = () => {
                     onChange={() =>
                       setState((s) => ({
                         ...s,
-                        ecommerceFeatures: { ...s.ecommerceFeatures, [key]: !s.ecommerceFeatures[key] },
+                        ecommerceFeatures: {
+                          ...s.ecommerceFeatures,
+                          [key]: !s.ecommerceFeatures[key],
+                        },
                       }))
                     }
                   />{" "}
-                  {PRICING.ecommerce.features[key].label}
+                  {feat.label}
+                  {feat.min === feat.max
+                    ? ` — ${formatEUR(feat.min)}`
+                    : ` — ${formatEUR(feat.min)} à ${formatEUR(feat.max)}`}
                 </label>
               ))}
             </fieldset>
@@ -1091,6 +1131,13 @@ const downloadPdf = () => {
         <div>
           <TwoColumnsSummary />
           <h3 style={{ color: '#70588C', marginBottom: 20 }}>🌐 Avez-vous déjà un nom de domaine et un hébergement ?</h3>
+
+          {isEcom && (
+            <p>
+              Pour une boutique SumUp/Shopify, l’hébergement et la sécurité sont inclus dans la plateforme.
+              L’option mensuelle correspond à l’accompagnement (support + petits ajustements).
+            </p>
+          )}
 
           <fieldset style={{ marginTop: 12 }}>
             <legend>🏠 Nom de domaine</legend>
@@ -1268,7 +1315,7 @@ const downloadPdf = () => {
             </div>
           </div>
 
-          <p style={{ fontSize: "0.9em", color: "#555", marginTop: 10, textAlign: "center", fontWeight: "500", lineHeight: "1.5" }}>
+          <p className="base-text">
             Les informations (nom, email) servent uniquement à répondre à votre demande et, si besoin, à une seule relance. Conservation : 1 an max. Vos droits : <a className="link" href="mailto:contact@sandrapautonnier.com">contact@sandrapautonnier.com</a> - <a href="/legalnotice" className="link" target="_blank" rel="noopener noreferrer">Mentions légales</a>.
           </p>
 

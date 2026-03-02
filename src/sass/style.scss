@@ -201,3 +201,13 @@ button {
     linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%) border-box;
   transition: transform .3s ease, color .3s ease;    
 }
+
+.base-text {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.5;
+
+}

@@ -78,14 +78,9 @@ const Home = () => {
               <h2>Mes offres clé en main</h2>
                 <div className="offers-container">
                   <div className="offer-card">
-                    <h3>Création site One Page</h3>
-                    <p>Idéal pour lancer votre activité avec une présence en ligne claire, simple et efficace.</p>
+                    <h3>Création de site web</h3>
+                    <p>Idéal pour lancer votre activité avec une présence en ligne claire, simple et professionnelle.</p>
                     <span>À partir de 390€</span>
-                  </div>
-                  <div className="offer-card">
-                    <h3>Création site 3 à 5 Pages</h3>
-                    <p>Une présence en ligne complète et professionnelle pour présenter votre activité avec clarté.</p>
-                    <span>À partir de 690€</span>
                   </div>
                   <div className="offer-card">
                     <h3>Refonte de site existant</h3>
@@ -93,14 +88,9 @@ const Home = () => {
                     <span>À partir de 490€</span>
                   </div>
                   <div className="offer-card">
-                    <h3>Boutique en ligne Simple</h3>
-                    <p>Vendez en ligne facilement grâce à une solution simple et prête à l’emploi, jusqu’à 20 produits.</p>
+                    <h3>Boutique en ligne e-commerce</h3>
+                    <p>Vendez en ligne facilement grâce à une solution simple et prête à l’emploi et évolutive</p>
                     <span>À partir de 790€</span>
-                  </div>
-                  <div className="offer-card">
-                    <h3>Boutique en ligne Évolutive</h3>
-                    <p>Une solution professionnelle conçue pour accompagner la croissance de votre activité dans le temps.</p>
-                    <span>À partir de 990€</span>
                   </div>
                   <div className="offer-card">
                     <h3>Audit & Conseil</h3>
