@@ -70,8 +70,16 @@ const Legalnotice = () => {
 
             <h2>5. Données personnelles</h2>
             <p>
-              Les données collectées via le formulaire de contact sont utilisées uniquement 
-              dans le cadre des échanges professionnels.
+              Les données collectées via le formulaire de contact et l’envoi d’un email pour une estimation (nom, email et contenu du message)
+              sont utilisées uniquement pour traiter votre demande et échanger dans le cadre de la relation professionnelle.
+            </p>
+            <p>
+              Si vous ne devenez pas client, elles sont conservées <strong>1 an maximum</strong> à compter du dernier échange, et peuvent donner lieu à
+              <strong> une seule relance</strong> par email concernant votre projet.
+            </p>
+            <p>
+              Si une prestation est conclue, certaines données nécessaires à la facturation et à la comptabilité sont conservées pendant la
+              <strong> durée légale de 10 ans</strong>.
             </p>
             <p>
               Conformément au Règlement Général sur la Protection des Données (RGPD), 

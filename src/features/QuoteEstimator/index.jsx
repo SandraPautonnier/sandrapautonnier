@@ -1,7 +1,8 @@
 import React, { useMemo, useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronUp, faArrowLeft, faArrowRight, faRotateRight } from '@fortawesome/free-solid-svg-icons';
+import { faChevronUp, faArrowLeft, faArrowRight, faRotateRight, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { jsPDF } from "jspdf";
 
 /**
  * QuoteEstimatorStepperEmail.jsx
@@ -137,6 +138,9 @@ function optionPriceLabel(opt) {
 function calcMultilingualPrice(languageCount) {
   const count = Math.max(2, languageCount || 2);
   return PRICING.multilingual.baseFor2 + (count - 2) * PRICING.multilingual.perExtra;
+}
+function formatRangeEUR(min, max) {
+  return min === max ? formatEUR(min) : `${formatEUR(min)} – ${formatEUR(max)}`;
 }
 
 function calcEstimate(state) {
@@ -312,12 +316,101 @@ export default function QuoteEstimatorStepperEmail() {
   const estimateTotal =
     estimate.min === estimate.max ? formatEUR(estimate.min) : `${formatEUR(estimate.min)} – ${formatEUR(estimate.max)}`;
 
-  const pricedLines = useMemo(() => {
-    return estimate.items.map((it) => {
-      const price = it.min === it.max ? formatEUR(it.min) : `${formatEUR(it.min)} – ${formatEUR(it.max)}`;
-      return `- ${it.label} : ${price}`;
-    });
+  const estimateLinesForUI = useMemo(() => {
+    return estimate.items.map((it) => ({
+      label: it.label,
+      price: formatRangeEUR(it.min, it.max),
+    }));
   }, [estimate.items]);
+
+  // ✅ résumé des prestations (fusion colonne 2+3)
+  const prestationsSummary = useMemo(() => {
+    const bullets = [];
+
+    // Type / pages
+    bullets.push(`Type : ${projectTypeLabel}`);
+    if (state.projectType === "pages2to4") bullets.push(`Pages : ${Math.min(4, Math.max(2, state.pagesCount))}`);
+    if (state.projectType === "pages5plus") bullets.push(`Pages : ${Math.max(5, state.pagesCount)} (5 incluses)`);
+
+    // Options sélectionnées
+    const selectedOptions = Object.entries(state.optionsBasic)
+      .filter(([, enabled]) => enabled)
+      .map(([key]) => PRICING.optionsBasic[key]?.label)
+      .filter(Boolean);
+
+    if (selectedOptions.length) bullets.push(`Options : ${selectedOptions.join(", ")}`);
+
+    // Multilingue
+    if (state.multilingualEnabled) {
+      bullets.push(`Multilingue : ${Math.max(2, state.languageCount)} langues — ${formatEUR(calcMultilingualPrice(state.languageCount))}`);
+    }
+
+    // Back-office modules
+    if (state.optionsBasic.backOffice) {
+      const mods = Object.entries(state.backOfficeModules)
+        .filter(([, enabled]) => enabled)
+        .map(([key]) => PRICING.backOfficeModules[key]?.label)
+        .filter(Boolean);
+      bullets.push(mods.length ? `Modules back-office : ${mods.join(", ")}` : "Back-office : pages du site (inclus)");
+    }
+
+    // E-commerce
+    if (isEcom) {
+      const prodLabel = PRICING.ecommerce.products[state.productsRange]?.label;
+      if (prodLabel) bullets.push(`Catalogue : ${prodLabel}`);
+      const feats = Object.entries(state.ecommerceFeatures)
+        .filter(([, enabled]) => enabled)
+        .map(([key]) => PRICING.ecommerce.features[key]?.label)
+        .filter(Boolean);
+      if (feats.length) bullets.push(`E-commerce : ${feats.join(", ")}`);
+    }
+
+    // Étape 3 : domaine/hébergement
+    const domainText =
+      state.domainChoice === "need"
+        ? "Nom de domaine : Non (aide incluse)"
+        : "Nom de domaine : Oui";
+    bullets.push(domainText);
+
+    if (maintenanceAvailable) {
+      const hostingText =
+        state.hostingMaintenanceChoice === "noHosting_withMaintenance"
+          ? `Hébergement : Non → Maintenance ${formatEUR(maintenanceMonthly)}/mois`
+          : state.hostingMaintenanceChoice === "hasHosting_withMaintenance"
+            ? "Hébergement : Oui → Maintenance (prix variable)"
+            : "Hébergement : Oui → Pas de maintenance";
+      bullets.push(hostingText);
+    }
+
+    // Étape 4 : services supplémentaires
+    const designChoice = PRICING.partnerChoices.design[state.designChoice];
+    const copyChoice = PRICING.partnerChoices.copy[state.copyChoice];
+    const socialChoice = PRICING.partnerChoices.social[state.socialChoice];
+
+    if (designChoice?.label) bullets.push(`Design : ${designChoice.partnerOnly ? `${designChoice.label} (sur devis)` : designChoice.label}`);
+    if (copyChoice?.label) bullets.push(`Rédaction : ${copyChoice.partnerOnly ? `${copyChoice.label} (sur devis)` : copyChoice.label}`);
+    if (socialChoice?.label) bullets.push(`Réseaux sociaux : ${socialChoice.partnerOnly ? `${socialChoice.label} (sur devis)` : socialChoice.label}`);
+
+    return bullets;
+  }, [
+    projectTypeLabel,
+    state.projectType,
+    state.pagesCount,
+    state.optionsBasic,
+    state.multilingualEnabled,
+    state.languageCount,
+    state.backOfficeModules,
+    isEcom,
+    state.productsRange,
+    state.ecommerceFeatures,
+    state.domainChoice,
+    maintenanceAvailable,
+    maintenanceMonthly,
+    state.hostingMaintenanceChoice,
+    state.designChoice,
+    state.copyChoice,
+    state.socialChoice,
+  ]);
 
   const detailsText = useMemo(() => {
     const lines = [];
@@ -414,7 +507,7 @@ export default function QuoteEstimatorStepperEmail() {
 
     lines.push("");
     lines.push("Détail du prix :");
-    lines.push(...pricedLines);
+    estimate.items.forEach((it) => lines.push(`- ${it.label} : ${formatRangeEUR(it.min, it.max)}`));
     lines.push("");
     lines.push(`Estimation : ${estimateTotal}`);
 
@@ -438,7 +531,7 @@ export default function QuoteEstimatorStepperEmail() {
     maintenanceMonthly,
     state.hostingMaintenanceChoice,
     state.domainChoice,
-    pricedLines,
+    estimate.items,
     estimateTotal,
   ]);
 
@@ -530,7 +623,6 @@ export default function QuoteEstimatorStepperEmail() {
 
   const stepLabel = isAudit ? (step === 5 ? 2 : 1) : step;
 
-  // ✅ Formater le texte récapitulatif avec caractéristiques en gras (uniquement les labels)
   const formatDetailsWithBold = (text) => {
     return text
       .split("\n")
@@ -550,7 +642,6 @@ export default function QuoteEstimatorStepperEmail() {
           "Détail du prix :",
           "Estimation :",
         ];
-        // Mettre en gras uniquement le label avant le ':', pas la valeur
         for (const kw of keywords) {
           if (line.includes(kw)) {
             return line.replace(kw, `<strong>${kw}</strong>`);
@@ -561,7 +652,6 @@ export default function QuoteEstimatorStepperEmail() {
       .join("<br />");
   };
 
-  // ✅ helper pour rendre une checkbox d'option basique
   const renderBasicOption = (key) => {
     const opt = PRICING.optionsBasic[key];
     if (!opt) return null;
@@ -583,12 +673,213 @@ export default function QuoteEstimatorStepperEmail() {
     );
   };
 
+  // ✅ Bloc 2 colonnes réutilisable (étapes 2, 3, 4)
+  const TwoColumnsSummary = () => (
+    <div className="border-text" style={{ marginBottom: 20 }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1.4fr",
+          gap: 18,
+          alignItems: "start",
+        }}
+      >
+        {/* Col 1 : inclus */}
+        <div>
+          <strong style={{ display: "block", marginTop: 10, color: "#70588C" }}>✅ Déjà inclus :</strong>
+          <ul style={{ marginTop: 10, marginBottom: 0 }}>
+            <li><FontAwesomeIcon icon={faCheck} /> {PRICING.included.seoBasic}</li>
+            <li><FontAwesomeIcon icon={faCheck} /> {PRICING.included.accessibility}</li>
+          </ul>
+        </div>
+
+        {/* Col 2 : résumé des prestations */}
+        <div>
+          <strong style={{ display: "block", marginTop: 10, color: "#70588C" }}>📌 Résumé des prestations :</strong>
+          <ul style={{ marginTop: 10, marginBottom: 10 }}>
+            {estimateLinesForUI.map((row, idx) => (
+              <li key={`${row.label}-${idx}`} style={{ display: "flex", justifyContent: "space-between", gap: 10 }}>
+                <span style={{ flex: 1 }}>{row.label}</span>
+                <span style={{ fontWeight: 600, whiteSpace: "nowrap" }}>{row.price}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div style={{ borderTop: "1px solid rgba(0,0,0,0.1)", paddingTop: 10 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", gap: 10, fontWeight: 800 }}>
+              <span>Prix final (estimation)</span>
+              <span style={{ whiteSpace: "nowrap", color: "#70588C" }}>{estimateTotal}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+    // ✅ PDF : export du texte "detailsText" + titre + estimation
+const downloadPdf = () => {
+  const doc = new jsPDF({ unit: "pt", format: "a4" });
+  const margin = 40;
+  const pageWidth = doc.internal.pageSize.getWidth();
+  const pageHeight = doc.internal.pageSize.getHeight();
+  const maxWidth = pageWidth - margin * 2;
+
+  let y = 60;
+
+  const ensureSpace = (needed = 14) => {
+    if (y + needed > pageHeight - margin) {
+      doc.addPage();
+      y = margin;
+    }
+  };
+
+  const clean = (str) => {
+    if (!str) return "";
+    return String(str)
+      .replace(/\u00A0/g, " ")
+      .replace(/[’‘]/g, "'")
+      .replace(/[“”]/g, '"')
+      .replace(/\s+/g, " ")
+      .trim();
+  };
+
+  const writeText = (text, { bold = false, size = 11, gap = 14 } = {}) => {
+    ensureSpace(gap + 2);
+    doc.setFont("helvetica", bold ? "bold" : "normal");
+    doc.setFontSize(size);
+
+    const lines = doc.splitTextToSize(clean(text), maxWidth);
+    lines.forEach((line) => {
+      ensureSpace(gap);
+      doc.text(line, margin, y);
+      y += gap;
+    });
+  };
+
+  const writeTitle = (text) => {
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(16);
+    doc.text(clean(text), margin, y);
+    y += 22;
+  };
+
+  const writeSection = (title) => {
+    y += 6;
+    writeText(title, { bold: true, size: 13, gap: 18 });
+  };
+
+  const bullet = (text) => writeText(`• ${text}`, { gap: 14 });
+
+  // ====== SUMMARY (simple + phrases “de base”) ======
+  const summaryLines = [];
+
+  summaryLines.push(`Type : ${projectTypeLabel || "—"}`);
+
+  if (state.projectType === "pages2to4") {
+    summaryLines.push(`Pages : ${Math.min(4, Math.max(2, state.pagesCount))}`);
+  } else if (state.projectType === "pages5plus") {
+    summaryLines.push(`Pages : ${Math.max(5, state.pagesCount)} (5 incluses)`);
+  }
+
+  // Options cochées
+  const selectedOptions = Object.entries(state.optionsBasic || {})
+    .filter(([, enabled]) => enabled)
+    .map(([key]) => PRICING.optionsBasic[key]?.label)
+    .filter(Boolean);
+
+  summaryLines.push(selectedOptions.length ? `Options : ${selectedOptions.join(", ")}` : "Options : Aucune");
+
+  // Multilingue
+  if (state.multilingualEnabled) {
+    const langs = Math.max(2, state.languageCount || 2);
+    summaryLines.push(`Multilingue : ${langs} langues`);
+  }
+
+  // Nom de domaine (phrase complète)
+  const domainSentence =
+    state.domainChoice === "need"
+      ? "Nom de domaine : Non, je n’ai pas de nom de domaine (aide incluse — le nom de domaine est payant selon le nom et l’hébergeur)."
+      : "Nom de domaine : Oui, j’ai déjà un nom de domaine.";
+  summaryLines.push(domainSentence);
+
+  // Maintenance : OUI/NON dans le résumé
+  const maintenanceAvailable = Object.prototype.hasOwnProperty.call(PRICING.maintenanceMonthlyByProject, state.projectType);
+  const maintenanceMonthly = maintenanceAvailable ? PRICING.maintenanceMonthlyByProject[state.projectType] : 0;
+
+  const maintenanceYes =
+    maintenanceAvailable &&
+    (state.hostingMaintenanceChoice === "noHosting_withMaintenance" ||
+      state.hostingMaintenanceChoice === "hasHosting_withMaintenance");
+
+  const maintenanceLine = !maintenanceAvailable
+    ? "Maintenance : Sur devis"
+    : maintenanceYes
+      ? (state.hostingMaintenanceChoice === "hasHosting_withMaintenance"
+          ? "Maintenance : Oui (prix variable — hébergement existant)"
+          : `Maintenance : Oui (${formatEUR(maintenanceMonthly)}/mois)`)
+      : "Maintenance : Non";
+  summaryLines.push(maintenanceLine);
+
+  // Services supplémentaires (design/copy/social)
+  const designChoice = PRICING.partnerChoices?.design?.[state.designChoice];
+  const copyChoice = PRICING.partnerChoices?.copy?.[state.copyChoice];
+  const socialChoice = PRICING.partnerChoices?.social?.[state.socialChoice];
+
+  if (designChoice?.label)
+    summaryLines.push(`Design : ${designChoice.partnerOnly ? `${designChoice.label} (sur devis)` : designChoice.label}`);
+  if (copyChoice?.label)
+    summaryLines.push(`Rédaction : ${copyChoice.partnerOnly ? `${copyChoice.label} (sur devis)` : copyChoice.label}`);
+  if (socialChoice?.label)
+    summaryLines.push(
+      `Réseaux sociaux : ${socialChoice.partnerOnly ? `${socialChoice.label} (sur devis)` : socialChoice.label}`
+    );
+
+  // ====== PRICES LIST (maintenance at the END) ======
+  const prices = [...(estimateLinesForUI || [])]; // [{label, price}]
+  const maintenancePriceLine =
+    !maintenanceAvailable
+      ? null
+      : maintenanceYes
+        ? (state.hostingMaintenanceChoice === "hasHosting_withMaintenance"
+            ? { label: "Maintenance", price: "Prix variable (hébergement existant)" }
+            : { label: "Maintenance", price: `${formatEUR(maintenanceMonthly)}/mois` })
+        : null;
+
+  // ====== PDF RENDER ======
+  writeTitle("Estimation de projet avec Sandra Pautonnier");
+
+  writeSection("Résumé");
+  summaryLines.forEach((l) => bullet(l));
+
+  writeSection("Détail des prix");
+  prices.forEach((row) => writeText(`${row.label} : ${row.price}`, { gap: 14 }));
+
+  // 👉 maintenance ajoutée à la fin de la liste (si oui)
+  if (maintenancePriceLine) {
+    y += 2;
+    writeText(`${maintenancePriceLine.label} : ${maintenancePriceLine.price}`, { gap: 14 });
+  }
+
+  y += 8;
+  writeText(`Total (estimation) : ${estimateTotal}`, { bold: true, size: 13, gap: 18 });
+
+  y += 10;
+  writeText("Prêt(e) à vous lancer ? Contactez-moi :", { bold: true, size: 11, gap: 14 });
+  writeText("contact@sandrapautonnier.com", { bold: false, size: 11, gap: 14 });
+  writeText("07 56 84 50 15", { bold: false, size: 11, gap: 14 });
+
+  y += 6;
+  writeText("Cette estimation est indicative. Le devis final dépendra du besoin exact.", { size: 10, gap: 12 });
+
+  doc.save("estimation-projet.pdf");
+};
+
   return (
     <section className="quote-estimator">
       <h2>💰 Estimez votre projet</h2>
 
       {step === 1 && (
-        <p>
+        <p className="border-text">
           Sélectionnez les caractéristiques de votre projet pour obtenir une estimation indicative (le devis final dépendra du besoin exact).
           Si vous ne savez pas exactement ce dont vous avez besoin, choisissez l’option qui s’en rapproche le plus ou n’hésitez pas à me contacter
           pour en discuter ! Gardez en tête que votre site pourra évoluer dans le temps, et que je serai là pour vous accompagner même après la livraison du projet.
@@ -698,31 +989,21 @@ export default function QuoteEstimatorStepperEmail() {
       {/* ÉTAPE 2 */}
       {step === 2 && !isAudit && (
         <div>
+          <TwoColumnsSummary />
           <h3 style={{ color: '#70588C', marginBottom: 20 }}>⚙️ De quoi avez-vous besoin pour votre site ?</h3>
 
-          <div style={{ backgroundColor: '#f0f0f0', padding: 15, borderRadius: 8, marginBottom: 20 }}>
-            <strong style={{ fontSize: '1.05em', color: '#70588C' }}>✅ Déjà inclus :</strong>
-            <ul style={{ marginTop: 10, marginBottom: 0 }}>
-              <li>🔍 {PRICING.included.seoBasic}</li>
-              <li>♿ {PRICING.included.accessibility}</li>
-            </ul>
-          </div>
-
-          {/* ✅ Fieldset SEO / Analytics (au-dessus) */}
           <fieldset>
             <legend>🔍 SEO & Analyse</legend>
             {renderBasicOption("seoAdvanced")}
             {renderBasicOption("analyticsBasic")}
-
-
           </fieldset>
 
-          {/* ✅ Fieldset Fonctionnalités (en dessous) */}
           <fieldset style={{ marginTop: 12 }}>
             <legend>⭐ Fonctionnalités à la carte</legend>
             {renderBasicOption("contactForm")}
             {renderBasicOption("booking")}
             {renderBasicOption("mapSection")}
+
             <label style={{ display: "block", marginBottom: 6, marginTop: 6 }}>
               <input
                 type="checkbox"
@@ -735,7 +1016,7 @@ export default function QuoteEstimatorStepperEmail() {
                   }))
                 }
               />{" "}
-              🌍 Multilingue (2 langues) + {formatEUR(PRICING.multilingual.perExtra)} / langue supplémentaire
+              Multilingue (2 langues) + {formatEUR(PRICING.multilingual.perExtra)} / langue supplémentaire
             </label>
 
             {state.multilingualEnabled && (
@@ -752,10 +1033,10 @@ export default function QuoteEstimatorStepperEmail() {
                 <div>Prix : {formatEUR(calcMultilingualPrice(state.languageCount))}</div>
               </div>
             )}
+
             {renderBasicOption("backOffice")}
             {renderBasicOption("thirdPartyFeature")}
             {renderBasicOption("customIdeaHelp")}
-            
           </fieldset>
 
           {state.optionsBasic.backOffice && (
@@ -808,6 +1089,7 @@ export default function QuoteEstimatorStepperEmail() {
       {/* ÉTAPE 3 */}
       {step === 3 && !isAudit && (
         <div>
+          <TwoColumnsSummary />
           <h3 style={{ color: '#70588C', marginBottom: 20 }}>🌐 Avez-vous déjà un nom de domaine et un hébergement ?</h3>
 
           <fieldset style={{ marginTop: 12 }}>
@@ -849,7 +1131,9 @@ export default function QuoteEstimatorStepperEmail() {
               <p style={{ fontStyle: 'italic', color: '#666' }}>📌 Non incluse pour cette offre (sur devis).</p>
             ) : (
               <>
-                <p style={{ backgroundColor: '#fff9f0', padding: 10, borderLeft: '4px solid #70588C', borderRadius: 4, marginBottom: 15 }}>L'option maintenance comprend 📤 la publication, 🔄 les mises à jour et 🔒 la sécurité.</p>
+                <p style={{ backgroundColor: '#fff9f0', padding: 10, borderLeft: '4px solid #70588C', borderRadius: 4, marginBottom: 15 }}>
+                  L'option maintenance comprend 📤 la publication, 🔄 les mises à jour et 🔒 la sécurité.
+                </p>
 
                 <label style={{ display: "block", marginBottom: 6 }}>
                   <input
@@ -889,7 +1173,8 @@ export default function QuoteEstimatorStepperEmail() {
       {/* ÉTAPE 4 */}
       {step === 4 && !isAudit && (
         <div>
-          <h3 style={{ color: '#70588C', marginBottom: 20 }}>🤝 Avez-vous besoin de services supplémentaires ?</h3>
+          <TwoColumnsSummary />
+          <h3 style={{ color: '#70588C', marginBottom: 20 }}>🤝 Avez-vous besoin d'autre chose?</h3>
 
           <RadioGroup
             name="design"
@@ -937,8 +1222,8 @@ export default function QuoteEstimatorStepperEmail() {
           </div>
 
           <div className="quote-estimator-email-dropdown">
-            <button 
-              type="button" 
+            <button
+              type="button"
               className="quote-estimator-email-toggle"
               onClick={() => setShowEmail((v) => !v)}
             >
@@ -984,24 +1269,27 @@ export default function QuoteEstimatorStepperEmail() {
           </div>
 
           <p style={{ fontSize: "0.9em", color: "#555", marginTop: 10, textAlign: "center", fontWeight: "500", lineHeight: "1.5" }}>
-            Vos données <strong>ne sont pas collectées à des fins de prospection.</strong><br />
-            Je collecte seulement les réponses <strong>à des fins d'amélioration de service.</strong>
+            Les informations (nom, email) servent uniquement à répondre à votre demande et, si besoin, à une seule relance. Conservation : 1 an max. Vos droits : <a className="link" href="mailto:contact@sandrapautonnier.com">contact@sandrapautonnier.com</a> - <a href="/legalnotice" className="link" target="_blank" rel="noopener noreferrer">Mentions légales</a>.
           </p>
 
           <hr />
 
           <div className="quote-details-wrapper">
-            <button 
-              type="button" 
+            <button
+              type="button"
               className="quote-details-trigger"
               onClick={() => setDetailsOpen(!detailsOpen)}
             >
               <span className={`quote-details-icon ${detailsOpen ? 'open' : ''}`}>▼</span>
               📋 Détails de votre projet
             </button>
-            
+
+            <button type="button" onClick={downloadPdf}>
+              📄 Télécharger au format pdf
+            </button>            
+
             <div className={`quote-details-content ${detailsOpen ? 'open' : ''}`}>
-              <div 
+              <div
                 className="quote-details-text"
                 dangerouslySetInnerHTML={{ __html: formatDetailsWithBold(detailsText) }}
               />

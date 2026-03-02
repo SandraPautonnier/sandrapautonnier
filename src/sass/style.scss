@@ -185,3 +185,19 @@ button {
 .card-banner {
     max-width: 768px;
 }
+
+.border-text {
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 20px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  color: $light-text;
+  font-size: 16px;
+  
+  background:
+    linear-gradient($component, $component) padding-box,
+    linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%) border-box;
+  transition: transform .3s ease, color .3s ease;    
+}
