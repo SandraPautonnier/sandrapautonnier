@@ -203,11 +203,17 @@ button {
 }
 
 .base-text {
-  font-size: 0.9em;
-  color: #555;
+  font-size: 1em;
+  color: #202020;
   margin-top: 10px;
-  text-align: center;
+  font-weight: 500;
+  line-height: 1.5;    
+}
+
+.bis-text {
+  font-size: 0.9em;
+  color: #3f3e3e;
+  margin-top: 10px;
   font-weight: 500;
   line-height: 1.5;
-
 }

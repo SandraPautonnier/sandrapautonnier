@@ -690,7 +690,7 @@ export default function QuoteEstimatorStepperEmail() {
 
   // ✅ Bloc 2 colonnes réutilisable (étapes 2, 3, 4)
   const TwoColumnsSummary = () => (
-    <div className="border-text" style={{ marginBottom: 20 }}>
+    <div className="border-text two-columns-summary" style={{ marginBottom: 20 }}>
       <div
         style={{
           display: "grid",
@@ -702,11 +702,10 @@ export default function QuoteEstimatorStepperEmail() {
         {/* Col 1 : inclus */}
         <div>
           <strong style={{ display: "block", marginTop: 10, color: "#70588C" }}>✅ Déjà inclus :</strong>
-          <ul style={{ marginTop: 10, marginBottom: 0 }}>
+          <ul className="bis-text">
             <li><FontAwesomeIcon icon={faCheck} /> {PRICING.included.seoBasic}</li>
             <li><FontAwesomeIcon icon={faCheck} /> {PRICING.included.accessibility}</li>
-          </ul>
-          {isEcom && (
+            {isEcom && (
             <>
               <li><FontAwesomeIcon icon={faCheck} /> Hébergement inclus via la plateforme (SumUp / Shopify)</li>
               <li><FontAwesomeIcon icon={faCheck} /> Paiements en ligne configurés</li>
@@ -714,6 +713,8 @@ export default function QuoteEstimatorStepperEmail() {
               <li><FontAwesomeIcon icon={faCheck} /> Sécurité et infrastructure gérées par la plateforme</li>
             </>
           )}
+          </ul>
+
         </div>
 
         {/* Col 2 : résumé des prestations */}
@@ -902,10 +903,18 @@ const downloadPdf = () => {
       <h2>💰 Estimez votre projet</h2>
 
       {step === 1 && (
-        <p className="border-text base-text">
-          Sélectionnez les caractéristiques de votre projet pour obtenir une estimation indicative (le devis final dépendra du besoin exact).
-          Si vous ne savez pas exactement ce dont vous avez besoin, choisissez l’option qui s’en rapproche le plus ou n’hésitez pas à me contacter
-          pour en discuter ! Gardez en tête que votre site pourra évoluer dans le temps, et que je serai là pour vous accompagner même après la livraison du projet.
+        <p className="border-text bis-text" >
+          <strong style={{textAlign: "center"}}>En 2 min chrono !</strong>
+          Sélectionnez les options les plus proches de votre projet et obtenez une estimation de prix indicative.(le devis final sera affiné selon vos besoins précis) : <br /> <br />
+          1️⃣ Type de projet (vitrine, e-commerce, Audit visibilité)<br />
+          2️⃣ Options à la carte (formulaires, réservation, paiement en ligne…) <br />
+          3️⃣ Hébergement / maintenance / nom de domaine <br />
+          4️⃣ Services supplémentaires (design, rédaction, réseaux sociaux) <br />
+          5️⃣ Estimation & récapitulatif téléchargeable (votre fourchette de prix personnalisée) 🚀 <br />
+          <br />
+          <span> Un doute sur une étape ? <a href="/contact">
+              💬 Contactez-moi
+            </a> - Je vous guide pour un projet sur mesure et évolutif.</span>
         </p>
       )}
 
@@ -1315,7 +1324,7 @@ const downloadPdf = () => {
             </div>
           </div>
 
-          <p className="base-text">
+          <p className="bis-text" style={{textAlign: "center"}}>
             Les informations (nom, email) servent uniquement à répondre à votre demande et, si besoin, à une seule relance. Conservation : 1 an max. Vos droits : <a className="link" href="mailto:contact@sandrapautonnier.com">contact@sandrapautonnier.com</a> - <a href="/legalnotice" className="link" target="_blank" rel="noopener noreferrer">Mentions légales</a>.
           </p>
 

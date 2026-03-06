@@ -363,6 +363,14 @@
     background: linear-gradient(to right, transparent, $main-color, transparent);
   }
 
+  // Two columns summary responsive adjustment
+  .two-columns-summary > div {
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr !important;
+      gap: 10px !important;
+    }
+  }
+
   // Responsive adjustments
   @media (max-width: 768px) {
     fieldset {
@@ -668,6 +676,14 @@ body.mode .quote-estimator {
     pre {
       background-color: rgba(0, 0, 0, 0.3);
       color: #f5f1ed;
+    }
+  }
+}
+
+.bis-text {
+  span {
+    a {
+      @include underline-anim;
     }
   }
 }

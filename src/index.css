@@ -1695,6 +1695,12 @@ table th {
   background: linear-gradient(to right, transparent, #70588C, transparent);
 }
 @media (max-width: 768px) {
+  .quote-estimator .two-columns-summary > div {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+}
+@media (max-width: 768px) {
   .quote-estimator fieldset {
     padding: 15px;
   }
@@ -1950,6 +1956,15 @@ body.mode .quote-estimator details {
 body.mode .quote-estimator details pre {
   background-color: rgba(0, 0, 0, 0.3);
   color: #f5f1ed;
+}
+
+.bis-text span a {
+  background: linear-gradient(to top, #70588C 0%, #70588C 1px, transparent 2px) no-repeat;
+  background-size: 0 100%;
+  transition: background-size 0.3s cubic-bezier(0.77, 0, 0.18, 1);
+}
+.bis-text span a:hover {
+  background-size: 100% 100%;
 }
 
 body.mode span {
@@ -2229,10 +2244,17 @@ button {
 }
 
 .base-text {
-  font-size: 0.9em;
-  color: #555;
+  font-size: 1em;
+  color: #202020;
   margin-top: 10px;
-  text-align: center;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.bis-text {
+  font-size: 0.9em;
+  color: #3f3e3e;
+  margin-top: 10px;
   font-weight: 500;
   line-height: 1.5;
 }
