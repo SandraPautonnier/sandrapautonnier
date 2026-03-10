@@ -35,16 +35,17 @@ const Home = () => {
               </p>
               <div className="buttons-social">
                 <a href="/price" className="btn">Faire une estimation</a>
-                <a href="/contact" className="btn-secondary">Prendre rendez-vous</a>
-                <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faSquareGithub} />Github</a>
+                <a href="/contact" className="btn-secondary">Contactez-moi</a>
                 <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} />Linkedin</a>
+                <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faSquareGithub} />Github</a>
+                
                 <a href={Cv} target="_blank" rel="noreferrer" download aria-label="Télécharger le CV de Sandra en document pdf"><FontAwesomeIcon icon={faFileArrowDown} /> CV</a>
               </div>
             </div>
           </header>
           <main>
             <section className="hook-services">
-              <h2>Ce que je propose</h2>
+              <h2>Des offres clé en main</h2>
               <div className="offers-container">
                 {Services.map(Service => {
                   const iconMap = {
@@ -67,7 +68,7 @@ const Home = () => {
               <Link to="/price" className="btn">Faire une estimation de votre projet</Link>
             </section>
             <section>
-              <h2>Pourquoi moi ?</h2>
+              <h2>Pourquoi travailler avec moi ?</h2>
               <div className="me">
                 <img src={MainImage} alt="Poignée de main" />
                 <ul className="base-text">

@@ -431,7 +431,6 @@ footer .social-links a:hover {
 @media (min-width: 375px) {
   .header-banner .buttons-social {
     flex-direction: row;
-    align-items: initial;
   }
 }
 .header-banner .buttons-social a {
@@ -483,11 +482,11 @@ footer .social-links a:hover {
   .header-banner .buttons-social {
     position: relative;
     z-index: 10;
-    left: -303px;
+    left: -125px;
     top: -290px;
   }
   .hook-services {
-    margin-top: -200px;
+    margin-top: -270px;
   }
 }
 .cta {
@@ -500,6 +499,9 @@ footer .social-links a:hover {
 }
 .cta h2 {
   color: white;
+}
+.cta h2::after {
+  background: white !important;
 }
 .cta .btn {
   background-color: #f5f1ed;
@@ -2009,6 +2011,19 @@ h2 {
   text-align: center;
   margin: 30px 0;
   color: #70588C;
+  position: relative;
+  padding-bottom: 10px;
+}
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 3px;
+  background: linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%);
+  border-radius: 50px;
 }
 
 h1, h2, p {

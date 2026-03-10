@@ -28,7 +28,6 @@
     
     @media (min-width: 375px) {
       flex-direction: row;
-      align-items: initial;
     }
     
     a {
@@ -64,12 +63,12 @@
     .buttons-social {
       position: relative;
       z-index: 10;
-      left: -303px;
+      left: -125px;
       top: -290px;
     }
   }
   .hook-services {
-    margin-top: -200px;
+    margin-top: -270px;
   }
 }
 
@@ -82,6 +81,9 @@
   align-items: center;
   h2 {
     color: white;
+    &::after {
+      background: white !important;
+    }
   }
   .btn {
     background-color: #f5f1ed;
