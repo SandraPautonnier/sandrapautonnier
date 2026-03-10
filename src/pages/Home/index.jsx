@@ -2,10 +2,11 @@ import { Link } from "react-router-dom";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import HeaderImage from '../../assets/images/image_portrait_dessin_sandra_header.webp';
+import MainImage from '../../assets/images/image_poignee-de-main.webp'
 import Cv from '../../assets/pdf/CV-Sandra-Pautonnier.pdf';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin , faSquareGithub , faReact } from '@fortawesome/free-brands-svg-icons';
-import { faFileArrowDown , faUser , faFlask , faCode , faAward , faMagnifyingGlass , faWrench, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin , faSquareGithub } from '@fortawesome/free-brands-svg-icons';
+import { faFileArrowDown , faCode , faAward , faMagnifyingGlass , faWrench, faCheck, faPen } from '@fortawesome/free-solid-svg-icons';
 import Carousel from "../../features/Carousel";
 import HookWorks from "../../assets/content/worksList.json";
 import Meta from "../../components/Meta";
@@ -33,6 +34,8 @@ const Home = () => {
               <p>Créativité, écoute & clarté ! Au service de votre image en ligne.
               </p>
               <div className="buttons-social">
+                <a href="/price" className="btn">Faire une estimation</a>
+                <a href="/contact" className="btn-secondary">Prendre rendez-vous</a>
                 <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faSquareGithub} />Github</a>
                 <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} />Linkedin</a>
                 <a href={Cv} target="_blank" rel="noreferrer" download aria-label="Télécharger le CV de Sandra en document pdf"><FontAwesomeIcon icon={faFileArrowDown} /> CV</a>
@@ -42,29 +45,32 @@ const Home = () => {
           <main>
             <section className="hook-services">
               <h2>Ce que je propose</h2>
-              <div className="container-hook-services">
+              <div className="offers-container">
                 {Services.map(Service => {
                   const iconMap = {
                     'faCode': faCode,
                     'faMagnifyingGlass': faMagnifyingGlass,
                     'faWrench': faWrench,
+                    'faAward': faAward,
+                    'faPen': faPen,
                   };
                   return (
-                    <div key={Service.id} className="card">
+                    <div key={Service.id} className="offer-card">
                       <FontAwesomeIcon icon={iconMap[Service.icon]} />
                       <h3>{Service.title}</h3>
-                      <p>{Service.description}</p>
+                      <p className="base-text">{Service.description}</p>
+                      <span>{Service.prix}</span>
                     </div>
                   );
                 })}
               </div>
-              <p className="catch">Des solutions simples, claires et adaptées à votre budget.</p>
-              <Link to="/contact" className="btn">Voir les offres détaillées</Link>
+              <Link to="/price" className="btn">Faire une estimation de votre projet</Link>
             </section>
             <section>
               <h2>Pourquoi moi ?</h2>
               <div className="me">
-                <ul>
+                <img src={MainImage} alt="Poignée de main" />
+                <ul className="base-text">
                   <li><FontAwesomeIcon icon={faCheck} />  Accompagnement humain et personnalisé</li>
                   <li><FontAwesomeIcon icon={faCheck} />  Tarifs transparents et sans surprise</li>
                   <li><FontAwesomeIcon icon={faCheck} />  Expertise technique et créative</li>
@@ -73,33 +79,6 @@ const Home = () => {
                 </ul>
               </div>
               <p className="catch">Je ne crée pas seulement un site. <br />Je crée un outil qui soutient votre activité et votre croissance.</p>
-            </section>
-            <section>
-              <h2>Mes offres clé en main</h2>
-                <div className="offers-container">
-                  <div className="offer-card">
-                    <h3>Création de site web</h3>
-                    <p>Idéal pour lancer votre activité avec une présence en ligne claire, simple et professionnelle.</p>
-                    <span>À partir de 390€</span>
-                  </div>
-                  <div className="offer-card">
-                    <h3>Refonte de site existant</h3>
-                    <p>Donnez un coup de jeune à votre site actuel avec une refonte moderne, performante et adaptée à vos besoins.</p>
-                    <span>À partir de 490€</span>
-                  </div>
-                  <div className="offer-card">
-                    <h3>Boutique en ligne e-commerce</h3>
-                    <p>Vendez en ligne facilement grâce à une solution simple et prête à l’emploi et évolutive</p>
-                    <span>À partir de 790€</span>
-                  </div>
-                  <div className="offer-card">
-                    <h3>Audit & Conseil</h3>
-                    <p>Analyse approfondie de votre site actuel avec des recommandations pour l'améliorer et optimiser sa performance.</p>
-                    <span>À partir de 290€</span>
-                  </div>
-                </div>
-                <p className="catch">Remplissez un formulaire pour estimer le prix de votre projet !</p>
-                <Link to="/price" onClick={handleScrollToTop} className="btn">Faire un devis</Link> 
             </section>
             <section className="hook-works">
               <h2>Quelques projets</h2>

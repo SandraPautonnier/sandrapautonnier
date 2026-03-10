@@ -3,21 +3,32 @@
         "id": 1,
         "icon": "faCode",
         "alt": "Icône de création de site",
-        "title": "Création de site web",
-        "description": "Des sites modernes, rapides et adaptés à votre activité.\n Responsive, sécurisés et prêts à évoluer avec vous."
+        "title": "Création & Refonte de site web",
+        "description": "Des sites modernes, rapides et adaptés à votre activité.\n Responsive, sécurisés et prêts à évoluer avec vous.",
+        "prix": "À partir de 390€"
     },
     {
         "id": 2,
         "icon": "faMagnifyingGlass",
         "alt": "Icône du référencement et d'un audit SEO",
         "title": "Audit & visibilité",
-        "description": "Analyse de votre site et de votre présence digitale pour identifier les leviers d’amélioration et booster votre visibilité."
+        "description": "Analyse de votre site et de votre présence digitale pour identifier les leviers d’amélioration et booster votre visibilité.",
+        "prix": "À partir de 290€"
     },
     {
         "id": 3,
         "icon": "faWrench",
         "alt": "Icône de la maintenance d'un site web",
         "title": "Maintenance & optimisation",
-        "description": "Mises à jour régulières, sécurité et optimisation des performances pour garantir un site fiable au quotidien."
+        "description": "Mises à jour régulières, sécurité et optimisation des performances pour garantir un site fiable au quotidien.",
+        "prix": "À partir de 29€ / mois"
+    },
+    {
+        "id": 4,
+        "icon": "faPen",
+        "alt": "Icône d'un crayon'",
+        "title": "Services supplémentaires",
+        "description": "Design, contenu et réseaux sociaux : des services simples et accessibles pour une présence en ligne efficace.",
+        "prix": "À partir de 90€"
     }
 ]

@@ -41,6 +41,12 @@
     }
 }
 
+@mixin grid-4 {
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
 //buttons, tags
 
 @mixin btn {
@@ -220,6 +226,19 @@
     background-color: rgba($main-color, 0.1);
     padding: 8px 16px;
     border-radius: 6px;
+}
+
+@mixin base-card {
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 20px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  color: $light-text;
+  background:
+    linear-gradient($component, $component) padding-box,
+    linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%) border-box;    
 }
 
 @mixin card {

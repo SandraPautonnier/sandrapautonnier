@@ -47,34 +47,6 @@
   }
 }
 
-.hook-works,
-.hook-services {
-  @include flex-column-center;
-}
-
-.container-hook-services {
-  width: 100%;
-  margin-bottom: 20px;
-  @include flex-column-center;
-  gap: $gap;
-  @media (min-width: 932px) {
-    @include flex-row-center;
-  }
-  .card {
-    @include highlight-card;
-    width: 100%;
-    svg {
-      color: $main-color;
-      font-size: 48px;
-      margin-top: 20px;
-    }
-    h3 {
-      color: $main-color;
-      text-align: center;
-    }
-  }
-}
-
 @media (min-width: 992px) {
   .header-banner {
     h2 {
@@ -118,17 +90,33 @@
 }
 
 .me {
-  @include card-color;
+  @include flex-row-center;
   margin-bottom: 20px;
-  
+  gap: 20px;
+  img {
+    max-width: 300px;
+    margin: 0 auto 20px;
+    @include img-card;
+  }
+  .base-text {
+    @include base-card;
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .offers-container {
-@include grid-3;
+@include grid-4;
   
   .offer-card {
     @include highlight-card;
-    
+    svg {
+      color: $main-color;
+      font-size: 45px;
+      margin-top: 20px;
+    }    
     h3 {
       color: $main-color;
       text-align: center;
