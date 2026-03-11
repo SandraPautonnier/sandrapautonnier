@@ -32,7 +32,7 @@ const Profile = () => {
                         <img src={ImageProfile} alt="Photo de Sandra" />
                         <h2>A propos de Sandra Pautonnier</h2>
                         <div className="card-banner">
-                        <p className='intro'>Développeuse & Créatrice web intuitive, je conçois des applications modernes centrées utilisateur avec React, Node.js et MongoDB.</p>
+                        <p className='base-text'>Développeuse & Créatrice web intuitive, je conçois des applications modernes centrées utilisateur avec React, Node.js et MongoDB.</p>
                         </div>
                     </div>
                 </header>
@@ -43,16 +43,11 @@ const Profile = () => {
                             <div className="text-hook-about">
                             <div className="box">
                             <img src={Sandra2} alt="Photo de Sandra" />
-                            <p><span>Sandra Pautonnier </span> <br />Développeuse & Créatrice web intuitive de <AgeCalculator birthDate="1992-07-28" /> ans au Mans. J'aime analyser, créer et développer pour donner vie à des projets web uniques. <br />
+                            <p className="base-text"><span>Sandra Pautonnier</span> Développeuse & Créatrice web intuitive de <AgeCalculator birthDate="1992-07-28" /> ans au Mans. J'aime analyser, créer et développer pour donner vie à des projets web uniques. <br />
                             Mon parcours mêle artistique, commerce, gestion de projet, création de contenu et développement web. Une combinaison qui me permet de comprendre les besoins réels de mes clients.</p>
                             </div>
-                            <ul className='tags'>
-                                <li className='tag'>curieuse</li>
-                                <li className='tag'>créative</li>
-                                <li className='tag'>autonome</li>
-                            </ul>
+                            <a href={Cv} className="btn" target="_blank" rel="noreferrer" download aria-label="Télécharger le CV de Sandra en document pdf"><FontAwesomeIcon icon={faFileArrowDown} /> Télécharger le CV</a>
                             </div>
-                            <a href={Cv} target="_blank" rel="noreferrer" download aria-label="Télécharger le CV de Sandra en document pdf"><FontAwesomeIcon icon={faFileArrowDown} /> CV</a>
                         </div>
                         <p className="catch">Une développeuse qui parle votre langue (et aussi JavaScript !).</p>
                     </section>

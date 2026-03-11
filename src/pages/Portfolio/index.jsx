@@ -21,7 +21,7 @@ const Portfolio = () => {
                             <img src={Docs} alt="Illustration de documents" />
                             <h2>Portfolio - Mes projets</h2>
                             <div className="card-banner">
-                                <p className='intro'>Passionnée par le web, je crée des solutions sur mesure pour donner vie à vos idées. Découvrez ici les projets qui ont enrichi mon parcours.</p>
+                                <p className='base-text'>Passionnée par le web, je crée des solutions sur mesure pour donner vie à vos idées. Découvrez ici les projets qui ont enrichi mon parcours.</p>
                             </div>
                         </div>                  
                 </header>

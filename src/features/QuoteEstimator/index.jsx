@@ -1,18 +1,8 @@
-import React, { useMemo, useState, useRef } from "react";
+import { useMemo, useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp, faArrowLeft, faArrowRight, faRotateRight, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { jsPDF } from "jspdf";
-
-/**
- * QuoteEstimatorStepperEmail.jsx
- * Multi-étapes + email optionnel (EmailJS)
- *
- * .env (Vite) :
- * VITE_EMAILJS_SERVICE_ID=service_xxx
- * VITE_EMAILJS_PUBLIC_KEY=xxxxx
- * VITE_EMAILJS_TEMPLATE_ESTIMATE_ID=template_yyy
- */
 
 const PRICING = {
   bases: {
@@ -540,42 +530,41 @@ export default function QuoteEstimatorStepperEmail() {
   const [status, setStatus] = useState("");
 
   const sendEmail = async (e) => {
-    e.preventDefault();
-    setStatus("");
-    setSending(true);
-    try {
-      const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-      const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ESTIMATE_ID;
-      const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-      if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) throw new Error("Missing EmailJS env vars");
+  e.preventDefault();
+  setStatus("");
+  setSending(true);
+  try {
+    const serviceID = "service_xxxx";
+    const templateID = "template_xxxx";
+    if (!serviceID || !templateID) throw new Error("Les identifiants EmailJS sont manquants.");
 
-      const templateParams = {
-        from_name: clientName || "Client",
-        reply_to: clientEmail,
-        project_type: projectTypeLabel,
-        estimate_total: estimateTotal,
-        details: detailsText,
-        maintenance_monthly: !maintenanceAvailable
-          ? "Non incluse"
-          : state.hostingMaintenanceChoice === "noHosting_withMaintenance"
-            ? `${formatEUR(maintenanceMonthly)}/mois`
-            : state.hostingMaintenanceChoice === "hasHosting_withMaintenance"
-              ? "Prix variable (hébergement existant) — accompagnement avec l’existant"
-              : "Non",
-      };
+    const templateParams = {
+      from_name: clientName || "Client",
+      reply_to: clientEmail,
+      project_type: projectTypeLabel,
+      estimate_total: estimateTotal,
+      details: detailsText,
+      maintenance_monthly: !maintenanceAvailable
+        ? "Non incluse"
+        : state.hostingMaintenanceChoice === "noHosting_withMaintenance"
+          ? `${formatEUR(maintenanceMonthly)}/mois`
+          : state.hostingMaintenanceChoice === "hasHosting_withMaintenance"
+            ? "Prix variable (hébergement existant) — accompagnement avec l’existant"
+            : "Non",
+    };
 
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, { publicKey: PUBLIC_KEY });
-
-      setStatus("Email envoyé ✅");
-      setClientName("");
-      setClientEmail("");
-      setShowEmail(false);
-    } catch {
-      setStatus("Échec de l’envoi. Vérifie EmailJS + .env + Allowed origins.");
-    } finally {
-      setSending(false);
-    }
-  };
+    await emailjs.send(serviceID, templateID, templateParams);
+    setStatus("Email envoyé ✅");
+    setClientName("");
+    setClientEmail("");
+    setShowEmail(false);
+  } catch (error) {
+    console.error("Erreur EmailJS :", error);
+    setStatus(`Échec de l’envoi : ${error.text || error.message || "Vérifiez la configuration EmailJS."}`);
+  } finally {
+    setSending(false);
+  }
+};
 
   const next = () => {
     if (step === 1 && isAudit) {
@@ -1277,6 +1266,7 @@ const downloadPdf = () => {
             </a>
           </div>
 
+          {/* COMMENTÉ - Fonctionnalité d'envoi par email
           <div className="quote-estimator-email-dropdown">
             <button
               type="button"
@@ -1315,18 +1305,23 @@ const downloadPdf = () => {
                   </label>
                 </div>
 
-                <button type="submit" disabled={sending}>
-                  {sending ? "Envoi..." : "Envoyer"}
-                </button>
+                <div style={{ display: "flex", gap: 15, alignItems: "center" }}>
+                  <button type="submit" disabled={sending}>
+                    {sending ? "Envoi..." : "Envoyer"}
+                  </button>
 
-                {status && <p>{status}</p>}
+                  {status && <p style={{ margin: 0 }}>{status}</p>}
+                </div>
               </form>
             </div>
           </div>
+          */}
 
+          {/* COMMENTÉ - Information confidentialité
           <p className="bis-text" style={{textAlign: "center"}}>
             Les informations (nom, email) servent uniquement à répondre à votre demande et, si besoin, à une seule relance. Conservation : 1 an max. Vos droits : <a className="link" href="mailto:contact@sandrapautonnier.com">contact@sandrapautonnier.com</a> - <a href="/legalnotice" className="link" target="_blank" rel="noopener noreferrer">Mentions légales</a>.
           </p>
+          */}
 
           <hr />
 

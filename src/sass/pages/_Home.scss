@@ -189,6 +189,7 @@
   
   .offer-card {
     @include highlight-card;
+    justify-content: space-between;
     svg {
       color: $main-color;
       font-size: 45px;

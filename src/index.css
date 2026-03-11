@@ -608,6 +608,7 @@ footer .social-links a:hover {
   height: auto;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 .offers-container .offer-card:hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
@@ -644,7 +645,7 @@ footer .social-links a:hover {
   margin-bottom: 2rem;
 }
 .banner img {
-  max-width: 300px;
+  max-width: 100px;
   width: 100%;
   margin-top: 30px;
 }
@@ -771,16 +772,6 @@ footer .social-links a:hover {
   }
 }
 
-.profile .card-banner {
-  max-width: 768px;
-}
-@media (min-width: 992px) {
-  .profile .banner h2 {
-    left: -170px;
-    top: -175px;
-  }
-}
-
 .technical-skills-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -902,6 +893,22 @@ footer .social-links a:hover {
   align-items: center;
   gap: 20px;
 }
+.hook-about .container-hook-about .text-hook-about .box .base-text {
+  max-width: 100%;
+  flex: 1;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 20px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  color: #404044;
+  background: linear-gradient(#f5f1ed, #f5f1ed) padding-box, linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%) border-box;
+}
+.hook-about .container-hook-about .text-hook-about .box .base-text span:first-of-type {
+  font-weight: bold;
+  white-space: nowrap;
+}
 @media (max-width: 768px) {
   .hook-about .container-hook-about .text-hook-about .box {
     display: flex;
@@ -919,6 +926,7 @@ footer .social-links a:hover {
   border-color: #70588C;
   border-style: solid;
   border-width: 2px;
+  flex-shrink: 0;
 }
 
 @media (max-width: 600px) {
@@ -1103,34 +1111,9 @@ table th {
 .contact .btn {
   margin: 0 auto;
 }
-.contact .card-banner {
-  max-width: 768px;
-}
-@media (min-width: 992px) {
-  .contact .banner h2 {
-    left: -260px;
-    top: -160px;
-  }
-  .contact .banner p {
-    max-width: 700px;
-    left: -2px;
-    top: -180px;
-    font-weight: bold;
-  }
-  .contact .margin-desktop {
-    margin-top: -220px;
-  }
-  .contact .margin {
-    margin-top: -220px;
-  }
-}
-@media (max-width: 992px) {
-  .contact .margin {
-    margin-top: -220px;
-  }
-  .contact .margin-desktop {
-    margin-top: -70px;
-  }
+.contact h2::after {
+  width: 60% !important;
+  max-width: 250px !important;
 }
 
 .calendly-card {
@@ -2229,40 +2212,26 @@ button {
   margin: 0;
 }
 
+.banner h2 {
+  opacity: 1;
+  visibility: visible;
+  margin: 15px 0 15px 0;
+  font-size: 28px;
+}
+.banner h2::after {
+  background: #70588C !important;
+}
+.banner p {
+  max-width: 500px;
+  text-align: center;
+}
 .banner img {
-  max-width: 768px;
+  max-width: 500px;
   width: 100%;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-@media (min-width: 992px) {
-  .banner h2 {
-    background-color: rgba(0, 0, 0, 0.329);
-    border-radius: 7px;
-    padding: 5px 10px;
-    position: relative;
-    z-index: 10;
-    color: white;
-    left: -220px;
-    top: -175px;
-  }
-  .banner p {
-    background-color: rgba(0, 0, 0, 0.329);
-    border-radius: 7px;
-    padding: 5px 10px;
-    position: relative;
-    z-index: 10;
-    color: white;
-    max-width: 700px;
-    left: 0px;
-    top: -180px;
-    font-weight: bold;
-  }
-  .margin {
-    margin-top: -170px;
-  }
-}
 .card-banner {
   max-width: 768px;
 }

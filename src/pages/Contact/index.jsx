@@ -63,8 +63,8 @@ const Contact = () => {
                         <Navbar />
                         <div className='banner'>
                             <img src={ImageContact} alt="Photo de Sandra" />
-                            <h2>Contactez-moi</h2>
-                            <p>Vous avez un projet de site web ou besoin d’améliorer votre visibilité ? Parlons-en !</p>
+                            <h2>Contact</h2>
+                            <p className="base-text">Vous avez un projet de site web ou besoin d’améliorer votre visibilité ? Parlons-en !</p>
                         </div>
                     </header>
                     <main className="contact-container">

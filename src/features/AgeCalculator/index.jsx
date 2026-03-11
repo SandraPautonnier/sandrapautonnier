@@ -30,11 +30,7 @@ const AgeCalculator = ({ birthDate }) => {
     return () => clearInterval(interval);
   }, [birthDate]);
 
-  return (
-    <span>
-        {age}
-    </span>
-  );
+  return age;
 };
 
 export default AgeCalculator;
