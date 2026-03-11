@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import HeaderImage from '../../assets/images/image_portrait_dessin_sandra_header.webp';
+import HeaderImage from '../../assets/images/Image_header.webp';
 import MainImage from '../../assets/images/image_poignee-de-main.webp'
-import Cv from '../../assets/pdf/CV-Sandra-Pautonnier.pdf';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin , faSquareGithub } from '@fortawesome/free-brands-svg-icons';
-import { faFileArrowDown , faCode , faAward , faMagnifyingGlass , faWrench, faCheck, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faCode , faAward , faMagnifyingGlass , faWrench, faCheck, faPen } from '@fortawesome/free-solid-svg-icons';
 import Carousel from "../../features/Carousel";
 import HookWorks from "../../assets/content/worksList.json";
 import Meta from "../../components/Meta";
@@ -30,15 +29,17 @@ const Home = () => {
             <Navbar />
             <div className='header-banner ' id="home">
               <img src={HeaderImage} alt="Portrait dessin de Sandra réalisé par IA"/>
-              <h2>Développeuse & Créatrice Web Intuitive</h2>
-              <p>Créativité, écoute & clarté ! Au service de votre image en ligne.
-              </p>
-              <div className="buttons-social">
-                <a href="/price" className="btn-secondary">Faire une estimation</a>
-                <a href="/contact" className="btn-secondary">Contactez-moi</a>
-                <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} />Linkedin</a>
-                <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faSquareGithub} />Github</a>
-                <a href={Cv} target="_blank" rel="noreferrer" download aria-label="Télécharger le CV de Sandra en document pdf"><FontAwesomeIcon icon={faFileArrowDown} /> CV</a>
+              <div className="header-content">
+                <h2>Développeuse & Créatrice <br /> Web Intuitive</h2>
+                <p className="base-text">Créativité, écoute & clarté ! <br /> Au service de votre image en ligne.
+                </p>
+                <div className="buttons-social">
+                  <a href="/price" className="btn-secondary">Faire une estimation de votre projet</a>
+                  <a href="/contact" className="btn-secondary">Contactez-moi</a>
+                  <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} />Linkedin</a>
+                  <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faSquareGithub} />Github</a>
+                  
+                </div>
               </div>
             </div>
           </header>

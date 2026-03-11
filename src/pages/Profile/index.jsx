@@ -8,7 +8,8 @@ import AgeCalculator from "../../features/AgeCalculator";
 import Coupe from '../../assets/images/Image_coupe.webp';
 import technicalSkills from '../../assets/content/technicalSkills.json';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faFileArrowDown } from '@fortawesome/free-solid-svg-icons';
+import Cv from '../../assets/pdf/CV-Sandra-Pautonnier.pdf';
 
 const Profile = () => {
     const handleScrollToTop = () => {
@@ -51,6 +52,7 @@ const Profile = () => {
                                 <li className='tag'>autonome</li>
                             </ul>
                             </div>
+                            <a href={Cv} target="_blank" rel="noreferrer" download aria-label="Télécharger le CV de Sandra en document pdf"><FontAwesomeIcon icon={faFileArrowDown} /> CV</a>
                         </div>
                         <p className="catch">Une développeuse qui parle votre langue (et aussi JavaScript !).</p>
                     </section>

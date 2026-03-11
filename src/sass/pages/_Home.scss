@@ -2,44 +2,97 @@
 @import "../utils/mixins";
 
 .header-banner {
-  @include flex-column-center;
-  text-align: center;
+  position: relative;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: calc(-50vw + 50%);
   
   h1,
   p {
     opacity: 0;
     visibility: hidden;
   }
+  
   img {
-    max-width: 991px;
-    @include img-card;
+    width: 100vw;
+    height: auto;
+    display: block;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
   }
-  p {
-    margin: 10px auto 20px;
-    opacity: 1;
-    visibility: visible;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='9' numOctaves='4' seed='2' /%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 2;
+    mix-blend-mode: overlay;
   }
+  
+  .header-content {
+    position: static;
+    z-index: 10;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    margin: 30px auto;
+    
+    h2 {
+      opacity: 1;
+      visibility: visible;
+      margin: 15px 0 15px 0;
+      font-size: 28px;
+      &::after {
+        background: $main-color !important;
+      }
+    }
+    
+    p {
+      opacity: 1;
+      visibility: visible;
+      margin: 10px auto 20px;
+    }
+  }
+  
   .buttons-social {
     gap: 20px;
     display: flex;
     margin: 20px auto;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
-    
-    @media (min-width: 768px) {
-      flex-direction: row;
-    }
+    justify-content: center;
     
     a {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 5px;
       background-color: $main-color;
       color: white;
       @include btn;
       @include zoom-btn;
+      
+      &:first-child {
+        flex-basis: 100%;
+        max-width: 300px;
+      }
+      
+      &:not(:first-child) {
+        flex: 0 0 auto;
+      }
     }
   }
+  
   .toggle-button {
     margin: 10px auto;
     @include zoom-btn;
@@ -48,30 +101,44 @@
 
 @media (min-width: 992px) {
   .header-banner {
-    h2 {
-      @include highlight;
-      left: -225px;
-      top: -250px;
-
-    }
-    p {
-      @include highlight;
-      left: -190px;
-      top: -270px;
-      font-weight: bold;
-    }
-    .buttons-social {
-      position: relative;
+    position: relative;
+    
+    .header-content {
+      position: absolute;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      padding: 40px;
+      max-width: 400px;
+      width: auto;
+      
+      top: 50%;
+      right: 50px;
+      transform: translate(0, -50%);
+      margin: 0;
       z-index: 10;
-      left: -125px;
-      top: -290px;
-      @media (max-width: 768px) {
-      flex-direction: column;
+      
+      h2 {
+        text-align: left;
+        margin-bottom: 15px;
       }
+      
+      p, .base-text {
+        font-size: 1em;
+        text-align: left;
+        margin-bottom: 20px;
+      }
+    }
+    
+    .buttons-social {
+      box-sizing: content-box;
+      flex-direction: row;
+      align-items: flex-start;
+      margin: 0;
     }
   }
   .hook-services {
-    margin-top: -230px;
+    margin-top: 30px;
   }
 }
 .cta {
@@ -103,7 +170,7 @@
     @include img-card;
   }
   .base-text {
-    @include base-card;
+    @include highlight-card;
   }
   @media (max-width: 768px) {
     flex-direction: column;
@@ -113,6 +180,12 @@
 
 .offers-container {
 @include grid-4;
+  
+  @media (max-width: 991px) {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
   
   .offer-card {
     @include highlight-card;
