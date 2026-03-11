@@ -34,11 +34,10 @@ const Home = () => {
               <p>Créativité, écoute & clarté ! Au service de votre image en ligne.
               </p>
               <div className="buttons-social">
-                <a href="/price" className="btn">Faire une estimation</a>
+                <a href="/price" className="btn-secondary">Faire une estimation</a>
                 <a href="/contact" className="btn-secondary">Contactez-moi</a>
                 <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} />Linkedin</a>
                 <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faSquareGithub} />Github</a>
-                
                 <a href={Cv} target="_blank" rel="noreferrer" download aria-label="Télécharger le CV de Sandra en document pdf"><FontAwesomeIcon icon={faFileArrowDown} /> CV</a>
               </div>
             </div>

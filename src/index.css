@@ -428,7 +428,7 @@ footer .social-links a:hover {
   flex-direction: column;
   align-items: center;
 }
-@media (min-width: 375px) {
+@media (min-width: 768px) {
   .header-banner .buttons-social {
     flex-direction: row;
   }
@@ -485,8 +485,15 @@ footer .social-links a:hover {
     left: -125px;
     top: -290px;
   }
+}
+@media (min-width: 992px) and (max-width: 768px) {
+  .header-banner .buttons-social {
+    flex-direction: column;
+  }
+}
+@media (min-width: 992px) {
   .hook-services {
-    margin-top: -270px;
+    margin-top: -230px;
   }
 }
 .cta {
