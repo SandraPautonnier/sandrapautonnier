@@ -37,33 +37,33 @@ const Navbar = () => {
       </div>
       <nav ref={navRef}>
         {/* Bouton hamburger */}
-        <div className="hamburger" onClick={toggleMenu}>
+        <div className="hamburger" aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"} onClick={toggleMenu}>
           {menuOpen ? (
-            <span className="close-nav">&times;</span>
+            <span className="close-nav" aria-label="Fermer le menu">&times;</span>
           ) : (
             <>
-              <div className="bar"></div>
-              <div className="bar"></div>
-              <div className="bar"></div>
+              <div className="bar" aria-hidden="true" ></div>
+              <div className="bar" aria-hidden="true"></div>
+              <div className="bar" aria-hidden="true"></div>
             </>
           )}
         </div>
         {/* Menu de navigation */}
         <ul className={`nav-ul ${menuOpen ? "open" : ""}`}>
           <li className="nav-li">
-            <Link to="/" onClick={() => setMenuOpen(false)} className={activeUrl === '/' ? 'active' : ''}>ACCUEIL</Link>
+            <Link to="/" aria-label="Accueil" onClick={() => setMenuOpen(false)} className={activeUrl === '/' ? 'active' : ''}>ACCUEIL</Link>
           </li>
           <li className="nav-li">
-            <Link to="/portfolio"  onClick={() => setMenuOpen(false)} className={activeUrl === '/portfolio' ? 'active' : ''}>PORTFOLIO</Link>
+            <Link to="/portfolio" aria-label="Portfolio" onClick={() => setMenuOpen(false)} className={activeUrl === '/portfolio' ? 'active' : ''}>PORTFOLIO</Link>
           </li>
           <li className="nav-li">
-            <Link to="/profile"  onClick={() => setMenuOpen(false)} className={activeUrl === '/profile' ? 'active' : ''}>À PROPOS</Link>
+            <Link to="/profile" aria-label="À propos" onClick={() => setMenuOpen(false)} className={activeUrl === '/profile' ? 'active' : ''}>À PROPOS</Link>
           </li>
           <li className="nav-li">
-            <Link to="/price"  onClick={() => setMenuOpen(false)} className={activeUrl === '/price' ? 'active' : ''}>DEVIS</Link>
+            <Link to="/price" aria-label="Devis" onClick={() => setMenuOpen(false)} className={activeUrl === '/price' ? 'active' : ''}>DEVIS</Link>
           </li>
           <li className="nav-li">
-            <Link to="/contact"  onClick={() => setMenuOpen(false)} className={activeUrl === '/contact' ? 'active' : ''}>CONTACT</Link>
+            <Link to="/contact" aria-label="Contact" onClick={() => setMenuOpen(false)} className={activeUrl === '/contact' ? 'active' : ''}>CONTACT</Link>
           </li>
         </ul>
       </nav>

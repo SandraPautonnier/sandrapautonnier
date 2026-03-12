@@ -31,11 +31,11 @@ const Carousel = ({ children }) => {
         </div>
       </div>
 
-      <button onClick={prevSlide} className="carousel-button left">
+      <button onClick={prevSlide} className="carousel-button left" aria-label="Revenir sur le projet précédent">
         <FontAwesomeIcon icon={faChevronLeft} />
       </button>
 
-      <button onClick={nextSlide} className="carousel-button right">
+      <button onClick={nextSlide} className="carousel-button right" aria-label="Passer au projet suivant">
         <FontAwesomeIcon icon={faChevronRight} />
       </button>
 
@@ -45,6 +45,7 @@ const Carousel = ({ children }) => {
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={`indicator ${index === currentIndex ? "active" : ""}`}
+            aria-label={`Aller au projet ${index + 1}`}
           />
         ))}
       </div>

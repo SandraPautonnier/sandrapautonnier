@@ -34,10 +34,10 @@ const Home = () => {
                 <p className="base-text">Créativité, écoute & clarté ! <br /> Au service de votre image en ligne.
                 </p>
                 <div className="buttons-social">
-                  <a href="/price" className="btn-secondary">Faire une estimation de votre projet</a>
-                  <a href="/contact" className="btn-secondary">Contactez-moi</a>
-                  <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} />Linkedin</a>
-                  <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer"><FontAwesomeIcon icon={faSquareGithub} />Github</a>
+                  <a href="/price" aria-label="Faire une estimation de votre projet" className="btn-secondary">Faire une estimation de votre projet</a>
+                  <a href="/contact" aria-label="Navigation vers ma page contact" className="btn-secondary">Contactez-moi</a>
+                  <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer" aria-label="Lien Linkedin"><FontAwesomeIcon icon={faLinkedin} />Linkedin</a>
+                  <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer" aria-label="Lien Github"><FontAwesomeIcon icon={faSquareGithub} />Github</a>
                   
                 </div>
               </div>
@@ -65,7 +65,7 @@ const Home = () => {
                   );
                 })}
               </div>
-              <Link to="/price" className="btn">Faire une estimation de votre projet</Link>
+              <Link to="/price" aria-label="Faire une estimation de votre projet" className="btn">Faire une estimation de votre projet</Link>
             </section>
             <section>
               <h2>Pourquoi travailler avec moi ?</h2>
@@ -86,27 +86,27 @@ const Home = () => {
                 <Carousel>
                 {HookWorks.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 3).map((item) => (
                     <div className="slide-content" key={item.id}>
-                      <img src={`${item.cover}`} alt={`Projet ${item.titlework}`} />
+                      <img src={`${item.cover}`} alt={`Projet ${item.titlework}`} loading="lazy" />
                       <div className="slide-description">
                         <div>
                           <h3>{item.titlework}</h3>
                           <span className="work-language">{item.category}</span>
                         </div>
-                        <Link to={`/portfolio/${item.id}`} className="btn-secondary" onClick={() => window.scrollTo(0, 0)}>
+                        <Link to={`/portfolio/${item.id}`} className="btn-secondary" onClick={() => window.scrollTo(0, 0)} aria-label={`Voir le projet ${item.titlework}`}>
                           Voir le projet
                         </Link>
                       </div>
                     </div>
                 ))}
               </Carousel>
-              <Link to="/portfolio" onClick={handleScrollToTop} className="btn">Voir plus de projets</Link>
+              <Link to="/portfolio" onClick={handleScrollToTop} className="btn" aria-label="Voir plus de projets">Voir plus de projets</Link>
               <p className="catch">Des projets réalisés avec passion !</p>
             </section>
             <section>
               <div className="cta">
                 <h2>Prêt(e) à développer votre présence en ligne ?</h2>
                 <p>Discutons de votre projet gratuitement et sans engagement.</p>
-                <Link to="/contact" className="btn">Prendre rendez-vous</Link>                
+                <Link to="/contact" className="btn" aria-label="Prendre rendez-vous">Prendre rendez-vous</Link>                
               </div>
             </section>
           </main>

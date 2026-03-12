@@ -34,7 +34,7 @@ const Footer = () => {
           <FontAwesomeIcon icon={faEnvelope} className="contact-icon" />
           <div className="contact-info-content">
             <h3>Devis & contact</h3>
-            <a className="content" href="mailto:contact@sandrapautonnier.com" aria-label="Envoyer un email à Sandra">
+            <a className="content" href="/price" aria-label="Faire une estimation de votre projet">
               Faire un devis
             </a>
             <a className="content" href="mailto:contact@sandrapautonnier.com" aria-label="Envoyer un email à Sandra">

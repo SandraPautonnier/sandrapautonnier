@@ -82,7 +82,7 @@ const ProjectDetail = () => {
                     <main>
                         <section className='project-container'>
                             <div className='project-header'>
-                                <button onClick={handleGoBack} className='btn'>
+                                <button onClick={handleGoBack} className='btn' aria-label='Revenir en arrière'>
                                     <FontAwesomeIcon icon={faArrowLeft} /> Retour
                                 </button>
                                 <h2>{project.titlework}</h2>
@@ -108,12 +108,13 @@ const ProjectDetail = () => {
                                 <div className='project-links'>
                                     <div className='project-link-buttons'>
                                         {project.link && (
-                                            <a href={project.link} target='_blank' rel='noopener noreferrer'>
+                                            <a href={project.link} target='_blank' rel='noopener noreferrer' aria-label='Lien vers le projet'>
                                                 Lien vers le projet
                                             </a>
                                         )}
                                         {project.github && (
-                                            <a href={project.github} target='_blank' rel='noopener noreferrer' className='github-button'>
+                                            <a href={project.github} target='_blank' rel='noopener noreferrer' className='github-button' aria-label='Lien vers le dépôt GitHub'>
+
                                                 <FontAwesomeIcon icon={faGithub} /> GitHub
                                             </a>
                                         )}
@@ -142,12 +143,12 @@ const ProjectDetail = () => {
                                 <div className='project-links'>
                                     <div className='project-link-buttons'>
                                         {project.link && (
-                                            <a href={project.link} target='_blank' rel='noopener noreferrer'>
+                                            <a href={project.link} target='_blank' rel='noopener noreferrer' aria-label='Lien vers le projet'>
                                                 Lien vers le projet
                                             </a>
                                         )}
                                         {project.github && (
-                                            <a href={project.github} target='_blank' rel='noopener noreferrer' className='github-button'>
+                                            <a href={project.github} target='_blank' rel='noopener noreferrer' className='github-button' aria-label='Lien vers le dépôt GitHub'>
                                                 <FontAwesomeIcon icon={faGithub} /> GitHub
                                             </a>
                                         )}

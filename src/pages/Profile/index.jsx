@@ -123,7 +123,7 @@ const Profile = () => {
                                 <li><span className="bold">2023 :</span> Chez Enedis, j'ai été l'interlocutrice et référente de l'ACO (Automobile Club de l'Ouest) pour le centenaire des 24h du Mans (Bornes fixes).</li>
                             </ul>
                         </div>
-                        <Link to="/portfolio" onClick={handleScrollToTop} className="btn">Découvrez mes réalisations</Link>
+                        <Link to="/portfolio" onClick={handleScrollToTop} className="btn" aria-label="Accède à mon portfolio">Découvrez mes réalisations</Link>
                     </section>
                 </main>
             </div>
