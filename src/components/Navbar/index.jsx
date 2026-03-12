@@ -35,11 +35,11 @@ const Navbar = () => {
         <img className="logo" src={Logo} alt="Logo Sukiweb, une spirale violette" />
         <h1>Sukiweb</h1>
       </div>
-      <nav ref={navRef}>
+      <nav ref={navRef} aria-label="Menu principal">
         {/* Bouton hamburger */}
-        <div className="hamburger" aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"} onClick={toggleMenu}>
+        <div className="hamburger" role="button" tabIndex="0" aria-label="Ouvrir le menu" onClick={toggleMenu} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleMenu(); }}>
           {menuOpen ? (
-            <span className="close-nav" aria-label="Fermer le menu">&times;</span>
+            <span className="close-nav" role="button" tabIndex="0" aria-label="Fermer le menu" onClick={toggleMenu} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleMenu(); }}>&times;</span>
           ) : (
             <>
               <div className="bar" aria-hidden="true" ></div>

@@ -103,7 +103,7 @@ const ProjectDetail = () => {
                             </div>
 
                             <div className='project-detail'>
-                                <img src={project.cover} alt={project.titlework} className='project-cover' />
+                                <img src={project.cover} alt={project.titlework} className='project-cover' loading="lazy" />
                                 
                                 <div className='project-links'>
                                     <div className='project-link-buttons'>

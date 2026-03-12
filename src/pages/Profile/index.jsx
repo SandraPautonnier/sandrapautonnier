@@ -21,15 +21,15 @@ const Profile = () => {
   return (
     <div className="profile">
         <Meta 
-            title="A propos de Sandra Pautonnier" 
-            description="Profil de Sandra Pautonnier, développeuse web fullstack. Découvrez son parcours, ses compétences techniques et ses réussites." 
+            title="sukiweb - Profil de Sandra Pautonnier, développeuse web" 
+            description="Profil de Sandra Pautonnier, développeuse web spécialisée en création de sites performants, modernes et sur-mesure. Découvrez son parcours, ses compétences techniques et ses réussites." 
         />
         <div className='background-color'>
             <div className="header-main">
                 <header>
                     <Navbar />
                     <div className='banner'>
-                        <img src={ImageProfile} alt="Image dessin d'un portrait carte de visite de Sandra Pautonnier" />
+                        <img src={ImageProfile} alt="Image dessin d'un portrait carte de visite de Sandra Pautonnier" loading="lazy" />
                         <h2>A propos de Sandra Pautonnier</h2>
                         <div className="card-banner">
                         <p className='base-text'>Développeuse & Créatrice web intuitive, je conçois des applications modernes centrées utilisateur avec React, Node.js et MongoDB.</p>
@@ -42,7 +42,7 @@ const Profile = () => {
                         <div className="container-hook-about">
                             <div className="text-hook-about">
                             <div className="box">
-                            <img src={Sandra} alt="Portrait de Sandra Pautonnier" />
+                            <img src={Sandra} alt="Portrait de Sandra Pautonnier" loading="lazy" />
                             <p className="base-text"><span>Sandra Pautonnier</span> Développeuse & Créatrice web intuitive de <AgeCalculator birthDate="1992-07-28" /> ans au Mans. J'aime analyser, créer et développer pour donner vie à des projets web uniques. <br />
                             Mon parcours mêle artistique, commerce, gestion de projet, création de contenu et développement web. Une combinaison qui me permet de comprendre les besoins réels de mes clients.</p>
                             </div>
@@ -115,7 +115,7 @@ const Profile = () => {
                     <section className="success">
                         <h2>Mes réussites</h2>
                         <div className="container-img-success">
-                            <img src={Coupe} alt="Coupe de réussite" />
+                            <img src={Coupe} alt="Coupe de réussite" loading="lazy" />
                             <ul className="container-success">
                                 <li><span className="bold">2010 :</span> Dans le domaine des Métiers de la Mode, j'ai été médaillée d'argent au concours départementale du Meilleur Apprenti de France.</li>
                                 <li><span className="bold">2017 :</span> Lors de mon service civique, j'ai organisé un séminaire de A à Z avec 5 établissements scolaires et des associations sur les thèmes du harcèlement scolaire et du décrochage scolaire.</li>

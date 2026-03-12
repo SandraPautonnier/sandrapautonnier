@@ -223,3 +223,9 @@ button {
   font-weight: 500;
   line-height: 1.5;
 }
+
+.indicator, .btn-secondary {
+  padding: 12px; /* Augmente la zone cliquable */
+  margin: 5px;  /* Espacement entre les éléments */
+  background: transparent; /* Garde l’apparence actuelle */
+}

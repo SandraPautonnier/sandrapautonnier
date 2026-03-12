@@ -9,8 +9,8 @@ const Price = () => {
   return (
     <div className="price">
       <Meta 
-        title="Sukiweb - Développeuse Web fullstack" 
-        description="Développeuse web fullstack freelance spécialisée en React & Node. Création de sites performants, modernes et sur-mesure."  
+        title="Sukiweb - Devis et estimation de projet web" 
+        description="Développeuse web freelance spécialisée en création de sites performants, modernes et sur-mesure. Obtenez une estimation claire et transparente pour votre projet web. Accompagnement humain, expertise technique et créative."  
       />
       <div className='background-color'>
         <div className="header-main">

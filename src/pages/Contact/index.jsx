@@ -54,15 +54,15 @@ const Contact = () => {
     return (
         <div className="contact">
             <Meta
-                title="Contact - Développeuse Web fullstack"
-                description="Contactez Sandra Pautonnier, développeuse web fullstack spécialisée en React & Node. Création de sites performants, modernes et sur-mesure."
+                title="Sukiweb - Contactez-moi pour votre projet web"
+                description="Contactez Sandra Pautonnier, développeuse web spécialisée en création de sites performants, modernes et sur-mesure. Obtenez un accompagnement humain, une expertise technique et créative pour votre projet web."
             />
             <div className='background-color'>
                 <div className="header-main">
                     <header>
                         <Navbar />
                         <div className='banner'>
-                            <img src={ImageContact} alt="Photo de Sandra" />
+                            <img src={ImageContact} alt="Photo de Sandra" loading="lazy" />
                             <h2>Contact</h2>
                             <p className="base-text">Vous avez un projet de site web ou besoin d’améliorer votre visibilité ? Parlons-en !</p>
                         </div>

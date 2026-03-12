@@ -20,15 +20,15 @@ const Home = () => {
   return (
     <div className="home">
       <Meta 
-        title="Sukiweb - Développeuse Web fullstack" 
-        description="Développeuse web fullstack freelance spécialisée en React & Node. Création de sites performants, modernes et sur-mesure."  
+        title="Sukiweb - Développeuse & Créatrice Web Intuitive" 
+        description="Développeuse web freelance spécialisée en création de sites performants, modernes et sur-mesure pour les indépendants et associations. Accompagnement humain, tarifs transparents, expertise technique et créative."  
       />
       <div className='background-color'>
         <div className="header-main">
           <header>
             <Navbar />
             <div className='header-banner ' id="home">
-              <img src={HeaderImage} alt="Portrait dessin de Sandra réalisé par IA"/>
+              <img src={HeaderImage} alt="Portrait dessin de Sandra réalisé par IA" loading="lazy" />
               <div className="header-content">
                 <h2>Développeuse & Créatrice <br /> Web Intuitive</h2>
                 <p className="base-text">Créativité, écoute & clarté ! <br /> Au service de votre image en ligne.
@@ -70,7 +70,7 @@ const Home = () => {
             <section>
               <h2>Pourquoi travailler avec moi ?</h2>
               <div className="me">
-                <img src={MainImage} alt="Poignée de main" />
+                <img src={MainImage} alt="Poignée de main" loading="lazy" />
                 <ul className="base-text">
                   <li><FontAwesomeIcon icon={faCheck} />  Accompagnement humain et personnalisé</li>
                   <li><FontAwesomeIcon icon={faCheck} />  Tarifs transparents et sans surprise</li>

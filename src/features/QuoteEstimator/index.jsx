@@ -901,7 +901,8 @@ const downloadPdf = () => {
           4️⃣ Services supplémentaires (design, rédaction, réseaux sociaux) <br />
           5️⃣ Estimation & récapitulatif téléchargeable (votre fourchette de prix personnalisée) 🚀 <br />
           <br />
-          <span> Un doute sur une étape ? <a href="/contact">
+          <span> Un doute sur une étape ? 
+            <a href="/contact" aria-label="Contacter Sandra Pautonnier">
               💬 Contactez-moi
             </a> - Je vous guide pour un projet sur mesure et évolutif.</span>
         </p>
@@ -1258,13 +1259,9 @@ const downloadPdf = () => {
           </div>
 
           <div style={{ marginTop: 15, display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
-            <a href="/contact">
-              <button type="button" aria-label="Prendre un rendez-vous">📅 Prendre un RDV</button>
-            </a>
+            <a href="/contact" className="btn" aria-label="Prendre un rendez-vous">📅 Prendre un RDV</a>
 
-            <a href="/contact">
-              <button type="button" aria-label="Me contacter">💬 Me contacter</button>
-            </a>
+            <a href="/contact" className="btn" aria-label="Me contacter">💬 Me contacter</a>
           </div>
 
           {/* COMMENTÉ - Fonctionnalité d'envoi par email
@@ -1320,7 +1317,7 @@ const downloadPdf = () => {
 
           {/* COMMENTÉ - Information confidentialité
           <p className="bis-text" style={{textAlign: "center"}}>
-            Les informations (nom, email) servent uniquement à répondre à votre demande et, si besoin, à une seule relance. Conservation : 1 an max. Vos droits : <a className="link" href="mailto:contact@sandrapautonnier.com">contact@sandrapautonnier.com</a> - <a href="/legalnotice" className="link" target="_blank" rel="noopener noreferrer">Mentions légales</a>.
+            Les informations (nom, email) servent uniquement à répondre à votre demande et, si besoin, à une seule relance. Conservation : 1 an max. Vos droits : lien vers email sandra - lien vers mentions légales.
           </p>
           */}
 
@@ -1337,7 +1334,7 @@ const downloadPdf = () => {
               📋 Détails de votre projet
             </button>
 
-            <button type="button" onClick={downloadPdf} aria-label="Télécharger le devis au format PDF">
+            <button type="button" onClick={downloadPdf} aria-label="Télécharger l'estimation au format PDF">
               📄 Télécharger au format pdf
             </button>            
 

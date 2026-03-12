@@ -10,15 +10,15 @@ const Portfolio = () => {
   return (
     <div className="portfolio"> 
         <Meta 
-            title="Portfolio - Développeuse Web fullstack" 
-            description="Développeuse web fullstack freelance spécialisée en React & Node. Création de sites performants, modernes et sur-mesure." 
+            title="Sukiweb - Portfolio de projets web" 
+            description="Développeuse web spécialisée en création de sites performants, modernes et sur-mesure. Découvrez mes projets professionnels et personnels ainsi que mes réalisations professionnalisantes." 
         />
         <div className='background-color'>
             <div className="header-main">
                 <header>
                     <Navbar />
                         <div className='banner'>
-                            <img src={Docs} alt="Illustration de documents" />
+                            <img src={Docs} alt="Illustration de documents" loading="lazy" />
                             <h2>Portfolio - Mes projets</h2>
                             <div className="card-banner">
                                 <p className='base-text'>Passionnée par le web, je crée des solutions sur mesure pour donner vie à vos idées. Découvrez ici les projets qui ont enrichi mon parcours.</p>

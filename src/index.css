@@ -526,7 +526,6 @@ footer .social-links a:hover {
   .header-banner .buttons-social {
     box-sizing: content-box;
     flex-direction: row;
-    align-items: flex-start;
     margin: 0;
   }
   .hook-services {
@@ -2258,6 +2257,12 @@ button {
   margin-top: 10px;
   font-weight: 500;
   line-height: 1.5;
+}
+
+.indicator, .btn-secondary {
+  padding: 12px; /* Augmente la zone cliquable */
+  margin: 5px; /* Espacement entre les éléments */
+  background: transparent; /* Garde l’apparence actuelle */
 }
 
 /*# sourceMappingURL=index.css.map */

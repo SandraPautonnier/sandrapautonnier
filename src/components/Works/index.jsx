@@ -41,7 +41,7 @@ const Works = ({ projectType }) => {
       <div className="container-card-works">
         {filteredWorks.map((works) => (
           <div className="card-works" key={works.id}>
-            <img src={`${works.cover}`} alt={`${works.description}`} />
+            <img src={`${works.cover}`} alt={`${works.description}`} loading="lazy" />
             <div className="card-content">
               <div>
                 <h3>{works.titlework}</h3>

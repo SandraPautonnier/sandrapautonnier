@@ -52,7 +52,7 @@ const Footer = () => {
                 href="https://www.facebook.com/people/Sandra-Créatrice-Web-Intuitive/100063567206449/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="facebook"
+                aria-label="Lien de la page Facebook de Sandra Pautonnier"
               >
                 <FontAwesomeIcon icon={faFacebook} />
               </a>              
@@ -60,7 +60,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/in/sandra-pautonnier/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="LinkedIn"
+                aria-label="Lien de la page LinkedIn de Sandra Pautonnier"
               >
                 <FontAwesomeIcon icon={faLinkedin} />
               </a>
@@ -68,7 +68,7 @@ const Footer = () => {
                 href="https://github.com/sandrapautonnier"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="GitHub"
+                aria-label="Lien de la page GitHub de Sandra Pautonnier"
               >
                 <FontAwesomeIcon icon={faSquareGithub} />
               </a>

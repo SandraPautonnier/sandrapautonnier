@@ -17,7 +17,7 @@ const Dropdown = ({ title, content, onSelectItem }) => {
 
   return (
     <div className="container-dropdown">
-      <div className="click-toggle" onClick={toggle}>
+      <div className="click-toggle" onClick={toggle} role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter') toggle(); }} aria-expanded={isOpen} aria-controls="dropdown-content" aria-label="Dérouler le bouton pour afficher les options">
         <p>{title}</p>
         <button aria-label="Afficher ou masquer le menu">
           <FontAwesomeIcon
