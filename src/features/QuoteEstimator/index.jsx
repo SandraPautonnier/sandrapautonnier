@@ -559,7 +559,6 @@ export default function QuoteEstimatorStepperEmail() {
     setClientEmail("");
     setShowEmail(false);
   } catch (error) {
-    console.error("Erreur EmailJS :", error);
     setStatus(`Échec de l’envoi : ${error.text || error.message || "Vérifiez la configuration EmailJS."}`);
   } finally {
     setSending(false);

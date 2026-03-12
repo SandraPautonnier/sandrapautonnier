@@ -28,7 +28,7 @@ const Home = () => {
           <header>
             <Navbar />
             <div className='header-banner ' id="home" role="region" aria-label="Présentation - Accueil">
-              <img src={HeaderImage} alt="Portrait dessin de Sandra réalisé par IA"/>
+              <img src={HeaderImage} alt="Portrait dessin de Sandra réalisé par IA" fetchpriority="high" />
               <div className="header-content">
                 <h1>Développeuse & Créatrice <br /> Web Intuitive</h1>
                 <p className="base-text">Créativité, écoute & clarté ! <br /> Au service de votre image en ligne.
