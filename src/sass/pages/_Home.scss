@@ -10,7 +10,6 @@
   align-items: center;
   margin-left: calc(-50vw + 50%);
   
-  h1,
   p {
     opacity: 0;
     visibility: hidden;
@@ -46,7 +45,7 @@
     width: 90%;
     margin: 30px auto;
     
-    h2 {
+    h1, h2 {
       opacity: 1;
       visibility: visible;
       margin: 15px 0 15px 0;
@@ -118,7 +117,7 @@
       margin: 0;
       z-index: 10;
       
-      h2 {
+      h1, h2 {
         text-align: left;
         margin-bottom: 15px;
       }

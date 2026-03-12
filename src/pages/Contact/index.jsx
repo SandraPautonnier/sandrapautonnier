@@ -61,9 +61,9 @@ const Contact = () => {
                 <div className="header-main">
                     <header>
                         <Navbar />
-                        <div className='banner'>
+                        <div className='banner' role="region" aria-label="Présentation - Contact">
                             <img src={ImageContact} alt="Photo de Sandra" loading="lazy" />
-                            <h2>Contact</h2>
+                            <h1>Contact</h1>
                             <p className="base-text">Vous avez un projet de site web ou besoin d’améliorer votre visibilité ? Parlons-en !</p>
                         </div>
                     </header>

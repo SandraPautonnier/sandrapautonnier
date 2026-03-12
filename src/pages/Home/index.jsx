@@ -27,10 +27,10 @@ const Home = () => {
         <div className="header-main">
           <header>
             <Navbar />
-            <div className='header-banner ' id="home">
-              <img src={HeaderImage} alt="Portrait dessin de Sandra réalisé par IA" loading="lazy" />
+            <div className='header-banner ' id="home" role="region" aria-label="Présentation - Accueil">
+              <img src={HeaderImage} alt="Portrait dessin de Sandra réalisé par IA"/>
               <div className="header-content">
-                <h2>Développeuse & Créatrice <br /> Web Intuitive</h2>
+                <h1>Développeuse & Créatrice <br /> Web Intuitive</h1>
                 <p className="base-text">Créativité, écoute & clarté ! <br /> Au service de votre image en ligne.
                 </p>
                 <div className="buttons-social">

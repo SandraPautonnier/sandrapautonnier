@@ -31,7 +31,7 @@ const Works = ({ projectType }) => {
   };
 
   return (
-    <section className="works" id="portfolio">
+    <section className="works" id="portfolio" aria-label="Liste des projets">
       {/* Dropdown pour sélectionner une catégorie */}
       <Dropdown 
         title="Filtrer par catégorie" 

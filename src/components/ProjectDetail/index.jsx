@@ -54,7 +54,7 @@ const ProjectDetail = () => {
                             <Navbar />
                         </header>
                         <main>
-                            <section className='project-detail-container'>
+                            <section className='project-detail-container' aria-label="Projet non trouvé">
                                 <button onClick={handleGoBack} className='back-button btn-main' aria-label="Retourner à la liste des projets">
                                     <FontAwesomeIcon icon={faArrowLeft} /> Retour
                                 </button>

@@ -35,7 +35,7 @@ h1 {
     }
 }
 
-h2 {
+h1, h2 {
     text-align: center;
     margin: 30px 0;
     color: $main-color;
@@ -168,7 +168,7 @@ button {
 }
 
 .banner {
-    h2 {
+    h1, h2 {
       opacity: 1;
       visibility: visible;
       margin: 15px 0 15px 0;
@@ -183,6 +183,18 @@ button {
     }
     img {
         max-width: 500px;
+}
+
+.header-banner {
+    h1 {
+      opacity: 1;
+      visibility: visible;
+      margin: 15px 0 15px 0;
+      font-size: 28px;
+      &::after {
+        background: $main-color !important;
+      }
+    }
         @include img-card;
         
     }

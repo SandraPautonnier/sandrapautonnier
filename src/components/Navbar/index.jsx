@@ -33,7 +33,7 @@ const Navbar = () => {
     <div className="menu-nav">
       <div className="logo-h1">
         <img className="logo" src={Logo} alt="Logo Sukiweb, une spirale violette" />
-        <h1>Sukiweb</h1>
+        <h2>Sukiweb</h2>
       </div>
       <nav ref={navRef} aria-label="Menu principal">
         {/* Bouton hamburger */}

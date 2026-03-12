@@ -28,9 +28,9 @@ const Profile = () => {
             <div className="header-main">
                 <header>
                     <Navbar />
-                    <div className='banner'>
+                    <div className='banner' role="region" aria-label="Présentation - À propos">
                         <img src={ImageProfile} alt="Image dessin d'un portrait carte de visite de Sandra Pautonnier" loading="lazy" />
-                        <h2>A propos de Sandra Pautonnier</h2>
+                        <h1>A propos de Sandra Pautonnier</h1>
                         <div className="card-banner">
                         <p className='base-text'>Développeuse & Créatrice web intuitive, je conçois des applications modernes centrées utilisateur avec React, Node.js et MongoDB.</p>
                         </div>

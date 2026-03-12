@@ -17,9 +17,9 @@ const Portfolio = () => {
             <div className="header-main">
                 <header>
                     <Navbar />
-                        <div className='banner'>
+                        <div className='banner' role="region" aria-label="Présentation - Portfolio">
                             <img src={Docs} alt="Illustration de documents" loading="lazy" />
-                            <h2>Portfolio - Mes projets</h2>
+                            <h1>Portfolio - Mes projets</h1>
                             <div className="card-banner">
                                 <p className='base-text'>Passionnée par le web, je crée des solutions sur mesure pour donner vie à vos idées. Découvrez ici les projets qui ont enrichi mon parcours.</p>
                             </div>

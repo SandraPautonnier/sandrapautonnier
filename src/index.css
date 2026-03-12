@@ -12,6 +12,13 @@
 .logo-h1 h1 {
   margin: 20px 20px;
 }
+.logo-h1 h2 {
+  margin: 20px 20px;
+  padding-bottom: 0;
+}
+.logo-h1 h2::after {
+  display: none;
+}
 
 .menu-nav {
   display: flex;
@@ -408,7 +415,6 @@ footer .social-links a:hover {
   align-items: center;
   margin-left: calc(-50vw + 50%);
 }
-.header-banner h1,
 .header-banner p {
   opacity: 0;
   visibility: hidden;
@@ -441,13 +447,13 @@ footer .social-links a:hover {
   width: 90%;
   margin: 30px auto;
 }
-.header-banner .header-content h2 {
+.header-banner .header-content h1, .header-banner .header-content h2 {
   opacity: 1;
   visibility: visible;
   margin: 15px 0 15px 0;
   font-size: 28px;
 }
-.header-banner .header-content h2::after {
+.header-banner .header-content h1::after, .header-banner .header-content h2::after {
   background: #70588C !important;
 }
 .header-banner .header-content p {
@@ -514,7 +520,7 @@ footer .social-links a:hover {
     margin: 0;
     z-index: 10;
   }
-  .header-banner .header-content h2 {
+  .header-banner .header-content h1, .header-banner .header-content h2 {
     text-align: left;
     margin-bottom: 15px;
   }
@@ -2039,14 +2045,14 @@ h1 {
   }
 }
 
-h2 {
+h1, h2 {
   text-align: center;
   margin: 30px 0;
   color: #70588C;
   position: relative;
   padding-bottom: 10px;
 }
-h2::after {
+h1::after, h2::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -2206,13 +2212,13 @@ button {
   margin: 0;
 }
 
-.banner h2 {
+.banner h1, .banner h2 {
   opacity: 1;
   visibility: visible;
   margin: 15px 0 15px 0;
   font-size: 28px;
 }
-.banner h2::after {
+.banner h1::after, .banner h2::after {
   background: #70588C !important;
 }
 .banner p {
@@ -2221,9 +2227,20 @@ button {
 }
 .banner img {
   max-width: 500px;
+}
+.banner .header-banner {
   width: 100%;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.banner .header-banner h1 {
+  opacity: 1;
+  visibility: visible;
+  margin: 15px 0 15px 0;
+  font-size: 28px;
+}
+.banner .header-banner h1::after {
+  background: #70588C !important;
 }
 
 .card-banner {
