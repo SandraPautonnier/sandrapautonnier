@@ -19,7 +19,7 @@ const Dropdown = ({ title, content, onSelectItem }) => {
     <div className="container-dropdown">
       <div className="click-toggle" onClick={toggle}>
         <p>{title}</p>
-        <button>
+        <button aria-label="Afficher ou masquer le menu">
           <FontAwesomeIcon
             icon={faChevronUp}
             style={{

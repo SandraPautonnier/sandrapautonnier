@@ -143,7 +143,7 @@ const Contact = () => {
                                                 ></textarea>
                                             </div>
 
-                                            <button className="btn" type="submit" disabled={isSending}>
+                                            <button className="btn" type="submit" disabled={isSending} aria-label="Envoyer le formulaire de contact">
                                                 {isSending ? "Envoi en cours..." : "Envoyer"}
                                             </button>
                                         </form>

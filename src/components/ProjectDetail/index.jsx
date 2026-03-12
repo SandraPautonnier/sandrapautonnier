@@ -55,7 +55,7 @@ const ProjectDetail = () => {
                         </header>
                         <main>
                             <section className='project-detail-container'>
-                                <button onClick={handleGoBack} className='back-button btn-main'>
+                                <button onClick={handleGoBack} className='back-button btn-main' aria-label="Retourner à la liste des projets">
                                     <FontAwesomeIcon icon={faArrowLeft} /> Retour
                                 </button>
                                 <p>Projet non trouvé</p>

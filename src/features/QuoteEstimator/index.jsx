@@ -923,6 +923,7 @@ const downloadPdf = () => {
               type="button"
               className="quote-estimator-project-toggle"
               onClick={() => setShowProjectType((v) => !v)}
+              aria-label="Sélectionner le type de projet"
             >
               {PRICING.bases[state.projectType]?.label || "Sélectionner un type"}
               <FontAwesomeIcon
@@ -1258,11 +1259,11 @@ const downloadPdf = () => {
 
           <div style={{ marginTop: 15, display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
             <a href="/contact">
-              <button type="button">📅 Prendre un RDV</button>
+              <button type="button" aria-label="Prendre un rendez-vous">📅 Prendre un RDV</button>
             </a>
 
             <a href="/contact">
-              <button type="button">💬 Me contacter</button>
+              <button type="button" aria-label="Me contacter">💬 Me contacter</button>
             </a>
           </div>
 
@@ -1330,12 +1331,13 @@ const downloadPdf = () => {
               type="button"
               className="quote-details-trigger"
               onClick={() => setDetailsOpen(!detailsOpen)}
+              aria-label="Afficher les détails du projet"
             >
               <span className={`quote-details-icon ${detailsOpen ? 'open' : ''}`}>▼</span>
               📋 Détails de votre projet
             </button>
 
-            <button type="button" onClick={downloadPdf}>
+            <button type="button" onClick={downloadPdf} aria-label="Télécharger le devis au format PDF">
               📄 Télécharger au format pdf
             </button>            
 
@@ -1353,19 +1355,19 @@ const downloadPdf = () => {
 
       <div>
         {step > 1 && (
-          <button type="button" onClick={prev}>
+          <button type="button" onClick={prev} aria-label="Retourner à l'étape précédente">
             <FontAwesomeIcon icon={faArrowLeft} /> Retour
           </button>
         )}
 
         {(isAudit ? step < 5 : step < 5) && (
-          <button type="button" onClick={next}>
+          <button type="button" onClick={next} aria-label="Passer à l'étape suivante">
             Suivant <FontAwesomeIcon icon={faArrowRight} />
           </button>
         )}
 
         {step === 5 && (
-          <button type="button" onClick={restart}>
+          <button type="button" onClick={restart} aria-label="Recommencer le formulaire">
             <FontAwesomeIcon icon={faRotateRight} /> Recommencer
           </button>
         )}
