@@ -1047,7 +1047,7 @@ const downloadPdf = () => {
                   }))
                 }
               />{" "}
-              Multilingue (2 langues) + {formatEUR(PRICING.multilingual.perExtra)} / langue supplémentaire
+              Multilingue - 2 langues : 180 € + {formatEUR(PRICING.multilingual.perExtra)} / langue supplémentaire
             </label>
 
             {state.multilingualEnabled && (

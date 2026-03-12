@@ -3,7 +3,7 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Meta from "../../components/Meta";
 import ImageProfile from '../../assets/images/image_profil.webp';
-import Sandra2 from "../../assets/images/sandra2.webp";
+import Sandra from "../../assets/images/Portrait_Sandra.webp";
 import AgeCalculator from "../../features/AgeCalculator";
 import Coupe from '../../assets/images/Image_coupe.webp';
 import technicalSkills from '../../assets/content/technicalSkills.json';
@@ -29,7 +29,7 @@ const Profile = () => {
                 <header>
                     <Navbar />
                     <div className='banner'>
-                        <img src={ImageProfile} alt="Photo de Sandra" />
+                        <img src={ImageProfile} alt="Image dessin d'un portrait carte de visite de Sandra Pautonnier" />
                         <h2>A propos de Sandra Pautonnier</h2>
                         <div className="card-banner">
                         <p className='base-text'>Développeuse & Créatrice web intuitive, je conçois des applications modernes centrées utilisateur avec React, Node.js et MongoDB.</p>
@@ -42,7 +42,7 @@ const Profile = () => {
                         <div className="container-hook-about">
                             <div className="text-hook-about">
                             <div className="box">
-                            <img src={Sandra2} alt="Photo de Sandra" />
+                            <img src={Sandra} alt="Portrait de Sandra Pautonnier" />
                             <p className="base-text"><span>Sandra Pautonnier</span> Développeuse & Créatrice web intuitive de <AgeCalculator birthDate="1992-07-28" /> ans au Mans. J'aime analyser, créer et développer pour donner vie à des projets web uniques. <br />
                             Mon parcours mêle artistique, commerce, gestion de projet, création de contenu et développement web. Une combinaison qui me permet de comprendre les besoins réels de mes clients.</p>
                             </div>

@@ -1,11 +1,5 @@
-import { Link } from "react-router-dom";
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import HeaderImage from '../../assets/images/image_portrait_dessin_sandra_header.webp';
-import Cv from '../../assets/pdf/CV-Sandra-Pautonnier.pdf';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin , faSquareGithub } from '@fortawesome/free-brands-svg-icons';
-import { faFileArrowDown  } from '@fortawesome/free-solid-svg-icons';
 import Meta from "../../components/Meta";
 import QuoteEstimator from "../../features/QuoteEstimator";
 
