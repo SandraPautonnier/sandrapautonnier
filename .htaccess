@@ -1,28 +1,31 @@
 # Compression
+
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript
 </IfModule>
 
 # Cache pour les assets (1 an)
-<FilesMatch "^.*\.(jpg|jpeg|png|gif|webp|svg|woff|woff2|ttf|eot|js|css)$">
-  <IfModule mod_expires.c>
-    ExpiresActive On
-    ExpiresDefault "access plus 1 year"
-  </IfModule>
-  <IfModule mod_headers.c>
-    Header set Cache-Control "public, max-age=31536000, immutable"
-  </IfModule>
+
+<FilesMatch "^.\*\.(jpg|jpeg|png|gif|webp|svg|woff|woff2|ttf|eot|js|css)$">
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault "access plus 1 year"
+</IfModule>
+<IfModule mod_headers.c>
+Header set Cache-Control "public, max-age=31536000, immutable"
+</IfModule>
 </FilesMatch>
 
 # Cache pour HTML (1 heure)
+
 <FilesMatch "\.html$">
-  <IfModule mod_expires.c>
-    ExpiresActive On
-    ExpiresDefault "access plus 1 hour"
-  </IfModule>
-  <IfModule mod_headers.c>
-    Header set Cache-Control "public, max-age=3600, must-revalidate"
-  </IfModule>
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault "access plus 1 hour"
+</IfModule>
+<IfModule mod_headers.c>
+Header set Cache-Control "public, max-age=3600, must-revalidate"
+</IfModule>
 </FilesMatch>
 
 <IfModule mod_rewrite.c>

@@ -2227,6 +2227,7 @@ button {
 }
 .banner img {
   max-width: 500px;
+  border-radius: 15px;
 }
 .banner .header-banner {
   width: 100%;
