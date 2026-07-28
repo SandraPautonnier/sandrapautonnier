@@ -24,7 +24,7 @@
         }
     }
 
-    h2 {
+    h1 {
         margin: 0;
         font-size: 48px;
         font-weight: 800;
@@ -58,7 +58,7 @@
             flex: 0 0 auto;
         }
 
-        h2 {
+        h1 {
             order: 3;
             flex-basis: 100%;
             font-size: 28px;
@@ -140,11 +140,18 @@
             margin-bottom: 35px;
         }
 
-        h3 {
+        h2 {
             font-size: 20px;
-            margin-bottom: 15px;
+            margin: 0 0 15px;
             color: $text;
             font-weight: 600;
+            text-align: left;
+            position: static;
+            padding-bottom: 0;
+
+            &::after {
+                content: none;
+            }
 
             @media (max-width: 768px) {
                 font-size: 18px;

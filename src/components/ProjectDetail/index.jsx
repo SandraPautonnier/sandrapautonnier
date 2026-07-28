@@ -85,7 +85,7 @@ const ProjectDetail = () => {
                                 <button onClick={handleGoBack} className='btn' aria-label='Revenir en arrière'>
                                     <FontAwesomeIcon icon={faArrowLeft} /> Retour
                                 </button>
-                                <h2>{project.titlework}</h2>
+                                <h1>{project.titlework}</h1>
                                 <p className='project-date'>{formatDate(project.date)}</p>
                             </div>
 
@@ -122,12 +122,12 @@ const ProjectDetail = () => {
                                 </div>
                                 
                                 <div className='project-section'>
-                                    <h3>{project.type === "Projets professionnalisants" ? "Contexte fictif" : "Contexte"}</h3>
+                                    <h2>{project.type === "Projets professionnalisants" ? "Contexte fictif" : "Contexte"}</h2>
                                     <p>{project.context}</p>
                                 </div>
 
                                 <div className='project-section'>
-                                    <h3>Réalisations</h3>
+                                    <h2>Réalisations</h2>
                                     <ul className='todo-list'>
                                         {project.todo.map((item, index) => (
                                             <li key={index}>{item}</li>
@@ -136,7 +136,7 @@ const ProjectDetail = () => {
                                 </div>
 
                                 <div className='project-section'>
-                                    <h3>Conclusion</h3>
+                                    <h2>Conclusion</h2>
                                     <p>{project.conclusion}</p>
                                 </div>
 
