@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import works from '../../assets/content/worksList.json';
+import { resolveCover } from '../../assets/content/portfolioCovers';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -103,7 +104,7 @@ const ProjectDetail = () => {
                             </div>
 
                             <div className='project-detail'>
-                                <img src={project.cover} alt={project.titlework} className='project-cover' loading="lazy" />
+                                <img src={resolveCover(project.cover)} alt={project.titlework} className='project-cover' loading="lazy" />
                                 
                                 <div className='project-links'>
                                     <div className='project-link-buttons'>

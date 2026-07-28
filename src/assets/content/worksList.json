@@ -10,7 +10,7 @@
             "Node.js avec Express",
             "Zustand"
         ],
-        "cover": "https://gentle-pony-095b6f.netlify.app/speaktime.webp",
+        "cover": "speaktime.webp",
         "context": "SpeakTime est une application que je développe pour gérer le temps de parole lors de réunions ou discussions. Simple et intuitive, elle permet de suivre, répartir et contrôler le temps de chacun en un clin d'œil.",
         "todo": [
             "Développement du front-end avec React",
@@ -34,7 +34,7 @@
             "Javascript",
             "Awesome"
         ],
-        "cover": "https://gentle-pony-095b6f.netlify.app/lemansschoolofai.webp",
+        "cover": "lemansschoolofai.webp",
         "context": "Le Mans School of AI est un groupe d'entraide pour les étudiants et professionnels autour de l'IA. J'ai réalisé la refonte intégrale du site web de cette organisation.",
         "todo": [
             "Refonte complète du design du site",
@@ -56,7 +56,7 @@
             "React",
             "Vite"
         ],
-        "cover": "https://gentle-pony-095b6f.netlify.app/pulsar42.webp",
+        "cover": "pulsar42.webp",
         "context": "Pulsar42 est un projet collaboratif porté par une association autour du jeu Star Citizen. En juin 2025, j'ai participé au développement du site Pulsar42.sc, l'un de mes premiers travaux en équipe sur un projet concret en TypeScript.",
         "todo": [
             "Intégration du footer du site",
@@ -79,7 +79,7 @@
             "CSS",
             "SASS"
         ],
-        "cover": "https://gentle-pony-095b6f.netlify.app/ohmyfood.webp",
+        "cover": "ohmyfood.webp",
         "context": "Ohmyfood est une jeune startup qui veut s'imposer sur le marché de la restauration. Ma mission était de développer l'interface mobile-first du site en intégrant une maquette fournie.",
         "todo": [
             "Intégration de la maquette fournie",
@@ -102,7 +102,7 @@
             "React Router",
             "CRA"
         ],
-        "cover": "https://gentle-pony-095b6f.netlify.app/kasa.webp",
+        "cover": "kasa.webp",
         "context": "Kasa est une entreprise de location d'appartements entre particuliers. J'ai développé le front-end de cette application en utilisant React et React Router pour une navigation fluide.",
         "todo": [
             "Développement du front-end avec React",
@@ -127,7 +127,7 @@
             "API REST",
             "Swagger"
         ],
-        "cover": "https://gentle-pony-095b6f.netlify.app/argentbank.webp",
+        "cover": "argentbank.webp",
         "context": "Argent Bank est une nouvelle banque en ligne qui vise à s'imposer dans le secteur bancaire. J'ai développé le front-end d'une application bancaire avec React et Redux pour une expérience utilisateur dynamique.",
         "todo": [
             "Développement du front-end avec React",

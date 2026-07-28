@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import workslist from "../../assets/content/worksList.json";
+import { resolveCover } from "../../assets/content/portfolioCovers";
 import Dropdown from "../Dropdown";
 
 const Works = ({ projectType }) => {
@@ -41,7 +42,7 @@ const Works = ({ projectType }) => {
       <div className="container-card-works">
         {filteredWorks.map((works) => (
           <div className="card-works" key={works.id}>
-            <img src={`${works.cover}`} alt={`Projet ${works.titlework}`} loading="lazy" />
+            <img src={resolveCover(works.cover)} alt={`Projet ${works.titlework}`} loading="lazy" />
             <div className="card-content">
               <div>
                 <h3>{works.titlework}</h3>

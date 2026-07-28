@@ -8,6 +8,7 @@ import { faLinkedin , faSquareGithub } from '@fortawesome/free-brands-svg-icons'
 import { faCode , faAward , faMagnifyingGlass , faWrench, faCheck, faPen } from '@fortawesome/free-solid-svg-icons';
 import Carousel from "../../features/Carousel";
 import HookWorks from "../../assets/content/worksList.json";
+import { resolveCover } from "../../assets/content/portfolioCovers";
 import Meta from "../../components/Meta";
 import Services from "../../assets/content/services.json";
 
@@ -86,7 +87,7 @@ const Home = () => {
                 <Carousel>
                 {HookWorks.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 3).map((item) => (
                     <div className="slide-content" key={item.id}>
-                      <img src={`${item.cover}`} alt={`Projet ${item.titlework}`} loading="lazy" />
+                      <img src={resolveCover(item.cover)} alt={`Projet ${item.titlework}`} loading="lazy" />
                       <div className="slide-description">
                         <div>
                           <h3>{item.titlework}</h3>
