@@ -1,5 +1,4 @@
 import { useMemo, useState, useRef, useEffect } from "react";
-import emailjs from "@emailjs/browser";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp, faArrowLeft, faArrowRight, faRotateRight, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { jsPDF } from "jspdf";
@@ -277,9 +276,7 @@ export default function QuoteEstimatorStepperEmail() {
   const [state, setState] = useState(defaultState);
   const [step, setStep] = useState(1);
   const [detailsOpen, setDetailsOpen] = useState(true);
-  const [showEmail, setShowEmail] = useState(false);
   const [showProjectType, setShowProjectType] = useState(false);
-  const emailFormRef = useRef(null);
   const projectTypeRef = useRef(null);
 
   const isAudit = state.projectType === "auditVisibility";
@@ -524,78 +521,25 @@ export default function QuoteEstimatorStepperEmail() {
     estimateTotal,
   ]);
 
-  const [clientName, setClientName] = useState("");
-  const [clientEmail, setClientEmail] = useState("");
-  const [sending, setSending] = useState(false);
-  const [status, setStatus] = useState("");
-
-  const sendEmail = async (e) => {
-  e.preventDefault();
-  setStatus("");
-  setSending(true);
-  try {
-    const serviceID = "service_xxxx";
-    const templateID = "template_xxxx";
-    if (!serviceID || !templateID) throw new Error("Les identifiants EmailJS sont manquants.");
-
-    const templateParams = {
-      from_name: clientName || "Client",
-      reply_to: clientEmail,
-      project_type: projectTypeLabel,
-      estimate_total: estimateTotal,
-      details: detailsText,
-      maintenance_monthly: !maintenanceAvailable
-        ? "Non incluse"
-        : state.hostingMaintenanceChoice === "noHosting_withMaintenance"
-          ? `${formatEUR(maintenanceMonthly)}/mois`
-          : state.hostingMaintenanceChoice === "hasHosting_withMaintenance"
-            ? "Prix variable (hébergement existant) — accompagnement avec l’existant"
-            : "Non",
-    };
-
-    await emailjs.send(serviceID, templateID, templateParams);
-    setStatus("Email envoyé ✅");
-    setClientName("");
-    setClientEmail("");
-    setShowEmail(false);
-  } catch (error) {
-    setStatus(`Échec de l’envoi : ${error.text || error.message || "Vérifiez la configuration EmailJS."}`);
-  } finally {
-    setSending(false);
-  }
-};
-
   const next = () => {
     if (step === 1 && isAudit) {
       setStep(5);
-      setShowEmail(false);
-      setStatus("");
       return;
     }
     setStep((s) => Math.min(5, s + 1));
-    setShowEmail(false);
-    setStatus("");
   };
 
   const prev = () => {
     if (step === 5 && isAudit) {
       setStep(1);
-      setShowEmail(false);
-      setStatus("");
       return;
     }
     setStep((s) => Math.max(1, s - 1));
-    setShowEmail(false);
-    setStatus("");
   };
 
   const restart = () => {
     setState(defaultState);
     setStep(1);
-    setShowEmail(false);
-    setStatus("");
-    setClientName("");
-    setClientEmail("");
   };
 
   const onProjectTypeChange = (value) => {
@@ -1262,63 +1206,6 @@ const downloadPdf = () => {
 
             <a href="/contact" className="btn" aria-label="Me contacter">💬 Me contacter</a>
           </div>
-
-          {/* COMMENTÉ - Fonctionnalité d'envoi par email
-          <div className="quote-estimator-email-dropdown">
-            <button
-              type="button"
-              className="quote-estimator-email-toggle"
-              onClick={() => setShowEmail((v) => !v)}
-            >
-              <span style={{
-                display: 'inline-block',
-                transition: 'transform 0.2s ease-in-out',
-                transform: showEmail ? 'rotate(-180deg)' : 'rotate(0deg)',
-              }}>▼</span>
-              {showEmail ? "Fermer" : "📧 Recevoir l'estimation par email"}
-            </button>
-
-            <div
-              className={`quote-estimator-email-content ${showEmail ? 'open' : 'closed'}`}
-              ref={emailFormRef}
-              style={{
-                height: showEmail ? `${emailFormRef.current?.scrollHeight}px` : "0px",
-                overflow: "hidden",
-                transition: "height 0.2s ease-in-out",
-              }}
-            >
-              <form onSubmit={sendEmail} className="quote-estimator-email-form">
-                <div>
-                  <label>
-                    Nom :
-                    <input value={clientName} onChange={(e) => setClientName(e.target.value)} />
-                  </label>
-                </div>
-
-                <div>
-                  <label>
-                    Email :
-                    <input required type="email" value={clientEmail} onChange={(e) => setClientEmail(e.target.value)} />
-                  </label>
-                </div>
-
-                <div style={{ display: "flex", gap: 15, alignItems: "center" }}>
-                  <button type="submit" disabled={sending}>
-                    {sending ? "Envoi..." : "Envoyer"}
-                  </button>
-
-                  {status && <p style={{ margin: 0 }}>{status}</p>}
-                </div>
-              </form>
-            </div>
-          </div>
-          */}
-
-          {/* COMMENTÉ - Information confidentialité
-          <p className="bis-text" style={{textAlign: "center"}}>
-            Les informations (nom, email) servent uniquement à répondre à votre demande et, si besoin, à une seule relance. Conservation : 1 an max. Vos droits : lien vers email sandra - lien vers mentions légales.
-          </p>
-          */}
 
           <hr />
 
