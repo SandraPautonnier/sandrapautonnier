@@ -69,29 +69,6 @@
         "github": "https://github.com/Pulsar42sc/Pulsar42Web"
     },
     {
-        "id": 4,
-        "type": "Projets professionnalisants",
-        "titlework": "Ohmyfood",
-        "date": "2024-11",
-        "category": "Création de site web",
-        "technologies": [
-            "HTML",
-            "CSS",
-            "SASS"
-        ],
-        "cover": "ohmyfood.webp",
-        "context": "Ohmyfood est une jeune startup qui veut s'imposer sur le marché de la restauration. Ma mission était de développer l'interface mobile-first du site en intégrant une maquette fournie.",
-        "todo": [
-            "Intégration de la maquette fournie",
-            "Développement mobile-first",
-            "Optimisation des styles avec Sass",
-            "Implémentation des animations CSS"
-        ],
-        "conclusion": "J'ai créé une interface responsive et animée qui offre une excellente expérience utilisateur. Le projet, versionné avec Git et GitHub, m'a permis de renforcer mes compétences en gestion de code et en collaboration.",
-        "link": "https://sandrapautonnier.github.io/ohmyfood/",
-        "github": "https://github.com/SandraPautonnier/ohmyfood"
-    },
-    {
         "id": 5,
         "type": "Projets professionnalisants",
         "titlework": "Kasa",
@@ -113,30 +90,5 @@
         "conclusion": "J'ai conçu une application réactive qui offre une excellente expérience utilisateur. Ce projet m'a permis de maîtriser React et React Router, essentiels pour développer des applications web modernes.",
         "link": "https://sandrapautonnier.github.io/kasa/",
         "github": "https://github.com/SandraPautonnier/kasa"
-    },
-    {
-        "id": 6,
-        "type": "Projets professionnalisants",
-        "titlework": "Argent bank",
-        "date": "2025-01",
-        "category": "Création d'une application",
-        "technologies": [
-            "React",
-            "Redux",
-            "Vite",
-            "API REST",
-            "Swagger"
-        ],
-        "cover": "argentbank.webp",
-        "context": "Argent Bank est une nouvelle banque en ligne qui vise à s'imposer dans le secteur bancaire. J'ai développé le front-end d'une application bancaire avec React et Redux pour une expérience utilisateur dynamique.",
-        "todo": [
-            "Développement du front-end avec React",
-            "Gestion de l'état global avec Redux",
-            "Intégration avec le back-end via des appels API REST",
-            "Utilisation de Swagger pour les points d'accès API"
-        ],
-        "conclusion": "En gérant l'état global avec Redux et en intégrant le front-end avec le back-end, j'ai créé une application bancaire performante et sécurisée. Ce projet m'a approfondi ma compréhension des architectures d'applications modernes.",
-        "link": null,
-        "github": "https://github.com/SandraPautonnier/argentbank"
     }
 ]
