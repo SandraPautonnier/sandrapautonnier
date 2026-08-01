@@ -1379,6 +1379,33 @@ table th {
   font-size: 17px;
 }
 
+.quote-demo-notice {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 30px;
+}
+.quote-demo-notice p {
+  max-width: 700px;
+  margin: 0 auto 12px;
+  padding: 12px 16px;
+  background-color: rgba(112, 88, 140, 0.05);
+  border-left: 4px solid #70588C;
+  border-radius: 4px;
+  font-size: 0.9em;
+  line-height: 1.5;
+  text-align: left;
+}
+.quote-demo-notice strong {
+  color: #70588C;
+}
+@media (max-width: 768px) {
+  .quote-demo-notice {
+    padding: 0 20px;
+  }
+}
+
 .quote-estimator {
   max-width: 1240px;
   width: 100%;

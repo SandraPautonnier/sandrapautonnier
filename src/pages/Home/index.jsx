@@ -35,7 +35,7 @@ const Home = () => {
                 <p className="base-text">Créativité, écoute & clarté ! <br /> Au service de votre image en ligne.
                 </p>
                 <div className="buttons-social">
-                  <a href="/price" aria-label="Faire une estimation de votre projet" className="btn-secondary">Faire une estimation de votre projet</a>
+                  <a href="/contact" aria-label="Demander un devis" className="btn-secondary">Demander un devis</a>
                   <a href="/contact" aria-label="Navigation vers ma page contact" className="btn-secondary">Contactez-moi</a>
                   <a href="https://www.linkedin.com/in/sandrapautonnier/" target='_blank' rel="noreferrer" aria-label="Lien Linkedin"><FontAwesomeIcon icon={faLinkedin} />Linkedin</a>
                   <a href="https://github.com/SandraPautonnier" target='_blank' rel="noreferrer" aria-label="Lien Github"><FontAwesomeIcon icon={faSquareGithub} />Github</a>
@@ -66,7 +66,7 @@ const Home = () => {
                   );
                 })}
               </div>
-              <Link to="/price" aria-label="Faire une estimation de votre projet" className="btn">Faire une estimation de votre projet</Link>
+              <Link to="/contact" aria-label="Demander un devis" className="btn">Demander un devis</Link>
             </section>
             <section>
               <h2>Pourquoi travailler avec moi ?</h2>

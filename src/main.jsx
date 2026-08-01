@@ -11,7 +11,7 @@ import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
 import Legalnotice from './pages/Legalnotice';
 import ProjectDetail from './components/ProjectDetail';
-import Price from './pages/Price';
+import SimulateurDevis from './pages/SimulateurDevis';
 import "@fontsource/montserrat";
 
 const router = createBrowserRouter([
@@ -31,9 +31,9 @@ const router = createBrowserRouter([
     path: "/portfolio/:id",
     element: <ProjectDetail />,
   },
-    {
-    path: "/price",
-    element: <Price />,
+  {
+    path: "/realisations/simulateur-de-devis",
+    element: <SimulateurDevis />,
   },
   {
     path: "/contact",
