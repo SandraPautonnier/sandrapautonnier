@@ -31,11 +31,16 @@ Header set Cache-Control "public, max-age=3600, must-revalidate"
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  
+
+  # Redirections 301 - anciennes URLs retirées du site
+  RewriteRule ^price/?$ / [R=301,L]
+  RewriteRule ^portfolio/4/?$ /portfolio/ [R=301,L]
+  RewriteRule ^portfolio/6/?$ /portfolio/ [R=301,L]
+
   # Si la requête n'est pas un fichier ou dossier existant
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  
+
   # Rediriger vers index.html
   RewriteRule ^ index.html [QSA,L]
 </IfModule>
