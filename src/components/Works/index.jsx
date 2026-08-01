@@ -1,29 +1,15 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import workslist from "../../assets/content/worksList.json";
 import { resolveCover } from "../../assets/content/portfolioCovers";
-import Dropdown from "../Dropdown";
 
 const Works = ({ projectType }) => {
-  const [selectedCategory, setSelectedCategory] = useState("-- Tous les projets --"); 
-
   // Filtrer par type si fourni, sinon afficher tous
-  const worksByType = projectType 
+  const worksByType = projectType
     ? workslist.filter((work) => work.type === projectType)
     : workslist;
 
   // Si pas de projectType (page home), afficher que les 3 derniers
   const worksList = !projectType ? worksByType.slice(-3) : worksByType;
-
-  const categories = [
-    "-- Tous les projets --",
-    ...new Set(worksList.map((work) => work.category)),
-  ];
-
-  const filteredWorks =
-    selectedCategory === "-- Tous les projets --"
-      ? worksList
-      : worksList.filter((work) => work.category === selectedCategory);
 
   const handleProjectClick = () => {
     // Sauvegarder la position du scroll actuelle
@@ -33,14 +19,8 @@ const Works = ({ projectType }) => {
 
   return (
     <section className="works" id="portfolio" aria-label="Liste des projets">
-      {/* Dropdown pour sélectionner une catégorie */}
-      <Dropdown 
-        title="Filtrer par catégorie" 
-        content={categories}
-        onSelectItem={(category) => setSelectedCategory(category)}
-      />
       <div className="container-card-works">
-        {filteredWorks.map((works) => (
+        {worksList.map((works) => (
           <div className="card-works" key={works.id}>
             <img src={resolveCover(works.cover)} alt={`Projet ${works.titlework}`} loading="lazy" />
             <div className="card-content">
