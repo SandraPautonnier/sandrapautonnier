@@ -1,0 +1,83 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+// Mention de statut sur les cartes projet (visible uniquement pour
+// "en-developpement" et "prive" ; "en-ligne" ne porte aucune mention).
+.work-statut {
+  display: inline-block;
+  margin: 6px 0 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: $main-color;
+  background-color: rgba($main-color, 0.1);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+// Section "Exercices & expérimentations" : hiérarchie délibérément plus
+// discrète que la grille des projets clients.
+.works-secondaires {
+  h2 {
+    font-size: 1.15rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+
+    &::after {
+      content: none;
+    }
+  }
+
+  .works-secondaires-intro {
+    max-width: 560px;
+    margin: 8px auto 20px;
+    text-align: center;
+    font-size: 13px;
+    font-style: italic;
+    color: $light-text;
+  }
+
+  // Imbriqué sous .works .container-card-works pour dépasser la spécificité
+  // des règles de base de _works.scss (0,3,1), sinon la hauteur d'image de
+  // 180px l'emporterait et les vignettes ne seraient pas plus compactes.
+  .works .container-card-works {
+    gap: 15px;
+
+    @media (min-width: 769px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card-works--compact {
+      height: auto;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07);
+
+      img {
+        height: 110px;
+
+        @media (min-width: 1200px) {
+          height: 120px;
+        }
+      }
+
+      .card-content {
+        padding: 12px 12px 15px;
+      }
+
+      h3 {
+        font-size: 15px;
+
+        @media (min-width: 450px) {
+          font-size: 15px;
+        }
+      }
+
+      .work-category {
+        font-size: 12px;
+      }
+
+      .btn-secondary {
+        font-size: 13px;
+        padding: 6px 12px;
+      }
+    }
+  }
+}

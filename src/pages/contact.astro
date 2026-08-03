@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactSection from "../components/islands/ContactSection.jsx";
+import ImageContact from "../assets/images/image_contact.webp";
+---
+
+<BaseLayout
+  title="Sukiweb - Contactez-moi pour votre projet web"
+  description="Contactez Sandra Pautonnier, développeuse web spécialisée en création de sites performants, modernes et sur-mesure. Obtenez un accompagnement humain, une expertise technique et créative pour votre projet web."
+  pageClass="contact"
+  mainClass="contact-container"
+>
+  <div class="banner" slot="banner" role="region" aria-label="Présentation - Contact">
+    <Image src={ImageContact} alt="Photo de Sandra" loading="lazy" />
+    <h1>Contact</h1>
+    <p class="base-text">
+      Vous avez un projet de site web ou besoin d'améliorer votre visibilité ?
+      Parlons-en !
+    </p>
+  </div>
+
+  <section class="contact-section margin margin-desktop">
+    <h2>Discutons de votre projet</h2>
+    <ContactSection client:visible />
+  </section>
+</BaseLayout>

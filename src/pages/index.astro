@@ -1,5 +1,49 @@
 ---
+import { getCollection } from "astro:content";
+import { Image, getImage } from "astro:assets";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin, faSquareGithub } from "@fortawesome/free-brands-svg-icons";
+import {
+  faCode,
+  faAward,
+  faMagnifyingGlass,
+  faWrench,
+  faCheck,
+  faPen,
+} from "@fortawesome/free-solid-svg-icons";
+
 import BaseLayout from "../layouts/BaseLayout.astro";
+import TechDemoBlock from "../components/TechDemoBlock.astro";
+import ProjectsCarousel from "../components/islands/ProjectsCarousel.jsx";
+import HeaderImage from "../assets/images/Image_header.webp";
+import MainImage from "../assets/images/image_poignee-de-main.webp";
+
+const services = await getCollection("services");
+
+const iconMap = {
+  faCode,
+  faMagnifyingGlass,
+  faWrench,
+  faAward,
+  faPen,
+};
+
+// Les 3 projets les plus récents, comme sur l'ancienne page d'accueil.
+const projets = await getCollection("projets");
+const recents = projets
+  .sort((a, b) => (b.data.date ?? "").localeCompare(a.data.date ?? ""))
+  .slice(0, 3);
+
+// Les images optimisées sont résolues côté Astro puis passées à l'îlot React
+// sous forme d'URL : le composant <Image> ne peut pas s'exécuter dans React.
+const slides = await Promise.all(
+  recents.map(async (p) => ({
+    slug: p.id,
+    titre: p.data.titre,
+    category: p.data.category,
+    cover: (await getImage({ src: p.data.cover })).src,
+  }))
+);
 ---
 
 <BaseLayout
@@ -7,11 +51,77 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   description="Développeuse web freelance spécialisée en création de sites performants, modernes et sur-mesure pour les indépendants et associations. Accompagnement humain, tarifs transparents, expertise technique et créative."
   pageClass="home"
 >
+  <div
+    class="header-banner"
+    slot="banner"
+    id="home"
+    role="region"
+    aria-label="Présentation - Accueil"
+  >
+    <Image src={HeaderImage} alt="Portrait dessin de Sandra réalisé par IA" />
+    <div class="header-content">
+      <h1>Développeuse & Créatrice <br /> Web Intuitive</h1>
+      <p class="base-text">
+        Créativité, écoute & clarté ! <br /> Au service de votre image en ligne.
+      </p>
+      <div class="buttons-social">
+        <a href="/contact/" aria-label="Demander un devis" class="btn-secondary">Demander un devis</a>
+        <a href="/contact/" aria-label="Navigation vers ma page contact" class="btn-secondary">Contactez-moi</a>
+        <a href="https://www.linkedin.com/in/sandrapautonnier/" target="_blank" rel="noreferrer" aria-label="Lien Linkedin"><FontAwesomeIcon icon={faLinkedin} />Linkedin</a>
+        <a href="https://github.com/SandraPautonnier" target="_blank" rel="noreferrer" aria-label="Lien Github"><FontAwesomeIcon icon={faSquareGithub} />Github</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="hook-services">
+    <h2>Des offres clé en main</h2>
+    <div class="offers-container">
+      {
+        services.map((service) => (
+          <div class="offer-card">
+            <FontAwesomeIcon icon={iconMap[service.data.icon]} />
+            <h3>{service.data.title}</h3>
+            <p class="base-text">{service.data.description}</p>
+            <span>{service.data.prix}</span>
+          </div>
+        ))
+      }
+    </div>
+    <a href="/contact/" aria-label="Demander un devis" class="btn">Demander un devis</a>
+  </section>
+
   <section>
-    <h1>Développeuse & Créatrice <br /> Web Intuitive</h1>
-    <p class="base-text">
-      Page d'accueil en cours de migration — le contenu complet est repris à
-      l'étape 3.
+    <h2>Pourquoi travailler avec moi ?</h2>
+    <div class="me">
+      <Image src={MainImage} alt="Poignée de main" loading="lazy" />
+      <ul class="base-text">
+        <li><FontAwesomeIcon icon={faCheck} /> Accompagnement humain et personnalisé</li>
+        <li><FontAwesomeIcon icon={faCheck} /> Tarifs transparents et sans surprise</li>
+        <li><FontAwesomeIcon icon={faCheck} /> Expertise technique et créative</li>
+        <li><FontAwesomeIcon icon={faCheck} /> Solutions adaptées aux indépendants et associations</li>
+        <li><FontAwesomeIcon icon={faCheck} /> Approche stratégique et évolutive</li>
+      </ul>
+    </div>
+    <p class="catch">
+      Je ne crée pas seulement un site. <br />Je crée un outil qui soutient votre
+      activité et votre croissance.
     </p>
+  </section>
+
+  <section class="hook-works">
+    <h2>Quelques projets</h2>
+    <ProjectsCarousel projets={slides} client:visible />
+    <a href="/realisations/" class="btn" aria-label="Voir plus de projets">Voir plus de projets</a>
+    <p class="catch">Des projets réalisés avec passion !</p>
+  </section>
+
+  <TechDemoBlock titre="Je ne fais pas que des pages" />
+
+  <section>
+    <div class="cta">
+      <h2>Prêt(e) à développer votre présence en ligne ?</h2>
+      <p>Discutons de votre projet gratuitement et sans engagement.</p>
+      <a href="/contact/" class="btn" aria-label="Prendre rendez-vous">Prendre rendez-vous</a>
+    </div>
   </section>
 </BaseLayout>

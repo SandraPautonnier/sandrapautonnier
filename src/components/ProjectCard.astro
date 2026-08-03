@@ -1,0 +1,34 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  projet: CollectionEntry<"projets">;
+  compact?: boolean;
+}
+
+const { projet, compact = false } = Astro.props;
+const d = projet.data;
+
+// "en-ligne" s'affiche normalement (aucune mention). Les deux autres statuts
+// portent une mention visible et n'exposent aucun lien externe, ici comme sur
+// la page de détail.
+const mentionStatut =
+  d.statut === "en-developpement"
+    ? "En cours de développement"
+    : d.statut === "prive"
+      ? "Application privée"
+      : null;
+---
+
+<div class:list={["card-works", compact && "card-works--compact"]}>
+  <Image src={d.cover} alt={`Projet ${d.titre}`} loading="lazy" />
+  <div class="card-content">
+    <div>
+      <h3>{d.titre}</h3>
+      <p class="work-category">{d.category}</p>
+      {mentionStatut && <p class="work-statut">{mentionStatut}</p>}
+    </div>
+    <a href={`/realisations/${projet.id}/`} class="btn-secondary">Voir le projet</a>
+  </div>
+</div>

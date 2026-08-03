@@ -1,0 +1,134 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const projets = await getCollection("projets");
+  return projets.map((projet) => ({
+    params: { slug: projet.id },
+    props: { projet },
+  }));
+}
+
+interface Props {
+  projet: CollectionEntry<"projets">;
+}
+
+const { projet } = Astro.props;
+const d = projet.data;
+
+const MOIS: Record<string, string> = {
+  "01": "janvier", "02": "février", "03": "mars", "04": "avril",
+  "05": "mai", "06": "juin", "07": "juillet", "08": "août",
+  "09": "septembre", "10": "octobre", "11": "novembre", "12": "décembre",
+};
+
+const dateAffichee = d.date
+  ? `${MOIS[d.date.split("-")[1]]} ${d.date.split("-")[0]}`
+  : String(d.annee);
+
+// Aucun lien externe si le projet est privé ou encore en développement.
+const lienSiteVisible = d.statut === "en-ligne" && Boolean(d.url);
+
+const mentionStatut =
+  d.statut === "en-developpement"
+    ? "Projet en cours de développement"
+    : d.statut === "prive"
+      ? "Application privée, accessible derrière authentification"
+      : null;
+
+const titreContexte =
+  d.type === "formation" ? "Contexte fictif" : "Contexte";
+---
+
+<BaseLayout
+  title={`${d.titre} - Réalisation | Sukiweb`}
+  description={d.context.slice(0, 155)}
+  pageClass="project-page"
+>
+  <section class="project-container">
+    <div class="project-header">
+      <a href="/realisations/" class="btn back-link" aria-label="Retour aux réalisations">
+        <FontAwesomeIcon icon={faArrowLeft} /> Retour
+      </a>
+      <h1>{d.titre}</h1>
+      <p class="project-date">{dateAffichee}</p>
+    </div>
+
+    <div class="project-meta">
+      <p class="project-category">{d.category}</p>
+
+      <div class="project-techs">
+        <strong>Technologies &amp; Outils utilisés :</strong>
+        <div class="tech-list">
+          {d.competences.map((tech) => <span class="tag">{tech}</span>)}
+        </div>
+      </div>
+    </div>
+
+    <div class="project-detail">
+      <Image src={d.cover} alt={d.titre} class="project-cover" loading="lazy" />
+
+      {mentionStatut && <p class="work-statut">{mentionStatut}</p>}
+
+      {
+        (lienSiteVisible || d.github) && (
+          <div class="project-links">
+            <div class="project-link-buttons">
+              {lienSiteVisible && (
+                <a href={d.url} target="_blank" rel="noopener noreferrer" aria-label="Lien vers le projet">
+                  Lien vers le projet
+                </a>
+              )}
+              {d.github && (
+                <a href={d.github} target="_blank" rel="noopener noreferrer" class="github-button" aria-label="Lien vers le dépôt GitHub">
+                  <FontAwesomeIcon icon={faGithub} /> GitHub
+                </a>
+              )}
+            </div>
+          </div>
+        )
+      }
+
+      <div class="project-section">
+        <h2>{titreContexte}</h2>
+        <p>{d.context}</p>
+      </div>
+
+      <div class="project-section">
+        <h2>Réalisations</h2>
+        <ul class="todo-list">
+          {d.todo.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Conclusion</h2>
+        <p>{d.conclusion}</p>
+      </div>
+
+      {
+        (lienSiteVisible || d.github) && (
+          <div class="project-links">
+            <div class="project-link-buttons">
+              {lienSiteVisible && (
+                <a href={d.url} target="_blank" rel="noopener noreferrer" aria-label="Lien vers le projet">
+                  Lien vers le projet
+                </a>
+              )}
+              {d.github && (
+                <a href={d.github} target="_blank" rel="noopener noreferrer" class="github-button" aria-label="Lien vers le dépôt GitHub">
+                  <FontAwesomeIcon icon={faGithub} /> GitHub
+                </a>
+              )}
+            </div>
+          </div>
+        )
+      }
+    </div>
+  </section>
+</BaseLayout>

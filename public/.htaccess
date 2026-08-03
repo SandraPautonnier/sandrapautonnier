@@ -28,19 +28,43 @@ Header set Cache-Control "public, max-age=3600, must-revalidate"
 </IfModule>
 </FilesMatch>
 
+# Page 404 (le site est desormais genere en statique : plus de fallback SPA)
+ErrorDocument 404 /404.html
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
-  # Redirections 301 - anciennes URLs retirées du site
-  RewriteRule ^price/?$ / [R=301,L]
-  RewriteRule ^portfolio/4/?$ /portfolio/ [R=301,L]
-  RewriteRule ^portfolio/6/?$ /portfolio/ [R=301,L]
+  # --- 1. www -> domaine sans www ---
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
 
-  # Si la requête n'est pas un fichier ou dossier existant
+  # --- 2. Anciennes URLs du SPA React -> arborescence Astro ---
+  # Pages projet : l'id numerique devient un slug lisible
+  RewriteRule ^portfolio/1/?$ /realisations/speaktime/ [R=301,L]
+  RewriteRule ^portfolio/2/?$ /realisations/le-mans-school-of-ai/ [R=301,L]
+  RewriteRule ^portfolio/3/?$ /realisations/pulsar42/ [R=301,L]
+  RewriteRule ^portfolio/5/?$ /realisations/kasa/ [R=301,L]
+
+  # Projets retires du portfolio : renvoi vers la liste
+  RewriteRule ^portfolio/4/?$ /realisations/ [R=301,L]
+  RewriteRule ^portfolio/6/?$ /realisations/ [R=301,L]
+
+  # Liste des projets
+  RewriteRule ^portfolio/?$ /realisations/ [R=301,L]
+
+  # Autres pages renommees
+  RewriteRule ^profile/?$ /a-propos/ [R=301,L]
+  RewriteRule ^legalnotice/?$ /mentions-legales/ [R=301,L]
+
+  # /price : remplace la redirection provisoire vers / posee au nettoyage
+  RewriteRule ^price/?$ /services/creation-site-internet-le-mans/ [R=301,L]
+
+  # --- 3. Normalisation du slash final (coherent avec trailingSlash "always") ---
+  # Couvre notamment /contact, /realisations/simulateur-de-devis et toute
+  # ancienne URL sans slash. Exclut les fichiers reels (assets, sitemap, pdf).
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-
-  # Rediriger vers index.html
-  RewriteRule ^ index.html [QSA,L]
+  RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{2,5}$
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteRule ^(.*)$ /$1/ [R=301,L]
 </IfModule>

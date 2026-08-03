@@ -25,6 +25,9 @@ const isActive = (href: string) => (path === href ? "active" : "");
         <a href="/" aria-label="Accueil" class={isActive("/")}>ACCUEIL</a>
       </li>
       <li class="nav-li">
+        <a href="/services/" aria-label="Services" class={isActive("/services/")}>SERVICES</a>
+      </li>
+      <li class="nav-li">
         <a href="/realisations/" aria-label="Réalisations" class={isActive("/realisations/")}>PORTFOLIO</a>
       </li>
       <li class="nav-li">

@@ -1,0 +1,25 @@
+{
+  "titre": "Pulsar42",
+  "client": "Pulsar42",
+  "type": "client",
+  "statut": "en-ligne",
+  "url": "https://pulsar42.sc",
+  "ordre": 10,
+  "competences": [
+    "React",
+    "Vite"
+  ],
+  "annee": 2025,
+  "date": "2025-06",
+  "category": "Création de site web",
+  "cover": "../../assets/images/portfolio/pulsar42.webp",
+  "context": "Pulsar42 est un projet collaboratif porté par une association autour du jeu Star Citizen. En juin 2025, j'ai participé au développement du site Pulsar42.sc, l'un de mes premiers travaux en équipe sur un projet concret en TypeScript.",
+  "todo": [
+    "Intégration du footer du site",
+    "Développement de la page des mentions légales",
+    "Conformité RGPD et LCEN",
+    "Collaboration avec d'autres développeurs"
+  ],
+  "conclusion": "Ce projet m'a permis de consolider mes compétences en intégration front-end, en responsive design, et de collaborer avec d'autres développeurs dans un cadre associatif. L'expérience a été enrichissante et m'a préparée pour des projets d'équipe futurs.",
+  "github": "https://github.com/Pulsar42sc/Pulsar42Web"
+}

@@ -1,0 +1,25 @@
+{
+  "titre": "Kasa",
+  "type": "formation",
+  "statut": "en-ligne",
+  "url": "https://sandrapautonnier.github.io/kasa/",
+  "ordre": 40,
+  "competences": [
+    "React",
+    "React Router",
+    "CRA"
+  ],
+  "annee": 2024,
+  "date": "2024-12",
+  "category": "Création d'une application",
+  "cover": "../../assets/images/portfolio/kasa.webp",
+  "context": "Kasa est une entreprise de location d'appartements entre particuliers. J'ai développé le front-end de cette application en utilisant React et React Router pour une navigation fluide.",
+  "todo": [
+    "Développement du front-end avec React",
+    "Mise en place de React Router",
+    "Gestion des données depuis un fichier JSON",
+    "Création d'une interface réactive et moderne"
+  ],
+  "conclusion": "J'ai conçu une application réactive qui offre une excellente expérience utilisateur. Ce projet m'a permis de maîtriser React et React Router, essentiels pour développer des applications web modernes.",
+  "github": "https://github.com/SandraPautonnier/kasa"
+}

@@ -1,0 +1,41 @@
+---
+// Bloc de démonstration technique, partagé par l'accueil et /realisations/.
+// Volontairement distinct des cartes de projets : encadré sobre, titre réduit,
+// bouton secondaire, pour ne pas concurrencer le CTA principal.
+interface Props {
+  titre: string;
+}
+
+const { titre } = Astro.props;
+---
+
+<section class="tech-demo">
+  <div class="tech-demo-card">
+    <span class="tech-demo-label">Démonstration technique</span>
+    <h2>{titre}</h2>
+    <p class="base-text">
+      Au-delà des sites vitrines, je développe des outils métier sur-mesure.
+      Exemple avec ce simulateur de devis : un moteur de calcul multi-critères,
+      un formulaire en 5 étapes à état persistant, et une génération de PDF côté
+      client.
+    </p>
+    {/* Remplacer par <Image src={...} alt="Aperçu du simulateur de devis" loading="lazy" /> une fois la capture disponible */}
+    <div
+      class="tech-demo-preview"
+      role="img"
+      aria-label="Aperçu du simulateur de devis - capture d'écran à venir"
+    >
+      <span>Capture d'écran à venir</span>
+    </div>
+    <a
+      href="/realisations/simulateur-de-devis/"
+      class="btn-secondary"
+      aria-label="Voir la démonstration du simulateur de devis"
+    >
+      Voir la démonstration
+    </a>
+    <p class="tech-demo-notice">
+      Démonstration technique — les tarifs affichés sont fictifs
+    </p>
+  </div>
+</section>

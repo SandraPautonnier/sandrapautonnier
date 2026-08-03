@@ -14,7 +14,10 @@
     align-items: baseline;
     gap: 30px;
 
-    button {
+    // .back-link : le bouton retour est devenu un <a> (navigation statique
+    // vers /realisations/). Mêmes styles que l'ancien <button>.
+    button,
+    .back-link {
         display: flex;
         align-items: center;
         gap: 10px;

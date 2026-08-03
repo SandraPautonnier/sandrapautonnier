@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const prestations = [
+  {
+    href: "/services/creation-site-internet-le-mans/",
+    titre: "Création de site internet au Mans",
+    resume:
+      "Un site vitrine sur-mesure, pensé pour votre activité : structure claire, performances, accessibilité et référencement dès la conception.",
+  },
+  {
+    href: "/services/refonte-site-web/",
+    titre: "Refonte de site web",
+    resume:
+      "Votre site existe déjà mais ne vous ressemble plus, ou ne performe pas. Audit, reprise de l'existant et refonte sans perdre votre référencement.",
+  },
+  {
+    href: "/services/gestion-de-projet-digital/",
+    titre: "Gestion de projet digital",
+    resume:
+      "Cadrage, coordination des intervenants et suivi jusqu'à la mise en ligne. Un interlocuteur unique pour votre projet web.",
+  },
+];
+---
+
+<BaseLayout
+  title="Services - Création de site, refonte et gestion de projet | Sukiweb"
+  description="Les prestations de Sandra Pautonnier, développeuse web au Mans : création de site internet, refonte de site existant et gestion de projet digital."
+  pageClass="services"
+>
+  <section class="margin">
+    <h1>Mes services</h1>
+    <p class="base-text">
+      Développeuse web et cheffe de projet digitale au Mans, j'accompagne les
+      indépendants, les associations et les petites structures sur l'ensemble de
+      leur présence en ligne.
+    </p>
+
+    <div class="offers-container">
+      {
+        prestations.map((p) => (
+          <div class="offer-card">
+            <h2>{p.titre}</h2>
+            <p class="base-text">{p.resume}</p>
+            <a href={p.href} class="btn-secondary" aria-label={`En savoir plus : ${p.titre}`}>
+              En savoir plus
+            </a>
+          </div>
+        ))
+      }
+    </div>
+
+    <a href="/contact/" class="btn" aria-label="Demander un devis">Demander un devis</a>
+  </section>
+</BaseLayout>

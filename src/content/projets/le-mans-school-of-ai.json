@@ -1,0 +1,27 @@
+{
+  "titre": "Le Mans School of AI",
+  "client": "Le Mans School of AI",
+  "type": "client",
+  "statut": "en-ligne",
+  "url": "https://lemans-schoolofai.github.io/",
+  "ordre": 20,
+  "competences": [
+    "HTML",
+    "CSS",
+    "Javascript",
+    "Awesome"
+  ],
+  "annee": 2025,
+  "date": "2025-03",
+  "category": "Refonte de site vitrine",
+  "cover": "../../assets/images/portfolio/lemansschoolofai.webp",
+  "context": "Le Mans School of AI est un groupe d'entraide pour les étudiants et professionnels autour de l'IA. J'ai réalisé la refonte intégrale du site web de cette organisation.",
+  "todo": [
+    "Refonte complète du design du site",
+    "Développement en HTML/CSS et Javascript",
+    "Création d'une gestion des événements dynamiques",
+    "Mise à jour automatique des événements passés"
+  ],
+  "conclusion": "Avec cette refonte, j'ai créé un système intelligent où les événements passés se mettent automatiquement dans la colonne 'Événements passés'. Le site offre maintenant une meilleure expérience utilisateur et reflète mieux les valeurs de la communauté.",
+  "github": "https://github.com/LeMans-SchoolofAI/LeMans-SchoolofAI.github.io.git"
+}

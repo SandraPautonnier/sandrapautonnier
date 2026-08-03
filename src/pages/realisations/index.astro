@@ -1,0 +1,69 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import TechDemoBlock from "../../components/TechDemoBlock.astro";
+import Docs from "../../assets/images/image_portfolio.webp";
+
+const projets = await getCollection("projets");
+const parOrdre = (a, b) => a.data.ordre - b.data.ordre;
+
+// Le champ "type" répartit automatiquement les projets entre les deux blocs.
+const clients = projets.filter((p) => p.data.type === "client").sort(parOrdre);
+const autres = projets
+  .filter((p) => p.data.type === "personnel" || p.data.type === "formation")
+  .sort(parOrdre);
+---
+
+<BaseLayout
+  title="Réalisations - Projets web de Sandra Pautonnier | Sukiweb"
+  description="Découvrez les projets web réalisés par Sandra Pautonnier, développeuse et cheffe de projet digitale au Mans : sites vitrines, refontes et applications sur-mesure."
+  pageClass="portfolio"
+>
+  <div class="banner" slot="banner" role="region" aria-label="Présentation - Réalisations">
+    <Image src={Docs} alt="Illustration de documents" loading="lazy" />
+    <h1>Réalisations</h1>
+    <div class="card-banner">
+      <p class="base-text">
+        Passionnée par le web, je crée des solutions sur mesure pour donner vie à
+        vos idées. Découvrez ici les projets qui ont enrichi mon parcours.
+      </p>
+    </div>
+  </div>
+
+  {
+    clients.length > 0 && (
+      <section class="margin">
+        <h2>Projets clients</h2>
+        <div class="works">
+          <div class="container-card-works">
+            {clients.map((projet) => (
+              <ProjectCard projet={projet} />
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    autres.length > 0 && (
+      <section class="works-secondaires">
+        <h2>Exercices & expérimentations</h2>
+        <p class="works-secondaires-intro">
+          Des exercices et essais techniques, gardés pour ce qu'ils démontrent.
+        </p>
+        <div class="works">
+          <div class="container-card-works">
+            {autres.map((projet) => (
+              <ProjectCard projet={projet} compact />
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <TechDemoBlock titre="Je ne fais pas que des pages" />
+</BaseLayout>

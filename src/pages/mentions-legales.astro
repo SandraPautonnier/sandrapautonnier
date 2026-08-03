@@ -1,16 +1,13 @@
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
 
-const Legalnotice = () => {
+<BaseLayout
+  title="Mentions légales | Sukiweb - Sandra Pautonnier"
+  description="Mentions légales du site sandrapautonnier.com : éditeur, hébergeur, propriété intellectuelle, responsabilité et traitement des données personnelles."
+  pageClass="legalnotice"
+>
 
-  return (
-    <div className="legalnotice">
-      <div className="background-color">
-        <div className="header-main">
-          <header>
-            <Navbar/>
-          </header>
-          <main>
             <h1>Mentions légales</h1>
 
             <h2>1. Éditeur du site</h2>
@@ -95,12 +92,4 @@ const Legalnotice = () => {
               Le site peut utiliser des cookies à des fins de fonctionnement et de 
               mesure d’audience. L’utilisateur peut configurer son navigateur pour les refuser.
             </p>
-          </main>
-        </div>
-        <Footer />
-      </div>
-    </div>
-  );
-};
-
-export default Legalnotice;
+</BaseLayout>
