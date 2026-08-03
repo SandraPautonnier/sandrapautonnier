@@ -98,22 +98,22 @@ export default function QuoteEstimatorStepperEmail() {
 
   return (
     <section className="quote-estimator">
-      <h2>💰 Estimez votre projet</h2>
+      <h2>⚙️ Un outil métier en démonstration</h2>
 
       {step === 1 && (
         <p className="border-text bis-text" >
-          <strong style={{textAlign: "center"}}>En 2 min chrono !</strong>
-          Sélectionnez les options les plus proches de votre projet et obtenez une estimation de prix indicative.(le devis final sera affiné selon vos besoins précis) : <br /> <br />
-          1️⃣ Type de projet (vitrine, e-commerce, Audit visibilité)<br />
-          2️⃣ Options à la carte (formulaires, réservation, paiement en ligne…) <br />
-          3️⃣ Hébergement / maintenance / nom de domaine <br />
-          4️⃣ Services supplémentaires (design, rédaction, réseaux sociaux) <br />
-          5️⃣ Estimation & récapitulatif téléchargeable (votre fourchette de prix personnalisée) 🚀 <br />
+          <strong style={{textAlign: "center"}}>Ce que cette démonstration met en œuvre</strong>
+          Parcourez les 5 étapes pour voir le fonctionnement : <br /> <br />
+          1️⃣ Un moteur de calcul multi-critères : chaque option recombine le résultat en direct<br />
+          2️⃣ Un formulaire en 5 étapes à état persistant : les choix sont conservés d'une étape à l'autre <br />
+          3️⃣ Un parcours conditionnel : les étapes proposées s'adaptent au type de projet sélectionné <br />
+          4️⃣ Un récapitulatif construit depuis une source unique, partagée par l'écran et le document <br />
+          5️⃣ Une génération de PDF côté client, sans appel serveur 🚀 <br />
           <br />
-          <span> Un doute sur une étape ?
+          <span> Une question sur son fonctionnement ?
             <a href="/contact" aria-label="Contacter Sandra Pautonnier">
               💬 Contactez-moi
-            </a> - Je vous guide pour un projet sur mesure et évolutif.</span>
+            </a></span>
         </p>
       )}
 
