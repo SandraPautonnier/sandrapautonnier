@@ -103,6 +103,25 @@ const Home = () => {
               <Link to="/portfolio" onClick={handleScrollToTop} className="btn" aria-label="Voir plus de projets">Voir plus de projets</Link>
               <p className="catch">Des projets réalisés avec passion !</p>
             </section>
+            <section className="tech-demo">
+              <div className="tech-demo-card">
+                <span className="tech-demo-label">Démonstration technique</span>
+                <h2>Je ne fais pas que des pages</h2>
+                <p className="base-text">
+                  Au-delà des sites vitrines, je développe des outils métier sur-mesure.
+                  Exemple avec ce simulateur de devis : un moteur de calcul multi-critères,
+                  un formulaire en 5 étapes à état persistant, et une génération de PDF côté client.
+                </p>
+                {/* Remplacer ce bloc par : <img src={...} alt="Aperçu du simulateur de devis" loading="lazy" /> */}
+                <div className="tech-demo-preview" role="img" aria-label="Aperçu du simulateur de devis - capture d'écran à venir">
+                  <span>Capture d'écran à venir</span>
+                </div>
+                <Link to="/realisations/simulateur-de-devis" onClick={handleScrollToTop} className="btn-secondary" aria-label="Voir la démonstration du simulateur de devis">
+                  Voir la démonstration
+                </Link>
+                <p className="tech-demo-notice">Démonstration technique — les tarifs affichés sont fictifs</p>
+              </div>
+            </section>
             <section>
               <div className="cta">
                 <h2>Prêt(e) à développer votre présence en ligne ?</h2>
