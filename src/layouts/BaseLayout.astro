@@ -1,0 +1,63 @@
+---
+import "../styles/style.scss";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer/index.jsx";
+
+interface Props {
+  title: string;
+  description: string;
+  pageClass?: string;
+  mainClass?: string;
+}
+
+const { title, description, pageClass = "", mainClass = "" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/Logo_sukiweb.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="language" content="fr-FR" />
+    <meta name="robots" content="follow, index" />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-GM6HT25D18"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-GM6HT25D18");
+    </script>
+  </head>
+  <!--
+    Pas de class="mode" sur <body> : dans la version React, useThemeStore
+    (qui posait cette classe) n'était importé nulle part, donc les règles
+    body.mode de _colors.scss ne s'appliquaient jamais. Les activer ici
+    modifierait le rendu.
+  -->
+  <body>
+    <div class={pageClass}>
+      <div class="background-color">
+        <div class="header-main">
+          <header>
+            <Navbar />
+            <slot name="banner" />
+          </header>
+          <main class={mainClass}>
+            <slot />
+          </main>
+        </div>
+        <Footer />
+      </div>
+    </div>
+  </body>
+</html>

@@ -12,6 +12,13 @@ dist
 dist-ssr
 *.local
 
+# Astro
+.astro/
+
+# Sortie SCSS compilee (ne doit plus etre committee : Astro compile nativement)
+src/index.css
+src/index.css.map
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

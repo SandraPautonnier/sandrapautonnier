@@ -1,0 +1,83 @@
+---
+import Logo from "../assets/images/Logo_Sukiweb_mono.webp";
+
+// Le composant React calculait la classe "active" via useLocation().
+// En SSG elle se résout au build depuis l'URL courante, même comparaison exacte.
+const path = Astro.url.pathname;
+const isActive = (href: string) => (path === href ? "active" : "");
+---
+
+<div class="menu-nav">
+  <div class="logo-h1">
+    <img class="logo" src={Logo.src} alt="Logo Sukiweb, une spirale violette" />
+    <h2>Sukiweb</h2>
+  </div>
+  <nav aria-label="Menu principal">
+    {/* Bouton hamburger */}
+    <div class="hamburger" role="button" tabindex="0" aria-label="Ouvrir le menu">
+      <div class="bar" aria-hidden="true"></div>
+      <div class="bar" aria-hidden="true"></div>
+      <div class="bar" aria-hidden="true"></div>
+    </div>
+    {/* Menu de navigation */}
+    <ul class="nav-ul">
+      <li class="nav-li">
+        <a href="/" aria-label="Accueil" class={isActive("/")}>ACCUEIL</a>
+      </li>
+      <li class="nav-li">
+        <a href="/realisations/" aria-label="Réalisations" class={isActive("/realisations/")}>PORTFOLIO</a>
+      </li>
+      <li class="nav-li">
+        <a href="/a-propos/" aria-label="À propos" class={isActive("/a-propos/")}>À PROPOS</a>
+      </li>
+      <li class="nav-li">
+        <a href="/contact/" aria-label="Contact" class={isActive("/contact/")}>CONTACT</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<script>
+  // Reprend à l'identique le comportement du composant React supprimé :
+  // mêmes classes posées/retirées aux mêmes moments, même contenu de .hamburger.
+  // Un seul écouteur sur .hamburger : le clic sur la croix remonte par bouillonnement,
+  // ce qui reproduit exactement le résultat visible de l'ancien double toggle React.
+  const nav = document.querySelector<HTMLElement>(".menu-nav nav");
+
+  if (nav) {
+    const hamburger = nav.querySelector<HTMLElement>(".hamburger");
+    const navUl = nav.querySelector<HTMLElement>(".nav-ul");
+
+    if (hamburger && navUl) {
+      const BARS =
+        '<div class="bar" aria-hidden="true"></div><div class="bar" aria-hidden="true"></div><div class="bar" aria-hidden="true"></div>';
+      const CLOSE =
+        '<span class="close-nav" role="button" tabindex="0" aria-label="Fermer le menu">×</span>';
+
+      let menuOpen = false;
+
+      const render = () => {
+        navUl.classList.toggle("open", menuOpen);
+        hamburger.innerHTML = menuOpen ? CLOSE : BARS;
+      };
+
+      const toggleMenu = () => {
+        menuOpen = !menuOpen;
+        render();
+      };
+
+      hamburger.addEventListener("click", toggleMenu);
+      hamburger.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") toggleMenu();
+      });
+
+      // Fermeture au clic à l'extérieur (l'original écoutait "mousedown" sur document)
+      document.addEventListener("mousedown", (e) => {
+        if (menuOpen && !nav.contains(e.target as Node)) {
+          menuOpen = false;
+          render();
+        }
+      });
+    }
+  }
+</script>
