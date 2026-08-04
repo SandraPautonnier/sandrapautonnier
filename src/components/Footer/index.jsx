@@ -29,7 +29,7 @@ const Footer = () => {
           <FontAwesomeIcon icon={faEnvelope} className="contact-icon" />
           <div className="contact-info-content">
             <h3>Devis & contact</h3>
-            <a className="content" href="/contact" aria-label="Demander un devis">
+            <a className="content" href="/contact/" aria-label="Demander un devis">
               Faire un devis
             </a>
             <a className="content" href="mailto:contact@sandrapautonnier.com" aria-label="Envoyer un email à Sandra">

@@ -1,16 +1,16 @@
 export default function Step5Result({ estimateTotal, summary, detailsOpen, setDetailsOpen, onDownloadPdf }) {
   return (
     <div>
-      <h3 style={{ color: "$main-color", marginBottom: 20 }}>✓ Votre estimation</h3>
+      <h3>✓ Votre estimation</h3>
 
-      <div style={{ textAlign: "center", fontSize: "1.5em", fontWeight: 700, marginTop: 15, color: "#70588C", letterSpacing: "0.5px" }}>
+      <div className="quote-total">
         {estimateTotal}
       </div>
 
       <div style={{ marginTop: 15, display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
-        <a href="/contact" className="btn" aria-label="Prendre un rendez-vous">📅 Prendre un RDV</a>
+        <a href="/contact/" className="btn" aria-label="Prendre un rendez-vous">📅 Prendre un RDV</a>
 
-        <a href="/contact" className="btn" aria-label="Me contacter">💬 Me contacter</a>
+        <a href="/contact/" className="btn" aria-label="Me contacter">💬 Me contacter</a>
       </div>
 
       <hr />

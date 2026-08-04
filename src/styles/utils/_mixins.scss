@@ -104,19 +104,19 @@
   
   background:
     linear-gradient($component, $component) padding-box,
-    linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%) border-box;
+    $gradient-marque border-box;
 
   
   transition: transform .3s ease, color .3s ease;
 
   &:hover {
     transform: translateY(-2px);
-    color: #f5f1ed;
+    color: $component;
     border: 1px solid $main-color;
     
     background:
       linear-gradient($main-color, $main-color) padding-box,
-      linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%) border-box;
+      $gradient-marque border-box;
   }
 }
 
@@ -155,7 +155,7 @@
 @mixin form-input-text {
     max-width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid $border-input;
     border-radius: 4px;
     font-size: 16px;
 }
@@ -163,7 +163,7 @@
 //colors
 
 @mixin gradient-color {
-    background: linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%);
+    background: $gradient-marque;
 }
 
 
@@ -178,7 +178,7 @@
     border: 1px solid transparent;
       background:
     linear-gradient($component, $component) padding-box,
-    linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%) border-box;
+    $gradient-marque border-box;
     color:$text;
 }
 
@@ -238,7 +238,7 @@
   color: $light-text;
   background:
     linear-gradient($component, $component) padding-box,
-    linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%) border-box;    
+    $gradient-marque border-box;    
 }
 
 @mixin card {
@@ -251,17 +251,17 @@
   color: $light-text;
   background:
     linear-gradient($component, $component) padding-box,
-    linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%) border-box;
+    $gradient-marque border-box;
   transition: transform .3s ease, color .3s ease;
 
   &:hover {
     transform: translateY(-2px);
-    color: #f5f1ed;
+    color: $component;
     border: 1px solid $main-color;
     
     background:
       linear-gradient($main-color, $main-color) padding-box,
-      linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%) border-box;
+      $gradient-marque border-box;
   }
 }
 
@@ -272,7 +272,7 @@
     height: auto;
     display: flex;
     flex-direction: column;
-    color: #f5f1ed;
+    color: $component;
 }
 
 @mixin highlight-card {

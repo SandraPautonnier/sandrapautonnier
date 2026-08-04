@@ -22,6 +22,30 @@ export const SITE = {
 } as const;
 
 /**
+ * Deux adresses exposées : Le Mans, base opérationnelle et ancrage local
+ * principal (donc en premier), et Paris, siège social déclaré. La seconde
+ * reprend mot pour mot les mentions légales, afin que les données
+ * structurées et la page légale ne se contredisent pas.
+ */
+export const ADRESSES = [
+  {
+    "@type": "PostalAddress",
+    addressLocality: "Le Mans",
+    postalCode: "72000",
+    addressRegion: "Sarthe",
+    addressCountry: "FR",
+  },
+  {
+    "@type": "PostalAddress",
+    streetAddress: "59 rue de Ponthieu, Bureau 326",
+    addressLocality: "Paris",
+    postalCode: "75008",
+    addressRegion: "Île-de-France",
+    addressCountry: "FR",
+  },
+];
+
+/**
  * Zone desservie : activité exercée dans toute la France, avec un ancrage
  * local sur Le Mans (base) et Paris (siège social déclaré aux mentions
  * légales). Les zones les plus précises servent le référencement local.

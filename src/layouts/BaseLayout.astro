@@ -1,4 +1,24 @@
 ---
+// Polices self-hébergées (@fontsource pose font-display: swap par défaut).
+// Chaque fichier découpe ses sous-ensembles par unicode-range : le navigateur
+// ne télécharge que le latin pour un site en français.
+import "@fontsource/montserrat/400.css";
+import "@fontsource/montserrat/500.css";
+import "@fontsource/montserrat/600.css";
+import "@fontsource/montserrat/700.css";
+import "@fontsource/montserrat/800.css";
+import "@fontsource/montserrat/400-italic.css";
+import "@fontsource/montserrat/700-italic.css";
+import "@fontsource/space-grotesk/400.css";
+import "@fontsource/space-grotesk/500.css";
+import "@fontsource/space-grotesk/600.css";
+import "@fontsource/space-grotesk/700.css";
+
+// Préchargement des deux fichiers réellement critiques au premier rendu :
+// Montserrat 400 (corps de texte) et Space Grotesk 700 (tous les titres).
+import montserrat400 from "@fontsource/montserrat/files/montserrat-latin-400-normal.woff2?url";
+import spaceGrotesk700 from "@fontsource/space-grotesk/files/space-grotesk-latin-700-normal.woff2?url";
+
 import "../styles/style.scss";
 import Navbar from "../components/Navbar.astro";
 import SEO from "../components/SEO.astro";
@@ -29,6 +49,9 @@ const {
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/Logo_sukiweb.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preload" as="font" type="font/woff2" href={montserrat400} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={spaceGrotesk700} crossorigin />
 
     <SEO
       title={title}

@@ -13,7 +13,7 @@ export default function Step1ProjectType({
 }) {
   return (
     <div>
-      <h3 style={{ color: '#70588C', marginBottom: 20 }}>📦 Quel est le type de votre projet ?</h3>
+      <h3>📦 Quel est le type de votre projet ?</h3>
 
       <div className="quote-estimator-project-dropdown">
         <button

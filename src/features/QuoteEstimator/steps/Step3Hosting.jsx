@@ -13,7 +13,7 @@ export default function Step3Hosting({
   return (
     <div>
       <TwoColumnsSummary isEcom={isEcom} estimateLinesForUI={estimateLinesForUI} estimateTotal={estimateTotal} />
-      <h3 style={{ color: '#70588C', marginBottom: 20 }}>🌐 Avez-vous déjà un nom de domaine et un hébergement ?</h3>
+      <h3>🌐 Avez-vous déjà un nom de domaine et un hébergement ?</h3>
 
       {isEcom && (
         <p>
@@ -58,10 +58,10 @@ export default function Step3Hosting({
         <legend>🔧 Maintenance & Hébergement</legend>
 
         {!maintenanceAvailable ? (
-          <p style={{ fontStyle: 'italic', color: '#666' }}>📌 Non incluse pour cette offre (sur devis).</p>
+          <p className="quote-hint">📌 Non incluse pour cette offre (sur devis).</p>
         ) : (
           <>
-            <p style={{ backgroundColor: '#fff9f0', padding: 10, borderLeft: '4px solid #70588C', borderRadius: 4, marginBottom: 15 }}>
+            <p className="quote-maintenance-note">
               L'option maintenance comprend 📤 la publication, 🔄 les mises à jour et 🔒 la sécurité.
             </p>
 

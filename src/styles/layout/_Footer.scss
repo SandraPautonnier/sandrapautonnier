@@ -5,9 +5,9 @@ footer {
     padding: 30px;
     position: relative;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    background-color: #f5f1ed;
+    background-color: $component;
     border-top: 2px solid transparent;
-    border-image: linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%);
+    border-image: $gradient-marque;
     border-image-slice: 1;
     
     &::before {

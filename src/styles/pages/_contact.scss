@@ -69,7 +69,7 @@
     textarea {
 
         padding: 12px 15px;
-        border: 1px solid #ddd;
+        border: 1px solid $border-light;
         border-radius: 6px;
         font-family: inherit;
         font-size: 14px;
@@ -89,7 +89,7 @@
         }
 
         &::placeholder {
-            color: #999;
+            color: $text-placeholder;
         }
     }
 
@@ -169,5 +169,5 @@
 
 .rdv-subtitle {
     font-size: 14px;
-    color: #666;
+    color: $text-muted;
 }

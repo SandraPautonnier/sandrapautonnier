@@ -14,7 +14,7 @@ export default function TwoColumnsSummary({ isEcom, estimateLinesForUI, estimate
         }}
       >
         <div>
-          <strong style={{ display: "block", marginTop: 10, color: "#70588C" }}>✅ Déjà inclus :</strong>
+          <strong className="two-columns-summary-title">✅ Déjà inclus :</strong>
           <ul className="bis-text">
             <li><FontAwesomeIcon icon={faCheck} /> {PRICING.included.seoBasic}</li>
             <li><FontAwesomeIcon icon={faCheck} /> {PRICING.included.accessibility}</li>
@@ -30,7 +30,7 @@ export default function TwoColumnsSummary({ isEcom, estimateLinesForUI, estimate
         </div>
 
         <div>
-          <strong style={{ display: "block", marginTop: 10, color: "#70588C" }}>📌 Résumé des prestations :</strong>
+          <strong className="two-columns-summary-title">📌 Résumé des prestations :</strong>
           <ul style={{ marginTop: 10, marginBottom: 10 }}>
             {estimateLinesForUI.map((row, idx) => (
               <li key={`${row.label}-${idx}`} style={{ display: "flex", justifyContent: "space-between", gap: 10 }}>
@@ -43,7 +43,7 @@ export default function TwoColumnsSummary({ isEcom, estimateLinesForUI, estimate
           <div style={{ borderTop: "1px solid rgba(0,0,0,0.1)", paddingTop: 10 }}>
             <div style={{ display: "flex", justifyContent: "space-between", gap: 10, fontWeight: 800 }}>
               <span>Prix final (estimation)</span>
-              <span style={{ whiteSpace: "nowrap", color: "#70588C" }}>{estimateTotal}</span>
+              <span className="two-columns-summary-total">{estimateTotal}</span>
             </div>
           </div>
         </div>

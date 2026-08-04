@@ -111,14 +111,14 @@ export default function QuoteEstimatorStepperEmail() {
           5️⃣ Une génération de PDF côté client, sans appel serveur 🚀 <br />
           <br />
           <span> Une question sur son fonctionnement ?
-            <a href="/contact" aria-label="Contacter Sandra Pautonnier">
+            <a href="/contact/" aria-label="Contacter Sandra Pautonnier">
               💬 Contactez-moi
             </a></span>
         </p>
       )}
 
       <div style={{ marginTop: 20, marginBottom: 20 }}>
-        <div style={{ fontSize: '0.9em', color: '#70588C', fontWeight: 600 }}>
+        <div className="quote-step-indicator">
           Étape {stepLabel}/{totalSteps}
         </div>
       </div>

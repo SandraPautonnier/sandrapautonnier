@@ -20,7 +20,7 @@
       padding-left: 50%;
       position: relative;
       border: none;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid $border-light;
       text-align: left;
 
       &:last-child {
@@ -34,7 +34,7 @@
         width: 45%;
         white-space: nowrap;
         font-weight: 600;
-        color: #333;
+        color: $text-dark;
         content: attr(data-label);
       }
     }

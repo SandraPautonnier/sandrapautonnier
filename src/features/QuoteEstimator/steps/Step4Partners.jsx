@@ -6,7 +6,7 @@ export default function Step4Partners({ state, setState, isEcom, estimateLinesFo
   return (
     <div>
       <TwoColumnsSummary isEcom={isEcom} estimateLinesForUI={estimateLinesForUI} estimateTotal={estimateTotal} />
-      <h3 style={{ color: '#70588C', marginBottom: 20 }}>🤝 Avez-vous besoin d'autre chose?</h3>
+      <h3>🤝 Avez-vous besoin d'autre chose?</h3>
 
       <RadioGroup
         name="design"

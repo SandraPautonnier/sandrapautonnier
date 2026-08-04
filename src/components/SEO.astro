@@ -1,5 +1,5 @@
 ---
-import { SITE, ZONE_DESSERVIE } from "../lib/site";
+import { SITE, ZONE_DESSERVIE, ADRESSES } from "../lib/site";
 
 interface Fildariane {
   nom: string;
@@ -32,13 +32,7 @@ const professionalService = {
   telephone: SITE.telephone,
   description:
     "Création de sites internet, refonte de site web et gestion de projet digital. Basée au Mans, j'interviens à Paris et partout en France.",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: SITE.ville,
-    postalCode: SITE.codePostal,
-    addressRegion: SITE.region,
-    addressCountry: SITE.pays,
-  },
+  address: ADRESSES,
   openingHours: SITE.horaires,
   areaServed: ZONE_DESSERVIE,
   founder: { "@id": `${SITE.url}/#sandra` },

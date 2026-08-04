@@ -17,6 +17,38 @@ $input: #404044;
 $light-color: white;
 $light-text: #404044;
 
+// Degrade de marque (rose - lilas - sauge).
+// Conserve comme variable et non comme mixin : il sert tantot en fond simple,
+// tantot en couche "border-box" dans les fonds a deux couches.
+$gradient-stop-1: #E8B4C8;
+$gradient-stop-2: #C8A8D8;
+$gradient-stop-3: #A8C8B8;
+$gradient-marque: linear-gradient(
+  135deg,
+  $gradient-stop-1 0%,
+  $gradient-stop-2 50%,
+  $gradient-stop-3 100%
+);
+
+// Neutres
+$text-strong: #141414; // .base-text
+$text-soft: #3f3e3e; // .bis-text
+$text-dark: #333;
+$text-muted: #666;
+$text-placeholder: #999;
+$border-light: #ddd;
+$border-input: #ccc;
+$surface-hover: #e0e0e0;
+$surface-alt: #f6f6f6;
+$surface-alt-2: #f5f5f5;
+$separator: #f0f0f0;
+$loader-bg: #121212;
+$highlight-bg: #fff9f0;
+
+// Etats
+$success: #2e7d32;
+$error: #c62828;
+
 //width
 
 $gap: 30px;

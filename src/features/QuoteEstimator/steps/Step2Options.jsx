@@ -27,7 +27,7 @@ export default function Step2Options({ state, setState, isEcom, estimateLinesFor
   return (
     <div>
       <TwoColumnsSummary isEcom={isEcom} estimateLinesForUI={estimateLinesForUI} estimateTotal={estimateTotal} />
-      <h3 style={{ color: '#70588C', marginBottom: 20 }}>⚙️ De quoi avez-vous besoin pour votre site ?</h3>
+      <h3>⚙️ De quoi avez-vous besoin pour votre site ?</h3>
 
       <fieldset>
         <legend>🔍 SEO & Analyse</legend>

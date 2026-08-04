@@ -103,7 +103,7 @@
 
         strong {
             font-weight: 500;
-            color: #666;
+            color: $text-muted;
             white-space: nowrap;
             font-size: 13px;
         }
@@ -165,7 +165,7 @@
         p {
             font-size: 15px;
             line-height: 1.8;
-            color: #333;
+            color: $text-dark;
             margin: 0;
 
             @media (max-width: 768px) {
@@ -220,7 +220,7 @@
                     align-items: center;
                     gap: 10px;
                     font-size: 14px;
-                    color: #333;
+                    color: $text-dark;
 
                     svg {
                         color: $main-color;
@@ -247,7 +247,7 @@
         li {
             font-size: 15px;
             line-height: 1.6;
-            color: #333;
+            color: $text-dark;
             padding-left: 25px;
             position: relative;
 

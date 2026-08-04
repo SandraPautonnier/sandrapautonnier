@@ -101,7 +101,7 @@
     input[type="text"] {
       margin-left: 8px;
       padding: 10px 12px;
-      border: 1px solid #ddd;
+      border: 1px solid $border-light;
       border-radius: 6px;
       font-family: inherit;
       font-size: 14px;
@@ -116,7 +116,7 @@
       }
 
       &::placeholder {
-        color: #999;
+        color: $text-placeholder;
       }
     }
 
@@ -169,7 +169,7 @@
 
     p {
       font-style: italic;
-      color: #666;
+      color: $text-muted;
       margin: 10px 0;
     }
 
@@ -258,7 +258,7 @@
     padding: 20px;
     background-color: rgba($component, 0.3);
     border-radius: 8px;
-    border: 1px solid #ddd;
+    border: 1px solid $border-light;
     margin: 15px 0;
 
     > div {
@@ -294,12 +294,12 @@
 
       &:contains("✅") {
         background-color: rgba(76, 175, 80, 0.15);
-        color: #2e7d32;
+        color: $success;
       }
 
       &:contains("Échec") {
         background-color: rgba(244, 67, 54, 0.15);
-        color: #c62828;
+        color: $error;
       }
     }
   }
@@ -518,7 +518,7 @@
             margin-top: 8px;
             margin-left: 0;
             padding: 10px 12px;
-            border: 1px solid #ddd;
+            border: 1px solid $border-light;
             border-radius: 6px;
             font-family: inherit;
             font-size: 14px;
@@ -642,7 +642,7 @@
         .quote-estimator-project-option {
           padding: 10px 20px;
           background-color: white;
-          border-bottom: 1px solid #f0f0f0;
+          border-bottom: 1px solid $separator;
           color: $text;
           font-size: 14px;
           text-align: left;
@@ -653,7 +653,7 @@
           }
 
           &:hover {
-            background-color: #f5f5f5;
+            background-color: $surface-alt-2;
           }
 
           &.active {
@@ -664,6 +664,48 @@
         }
       }
     }
+  }
+
+  // Anciens styles inline React, transposes tels quels en classes.
+  // Les h3 des etapes n'ont pas de classe : leur couleur et leur marge
+  // etaient deja fournies a l'identique par la regle .quote-estimator h3.
+  .quote-step-indicator {
+    font-size: 0.9em;
+    color: $main-color;
+    font-weight: 600;
+  }
+
+  .quote-hint {
+    font-style: italic;
+    color: $text-muted;
+  }
+
+  .quote-maintenance-note {
+    background-color: $highlight-bg;
+    padding: 10px;
+    border-left: 4px solid $main-color;
+    border-radius: 4px;
+    margin-bottom: 15px;
+  }
+
+  .quote-total {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-top: 15px;
+    color: $main-color;
+    letter-spacing: 0.5px;
+  }
+
+  .two-columns-summary-title {
+    display: block;
+    margin-top: 10px;
+    color: $main-color;
+  }
+
+  .two-columns-summary-total {
+    white-space: nowrap;
+    color: $main-color;
   }
 }
 
@@ -703,7 +745,7 @@ body.mode .quote-estimator {
 
     pre {
       background-color: rgba(0, 0, 0, 0.3);
-      color: #f5f1ed;
+      color: $component;
     }
   }
 }

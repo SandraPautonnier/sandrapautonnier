@@ -14,7 +14,8 @@
 @import "./pages/realisations";
 @import "./features/quoteEstimator";
 @import "./utils/colors";
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+// Les polices sont self-hébergées via @fontsource, importées dans
+// BaseLayout.astro. Plus aucun appel à fonts.googleapis.com.
 
 * {
     font-family: 'Montserrat', sans-serif;
@@ -51,7 +52,7 @@ h1, h2 {
         transform: translateX(-50%);
         width: 80%;
         height: 3px;
-        background: linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%);
+        background: $gradient-marque;
         border-radius: 50px;
     }
 }
@@ -75,7 +76,7 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        background-color: #f5f1ed;
+        background-color: $component;
         backdrop-filter: blur(20px);
         color: $text;
     }
@@ -218,13 +219,13 @@ button {
   
   background:
     linear-gradient($component, $component) padding-box,
-    linear-gradient(135deg, #E8B4C8 0%, #C8A8D8 50%, #A8C8B8 100%) border-box;
+    $gradient-marque border-box;
   transition: transform .3s ease, color .3s ease;    
 }
 
 .base-text {
   font-size: 0.9em;
-  color: #141414;
+  color: $text-strong;
   margin-top: 10px;
   font-weight: 500;
   line-height: 1.5;    
@@ -232,7 +233,7 @@ button {
 
 .bis-text {
   font-size: 0.9em;
-  color: #3f3e3e;
+  color: $text-soft;
   margin-top: 10px;
   font-weight: 500;
   line-height: 1.5;
