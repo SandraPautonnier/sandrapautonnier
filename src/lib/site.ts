@@ -21,8 +21,15 @@ export const SITE = {
   ],
 } as const;
 
-/** Zone desservie : Sarthe et Pays de la Loire. */
+/**
+ * Zone desservie : activité exercée dans toute la France, avec un ancrage
+ * local sur Le Mans (base) et Paris (siège social déclaré aux mentions
+ * légales). Les zones les plus précises servent le référencement local.
+ */
 export const ZONE_DESSERVIE = [
-  { "@type": "AdministrativeArea", name: "Sarthe" },
+  { "@type": "Country", name: "France" },
   { "@type": "AdministrativeArea", name: "Pays de la Loire" },
+  { "@type": "AdministrativeArea", name: "Sarthe" },
+  { "@type": "City", name: "Le Mans" },
+  { "@type": "City", name: "Paris" },
 ];
