@@ -1,6 +1,7 @@
 ---
 import "../styles/style.scss";
 import Navbar from "../components/Navbar.astro";
+import SEO from "../components/SEO.astro";
 import Footer from "../components/Footer/index.jsx";
 
 interface Props {
@@ -8,9 +9,18 @@ interface Props {
   description: string;
   pageClass?: string;
   mainClass?: string;
+  jsonLd?: Record<string, unknown>[];
+  breadcrumb?: { nom: string; url: string }[];
 }
 
-const { title, description, pageClass = "", mainClass = "" } = Astro.props;
+const {
+  title,
+  description,
+  pageClass = "",
+  mainClass = "",
+  jsonLd,
+  breadcrumb,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -19,10 +29,13 @@ const { title, description, pageClass = "", mainClass = "" } = Astro.props;
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/Logo_sukiweb.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="language" content="fr-FR" />
-    <meta name="robots" content="follow, index" />
+
+    <SEO
+      title={title}
+      description={description}
+      jsonLd={jsonLd}
+      breadcrumb={breadcrumb}
+    />
 
     <!-- Google tag (gtag.js) -->
     <script

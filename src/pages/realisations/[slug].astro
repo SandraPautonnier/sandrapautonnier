@@ -49,6 +49,11 @@ const titreContexte =
   title={`${d.titre} - Réalisation | Sukiweb`}
   description={d.context.slice(0, 155)}
   pageClass="project-page"
+  breadcrumb={[
+    { nom: "Accueil", url: "/" },
+    { nom: "Réalisations", url: "/realisations/" },
+    { nom: d.titre, url: `/realisations/${projet.id}/` },
+  ]}
 >
   <section class="project-container">
     <div class="project-header">

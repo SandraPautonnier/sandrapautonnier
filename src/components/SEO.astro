@@ -1,0 +1,118 @@
+---
+import { SITE, ZONE_DESSERVIE } from "../lib/site";
+
+interface Fildariane {
+  nom: string;
+  url: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  /** Schémas JSON-LD supplémentaires (Service sur les pages service, etc.) */
+  jsonLd?: Record<string, unknown>[];
+  /** Fil d'ariane des pages profondes (services, réalisations) */
+  breadcrumb?: Fildariane[];
+}
+
+const { title, description, jsonLd = [], breadcrumb } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, SITE.url).href;
+const ogImage = new URL(SITE.ogImage, SITE.url).href;
+
+// Présent sur toutes les pages.
+const professionalService = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": `${SITE.url}/#professionalservice`,
+  name: SITE.nomComplet,
+  url: SITE.url,
+  image: ogImage,
+  email: SITE.email,
+  telephone: SITE.telephone,
+  description:
+    "Création de sites internet, refonte de site web et gestion de projet digital au Mans, en Sarthe et en Pays de la Loire.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: SITE.ville,
+    postalCode: SITE.codePostal,
+    addressRegion: SITE.region,
+    addressCountry: SITE.pays,
+  },
+  openingHours: SITE.horaires,
+  areaServed: ZONE_DESSERVIE,
+  founder: { "@id": `${SITE.url}/#sandra` },
+  sameAs: SITE.reseaux,
+};
+
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${SITE.url}/#sandra`,
+  name: SITE.personne,
+  jobTitle: SITE.metier,
+  url: SITE.url,
+  email: SITE.email,
+  worksFor: { "@id": `${SITE.url}/#professionalservice` },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: SITE.ville,
+    addressRegion: SITE.region,
+    addressCountry: SITE.pays,
+  },
+  sameAs: SITE.reseaux,
+};
+
+const breadcrumbLd = breadcrumb?.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: breadcrumb.map((item, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: item.nom,
+        item: new URL(item.url, SITE.url).href,
+      })),
+    }
+  : null;
+
+const schemas = [
+  professionalService,
+  person,
+  ...(breadcrumbLd ? [breadcrumbLd] : []),
+  ...jsonLd,
+];
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta name="robots" content="index, follow" />
+<meta name="language" content="fr-FR" />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:site_name" content={SITE.nomComplet} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={SITE.ogImageAlt} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={SITE.ogImageAlt} />
+
+{
+  schemas.map((schema) => (
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(schema)}
+    />
+  ))
+}

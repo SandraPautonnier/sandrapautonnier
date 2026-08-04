@@ -1,11 +1,31 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SITE, ZONE_DESSERVIE } from "../../lib/site";
+
+const service = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Création de site internet",
+  serviceType: "Création de site internet",
+  description: "Conception et développement de sites vitrines sur-mesure pour indépendants, associations et petites structures, au Mans et en Sarthe.",
+  provider: { "@id": `${SITE.url}/#professionalservice` },
+  areaServed: ZONE_DESSERVIE,
+  url: new URL(Astro.url.pathname, SITE.url).href,
+};
+
+const breadcrumb = [
+  { nom: "Accueil", url: "/" },
+  { nom: "Services", url: "/services/" },
+  { nom: "Création de site internet au Mans", url: Astro.url.pathname },
+];
 ---
 
 <BaseLayout
   title="Création de site internet au Mans | Sukiweb"
   description="Création de site internet sur-mesure au Mans et en Sarthe : sites vitrines performants, accessibles et optimisés pour le référencement local."
   pageClass="services"
+  jsonLd={[service]}
+  breadcrumb={breadcrumb}
 >
   <section class="margin">
     <h1>Création de site internet au Mans</h1>

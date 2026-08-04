@@ -20,6 +20,10 @@ const autres = projets
   title="Réalisations - Projets web de Sandra Pautonnier | Sukiweb"
   description="Découvrez les projets web réalisés par Sandra Pautonnier, développeuse et cheffe de projet digitale au Mans : sites vitrines, refontes et applications sur-mesure."
   pageClass="portfolio"
+  breadcrumb={[
+    { nom: "Accueil", url: "/" },
+    { nom: "Réalisations", url: "/realisations/" },
+  ]}
 >
   <div class="banner" slot="banner" role="region" aria-label="Présentation - Réalisations">
     <Image src={Docs} alt="Illustration de documents" loading="lazy" />
