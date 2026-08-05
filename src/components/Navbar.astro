@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Logo from "../assets/images/Logo_Sukiweb_mono.webp";
 
 // Le composant React calculait la classe "active" via useLocation().
@@ -9,7 +10,7 @@ const isActive = (href: string) => (path === href ? "active" : "");
 
 <div class="menu-nav">
   <div class="logo-h1">
-    <img class="logo" src={Logo.src} alt="Logo Sukiweb, une spirale violette" />
+    <Image class="logo" src={Logo} alt="Logo Sukiweb, une spirale violette" />
     <h2>Sukiweb</h2>
   </div>
   <nav aria-label="Menu principal">

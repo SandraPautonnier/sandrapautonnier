@@ -36,12 +36,16 @@ const recents = projets
 
 // Les images optimisées sont résolues côté Astro puis passées à l'îlot React
 // sous forme d'URL : le composant <Image> ne peut pas s'exécuter dans React.
+// Les dimensions intrinsèques accompagnent l'URL : sans width/height le
+// navigateur ne réserve pas la place et la page saute au chargement (CLS).
 const slides = await Promise.all(
   recents.map(async (p) => ({
     slug: p.id,
     titre: p.data.titre,
     category: p.data.category,
     cover: (await getImage({ src: p.data.cover })).src,
+    coverWidth: p.data.cover.width,
+    coverHeight: p.data.cover.height,
   }))
 );
 ---

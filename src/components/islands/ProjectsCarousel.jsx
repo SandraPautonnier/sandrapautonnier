@@ -13,7 +13,13 @@ const ProjectsCarousel = ({ projets }) => (
   <Carousel>
     {projets.map((item) => (
       <div className="slide-content" key={item.slug}>
-        <img src={item.cover} alt={`Projet ${item.titre}`} loading="lazy" />
+        <img
+          src={item.cover}
+          alt={`Projet ${item.titre}`}
+          width={item.coverWidth}
+          height={item.coverHeight}
+          loading="lazy"
+        />
         <div className="slide-description">
           <div>
             <h3>{item.titre}</h3>

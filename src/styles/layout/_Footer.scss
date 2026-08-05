@@ -32,6 +32,10 @@ footer {
         img {
 
             width: 70px;
+            // Complement indispensable des attributs width/height poses sur
+            // le <img> : sans lui, l'attribut height (100) s'appliquerait comme
+            // hint de presentation et etirerait le logo en 70x100.
+            height: auto;
         }
         .footer-title {
             margin: 0;
