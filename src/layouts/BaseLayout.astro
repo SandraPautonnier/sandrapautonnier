@@ -41,6 +41,12 @@ const {
   jsonLd,
   breadcrumb,
 } = Astro.props;
+
+// Note : pas de class="mode" sur <body>. Dans la version React,
+// useThemeStore (qui posait cette classe) n'était importé nulle part :
+// les règles body.mode de _colors.scss ne s'appliquaient donc jamais.
+// Les activer ici modifierait le rendu. Commentaire côté serveur pour
+// qu'il ne parte pas dans le HTML livré.
 ---
 
 <!doctype html>
@@ -74,12 +80,6 @@ const {
       gtag("config", "G-GM6HT25D18");
     </script>
   </head>
-  <!--
-    Pas de class="mode" sur <body> : dans la version React, useThemeStore
-    (qui posait cette classe) n'était importé nulle part, donc les règles
-    body.mode de _colors.scss ne s'appliquaient jamais. Les activer ici
-    modifierait le rendu.
-  -->
   <body>
     <div class={pageClass}>
       <div class="background-color">
