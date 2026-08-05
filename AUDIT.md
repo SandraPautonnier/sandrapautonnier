@@ -185,3 +185,47 @@ Ce qu'il faut **réécrire ou nettoyer**, idéalement **avant ou pendant** la mi
 - **Éliminer les couleurs hex dupliquées** (`#70588C`, le dégradé rose/violet, `#f5f1ed`) au profit des variables SCSS existantes.
 
 Rien dans cet audit ne remet en cause la faisabilité ou la priorité de la migration Astro déjà planifiée — au contraire, plusieurs points ci-dessus (Meta component, polices, images externes) sont précisément ce que cette migration doit résoudre.
+
+---
+
+## Reporté à la phase visuelle
+
+Constaté pendant la migration Astro, volontairement laissé de côté pour ne pas
+toucher au rendu. À reprendre lors de la refonte visuelle.
+
+### 1. Le CSS est servi en entier sur chaque page — 🟠 important
+
+La feuille compilée pèse **59,2 Ko** et part sur les 15 pages, quelle que soit la
+page consultée. Les 688 lignes de `_quoteEstimator.scss` sont donc chargées sur
+les mentions légales, les pages service, etc., alors qu'une seule page affiche le
+simulateur. C'est aujourd'hui **le premier poste de poids de la page d'accueil**,
+devant les images (65,7 Ko répartis sur 8 fichiers).
+
+Piste : styles scopés par page/composant, ou au minimum sortir le simulateur du
+bundle global. Suppose de revoir l'organisation de `style.scss`, qui importe
+aujourd'hui tous les partials en un seul point d'entrée.
+
+### 2. Le carrousel de l'accueil coûte 168 Ko de runtime React — 🟠 important
+
+C'est le **seul** îlot de la page d'accueil, et il tire tout React pour un
+défilement de trois vignettes. Le remplacer par du CSS `scroll-snap` supprimerait
+l'îlot et ferait passer l'accueil à **zéro JS applicatif**, comme les 12 autres
+pages.
+
+Non fait ici parce que cela change le comportement de défilement (inertie tactile,
+comportement des boutons précédent/suivant, indicateurs) — donc un choix
+d'expérience, pas une simple équivalence technique.
+
+### Autres points ouverts, plus mineurs
+
+- `_dropdown.scss` et `_loader.scss` subsistent dans `src/styles/` alors que les
+  composants correspondants ont été supprimés. `_loader.scss` est toujours importé
+  par `style.scss` et produit donc des règles mortes.
+- `_quoteEstimator.scss` contient `strong:contains("estimation")`, un sélecteur
+  qui n'existe pas en CSS et n'a jamais rien appliqué.
+- Les règles `body.mode` de `_colors.scss` sont inertes : la classe n'est posée
+  nulle part depuis la suppression de `useThemeStore`. À trancher si un mode
+  sombre est prévu.
+- Les icônes FontAwesome sont rendues en SVG statique au build (zéro JS sur les
+  pages sans îlot), mais restent 4 paquets npm. Des SVG inline les remplaceraient
+  avantageusement.

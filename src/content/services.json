@@ -5,7 +5,7 @@
         "alt": "Icône de création de site",
         "title": "Création & Refonte de site web",
         "description": "Des sites modernes, rapides et adaptés à votre activité.\n Responsive, sécurisés et prêts à évoluer avec vous.",
-        "prix": "À partir de 390€"
+        "prix": "À partir de 1 200 €"
     },
     {
         "id": 2,
@@ -13,7 +13,7 @@
         "alt": "Icône du référencement et d'un audit SEO",
         "title": "Audit & visibilité",
         "description": "Analyse de votre site et de votre présence digitale pour identifier les leviers d’amélioration et booster votre visibilité.",
-        "prix": "À partir de 290€"
+        "prix": "À partir de 900 €"
     },
     {
         "id": 3,
@@ -21,7 +21,7 @@
         "alt": "Icône de la maintenance d'un site web",
         "title": "Maintenance & optimisation",
         "description": "Mises à jour régulières, sécurité et optimisation des performances pour garantir un site fiable au quotidien.",
-        "prix": "À partir de 29€ / mois"
+        "prix": "À partir de 1 700 € / mois"
     },
     {
         "id": 4,
