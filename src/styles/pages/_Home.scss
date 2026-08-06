@@ -263,7 +263,11 @@
 
 .offers-container {
 @include grid-4;
-  
+  // auto-fit plutot qu'un nombre de colonnes fige : la grille s'ajuste au
+  // nombre d'offres affichees (3 aujourd'hui, 4 quand "Gestion de projet
+  // digital" sera ajoutee) sans laisser de colonne vide.
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
   @media (max-width: 991px) {
     display: flex;
     flex-direction: column;

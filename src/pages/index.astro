@@ -18,7 +18,13 @@ import ProjectsCarousel from "../components/islands/ProjectsCarousel.jsx";
 import HeaderImage from "../assets/images/Image_header.webp";
 import MainImage from "../assets/images/image_poignee-de-main.webp";
 
-const services = await getCollection("services");
+// "Services supplémentaires" (id 4) reste dans services.json mais n'est plus
+// affiché ici : son ordre de grandeur tarifaire jure avec les trois offres
+// principales. Il réapparaîtra dans les pages services détaillées.
+const SERVICES_MASQUES_ACCUEIL = [4];
+const services = (await getCollection("services")).filter(
+  (s) => !SERVICES_MASQUES_ACCUEIL.includes(s.data.id)
+);
 
 const iconMap = {
   faCode,
