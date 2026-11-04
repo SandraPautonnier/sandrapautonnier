@@ -9,13 +9,25 @@
 @import "./pages/services";
 @import "./pages/Legalnotice";
 @import "./pages/contact";
-@import "./components/Carousel";
 @import "./components/works";
 @import "./pages/realisations";
-@import "./features/quoteEstimator";
 @import "./utils/colors";
 // Les polices sont self-hébergées via @fontsource, importées dans
 // BaseLayout.astro. Plus aucun appel à fonts.googleapis.com.
+
+// Focus clavier visible, identique sur tous les éléments interactifs.
+// :focus-visible plutôt que :focus : l'anneau n'apparaît qu'au clavier,
+// pas au clic souris.
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+    outline: $focus-epaisseur solid $focus-couleur;
+    outline-offset: $focus-decalage;
+}
 
 * {
     font-family: 'Montserrat', sans-serif;

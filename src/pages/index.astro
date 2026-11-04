@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import { Image, getImage } from "astro:assets";
+import { Image } from "astro:assets";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faSquareGithub } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -13,8 +13,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
-import TechDemoBlock from "../components/TechDemoBlock.astro";
-import ProjectsCarousel from "../components/islands/ProjectsCarousel.jsx";
 import HeaderImage from "../assets/images/Image_header.webp";
 import MainImage from "../assets/images/image_poignee-de-main.webp";
 
@@ -34,26 +32,11 @@ const iconMap = {
   faPen,
 };
 
-// Les 3 projets les plus récents, comme sur l'ancienne page d'accueil.
+// Les 3 projets les plus récents. La grille définitive arrive à l'étape 4.
 const projets = await getCollection("projets");
 const recents = projets
   .sort((a, b) => (b.data.date ?? "").localeCompare(a.data.date ?? ""))
   .slice(0, 3);
-
-// Les images optimisées sont résolues côté Astro puis passées à l'îlot React
-// sous forme d'URL : le composant <Image> ne peut pas s'exécuter dans React.
-// Les dimensions intrinsèques accompagnent l'URL : sans width/height le
-// navigateur ne réserve pas la place et la page saute au chargement (CLS).
-const slides = await Promise.all(
-  recents.map(async (p) => ({
-    slug: p.id,
-    titre: p.data.titre,
-    category: p.data.category,
-    cover: (await getImage({ src: p.data.cover })).src,
-    coverWidth: p.data.cover.width,
-    coverHeight: p.data.cover.height,
-  }))
-);
 ---
 
 <BaseLayout
@@ -120,12 +103,18 @@ const slides = await Promise.all(
 
   <section class="hook-works">
     <h2>Quelques projets</h2>
-    <ProjectsCarousel projets={slides} client:visible />
+    <ul>
+      {
+        recents.map((p) => (
+          <li>
+            <a href={`/realisations/${p.id}/`}>{p.data.titre}</a>
+          </li>
+        ))
+      }
+    </ul>
     <a href="/realisations/" class="btn" aria-label="Voir plus de projets">Voir plus de projets</a>
     <p class="catch">Des projets réalisés avec passion !</p>
   </section>
-
-  <TechDemoBlock titre="Je ne fais pas que des pages" />
 
   <section>
     <div class="cta">

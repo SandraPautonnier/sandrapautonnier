@@ -1,4 +1,43 @@
-//Color
+// ---------------------------------------------------------------------------
+// Tokens de la refonte 2026
+// Palette de reference de la maquette. Les variables historiques sont
+// conservees plus bas tant que les anciennes pages n'ont pas ete reecrites ;
+// elles disparaitront au fil des etapes 4 a 7.
+// ---------------------------------------------------------------------------
+
+// Violets
+$violet: #70588C;
+$violet-fonce: #574370;
+
+// Encre et textes
+$encre: #231C2B;
+$texte: #3D3445;
+$texte-secondaire: #5B5263;
+
+// Fonds et bordures
+$creme: #F5F1ED;
+$bordure: #E3DBD3;
+
+// Teintes des vignettes projet
+$lilas: #DCD3EA;
+$rose: #EFD9DF;
+$sauge: #D5E0D0;
+$sable: #EDE3D6;
+
+// Encres associees aux teintes (contraste sur aplat)
+$lilas-encre: #3F2F55;
+$rose-encre: #5A2E3C;
+$sauge-encre: #2F4429;
+$sable-encre: #4A3B28;
+
+// Focus clavier, identique partout
+$focus-couleur: $violet;
+$focus-epaisseur: 3px;
+$focus-decalage: 3px;
+
+// ---------------------------------------------------------------------------
+// Variables historiques (a retirer au fil de la refonte)
+// ---------------------------------------------------------------------------
 
 $main-color: #70588C; // #70588C     #8F72AF         #8C52FF
 $secondary-color: rgba(255,204,251,1);

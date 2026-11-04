@@ -57,6 +57,12 @@ ErrorDocument 404 /404.html
   RewriteRule ^profile/?$ /a-propos/ [R=301,L]
   RewriteRule ^legalnotice/?$ /mentions-legales/ [R=301,L]
 
+  # --- 2 bis. Refonte : pages retirees ---
+  # Le simulateur de devis est retire du site
+  RewriteRule ^realisations/simulateur-de-devis/?$ /realisations/ [R=301,L]
+  # La politique de confidentialite est absorbee par les mentions legales
+  RewriteRule ^politique-de-confidentialite/?$ /mentions-legales/ [R=301,L]
+
   # /price : remplace la redirection provisoire vers / posee au nettoyage
   RewriteRule ^price/?$ /services/creation-site-internet-le-mans/ [R=301,L]
 
