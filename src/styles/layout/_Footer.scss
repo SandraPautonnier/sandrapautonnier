@@ -1,205 +1,47 @@
 @import "../utils/variables";
 @import "../utils/mixins";
 
+// Pied de page de la refonte : bloc d'identité à gauche, liens à droite.
+// Identique sur toutes les pages, au troisième lien près.
+
 footer {
-    padding: 30px;
-    position: relative;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    background-color: $component;
-    border-top: 2px solid transparent;
-    border-image: $gradient-marque;
-    border-image-slice: 1;
-    
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-image: 
-            url("data:image/svg+xml,%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E");
-        pointer-events: none;
-        z-index: 1;
-    }
-    
-    .footer-main {
-        @include flex-column-center;
-        position: relative;
-        z-index: 2;
-        width: 100%;
-        gap: 10px;
-        img {
-
-            width: 70px;
-            // Complement indispensable des attributs width/height poses sur
-            // le <img> : sans lui, l'attribut height (100) s'appliquerait comme
-            // hint de presentation et etirerait le logo en 70x100.
-            height: auto;
-        }
-        .footer-title {
-            margin: 0;
-            font-size: 24px;
-            font-weight: 700;
-            text-align: center;
-            color: $main-color;
-        }
-        
-        .social-media {
-            display: flex;
-            font-size: 24px;
-            gap: 15px;
-            justify-content: center;
-            a {
-                @include zoom-btn;
-            }
-        }
-        
-        .contact-mail {
-            @include flex-column-center;
-            width: 100%;
-            
-            .btn {
-                @include zoom-btn;
-                margin: 0;
-            }
-        }
-    }
-    .text-notice {
-        font-size: 12px;
-        color: $text;
-        text-align: center;
-        margin-top: 20px;
-        a {
-            @include underline-anim;
-            color: $text;
-        }
-    }
-    .contact-icon {
-    font-size: 24px;
-    color: $main-color;
-    flex-shrink: 0;
-    margin-top: 2px;
-
-    @media (max-width: 768px) {
-        font-size: 20px;
-    }
-}
-
-.contact-info {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 50px;
-    margin-top: 20px;
-    @media (max-width: 768px) {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 5px;
-        width: 100%;
-    }
+    flex-wrap: wrap;
+    gap: 16px 32px;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 32px 24px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: $texte-secondaire;
 }
-.contact-info-item {
+
+.footer-identite {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 0;
-    @media (max-width: 768px) {
-        gap: 10px;
-        padding: 10px 0;
-    }
-    &:last-child {
-        border-bottom: none;
-        
-    }
-    .content {
-        text-align: center;
-        margin: 0 10px 0px 10px;
-    }
-    h3 {
-        font-size: 16px;
-        color: $text;
-        margin: 0 0 8px 0;
-        font-weight: 600;
+    gap: 12px;
+    align-items: flex-start;
+    line-height: 1.6;
 
-        @media (max-width: 768px) {
-            font-size: 14px;
-        }
-    }
-
-    p {
-        margin: 0;
-        color: $main-color;
-        font-size: 12px;
-        max-width: 225px;
-
-        @media (max-width: 768px) {
-            font-size: 12px;
-        }
-    }
-
-    a {
-        @include underline-anim;
-        font-size: 12px;
-        color: $main-color;
-    }
-    
-}
-
-.loc-icon {
-    font-size: 18px;
-    color: $main-color;
-    
-    margin-right: 3px;
-
-    @media (max-width: 768px) {
-        font-size: 18px;
+    img {
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
     }
 }
 
-.contact-info-content {
+.footer-liens {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
 }
 
-.social {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+footer a {
+    color: $violet-fonce;
+    text-decoration: underline;
 
-.social-links {
-    display: flex;
-    gap: 10px;
-    @media (max-width: 768px) {
-        gap: 5px;
+    &:hover {
+        color: $encre;
     }
-
-    a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-        background-color: rgba($main-color, 0.1);
-        color: $main-color;
-        font-size: 20px;
-        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-        @media (max-width: 768px) {
-            width: 36px;
-            height: 36px;
-            font-size: 18px;
-        }
-
-        &:hover {
-            background-color: $main-color;
-            color: white;
-            transform: translateY(-3px);
-        }
-    }
-}
 }

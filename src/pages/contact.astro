@@ -1,8 +1,24 @@
 ---
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ContactSection from "../components/islands/ContactSection.jsx";
 import ImageContact from "../assets/images/image_contact.webp";
+import { BOOKING_URL } from "../lib/site";
+
+// Besoins proposés dans le formulaire : les 6 offres du catalogue, plus
+// "Autre". Repris mot pour mot de la maquette.
+const BESOINS = [
+  "Création de site",
+  "Refonte de site",
+  "Audit SEO",
+  "IA & automatisation",
+  "Pilotage de projet",
+  "Site d'association",
+  "Autre",
+];
+
+// Agenda intégré : même adresse que BOOKING_URL, avec les paramètres
+// d'affichage de Calendly.
+const CALENDLY_EMBED = `${BOOKING_URL}?hide_event_type_details=1&hide_gdpr_banner=1`;
 ---
 
 <BaseLayout
@@ -22,6 +38,149 @@ import ImageContact from "../assets/images/image_contact.webp";
 
   <section class="contact-section margin margin-desktop">
     <h2>Discutons de votre projet</h2>
-    <ContactSection client:visible />
+
+    <div class="contact-wrapper">
+      <div class="contact-column">
+        <div class="calendly-card">
+          <h3 class="rdv-title">Prendre un rendez-vous</h3>
+          <p class="rdv-subtitle">
+            Un échange par téléphone gratuit de 30 minutes pour comprendre vos
+            besoins et voir comment je peux vous accompagner.
+          </p>
+
+          <div class="calendly-inline-widget" data-url={CALENDLY_EMBED}></div>
+          <noscript>
+            <p>
+              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+                Ouvrir mon agenda pour réserver un appel
+              </a>
+            </p>
+          </noscript>
+        </div>
+      </div>
+
+      <div class="contact-column contact-form-column">
+        <h2>Vous préférez m'écrire ?</h2>
+
+        <form class="contact-form" id="formulaire-contact" novalidate>
+          <div class="form-group">
+            <label for="from_name">Nom</label>
+            <input type="text" id="from_name" name="from_name" maxlength="200" required />
+          </div>
+
+          <div class="form-group">
+            <label for="from_email">E-mail</label>
+            <input type="email" id="from_email" name="from_email" required />
+          </div>
+
+          <div class="form-group">
+            <label for="besoin">Votre besoin</label>
+            <select id="besoin" name="besoin" required>
+              {BESOINS.map((besoin) => <option value={besoin}>{besoin}</option>)}
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="budget">Budget envisagé (facultatif)</label>
+            <input type="text" id="budget" name="budget" maxlength="100" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Votre projet en quelques lignes</label>
+            <textarea id="message" name="message" maxlength="2000" required></textarea>
+          </div>
+
+          <button class="btn" type="submit" aria-label="Envoyer le formulaire de contact">
+            Envoyer ma demande
+          </button>
+
+          <p class="form-mention">
+            Réponse sous 48 h ouvrées · Vos données servent uniquement à vous
+            répondre.
+          </p>
+        </form>
+
+        {/* Lu par les lecteurs d'écran dès qu'il se remplit, sans voler le focus. */}
+        <p class="confirmation-message" id="confirmation" role="status" hidden></p>
+      </div>
+    </div>
   </section>
 </BaseLayout>
+
+<script>
+  // Agenda Calendly : le script officiel transforme .calendly-inline-widget
+  // en iframe. Chargé ici plutôt que par une balise dans le <head>, pour que
+  // les autres pages n'en héritent pas.
+  const widget = document.querySelector(".calendly-inline-widget");
+  if (widget) {
+    const s = document.createElement("script");
+    s.src = "https://assets.calendly.com/assets/external/widget.js";
+    s.async = true;
+    document.body.appendChild(s);
+  }
+</script>
+
+<script>
+  // Formulaire EmailJS en JavaScript simple : plus d'îlot React sur la page.
+  import emailjs from "@emailjs/browser";
+
+  const SERVICE_ID = "service_dgr4ts3";
+  const TEMPLATE_ID = "template_npfqhdf";
+  const PUBLIC_KEY = "0GoSVF1YIRg3i22PD";
+
+  const form = document.querySelector<HTMLFormElement>("#formulaire-contact");
+  const confirmation = document.querySelector<HTMLElement>("#confirmation");
+
+  if (form && confirmation) {
+    emailjs.init(PUBLIC_KEY);
+
+    const bouton = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    const libelleBouton = bouton?.textContent ?? "Envoyer ma demande";
+
+    const afficher = (texte: string) => {
+      confirmation.textContent = texte;
+      confirmation.hidden = false;
+    };
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // novalidate sur le <form> : on déclenche la validation nous-mêmes,
+      // pour garder la main sur le moment où elle s'affiche.
+      if (!form.reportValidity()) return;
+
+      const data = new FormData(form);
+      const budget = String(data.get("budget") ?? "").trim();
+      const message = String(data.get("message") ?? "");
+
+      // Le budget est ajouté en tête du message : le modèle EmailJS n'a pas
+      // de champ dédié, et l'information doit rester visible à la lecture.
+      const corps = budget
+        ? `Budget envisagé : ${budget}\n\n${message}`
+        : message;
+
+      if (bouton) {
+        bouton.disabled = true;
+        bouton.textContent = "Envoi en cours...";
+      }
+
+      try {
+        await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+          from_name: String(data.get("from_name") ?? ""),
+          from_email: String(data.get("from_email") ?? ""),
+          // Le besoin choisi fait l'objet du message.
+          from_object: String(data.get("besoin") ?? ""),
+          message: corps,
+        });
+        form.hidden = true;
+        afficher("✅ Votre message a bien été envoyé !");
+      } catch {
+        afficher("❌ Une erreur s'est produite. Veuillez réessayer plus tard.");
+        if (bouton) {
+          bouton.disabled = false;
+          bouton.textContent = libelleBouton;
+        }
+      }
+    });
+  }
+</script>

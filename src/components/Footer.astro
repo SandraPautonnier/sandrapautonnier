@@ -1,73 +1,53 @@
 ---
 import { Image } from "astro:assets";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin, faSquareGithub, faFacebook } from "@fortawesome/free-brands-svg-icons";
-import { faMapLocationDot, faEnvelope, faShareNodes } from "@fortawesome/free-solid-svg-icons";
 import Logo from "../assets/images/Logo_Sukiweb_color.webp";
+import { SITE } from "../lib/site";
+
+interface LienPage {
+  href: string;
+  libelle: string;
+}
+
+interface Props {
+  /**
+   * Troisième lien du pied de page, après Mentions légales et LinkedIn.
+   * Déduit de la page courante par défaut ; `null` le supprime.
+   */
+  lienPage?: LienPage | null;
+}
+
+const ACCUEIL = { href: "/", libelle: "Accueil" };
+const REALISATIONS = { href: "/realisations/", libelle: "Réalisations" };
+const SERVICES = { href: "/services/", libelle: "Services" };
+
+// Le troisième lien change selon la page, comme dans la maquette : il mène
+// vers une autre section du site plutôt que de répéter la page courante.
+function lienParDefaut(path: string): LienPage | null {
+  if (path === "/") return null;
+  if (path === "/realisations/") return ACCUEIL;
+  if (path === "/a-propos/") return SERVICES;
+  return REALISATIONS;
+}
+
+const { lienPage } = Astro.props;
+const lien =
+  lienPage === undefined ? lienParDefaut(Astro.url.pathname) : lienPage;
+
+const LINKEDIN = SITE.reseaux[0];
 ---
 
 <footer>
-  <div class="footer-main">
-    <Image src={Logo} alt="Logo Sukiweb, une spirale violette" loading="lazy" />
-    <h3 class="footer-title">Sukiweb - Sandra Pautonnier</h3>
-  </div>
+  <span class="footer-identite">
+    <Image src={Logo} alt="" width={28} height={28} loading="lazy" />
+    <span>
+      {SITE.personne} – {SITE.nom} · {SITE.ville}, {SITE.region}<br />
+      <a href={`mailto:${SITE.email}`}>{SITE.email}</a> · SIRET {SITE.siret}
+    </span>
+  </span>
 
-  <div class="contact-info">
-    <div class="contact-info-item">
-      <FontAwesomeIcon icon={faMapLocationDot} className="contact-icon" />
-      <div class="contact-info-content">
-        <h3>Localisation</h3>
-        <p class="content">Le Mans et alentours<br />En France à distance</p>
-      </div>
-    </div>
-
-    <div class="contact-info-item">
-      <FontAwesomeIcon icon={faEnvelope} className="contact-icon" />
-      <div class="contact-info-content">
-        <h3>Devis & contact</h3>
-        <a class="content" href="/contact/" aria-label="Demander un devis">
-          Faire un devis
-        </a>
-        <a class="content" href="mailto:contact@sandrapautonnier.com" aria-label="Envoyer un email à Sandra">
-          Me contacter
-        </a>
-      </div>
-    </div>
-
-    <div class="contact-info-item">
-      <FontAwesomeIcon icon={faShareNodes} className="contact-icon" />
-      <div class="social">
-        <h3>Réseaux sociaux</h3>
-        <div class="content social-links">
-          <a
-            href="https://www.facebook.com/people/Sandra-Créatrice-Web-Intuitive/100063567206449/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Lien de la page Facebook de Sandra Pautonnier"
-          >
-            <FontAwesomeIcon icon={faFacebook} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/sandra-pautonnier/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Lien de la page LinkedIn de Sandra Pautonnier"
-          >
-            <FontAwesomeIcon icon={faLinkedin} />
-          </a>
-          <a
-            href="https://github.com/sandrapautonnier"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Lien de la page GitHub de Sandra Pautonnier"
-          >
-            <FontAwesomeIcon icon={faSquareGithub} />
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <p class="text-notice">
-    <a href="/mentions-legales/" class="link">Mentions Légales</a> &copy; {new Date().getFullYear()} Sukiweb - Sandra Pautonnier
-  </p>
+  <span class="footer-liens">
+    <a href="/mentions-legales/">Mentions légales</a>
+    <a href={LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    {lien && <a href={lien.href}>{lien.libelle}</a>}
+  </span>
 </footer>

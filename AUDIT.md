@@ -282,3 +282,18 @@ fenêtre, 839 px pour 768 px. En cause, les étiquettes de compétences
 
 Antérieur à la refonte, sans rapport avec le nouveau contenu. À traiter à
 l'étape 7, qui réécrit cette page.
+
+### Les pleines largeurs de l'accueil ignorent la barre de défilement — 🟠 important
+
+`_Home.scss` étire `.header-banner`, son image et `.cta` avec
+`width: 100vw` plus `margin-left: calc(-50vw + 50%)`. Or `100vw` compte la
+barre de défilement verticale : sur un navigateur qui l'affiche en permanence
+(Windows, Linux), ces blocs mesurent une quinzaine de pixels de plus que la
+zone visible, et la page défile horizontalement.
+
+Mesuré sur `/` : largeur de défilement 1433 px pour 1425 px visibles à 1440 px
+de fenêtre, et le même écart à 375 et 768 px.
+
+Remède : `width: 100%` sur un conteneur en `overflow-x: hidden`, ou la
+variante moderne `100dvw`. Antérieur à la refonte ; à traiter à l'étape 4, qui
+réécrit l'accueil.

@@ -66,6 +66,7 @@
     }
 
     input,
+    select,
     textarea {
 
         padding: 12px 15px;
@@ -83,7 +84,6 @@
         }
 
         &:focus {
-            outline: none;
             border-color: $main-color;
             box-shadow: 0 0 0 3px rgba($main-color, 0.1);
         }
@@ -160,6 +160,20 @@
     }
 }
 
+// Agenda Calendly. Leur script fixe la largeur de l'iframe à 100 % ; la
+// hauteur et la largeur minimale viennent d'ici plutôt que d'un style en
+// ligne. Sous 400 px, la largeur minimale de 320 px ferait déborder la page :
+// on la lève, l'agenda reste lisible.
+.calendly-inline-widget {
+    width: 100%;
+    min-width: 320px;
+    height: 700px;
+
+    @media (max-width: 400px) {
+        min-width: 0;
+    }
+}
+
 .rdv-title {
     font-size: 18px;
     margin-bottom: 8px;
@@ -170,4 +184,10 @@
 .rdv-subtitle {
     font-size: 14px;
     color: $text-muted;
+}
+// Mention sous le bouton d'envoi : délai de réponse et usage des données.
+.form-mention {
+    margin: 0;
+    font-size: 14px;
+    color: $texte-secondaire;
 }

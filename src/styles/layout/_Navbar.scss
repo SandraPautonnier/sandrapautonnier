@@ -1,142 +1,181 @@
 @import "../utils/variables";
 @import "../utils/mixins";
 
-.logo { 
-    max-width: 50px;
-    height: 100%;
-}
-
-.logo-h1 {
-    display: flex;
-    align-items: center;
-    h1 {
-        margin: 20px 20px;
-    }
-    h2 {
-        margin: 20px 20px;
-        padding-bottom: 0;
-        &::after {
-            display: none;
-        }
-    }
-}
+// En-tête de la refonte : marque à gauche, navigation et bouton de
+// réservation à droite. Sous 768 px, les trois liens passent derrière le
+// burger ; le bouton de réservation, lui, reste toujours visible.
 
 .menu-nav {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 16px 32px;
     align-items: center;
-    nav {
-        font-family: "Space Grotesk", sans-serif;
-        position: relative;
-        margin: 20px 40px;
-        font-weight: bold;
-        
-        .nav-ul {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            
-            .nav-li {
-                @include flex-row-center;
-                
-                a {
-                    @include btn;
-                    @include btn-animated-link;
-                    text-decoration: none;
-                }
-            }
-        }
-        
-        @media (max-width: 768px) {
-            margin: 20px auto;
-            
-            .nav-ul {
-                position: absolute;
-                right: -5px;
-                top: 100%;
-                flex-direction: column;
-                background: white;
-                border-radius: 5px;
-                padding: 10px;
-                opacity: 0;
-                visibility: hidden;
-                transform: translateY(-20px);
-                transition: opacity 0.3s ease, transform 0.3s ease;
-                z-index: 5;
-                @include badark-colight-component;
-                @media (min-width: 768px) {
-                background: transparent;
-                border: none;
-                }
-                
-                &.open {
-                    opacity: 1;
-                    visibility: visible;
-                    transform: translateY(0);
-                }
-            }
-        }
-    }
-    
-    .toggle-button {
-        position: absolute;
-        cursor: pointer;
-        padding: 7px;
-        display: flex;
-        right: 30px;
-        top: 30px;
+    justify-content: space-between;
+    padding: 24px 0;
+}
+
+// --- Marque -----------------------------------------------------------------
+
+.marque {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: $encre;
+
+    .logo {
+        width: 48px;
+        height: 48px;
     }
 }
+
+.marque-texte {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.marque-nom {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+
+    @media (max-width: 479px) {
+        font-size: 18px;
+    }
+}
+
+.marque-enseigne {
+    font-size: 13px;
+    color: $texte-secondaire;
+    letter-spacing: 0.04em;
+}
+
+// --- Navigation --------------------------------------------------------------
+
+.menu-nav nav {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 28px;
+
+    .nav-ul {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px 28px;
+        margin: 0;
+    }
+
+    .nav-li a {
+        display: inline-block;
+        padding: 10px 0;
+        font-weight: 500;
+        color: $encre;
+        text-decoration: none;
+        // Soulignement animé au survol, sans décaler la ligne de base.
+        background-image: linear-gradient(currentColor, currentColor);
+        background-repeat: no-repeat;
+        background-position: 0 100%;
+        background-size: 0 2px;
+        transition: background-size 0.3s ease, color 0.3s ease;
+
+        &:hover,
+        &.active {
+            color: $violet-fonce;
+            background-size: 100% 2px;
+        }
+    }
+}
+
+// --- Bouton de réservation ----------------------------------------------------
+
+.btn-rdv {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 999px;
+    background: $encre;
+    color: $creme;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background: $violet-fonce;
+        color: $creme;
+    }
+
+    @media (max-width: 479px) {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+}
+
+// --- Burger -------------------------------------------------------------------
 
 .hamburger {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    
+    padding: 4px;
+
     .bar {
         width: 25px;
         height: 4px;
         border-radius: 25% / 25%;
         margin: 2px 0;
-        background-color: $main-color;
+        background-color: $violet;
         transition: background-color 0.3s ease;
     }
-    
+
     .close-nav {
         font-size: 50px;
         padding: 0;
         line-height: 27px;
         margin: -1.5px -2px;
-        color: $main-color;
+        color: $violet;
     }
 }
 
 @media (max-width: 768px) {
+    .menu-nav nav {
+        gap: 12px;
+    }
+
     .hamburger {
         display: flex;
-        position: fixed;
-        right: 20px;
-        top: 23px;
-        z-index: 10;
-    }
-}
-
-@media (max-width: 991px) {
-    .menu-nav {
-        justify-content: space-between;
+        order: 2;
     }
 
-    nav {
-        margin: 20px 5px !important;
-        
-        .nav-ul {
-            gap: 10px !important;
+    .btn-rdv {
+        order: 1;
+    }
+
+    .menu-nav nav .nav-ul {
+        position: absolute;
+        right: 0;
+        top: 100%;
+        z-index: 5;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        min-width: 180px;
+        padding: 12px 18px;
+        border: 1px solid $bordure;
+        border-radius: 12px;
+        background: white;
+        box-shadow: 0 10px 30px rgba(35, 28, 43, 0.12);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+
+        &.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
         }
     }
-
-    h1 {
-        margin: 20px !important;
-    }
 }
-
-

@@ -1,51 +1,70 @@
 ---
 import { Image } from "astro:assets";
 import Logo from "../assets/images/Logo_Sukiweb_mono.webp";
+import { BOOKING_URL, SITE } from "../lib/site";
 
-// Le composant React calculait la classe "active" via useLocation().
-// En SSG elle se résout au build depuis l'URL courante, même comparaison exacte.
+// Trois entrées de menu, plus le bouton de réservation. "Accueil" passe par
+// le logo, qui est le lien vers "/" : c'est la structure de la maquette.
+const LIENS = [
+  { href: "/realisations/", libelle: "Réalisations" },
+  { href: "/services/", libelle: "Services" },
+  { href: "/a-propos/", libelle: "À propos" },
+];
+
+// La classe "active" se résout au build depuis l'URL courante. Une fiche
+// projet marque "Réalisations", une page d'offre marque "Services".
 const path = Astro.url.pathname;
-const isActive = (href: string) => (path === href ? "active" : "");
+const estActif = (href: string) =>
+  href === "/" ? path === "/" : path.startsWith(href);
 ---
 
 <div class="menu-nav">
-  <div class="logo-h1">
-    <Image class="logo" src={Logo} alt="Logo Sukiweb, une spirale violette" />
-    <h2>Sukiweb</h2>
-  </div>
-  <nav aria-label="Menu principal">
-    {/* Bouton hamburger */}
-    <div class="hamburger" role="button" tabindex="0" aria-label="Ouvrir le menu">
+  <a class="marque" href="/" aria-label={`${SITE.personne} - accueil`}>
+    <Image class="logo" src={Logo} alt="" width={48} height={48} />
+    <span class="marque-texte">
+      <span class="marque-nom">{SITE.personne}</span>
+      <span class="marque-enseigne">{SITE.nom}</span>
+    </span>
+  </a>
+
+  <nav aria-label="Navigation principale">
+    {/* Le bouton burger n'ouvre que la liste de liens : le bouton de
+        réservation reste visible à toutes les largeurs. */}
+    <div
+      class="hamburger"
+      role="button"
+      tabindex="0"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false"
+      aria-controls="menu-principal"
+    >
       <div class="bar" aria-hidden="true"></div>
       <div class="bar" aria-hidden="true"></div>
       <div class="bar" aria-hidden="true"></div>
     </div>
-    {/* Menu de navigation */}
-    <ul class="nav-ul">
-      <li class="nav-li">
-        <a href="/" aria-label="Accueil" class={isActive("/")}>ACCUEIL</a>
-      </li>
-      <li class="nav-li">
-        <a href="/services/" aria-label="Services" class={isActive("/services/")}>SERVICES</a>
-      </li>
-      <li class="nav-li">
-        <a href="/realisations/" aria-label="Réalisations" class={isActive("/realisations/")}>PORTFOLIO</a>
-      </li>
-      <li class="nav-li">
-        <a href="/a-propos/" aria-label="À propos" class={isActive("/a-propos/")}>À PROPOS</a>
-      </li>
-      <li class="nav-li">
-        <a href="/contact/" aria-label="Contact" class={isActive("/contact/")}>CONTACT</a>
-      </li>
+
+    <ul class="nav-ul" id="menu-principal">
+      {
+        LIENS.map((lien) => (
+          <li class="nav-li">
+            <a href={lien.href} class={estActif(lien.href) ? "active" : ""}>
+              {lien.libelle}
+            </a>
+          </li>
+        ))
+      }
     </ul>
+
+    <a class="btn-rdv" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+      Réserver un appel
+    </a>
   </nav>
 </div>
 
 <script>
-  // Reprend à l'identique le comportement du composant React supprimé :
-  // mêmes classes posées/retirées aux mêmes moments, même contenu de .hamburger.
-  // Un seul écouteur sur .hamburger : le clic sur la croix remonte par bouillonnement,
-  // ce qui reproduit exactement le résultat visible de l'ancien double toggle React.
+  // Même mécanique que depuis la migration : un seul écouteur sur .hamburger,
+  // la croix remonte par bouillonnement. Seul ajout, aria-expanded, pour que
+  // l'état du menu soit annoncé aux lecteurs d'écran.
   const nav = document.querySelector<HTMLElement>(".menu-nav nav");
 
   if (nav) {
@@ -63,6 +82,11 @@ const isActive = (href: string) => (path === href ? "active" : "");
       const render = () => {
         navUl.classList.toggle("open", menuOpen);
         hamburger.innerHTML = menuOpen ? CLOSE : BARS;
+        hamburger.setAttribute("aria-expanded", String(menuOpen));
+        hamburger.setAttribute(
+          "aria-label",
+          menuOpen ? "Fermer le menu" : "Ouvrir le menu",
+        );
       };
 
       const toggleMenu = () => {
@@ -72,14 +96,24 @@ const isActive = (href: string) => (path === href ? "active" : "");
 
       hamburger.addEventListener("click", toggleMenu);
       hamburger.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") toggleMenu();
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggleMenu();
+        }
       });
 
-      // Fermeture au clic à l'extérieur (l'original écoutait "mousedown" sur document)
+      // Fermeture au clic à l'extérieur, et à la touche Échap.
       document.addEventListener("mousedown", (e) => {
         if (menuOpen && !nav.contains(e.target as Node)) {
           menuOpen = false;
           render();
+        }
+      });
+      document.addEventListener("keydown", (e) => {
+        if (menuOpen && e.key === "Escape") {
+          menuOpen = false;
+          render();
+          hamburger.focus();
         }
       });
     }
