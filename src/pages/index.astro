@@ -1,130 +1,319 @@
 ---
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin, faSquareGithub } from "@fortawesome/free-brands-svg-icons";
-import {
-  faCode,
-  faAward,
-  faMagnifyingGlass,
-  faWrench,
-  faCheck,
-  faPen,
-  faRobot,
-  faDiagramProject,
-} from "@fortawesome/free-solid-svg-icons";
-
 import BaseLayout from "../layouts/BaseLayout.astro";
-import HeaderImage from "../assets/images/Image_header.webp";
-import MainImage from "../assets/images/image_poignee-de-main.webp";
+import ProjectCard from "../components/ProjectCard.astro";
+import Fleche from "../components/icones/Fleche.astro";
+import Coche from "../components/icones/Coche.astro";
+import Portrait from "../assets/images/Portrait_Sandra.webp";
+import { BOOKING_URL, SITE } from "../lib/site";
 
-// Les 4 offres du nouveau catalogue sont toutes affichées : plus de carte
-// "Services supplémentaires" à masquer.
 const services = (await getCollection("services")).sort(
-  (a, b) => a.data.id - b.data.id
+  (a, b) => a.data.id - b.data.id,
 );
 
-const iconMap = {
-  faCode,
-  faMagnifyingGlass,
-  faWrench,
-  faAward,
-  faPen,
-  faRobot,
-  faDiagramProject,
-};
+const projets = (await getCollection("projets"))
+  .filter((p) => !p.data.brouillon)
+  .sort((a, b) => a.data.ordre - b.data.ordre);
 
-// Aperçu des projets mis en avant. La grille et les filtres définitifs
-// arrivent à l'étape 4.
-const projets = await getCollection("projets");
-const recents = projets
-  .filter((p) => p.data.aLaUne && !p.data.brouillon)
-  .sort((a, b) => a.data.ordre - b.data.ordre)
-  .slice(0, 3);
+// La grille contient les 9 projets ; le filtre n'en montre qu'une partie.
+// « À la une » est actif au chargement, donc rendu au build : sans
+// JavaScript, la page affiche déjà la bonne sélection.
+const estPerso = (type: string) => type === "personnel" || type === "formation";
+
+const FILTRES = [
+  {
+    id: "une",
+    libelle: "À la une",
+    compte: projets.filter((p) => p.data.aLaUne).length,
+  },
+  {
+    id: "client",
+    libelle: "Clients",
+    compte: projets.filter((p) => p.data.type === "client").length,
+  },
+  {
+    id: "perso",
+    libelle: "Projets perso",
+    compte: projets.filter((p) => estPerso(p.data.type)).length,
+  },
+];
+
+// Les témoignages viennent des projets : un deuxième client renseigné dans
+// son JSON apparaîtra ici tout seul. Section masquée s'il n'y en a aucun.
+const temoignages = projets
+  .filter((p) => p.data.temoignage)
+  .map((p) => ({ projet: p, ...p.data.temoignage! }));
+
+const PROMESSES = [
+  {
+    teinte: "lilas",
+    titre: "Une cheffe de projet qui code",
+    texte:
+      "Planning tenu, budget clair, et vous parlez à la personne qui fait le travail.",
+  },
+  {
+    teinte: "rose",
+    titre: "L'IA, sans jargon",
+    texte:
+      "Des outils qui vous font gagner du temps, mis en place et expliqués simplement.",
+  },
+  {
+    teinte: "sauge",
+    titre: "Un site rapide et visible",
+    texte: "Pensé pour Google, les moteurs IA et le mobile.",
+  },
+];
+
+const REFERENCES = ["KiRoMa · VELA", "Ardvina", "Trolib"];
+
+const GARANTIES = [
+  "Paiement en 3 fois",
+  "Vous restez propriétaire de votre site",
+  "Vous validez chaque étape",
+];
 ---
 
 <BaseLayout
   title="Cheffe de projet digitale & développeuse web au Mans | Sukiweb"
   description="Cheffe de projet digitale et développeuse web au Mans : création et refonte de sites sur-mesure, audit de visibilité et gestion de projet digital."
   pageClass="home"
+  pleineLargeur
 >
-  <div
-    class="header-banner"
-    slot="banner"
-    id="home"
-    role="region"
-    aria-label="Présentation - Accueil"
-  >
-    <Image src={HeaderImage} alt="Portrait dessin de Sandra réalisé par IA" />
-    <div class="header-content">
-      <h1>Cheffe de projet digitale <br /> & développeuse web au Mans</h1>
-      <p class="base-text">
-        Créativité, écoute & clarté ! <br /> Au service de votre image en ligne.
-      </p>
-      <div class="buttons-social">
-        <a href="/contact/" aria-label="Demander un devis" class="btn-secondary">Demander un devis</a>
-        <a href="/contact/" aria-label="Navigation vers ma page contact" class="btn-secondary">Contactez-moi</a>
-        <a href="https://www.linkedin.com/in/sandrapautonnier/" target="_blank" rel="noreferrer" aria-label="Lien Linkedin"><FontAwesomeIcon icon={faLinkedin} />Linkedin</a>
-        <a href="https://github.com/SandraPautonnier" target="_blank" rel="noreferrer" aria-label="Lien Github"><FontAwesomeIcon icon={faSquareGithub} />Github</a>
+  <section class="accueil-hero" id="top">
+    <div class="conteneur accueil-hero-grille">
+      <div class="hero-texte">
+        <h1>Création de sites internet et transition numérique au Mans</h1>
+        <p class="hero-intro">
+          J'accompagne les indépendants, les TPE et les associations : un site
+          qui vous rend visible, des outils et de l'IA qui vous font gagner du
+          temps, et une interlocutrice unique pour mener vos projets.
+        </p>
+        <div class="hero-boutons">
+          <a
+            class="bouton bouton--plein"
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Réserver un appel de 30 min
+          </a>
+          <a class="bouton bouton--contour" href="#realisations">
+            Voir les réalisations
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-promesses">
+        <p class="hero-promesses-titre">Ce que vous obtenez</p>
+        {
+          PROMESSES.map((promesse) => (
+            <div class="promesse">
+              <span
+                class:list={[
+                  "promesse-pastille",
+                  `promesse-pastille--${promesse.teinte}`,
+                ]}
+              >
+                <Coche />
+              </span>
+              <p>
+                <strong>{promesse.titre}</strong>
+                <br />
+                <span class="promesse-texte">{promesse.texte}</span>
+              </p>
+            </div>
+          ))
+        }
       </div>
     </div>
-  </div>
-
-  <section class="hook-services">
-    <h2>Des offres clé en main</h2>
-    <div class="offers-container">
-      {
-        services.map((service) => (
-          <div class="offer-card">
-            <FontAwesomeIcon icon={iconMap[service.data.icon]} />
-            <h3>{service.data.title}</h3>
-            <p class="base-text">{service.data.description}</p>
-            <span>{service.data.prix}</span>
-          </div>
-        ))
-      }
-    </div>
-    <a href="/contact/" aria-label="Demander un devis" class="btn">Demander un devis</a>
   </section>
 
-  <section>
-    <h2>Pourquoi travailler avec moi ?</h2>
-    <div class="me">
-      <Image src={MainImage} alt="Poignée de main" loading="lazy" />
-      <ul class="base-text">
-        <li><FontAwesomeIcon icon={faCheck} /> Accompagnement humain et personnalisé</li>
-        <li><FontAwesomeIcon icon={faCheck} /> Tarifs transparents et sans surprise</li>
-        <li><FontAwesomeIcon icon={faCheck} /> Expertise technique et créative</li>
-        <li><FontAwesomeIcon icon={faCheck} /> Solutions adaptées aux indépendants et associations</li>
-        <li><FontAwesomeIcon icon={faCheck} /> Approche stratégique et évolutive</li>
+  <section class="accueil-references" aria-label="Références">
+    <div class="conteneur accueil-references-ligne">
+      <span class="references-label">Ils m'ont fait confiance</span>
+      <ul class="references-liste">
+        {REFERENCES.map((nom) => <li>{nom}</li>)}
       </ul>
     </div>
-    <p class="catch">
-      Je ne crée pas seulement un site. <br />Je crée un outil qui soutient votre
-      activité et votre croissance.
-    </p>
   </section>
 
-  <section class="hook-works">
-    <h2>Quelques projets</h2>
-    <ul>
-      {
-        recents.map((p) => (
-          <li>
-            <a href={`/realisations/${p.id}/`}>{p.data.titreCarte}</a>
-          </li>
-        ))
-      }
-    </ul>
-    <a href="/realisations/" class="btn" aria-label="Voir plus de projets">Voir plus de projets</a>
-    <p class="catch">Des projets réalisés avec passion !</p>
+  <section class="accueil-realisations" id="realisations">
+    <div class="conteneur">
+      <div class="section-entete">
+        <div class="section-entete-texte">
+          <h2>Réalisations</h2>
+          <p>Des projets clients d'abord, puis mes outils et expérimentations.</p>
+        </div>
+        <div class="filtres" role="group" aria-label="Filtrer les projets">
+          {
+            FILTRES.map((filtre, i) => (
+              <button
+                type="button"
+                class="filtre"
+                data-filtre={filtre.id}
+                aria-pressed={i === 0 ? "true" : "false"}
+              >
+                {filtre.libelle}{" "}
+                <span class="filtre-compte">{filtre.compte}</span>
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="grille-projets">
+        {
+          projets.map((projet) => (
+            <div
+              class="grille-projets-case"
+              data-type={projet.data.type === "client" ? "client" : "perso"}
+              data-une={String(projet.data.aLaUne)}
+              hidden={!projet.data.aLaUne}
+            >
+              <ProjectCard projet={projet} />
+            </div>
+          ))
+        }
+      </div>
+
+      <a class="lien-fleche" href="/realisations/">
+        Toutes les réalisations ({projets.length})<Fleche />
+      </a>
+    </div>
   </section>
 
-  <section>
-    <div class="cta">
-      <h2>Prêt(e) à développer votre présence en ligne ?</h2>
-      <p>Discutons de votre projet gratuitement et sans engagement.</p>
-      <a href="/contact/" class="btn" aria-label="Prendre rendez-vous">Prendre rendez-vous</a>
+  {
+    temoignages.length > 0 && (
+      <section class="accueil-temoignages" aria-labelledby="temoignages-titre">
+        <div class="conteneur">
+          <h2 id="temoignages-titre">Ce qu'en disent mes clients</h2>
+          <div class="temoignages-grille">
+            {temoignages.map((t) => (
+              <figure class="temoignage">
+                <blockquote>« {t.texte} »</blockquote>
+                <figcaption>
+                  <strong>{t.auteur}</strong>, {t.fonction} ·{" "}
+                  <a href={`/realisations/${t.projet.id}/`}>Voir le projet</a>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="accueil-services" id="services">
+    <div class="conteneur">
+      <div class="section-entete">
+        <div class="section-entete-texte">
+          <h2>Services</h2>
+          <p>Quatre offres lisibles, des prix affichés.</p>
+        </div>
+        <a class="lien-fleche" href="/services/">Détail des offres<Fleche /></a>
+      </div>
+
+      <div class="lignes-offres">
+        {
+          services.map((service) => (
+            <a class="ligne-offre" href={service.data.url}>
+              <span class="ligne-offre-titre">{service.data.title}</span>
+              <span class="ligne-offre-texte">{service.data.description}</span>
+              <span class="ligne-offre-prix">
+                {service.data.prix}
+                <Fleche />
+              </span>
+            </a>
+          ))
+        }
+      </div>
+
+      <p class="garanties">
+        {
+          GARANTIES.map((garantie, i) => (
+            <>
+              {i > 0 && <span aria-hidden="true">·</span>}
+              <span>{garantie}</span>
+            </>
+          ))
+        }
+      </p>
+
+      <a class="encart-associations" href="/services/site-internet-association/">
+        <strong>Vous êtes une association ?</strong>
+        <span>−25 % sur la création de site, la maintenance et les ateliers IA.</span>
+        <Fleche />
+      </a>
+    </div>
+  </section>
+
+  <section class="accueil-apropos" id="apropos">
+    <div class="conteneur accueil-apropos-grille">
+      <Image
+        class="portrait"
+        src={Portrait}
+        alt={`Portrait de ${SITE.personne}`}
+        width={160}
+        height={160}
+        loading="lazy"
+      />
+      <div class="accueil-apropos-texte">
+        <h2>Bonjour, moi c'est Sandra.</h2>
+        <p>
+          Développeuse web et ancienne chargée de projets chez Enedis : je code
+          votre site, et je sais tenir un planning, un budget et plusieurs
+          interlocuteurs.
+        </p>
+        <a class="lien-fleche" href="/a-propos/">Mon parcours<Fleche /></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="accueil-contact" id="contact">
+    <div class="conteneur accueil-contact-bloc">
+      <h2>Un projet, une question ?</h2>
+      <p class="accueil-contact-intro">
+        Réponse sous 48 h ouvrées. Disponible du lundi au vendredi, 10 h – 17 h.
+      </p>
+      <a class="accueil-contact-email" href={`mailto:${SITE.email}`}>
+        {SITE.email}
+      </a>
+      <div class="hero-boutons">
+        <a
+          class="bouton bouton--clair"
+          href={BOOKING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Réserver un appel de 30 min
+        </a>
+        <a class="bouton bouton--contour-clair" href="/contact/">
+          Formulaire de contact
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  // Filtre des réalisations, en JavaScript simple : on masque les cases qui
+  // ne correspondent pas. Sans JavaScript, la sélection « À la une » rendue
+  // au build reste affichée, et les 9 fiches restent atteignables par
+  // /realisations/.
+  const boutons = document.querySelectorAll<HTMLButtonElement>(".filtre");
+  const cases = document.querySelectorAll<HTMLElement>(".grille-projets-case");
+
+  const correspond = (bloc: HTMLElement, filtre: string) =>
+    filtre === "une" ? bloc.dataset.une === "true" : bloc.dataset.type === filtre;
+
+  boutons.forEach((bouton) => {
+    bouton.addEventListener("click", () => {
+      const filtre = bouton.dataset.filtre ?? "une";
+      boutons.forEach((b) => b.setAttribute("aria-pressed", String(b === bouton)));
+      cases.forEach((bloc) => {
+        bloc.hidden = !correspond(bloc, filtre);
+      });
+    });
+  });
+</script>

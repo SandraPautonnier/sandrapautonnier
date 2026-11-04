@@ -44,3 +44,45 @@
   border-collapse: separate;
   border-radius: 8px;
 }
+// Grille des offres de /services/. Elle vivait dans _Home.scss, que la
+// refonte de l'accueil a remplacé ; déplacée ici, auprès de la seule page
+// qui l'utilise encore. L'étape 6 réécrit cette page.
+.offers-container {
+  @include grid-4;
+  // auto-fit plutôt qu'un nombre de colonnes figé : la grille s'ajuste au
+  // nombre d'offres affichées, sans laisser de colonne vide.
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+  @media (max-width: 991px) {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .offer-card {
+    @include highlight-card;
+    justify-content: space-between;
+
+    svg {
+      color: $main-color;
+      font-size: 45px;
+      margin-top: 20px;
+    }
+
+    h3 {
+      color: $main-color;
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    span {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  }
+}

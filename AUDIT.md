@@ -297,3 +297,9 @@ de fenêtre, et le même écart à 375 et 768 px.
 Remède : `width: 100%` sur un conteneur en `overflow-x: hidden`, ou la
 variante moderne `100dvw`. Antérieur à la refonte ; à traiter à l'étape 4, qui
 réécrit l'accueil.
+
+**Corrigé à l'étape 4.** Le nouvel accueil n'emploie plus `100vw` : chaque
+section occupe toute la largeur disponible et un conteneur interne de 1200 px
+recentre le contenu. `BaseLayout` accepte pour cela `pleineLargeur`, qui libère
+le conteneur de 1240 px. Mesuré après coup : plus aucun débordement
+horizontal sur `/` à 375, 768 et 1440 px.

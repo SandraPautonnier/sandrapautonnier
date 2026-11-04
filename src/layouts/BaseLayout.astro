@@ -31,6 +31,13 @@ interface Props {
   mainClass?: string;
   jsonLd?: Record<string, unknown>[];
   breadcrumb?: { nom: string; url: string }[];
+  /**
+   * Pages de la refonte : le contenu occupe toute la largeur et chaque
+   * section pose sa propre largeur maximale, ce qui permet les bandes de
+   * couleur bord à bord de la maquette. Les pages pas encore réécrites
+   * gardent le conteneur centré à 1240 px.
+   */
+  pleineLargeur?: boolean;
 }
 
 const {
@@ -40,6 +47,7 @@ const {
   mainClass = "",
   jsonLd,
   breadcrumb,
+  pleineLargeur = false,
 } = Astro.props;
 
 // Note : pas de class="mode" sur <body>. Dans la version React,
@@ -83,7 +91,7 @@ const {
   <body>
     <div class={pageClass}>
       <div class="background-color">
-        <div class="header-main">
+        <div class:list={["header-main", pleineLargeur && "header-main--fluide"]}>
           <header>
             <Navbar />
             <slot name="banner" />

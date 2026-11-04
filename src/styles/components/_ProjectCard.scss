@@ -1,0 +1,102 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
+// Carte projet de la refonte. La carte entière est un lien : un seul point
+// d'entrée au clavier, et toute la surface cliquable à la souris.
+
+.carte-projet {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid $bordure;
+    border-radius: 18px;
+    background: white;
+    color: $encre;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(35, 28, 43, 0.1);
+    }
+}
+
+.carte-projet-corps {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 22px 24px;
+}
+
+.carte-projet-entete {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.carte-projet-mention {
+    font-size: 13px;
+    font-weight: 600;
+    color: $violet-fonce;
+}
+
+.carte-projet-statut {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: $creme;
+    color: $texte;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.carte-projet-titre {
+    margin: 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 1.25;
+    color: $encre;
+    // Annule le soulignement décoratif global des titres.
+    text-align: left;
+    padding-bottom: 0;
+
+    &::after {
+        content: none;
+    }
+}
+
+.carte-projet-resume {
+    margin: 0;
+    font-size: 15px;
+    color: $texte-secondaire;
+}
+
+.carte-projet-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    // Colle les tags au bas de la carte : les titres et résumés de longueurs
+    // différentes n'empêchent pas les rangées de s'aligner.
+    margin-top: auto;
+    padding-top: 8px;
+}
+
+.tag-outil {
+    padding: 4px 10px;
+    border: 1px solid $bordure;
+    border-radius: 6px;
+    font-size: 12px;
+    color: $texte;
+}
+
+// « Développé avec l'IA » : une façon de travailler, pas un outil de la pile.
+.tag-outil--ia {
+    border-color: transparent;
+    background: $lilas;
+    color: $lilas-encre;
+    font-weight: 600;
+}

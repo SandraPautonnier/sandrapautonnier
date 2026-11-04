@@ -1,300 +1,581 @@
 @import "../utils/variables";
 @import "../utils/mixins";
 
-.header-banner {
-  position: relative;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-left: calc(-50vw + 50%);
-  
-  p {
-    opacity: 0;
-    visibility: hidden;
-  }
-  
-  img {
-    width: 100vw;
-    height: auto;
+// Accueil de la refonte. Chaque section occupe toute la largeur et pose sa
+// couleur de fond ; le contenu est recentré par .conteneur. Plus de
+// width: 100vw : cette unité compte la barre de défilement et faisait
+// déborder la page horizontalement.
+
+.home {
+    background: $creme;
+    color: $encre;
+}
+
+// Largeur de lecture commune à toutes les sections de la maquette.
+.conteneur {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+// Les sections de l'accueil annulent la règle globale `section`, qui impose
+// un padding latéral et un centrage en colonne.
+.home main > section {
     display: block;
-    z-index: 1;
+    padding: 0;
+}
+
+// --- Boutons ------------------------------------------------------------------
+
+.bouton {
+    display: inline-block;
+    padding: 16px 26px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.bouton--plein {
+    background: $violet;
+    color: white;
+
+    &:hover {
+        background: $violet-fonce;
+        color: white;
+    }
+}
+
+.bouton--contour {
+    padding: 15px 26px;
+    border: 1.5px solid $encre;
+    color: $encre;
+
+    &:hover {
+        background: $encre;
+        color: $creme;
+    }
+}
+
+.bouton--clair {
+    background: $creme;
+    color: $encre;
+
+    &:hover {
+        background: white;
+        color: $encre;
+    }
+}
+
+.bouton--contour-clair {
+    padding: 15px 26px;
+    border: 1.5px solid $creme;
+    color: $creme;
+
+    &:hover {
+        background: $creme;
+        color: $encre;
+    }
+}
+
+// Lien discret suivi d'une flèche.
+.lien-fleche {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 12px 0;
+    font-weight: 600;
+    color: $encre;
+    text-decoration: none;
+
+    &:hover .icone-fleche {
+        transform: translateX(4px);
+    }
+}
+
+.icone-fleche {
+    flex: none;
+    transition: transform 0.3s ease;
+}
+
+// --- En-tête de section --------------------------------------------------------
+
+.section-entete {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.section-entete-texte {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 620px;
+
+    h2 {
+        margin: 0;
+        font-size: clamp(2rem, 3.5vw, 2.75rem);
+        letter-spacing: -0.01em;
+        text-align: left;
+        padding-bottom: 0;
+        color: $encre;
+
+        &::after {
+            content: none;
+        }
+    }
+
+    p {
+        margin: 0;
+        color: $texte-secondaire;
+        font-size: 18px;
+    }
+}
+
+// --- Section d'accroche ---------------------------------------------------------
+
+.accueil-hero-grille {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    align-items: center;
+    padding-top: 72px;
+    padding-bottom: 96px;
+}
+
+.hero-texte {
+    flex: 999 1 560px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    h1 {
+        margin: 0;
+        max-width: 760px;
+        font-size: clamp(2.25rem, 4vw, 3.25rem);
+        line-height: 1.1;
+        letter-spacing: -0.015em;
+        color: $encre;
+        text-align: left;
+        padding-bottom: 0;
+
+        &::after {
+            content: none;
+        }
+    }
+}
+
+.hero-intro {
+    margin: 0;
+    max-width: 620px;
+    font-size: 19px;
+    color: $texte-secondaire;
+}
+
+.hero-boutons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.hero-promesses {
+    flex: 1 1 320px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 32px;
+    border: 1px solid $bordure;
+    border-radius: 20px;
+    background: white;
+    box-sizing: border-box;
+}
+
+.hero-promesses-titre {
+    margin: 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.promesse {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+
+    p {
+        margin: 0;
+    }
+}
+
+.promesse-texte {
+    color: $texte-secondaire;
+}
+
+.promesse-pastille {
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+}
+
+.promesse-pastille--lilas {
+    background: $lilas;
+    color: $lilas-encre;
+}
+
+.promesse-pastille--rose {
+    background: $rose;
+    color: $rose-encre;
+}
+
+.promesse-pastille--sauge {
+    background: $sauge;
+    color: $sauge-encre;
+}
+
+// --- Références ------------------------------------------------------------------
+
+.accueil-references-ligne {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 32px;
+    align-items: center;
+    padding-bottom: 56px;
+}
+
+.references-label {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $texte-secondaire;
+}
+
+.references-liste {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 28px;
     margin: 0;
     padding: 0;
-  }
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='9' numOctaves='4' seed='2' /%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 2;
-    mix-blend-mode: overlay;
-  }
-  
-  .header-content {
-    position: static;
-    z-index: 10;
-    text-align: center;
-    max-width: 500px;
-    width: 90%;
-    margin: 30px auto;
-    
-    h1, h2 {
-      opacity: 1;
-      visibility: visible;
-      margin: 15px 0 15px 0;
-      font-size: 28px;
-      &::after {
-        background: $main-color !important;
-      }
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    font-size: 19px;
+    color: $texte;
+}
+
+// --- Réalisations ------------------------------------------------------------------
+
+.accueil-realisations {
+    background: white;
+    border-top: 1px solid $bordure;
+    border-bottom: 1px solid $bordure;
+
+    > .conteneur {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        padding-top: 96px;
+        padding-bottom: 96px;
     }
-    
-    p {
-      opacity: 1;
-      visibility: visible;
-      margin: 10px auto 20px;
-    }
-  }
-  
-  .buttons-social {
-    gap: 20px;
+}
+
+.filtres {
     display: flex;
-    margin: 20px auto;
-    flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      background-color: $main-color;
-      color: white;
-      @include btn;
-      @include zoom-btn;
-      
-      &:first-child {
-        flex-basis: 100%;
-        max-width: 300px;
-      }
-      
-      &:not(:first-child) {
-        flex: 0 0 auto;
-      }
-    }
-  }
-  
-  .toggle-button {
-    margin: 10px auto;
-    @include zoom-btn;
-  }
+    gap: 8px;
 }
 
-@media (min-width: 992px) {
-  .header-banner {
-    position: relative;
-    
-    .header-content {
-      position: absolute;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      padding: 40px;
-      max-width: 400px;
-      width: auto;
-      
-      top: 50%;
-      right: 50px;
-      transform: translate(0, -50%);
-      margin: 0;
-      z-index: 10;
-      
-      h1, h2 {
+.filtre {
+    font: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 11px 18px;
+    border: 1.5px solid $encre;
+    border-radius: 999px;
+    background: transparent;
+    color: $encre;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &[aria-pressed="true"] {
+        background: $encre;
+        color: white;
+    }
+}
+
+.filtre-compte {
+    opacity: 0.7;
+}
+
+.grille-projets {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+// --- Témoignages ---------------------------------------------------------------------
+
+.accueil-temoignages > .conteneur {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding-top: 96px;
+
+    h2 {
+        margin: 0;
+        font-size: clamp(2rem, 3.5vw, 2.75rem);
+        letter-spacing: -0.01em;
         text-align: left;
-        margin-bottom: 15px;
-      }
-      
-      p, .base-text {
-        font-size: 1em;
+        padding-bottom: 0;
+        color: $encre;
+
+        &::after {
+            content: none;
+        }
+    }
+}
+
+.temoignages-grille {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.temoignage {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 900px;
+    margin: 0;
+    padding: 40px;
+    border: 1px solid $bordure;
+    border-radius: 18px;
+    background: white;
+
+    blockquote {
+        margin: 0;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 1.45;
+    }
+
+    figcaption {
+        font-size: 15px;
+        color: $texte-secondaire;
+
+        strong {
+            color: $encre;
+        }
+    }
+
+    @media (max-width: 767px) {
+        padding: 28px;
+
+        blockquote {
+            font-size: 19px;
+        }
+    }
+}
+
+// --- Services --------------------------------------------------------------------------
+
+.accueil-services > .conteneur {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-top: 96px;
+    padding-bottom: 96px;
+}
+
+.lignes-offres {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid $bordure;
+}
+
+.ligne-offre {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 32px;
+    align-items: center;
+    padding: 26px 0;
+    border-bottom: 1px solid $bordure;
+    color: $encre;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: $violet-fonce;
+
+        .icone-fleche {
+            transform: translateX(4px);
+        }
+    }
+}
+
+.ligne-offre-titre {
+    flex: 1 1 280px;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    font-size: 23px;
+}
+
+.ligne-offre-texte {
+    flex: 999 1 360px;
+    color: $texte-secondaire;
+}
+
+.ligne-offre-prix {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    font-weight: 600;
+}
+
+.garanties {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: $texte;
+}
+
+.encart-associations {
+    align-self: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    align-items: center;
+    padding: 16px 22px;
+    border-radius: 14px;
+    background: $sauge;
+    color: $sauge-encre;
+    text-decoration: none;
+
+    strong {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 18px;
+    }
+
+    &:hover {
+        color: $sauge-encre;
+
+        .icone-fleche {
+            transform: translateX(4px);
+        }
+    }
+}
+
+// --- À propos -----------------------------------------------------------------------------
+
+.accueil-apropos {
+    background: #ede6df;
+}
+
+.accueil-apropos-grille {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 48px;
+    align-items: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.portrait {
+    flex: none;
+    width: 160px;
+    height: 160px;
+    border-radius: 999px;
+    object-fit: cover;
+    object-position: 50% 25%;
+}
+
+.accueil-apropos-texte {
+    flex: 999 1 480px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    h2 {
+        margin: 0;
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+        letter-spacing: -0.01em;
         text-align: left;
-        margin-bottom: 20px;
-      }
-    }
-    
-    .buttons-social {
-      box-sizing: content-box;
-      flex-direction: row;
-      margin: 0;
-    }
-  }
-  .hook-services {
-    margin-top: 30px;
-  }
-}
-.cta {
-  background-color: $main-color;
-  color: white;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  h2 {
-    color: white;
-    &::after {
-      background: white !important;
-    }
-  }
-  .btn {
-    background-color: $component;
-    color: $main-color;
-  }
-}
+        padding-bottom: 0;
+        color: $encre;
 
-.me {
-  @include flex-row-center;
-  margin-bottom: 20px;
-  gap: 20px;
-  img {
-    max-width: 300px;
-    margin: 0 auto 20px;
-    @include img-card;
-  }
-  .base-text {
-    @include highlight-card;
-  }
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-// Section démo technique - volontairement distincte des projets clients :
-// encadré sobre, titre réduit, bouton secondaire, pour ne pas concurrencer
-// le CTA principal ni se confondre avec le carrousel de réalisations.
-.tech-demo {
-  .tech-demo-card {
-    max-width: 720px;
-    width: 100%;
-    box-sizing: border-box;
-    margin: 10px auto 20px;
-    padding: 25px;
-    border: 1px dashed rgba($main-color, 0.45);
-    border-radius: 12px;
-    background-color: rgba($main-color, 0.03);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .tech-demo-label {
-    display: inline-block;
-    align-self: center;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    color: $main-color;
-    background-color: rgba($main-color, 0.1);
-    padding: 4px 10px;
-    border-radius: 4px;
-  }
-
-  h2 {
-    font-size: 1.15rem;
-    margin: 12px 0 0;
-    padding-bottom: 0;
-
-    &::after {
-      content: none;
-    }
-  }
-
-  .base-text {
-    max-width: 560px;
-    margin: 10px auto 0;
-  }
-
-  .tech-demo-preview {
-    width: 100%;
-    max-width: 560px;
-    aspect-ratio: 16 / 10;
-    margin: 18px auto 0;
-    border: 1px dashed rgba($main-color, 0.35);
-    border-radius: 8px;
-    background-color: rgba($main-color, 0.04);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    span {
-      font-size: 13px;
-      font-weight: 500;
-      color: rgba($main-color, 0.75);
+        &::after {
+            content: none;
+        }
     }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-  }
-
-  .btn-secondary {
-    margin-top: 18px;
-  }
-
-  .tech-demo-notice {
-    font-size: 12px;
-    font-style: italic;
-    color: $light-text;
-    margin: 12px 0 0;
-  }
-}
-
-.offers-container {
-@include grid-4;
-  // auto-fit plutot qu'un nombre de colonnes fige : la grille s'ajuste au
-  // nombre d'offres affichees (3 aujourd'hui, 4 quand "Gestion de projet
-  // digital" sera ajoutee) sans laisser de colonne vide.
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-
-  @media (max-width: 991px) {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .offer-card {
-    @include highlight-card;
-    justify-content: space-between;
-    svg {
-      color: $main-color;
-      font-size: 45px;
-      margin-top: 20px;
-    }    
-    h3 {
-      color: $main-color;
-      text-align: center;
-    }
-    
     p {
-      text-align: center;
+        margin: 0;
+        max-width: 680px;
+        font-size: 18px;
+        color: $texte;
     }
-    span {
-      display: block;
-      text-align: center;
-      margin-top: 10px;
-      font-weight: bold;
+
+    .lien-fleche {
+        align-self: flex-start;
+        padding: 10px 0;
     }
-  }
+}
+
+// --- Contact --------------------------------------------------------------------------------
+
+.accueil-contact {
+    background: $encre;
+    color: $creme;
+}
+
+.accueil-contact-bloc {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding-top: 96px;
+    padding-bottom: 96px;
+
+    h2 {
+        margin: 0;
+        font-size: clamp(2rem, 3.5vw, 2.75rem);
+        letter-spacing: -0.01em;
+        text-align: left;
+        padding-bottom: 0;
+        color: $creme;
+
+        &::after {
+            content: none;
+        }
+    }
+}
+
+.accueil-contact-intro {
+    margin: 0;
+    font-size: 18px;
+    // Lilas très clair sur l'encre : contraste largement au-dessus du seuil.
+    color: #d9d1e0;
+}
+
+.accueil-contact-email {
+    font-weight: 600;
+    font-size: 18px;
+    color: $creme;
+    text-decoration: underline;
 }

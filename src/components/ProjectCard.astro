@@ -1,30 +1,41 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import ProjectVisuel from "./ProjectVisuel.astro";
+import { estTagIA } from "../lib/site";
 
 interface Props {
   projet: CollectionEntry<"projets">;
-  compact?: boolean;
 }
 
-const { projet, compact = false } = Astro.props;
+const { projet } = Astro.props;
 const d = projet.data;
 
-// Mise en page transitoire : la grille et les cartes définitives de la
-// maquette arrivent aux étapes 4 et 5. Ici, seuls les champs du nouveau
-// schéma sont câblés.
+// La carte ne montre que les premiers outils, pour garder trois lignes de
+// tags au plus. « Développé avec l'IA » est conservé même au-delà : c'est
+// une façon de travailler, pas un outil de plus.
+const PREMIERS = 3;
+const tags = d.competences.slice(0, PREMIERS);
+const tagIA = d.competences.find(estTagIA);
+if (tagIA && !tags.includes(tagIA)) tags.push(tagIA);
 ---
 
-<div class:list={["card-works", compact && "card-works--compact"]}>
-  <a href={`/realisations/${projet.id}/`} aria-label={`Voir le projet ${d.nomCourt}`}>
-    <ProjectVisuel projet={projet} />
-  </a>
-  <div class="card-content">
-    <div>
-      <p class="work-category">{d.mention}</p>
-      <h3>{d.titreCarte}</h3>
-      <p class="work-statut">{d.statutAffiche}</p>
+<a class="carte-projet" href={`/realisations/${projet.id}/`}>
+  <ProjectVisuel projet={projet} />
+  <div class="carte-projet-corps">
+    <div class="carte-projet-entete">
+      <span class="carte-projet-mention">{d.mention}</span>
+      <span class="carte-projet-statut">{d.statutAffiche}</span>
     </div>
-    <a href={`/realisations/${projet.id}/`} class="btn-secondary">Voir le projet</a>
+    <h3 class="carte-projet-titre">{d.titreCarte}</h3>
+    <p class="carte-projet-resume">{d.resume}</p>
+    <div class="carte-projet-tags">
+      {
+        tags.map((tag) => (
+          <span class:list={["tag-outil", estTagIA(tag) && "tag-outil--ia"]}>
+            {tag}
+          </span>
+        ))
+      }
+    </div>
   </div>
-</div>
+</a>

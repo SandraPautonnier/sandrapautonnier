@@ -16,6 +16,7 @@
 // gabarit de la maquette.
 @import "./components/projectDetail";
 @import "./components/ProjectVisuel";
+@import "./components/ProjectCard";
 @import "./utils/colors";
 // Les polices sont self-hébergées via @fontsource, importées dans
 // BaseLayout.astro. Plus aucun appel à fonts.googleapis.com.
@@ -272,4 +273,13 @@ button {
   padding: 12px; /* Augmente la zone cliquable */
   margin: 5px;  /* Espacement entre les éléments */
   background: transparent; /* Garde l’apparence actuelle */
+}
+// Pages de la refonte : le conteneur ne borne plus la largeur, chaque
+// section pose la sienne. Permet les bandes de couleur bord à bord.
+.header-main--fluide {
+    max-width: none;
+}
+
+.header-main--fluide > header {
+    margin: 0 24px;
 }
