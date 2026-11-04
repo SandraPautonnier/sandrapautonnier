@@ -3,9 +3,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-  title="Mentions légales | Sukiweb - Sandra Pautonnier"
+  title="Mentions légales | Sandra Pautonnier"
   description="Mentions légales du site sandrapautonnier.com : éditeur, hébergeur, propriété intellectuelle, responsabilité et traitement des données personnelles."
   pageClass="legalnotice"
+  breadcrumb={[
+    { nom: "Accueil", url: "/" },
+    { nom: "Mentions légales", url: "/mentions-legales/" },
+  ]}
 >
 
             <h1>Mentions légales</h1>

@@ -68,14 +68,21 @@ const FORMATIONS = [
   { titre: "BAC PRO Commerce", precision: "· 2012 – 2014" },
 ];
 
+// Le nœud Person du site est déjà posé par SEO.astro, avec l'identifiant
+// #sandra auquel renvoient founder et author. On ne le redéclare pas ici :
+// deux Person pour la même personne brouilleraient le graphe. On complète
+// seulement le nœud existant avec ce que la page apporte.
 const personne = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: SITE.personne,
-  jobTitle: "Développeuse web et cheffe de projet",
-  url: new URL("/a-propos/", SITE.url).href,
-  worksFor: { "@id": `${SITE.url}/#professionalservice` },
-  sameAs: SITE.reseaux,
+  "@id": `${SITE.url}/#sandra`,
+  mainEntityOfPage: new URL("/a-propos/", SITE.url).href,
+  alumniOf: "Titre RNCP Développeur informatique",
+  knowsAbout: [
+    "Création de sites internet",
+    "Référencement naturel",
+    "Gestion de projet digital",
+    "Automatisation et IA",
+  ],
 };
 
 const breadcrumb = [

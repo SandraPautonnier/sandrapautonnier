@@ -79,3 +79,17 @@ export function estTagIA(tag: string): boolean {
     "développé avec l'ia"
   );
 }
+
+/**
+ * Coupe un texte pour une meta description, sans casser de mot.
+ *
+ * Une simple troncature à 155 caractères laissait des fins comme
+ * « …et réseaux sociaux. Bientôt pr ». On recule jusqu'au dernier espace et
+ * on marque la coupe par une ellipse.
+ */
+export function descriptionCourte(texte: string, max = 155): string {
+  if (texte.length <= max) return texte;
+  const coupe = texte.slice(0, max - 1);
+  const espace = coupe.lastIndexOf(" ");
+  return (espace > 0 ? coupe.slice(0, espace) : coupe).replace(/[,;:.\s]+$/, "") + "…";
+}

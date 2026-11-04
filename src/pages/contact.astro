@@ -22,10 +22,14 @@ const CALENDLY_EMBED = `${BOOKING_URL}?hide_event_type_details=1&hide_gdpr_banne
 ---
 
 <BaseLayout
-  title="Sukiweb - Contactez-moi pour votre projet web"
-  description="Contactez Sandra Pautonnier, développeuse web spécialisée en création de sites performants, modernes et sur-mesure. Obtenez un accompagnement humain, une expertise technique et créative pour votre projet web."
+  title="Contact – Sandra Pautonnier, développeuse web au Mans"
+  description="Réserver un appel de 30 minutes ou m'écrire : réponse sous 48 h ouvrées, du lundi au vendredi de 10 h à 17 h. Le Mans, Sarthe et à distance."
   pageClass="contact"
   mainClass="contact-container"
+  breadcrumb={[
+    { nom: "Accueil", url: "/" },
+    { nom: "Contact", url: "/contact/" },
+  ]}
 >
   <div class="banner" slot="banner" role="region" aria-label="Présentation - Contact">
     <Image src={ImageContact} alt="Photo de Sandra" loading="lazy" />

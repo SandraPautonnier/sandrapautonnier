@@ -7,7 +7,7 @@ import BandeAppel from "../../components/BandeAppel.astro";
 import Fleche from "../../components/icones/Fleche.astro";
 import FlecheGauche from "../../components/icones/FlecheGauche.astro";
 import LienExterne from "../../components/icones/LienExterne.astro";
-import { estTagIA } from "../../lib/site";
+import { descriptionCourte, estTagIA, SITE } from "../../lib/site";
 
 export async function getStaticPaths() {
   const projets = (await getCollection("projets"))
@@ -44,13 +44,49 @@ const d = projet.data;
 // Garde-fou : aucun lien externe tant que le projet n'est pas en ligne, même
 // si un fichier venait à en porter un.
 const lien = d.statut === "en-ligne" ? d.lien : undefined;
+
+const urlFiche = new URL(`/realisations/${projet.id}/`, SITE.url).href;
+
+const creativeWork: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  name: d.titre,
+  headline: d.titreCarte,
+  description: d.resume,
+  url: urlFiche,
+  author: { "@id": `${SITE.url}/#sandra` },
+  dateCreated: String(d.annee),
+  keywords: d.competences.join(", "),
+  inLanguage: "fr-FR",
+};
+
+if (d.cover) creativeWork.image = new URL(d.cover.src, SITE.url).href;
+if (d.client) creativeWork.sourceOrganization = { "@type": "Organization", name: d.client };
+if (lien) creativeWork.sameAs = lien.url;
+
+// Un seul témoignage réel à ce jour, celui de VELA. Aucune note n'ayant été
+// donnée, le Review n'en porte pas : en inventer une serait un faux avis.
+if (d.temoignage) {
+  creativeWork.review = {
+    "@type": "Review",
+    reviewBody: d.temoignage.texte,
+    inLanguage: "fr-FR",
+    author: {
+      "@type": "Person",
+      name: d.temoignage.auteur,
+      jobTitle: d.temoignage.fonction,
+    },
+    itemReviewed: { "@type": "CreativeWork", name: d.titre, url: urlFiche },
+  };
+}
 ---
 
 <BaseLayout
   title={`${d.nomCourt} : ${d.titreCarte} | Sandra Pautonnier`}
-  description={d.resume.slice(0, 155)}
+  description={descriptionCourte(d.resume)}
   pageClass="fiche-projet"
   pleineLargeur
+  jsonLd={[creativeWork]}
   breadcrumb={[
     { nom: "Accueil", url: "/" },
     { nom: "Réalisations", url: "/realisations/" },
