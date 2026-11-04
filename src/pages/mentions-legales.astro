@@ -87,7 +87,7 @@ import { DATE_MAJ_LEGALES, SITE } from "../lib/site";
       <p>
         Vous disposez d'un droit d'accès, de rectification, d'effacement,
         d'opposition, de limitation et de portabilité de vos données. Pour
-        l'exercer, écrivez à
+        l'exercer, écrivez à{" "}
         <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. Vous pouvez aussi
         adresser une réclamation à la CNIL (<a
           href="https://www.cnil.fr"
@@ -100,41 +100,47 @@ import { DATE_MAJ_LEGALES, SITE } from "../lib/site";
     <section class="legal-section">
       <h2>5. Cookies et services tiers</h2>
       <p>
-        Le site ne dépose aucun cookie publicitaire et ne revend aucune donnée.
-        Il utilise une mesure d'audience, Google Analytics, qui dépose les
-        cookies suivants dès l'ouverture de la première page :
+        <strong>Ce site ne dépose aucun cookie.</strong> Il n'utilise ni cookie
+        publicitaire, ni mesure d'audience déposant un traceur sur votre
+        appareil, et ne revend aucune donnée. La fréquentation est suivie à
+        partir des journaux de connexion du serveur, qui ne permettent pas de
+        vous identifier individuellement.
       </p>
 
-      <div class="legal-tableau">
-        <table>
-          <caption class="visuellement-cache">
-            Cookies déposés par le site
-          </caption>
-          <thead>
-            <tr>
-              <th scope="col">Cookie</th>
-              <th scope="col">Déposé par</th>
-              <th scope="col">À quoi il sert</th>
-              <th scope="col">Durée</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              TRACEURS.map((t) => (
+      {
+        TRACEURS.length > 0 && (
+          <div class="legal-tableau">
+            <table>
+              <caption class="visuellement-cache">
+                Cookies déposés par le site
+              </caption>
+              <thead>
                 <tr>
-                  <td><code>{t.nom}</code></td>
-                  <td>{t.depose}</td>
-                  <td>{t.role}</td>
-                  <td>{t.duree}</td>
+                  <th scope="col">Cookie</th>
+                  <th scope="col">Déposé par</th>
+                  <th scope="col">À quoi il sert</th>
+                  <th scope="col">Durée</th>
                 </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
+              </thead>
+              <tbody>
+                {TRACEURS.map((t) => (
+                  <tr>
+                    <td>
+                      <code>{t.nom}</code>
+                    </td>
+                    <td>{t.depose}</td>
+                    <td>{t.role}</td>
+                    <td>{t.duree}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )
+      }
 
       <p>
-        Trois services extérieurs sont contactés par votre navigateur lorsque
+        Deux services extérieurs sont contactés par votre navigateur lorsque
         vous consultez le site :
       </p>
       <ul>
@@ -152,8 +158,10 @@ import { DATE_MAJ_LEGALES, SITE } from "../lib/site";
         selon sa politique de confidentialité.
       </p>
       <p>
-        Vous pouvez refuser ou supprimer ces cookies depuis les réglages de votre
-        navigateur. Le site reste entièrement consultable sans eux.
+        Ces cookies-là sont déposés par Calendly, sur son propre domaine, et
+        seulement sur la page Contact. Vous pouvez les refuser ou les supprimer
+        depuis les réglages de votre navigateur : le reste du site est
+        entièrement consultable sans eux.
       </p>
     </section>
 

@@ -511,3 +511,35 @@ en ligne chez Hostinger.
 
 Les 21 autres pages ne chargent aucun fichier JavaScript : seuls des scripts
 courts en ligne (menu, filtres, Google Analytics).
+
+### Google Analytics retiré — le site ne dépose plus aucun cookie ✅
+
+Le besoin tenait en une phrase : savoir combien de visiteurs passent. Google
+Analytics y répondait au prix de quatre cookies déposés avant tout
+consentement, donc d'un bandeau obligatoire — lequel aurait, par construction,
+donné un **comptage incomplet**, puisque seuls les visiteurs qui acceptent
+sont mesurés.
+
+Les journaux du serveur, côté hébergeur, répondent à la même question sans
+rien déposer, sans bandeau, et en comptant tout le monde. GA est donc retiré.
+
+Mesuré après coup, navigateur vidé :
+
+| Page | Cookies | Hôtes tiers contactés |
+| --- | --- | --- |
+| Accueil | **aucun** | aucun |
+| Fiche projet | **aucun** | aucun |
+| `/contact/` | **aucun sur ce domaine** | calendly.com, assets.calendly.com |
+
+Ni `localStorage`, ni `sessionStorage`, ni base IndexedDB. Plus aucune trace de
+`gtag`, `dataLayer`, `googletagmanager` ou `google-analytics` dans le site
+construit. La section Cookies des mentions légales dit désormais, en premier
+mot, que le site n'en dépose aucun.
+
+Reste le cas de Calendly, qui pose ses propres cookies dans son iframe, sur
+son domaine, et seulement sur `/contact/`. Le chargement au clic reste la
+piste pour les éviter à qui ne prend pas rendez-vous.
+
+Le tag mort `UA-196212309-1` disparaît avec GA côté site. Il peut encore être
+débranché proprement dans le compte Google Analytics, pour que la propriété
+GA4 cesse de le réclamer.

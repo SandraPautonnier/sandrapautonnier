@@ -74,19 +74,12 @@ const {
       breadcrumb={breadcrumb}
     />
 
-    <!-- Google tag (gtag.js) -->
-    <script
-      is:inline
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-GM6HT25D18"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-GM6HT25D18");
-    </script>
+    <!--
+      Pas de mesure d'audience ici. Google Analytics déposait quatre cookies
+      dès la première page, avant tout consentement, pour un besoin qui se
+      résume à compter les visiteurs : les statistiques du serveur, côté
+      hébergeur, y répondent sans rien déposer et sans bandeau.
+    -->
   </head>
   <body>
     <div class={pageClass}>
