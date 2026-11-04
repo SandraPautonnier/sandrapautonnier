@@ -29,6 +29,13 @@ export const SITE = {
 export const BOOKING_URL = "https://calendly.com/sandrapautonnier/rdv";
 
 /**
+ * Date affichée en tête des mentions légales. À remplacer par la date de
+ * mise en ligne réelle le jour du déploiement, et à chaque modification du
+ * texte légal ensuite.
+ */
+export const DATE_MAJ_LEGALES = "4 novembre 2026";
+
+/**
  * Deux adresses exposées : Le Mans, base opérationnelle et ancrage local
  * principal (donc en premier), et Paris, siège social déclaré. La seconde
  * reprend mot pour mot les mentions légales, afin que les données

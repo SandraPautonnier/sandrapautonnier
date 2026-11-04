@@ -403,3 +403,49 @@ page à utiliser encore le bandeau. Corrigé par `width: 100%` et `height: auto`
 Je l'avais annoncé corrigé à l'étape 3 : ma mesure d'alors avait été prise
 avant le chargement de l'image, qui compte pour zéro tant qu'elle n'est pas
 arrivée. Les mesures de l'étape 7 laissent désormais 900 ms de chargement.
+
+### Inventaire des cookies : le texte de la maquette était faux — 🔴 bloquant
+
+Relevé sur le site construit, navigateur vidé, **sans aucune interaction** :
+l'accueil, une fiche projet et `/contact/` déposent chacun **quatre cookies
+Google Analytics** dès l'ouverture.
+
+| Cookie | Déposé par | Durée |
+| --- | --- | --- |
+| `_ga` | Google Analytics 4 (`G-GM6HT25D18`) | 13 mois |
+| `_ga_GM6HT25D18` | Google Analytics 4 | 13 mois |
+| `_gid` | Google Analytics | 24 heures |
+| `_gat_gtag_UA_196212309_1` | Universal Analytics (`UA-196212309-1`) | 1 minute |
+
+La section Cookies de la maquette annonçait : « Le site n'utilise pas de
+cookie publicitaire. Le module de prise de rendez-vous Calendly peut déposer
+des cookies nécessaires à son fonctionnement **lorsque vous l'utilisez**. »
+Deux inexactitudes : la mesure d'audience n'y figure pas du tout, et Calendly
+se charge dès l'ouverture de `/contact/`, pas à l'usage.
+
+La section publiée décrit l'état réel. Elle devra être reprise si la mesure
+d'audience change : la liste vit dans `src/lib/cookies.ts`.
+
+**Deux points restent à trancher avant la mise en ligne :**
+
+1. **Consentement.** Ces quatre cookies ne sont pas nécessaires au
+   fonctionnement du site. En France, la mesure d'audience Google Analytics
+   dans sa configuration standard n'entre pas dans l'exemption de consentement
+   de la CNIL. Les déposer avant tout choix du visiteur n'est pas conforme.
+2. **Le tag Universal Analytics est mort.** `UA-196212309-1` est une propriété
+   Universal Analytics, arrêtée par Google en juillet 2024 : elle ne collecte
+   plus rien. Elle est encore chargée parce que la propriété GA4 porte un
+   « tag de site connecté ». Résultat : un script et un cookie de plus, pour
+   zéro donnée. À débrancher côté Google Analytics, dans les paramètres du
+   flux de données.
+
+### Calendly se charge avant qu'on le demande — 🟠 important
+
+Sur `/contact/`, le script `assets.calendly.com/assets/external/widget.js` et
+l'iframe `calendly.com` partent au chargement de la page, même si le visiteur
+ne vient que pour le formulaire. Calendly dépose ses propres cookies dans cette
+iframe.
+
+Un chargement au clic (un bouton « Afficher l'agenda » qui remplace le cadre)
+supprimerait ce dépôt pour qui ne prend pas rendez-vous, et allègerait la page.
+Rien n'a été installé : c'est un changement de comportement à valider.

@@ -1,99 +1,167 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { SERVICES_TIERS, TRACEURS } from "../lib/cookies";
+import { DATE_MAJ_LEGALES, SITE } from "../lib/site";
 ---
 
 <BaseLayout
   title="Mentions légales | Sandra Pautonnier"
   description="Mentions légales du site sandrapautonnier.com : éditeur, hébergeur, propriété intellectuelle, responsabilité et traitement des données personnelles."
   pageClass="legalnotice"
+  pleineLargeur
   breadcrumb={[
     { nom: "Accueil", url: "/" },
     { nom: "Mentions légales", url: "/mentions-legales/" },
   ]}
 >
+  <div class="legal">
+    <div class="legal-entete">
+      <nav class="fil-ariane" aria-label="Fil d'Ariane">
+        <a href="/">Accueil</a> / Mentions légales
+      </nav>
+      <h1>Mentions légales</h1>
+      <p class="legal-date">Dernière mise à jour : {DATE_MAJ_LEGALES}</p>
+    </div>
 
-            <h1>Mentions légales</h1>
+    <section class="legal-section">
+      <h2>1. Éditeur du site</h2>
+      <p>Le site sandrapautonnier.com est édité par :</p>
+      <ul>
+        <li>
+          Sandra Pautonnier, entrepreneuse individuelle (EI), nom commercial
+          Sukiweb
+        </li>
+        <li>Adresse : 58 rue de Ponthieu, bureau 326, 75008 Paris</li>
+        <li>SIRET : {SITE.siret}</li>
+        <li>E-mail : <a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+        <li>TVA non applicable, article 293 B du CGI</li>
+      </ul>
+      <p>Directrice de la publication : Sandra Pautonnier.</p>
+    </section>
 
-            <h2>1. Éditeur du site</h2>
-            <p>
-              Le présent site, accessible à l’adresse https://sandrapautonnier.com, 
-              est édité par :
-            </p>
-            <p>
-              <strong>Sandra Pautonnier</strong>, Entrepreneur individuel (micro-entreprise)<br />
-              Nom commercial : Sukiweb<br />
-              SIRET : 88320435600033<br />
-              Code APE : 6201Z<br />
-              Siège social : 59 RUE de Ponthieu, Bureau 326, 75008 Paris, France<br />
-              Email : contact@sandrapautonnier.com
-            </p>
-            <p>
-              Directeur de la publication : Sandra Pautonnier
-            </p>
+    <section class="legal-section">
+      <h2>2. Hébergement</h2>
+      <p>
+        Le site est hébergé par Hostinger International Ltd, 61 Lordou Vironos
+        Street, 6023 Larnaca, Chypre,
+        <a href="https://www.hostinger.fr" target="_blank" rel="noopener noreferrer">
+          hostinger.fr
+        </a>.
+      </p>
+    </section>
 
-            <h2>2. Hébergement</h2>
-            <p>
-              Le site est hébergé par 
-              <strong> Hostinger International Ltd</strong><br />
-              61 Lordou Vironos Street, 6023 Larnaca, Chypre<br />
-              Site web : https://www.hostinger.fr
-            </p>
+    <section class="legal-section">
+      <h2>3. Propriété intellectuelle</h2>
+      <p>
+        Les textes, visuels, logos et le code de ce site sont la propriété de
+        Sandra Pautonnier, sauf mention contraire. Toute reproduction, totale ou
+        partielle, sans autorisation écrite est interdite.
+      </p>
+      <p>
+        Les captures des projets clients sont publiées avec l'accord des clients
+        concernés. Les noms et marques cités appartiennent à leurs propriétaires
+        respectifs.
+      </p>
+    </section>
 
-            <h2>3. Propriété intellectuelle</h2>
-            <p>
-              L’ensemble des éléments constituant le site (textes, images, photographies, 
-              graphismes, logo, icônes, vidéos, éléments visuels, structure, code source, 
-              développement, architecture, design, bases de données et tout autre contenu) 
-              sont protégés par le droit de la propriété intellectuelle.
-            </p>
-            <p>
-              Sauf mention contraire, ces éléments sont la propriété exclusive de 
-              Sukiweb - Sandra Pautonnier.
-            </p>
-            <p>
-              Toute reproduction, représentation, modification, publication, transmission, 
-              dénaturation, totale ou partielle du site ou de son contenu, par quelque procédé 
-              que ce soit, sans autorisation écrite préalable est interdite et constitue une 
-              contrefaçon susceptible d’engager la responsabilité civile et pénale de son auteur.
-            </p>
-            <p>
-              Toute utilisation non autorisée du site ou de l’un quelconque de ses éléments 
-              pourra faire l’objet de poursuites conformément aux dispositions du 
-              Code de la propriété intellectuelle.
-            </p>
+    <section class="legal-section">
+      <h2>4. Données personnelles</h2>
+      <p>
+        Ce site collecte le moins de données possible. Responsable du traitement :
+        Sandra Pautonnier, à l'adresse indiquée plus haut.
+      </p>
+      <ul>
+        <li>
+          <strong>Formulaire de contact</strong> : nom, e-mail et message,
+          transmis par e-mail via le service EmailJS. Ils servent uniquement à
+          vous répondre et sont conservés 3 ans après notre dernier échange.
+        </li>
+        <li>
+          <strong>Prise de rendez-vous</strong> : elle passe par Calendly, qui
+          traite vos informations selon sa propre politique de confidentialité.
+        </li>
+        <li>
+          Aucune donnée n'est vendue, louée ni utilisée à des fins publicitaires.
+        </li>
+      </ul>
+      <p>
+        Vous disposez d'un droit d'accès, de rectification, d'effacement,
+        d'opposition, de limitation et de portabilité de vos données. Pour
+        l'exercer, écrivez à
+        <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. Vous pouvez aussi
+        adresser une réclamation à la CNIL (<a
+          href="https://www.cnil.fr"
+          target="_blank"
+          rel="noopener noreferrer">cnil.fr</a
+        >).
+      </p>
+    </section>
 
-            <h2>4. Responsabilité</h2>
-            <p>
-              L’éditeur s’efforce de fournir des informations exactes et à jour. 
-              Toutefois, il ne saurait être tenu responsable des omissions, inexactitudes 
-              ou défauts de mise à jour.
-            </p>
+    <section class="legal-section">
+      <h2>5. Cookies et services tiers</h2>
+      <p>
+        Le site ne dépose aucun cookie publicitaire et ne revend aucune donnée.
+        Il utilise une mesure d'audience, Google Analytics, qui dépose les
+        cookies suivants dès l'ouverture de la première page :
+      </p>
 
-            <h2>5. Données personnelles</h2>
-            <p>
-              Les données collectées via le formulaire de contact et l’envoi d’un email pour une estimation (nom, email et contenu du message)
-              sont utilisées uniquement pour traiter votre demande et échanger dans le cadre de la relation professionnelle.
-            </p>
-            <p>
-              Si vous ne devenez pas client, elles sont conservées <strong>1 an maximum</strong> à compter du dernier échange, et peuvent donner lieu à
-              <strong> une seule relance</strong> par email concernant votre projet.
-            </p>
-            <p>
-              Si une prestation est conclue, certaines données nécessaires à la facturation et à la comptabilité sont conservées pendant la
-              <strong> durée légale de 10 ans</strong>.
-            </p>
-            <p>
-              Conformément au Règlement Général sur la Protection des Données (RGPD), 
-              vous disposez d’un droit d’accès, de rectification, d’effacement et 
-              d’opposition concernant vos données personnelles.
-            </p>
-            <p>
-              Pour exercer ces droits : contact@sandrapautonnier.com
-            </p>
+      <div class="legal-tableau">
+        <table>
+          <caption class="visuellement-cache">
+            Cookies déposés par le site
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Cookie</th>
+              <th scope="col">Déposé par</th>
+              <th scope="col">À quoi il sert</th>
+              <th scope="col">Durée</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              TRACEURS.map((t) => (
+                <tr>
+                  <td><code>{t.nom}</code></td>
+                  <td>{t.depose}</td>
+                  <td>{t.role}</td>
+                  <td>{t.duree}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
 
-            <h2>6. Cookies</h2>
-            <p>
-              Le site peut utiliser des cookies à des fins de fonctionnement et de 
-              mesure d’audience. L’utilisateur peut configurer son navigateur pour les refuser.
-            </p>
+      <p>
+        Trois services extérieurs sont contactés par votre navigateur lorsque
+        vous consultez le site :
+      </p>
+      <ul>
+        {
+          SERVICES_TIERS.map((s) => (
+            <li>
+              <strong>{s.nom}</strong> ({s.hotes}) — {s.quand}
+            </li>
+          ))
+        }
+      </ul>
+      <p>
+        L'agenda Calendly intégré à la page Contact peut déposer ses propres
+        cookies, nécessaires à son fonctionnement, et traite vos informations
+        selon sa politique de confidentialité.
+      </p>
+      <p>
+        Vous pouvez refuser ou supprimer ces cookies depuis les réglages de votre
+        navigateur. Le site reste entièrement consultable sans eux.
+      </p>
+    </section>
+
+    <section class="legal-section">
+      <h2>6. Crédits</h2>
+      <p>
+        Conception, rédaction et développement : Sandra Pautonnier – Sukiweb.
+      </p>
+    </section>
+  </div>
 </BaseLayout>
