@@ -375,3 +375,31 @@ et laquelle n'est pas prévisible. Trois sorties possibles :
 
 Rien n'a été tranché ici : il manque du texte, et en inventer serait contraire
 à la règle 3 du brief.
+
+### Données devenues inutilisées — 🔵 cosmétique
+
+La refonte a retiré deux affichages, et leurs données n'ont plus de lecteur :
+
+| Donnée | Servait à | Statut |
+| --- | --- | --- |
+| `src/content/competences.json` + sa collection | la grille « Mes compétences techniques » de l'ancienne page À propos | plus affichée : la maquette la remplace par « Formations » |
+| champs `icon` et `alt` de `services.json` | les icônes FontAwesome des cartes de l'accueil | plus affichés : la maquette présente les offres en lignes de texte |
+
+Rien n'a été supprimé — ce sont des données, et la grille de compétences peut
+revenir. Si tu n'en veux pas, retirer `competences.json`, sa déclaration dans
+`src/content.config.ts` et les deux champs de `services.json` allège le dépôt
+sans rien changer au rendu.
+
+### L'image de bannière débordait sous 500 px — 🟠 important (corrigé)
+
+`.banner img` portait `max-width: 500px` sans `width: 100%`. Un plafond de
+largeur n'oblige pas une image à rétrécir : sous 500 px de fenêtre, elle
+gardait ses 500 px et faisait défiler la page horizontalement. Mesuré sur
+`/contact/` à 375 px : largeur de défilement 520 px.
+
+Le défaut datait d'avant la refonte. Il ne touchait plus que `/contact/`, seule
+page à utiliser encore le bandeau. Corrigé par `width: 100%` et `height: auto`.
+
+Je l'avais annoncé corrigé à l'étape 3 : ma mesure d'alors avait été prise
+avant le chargement de l'image, qui compte pour zéro tant qu'elle n'est pas
+arrivée. Les mesures de l'étape 7 laissent désormais 900 ms de chargement.

@@ -1,155 +1,194 @@
 ---
-import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle, faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
-
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ImageProfile from "../assets/images/image_profil.webp";
-import Sandra from "../assets/images/Portrait_Sandra.webp";
-import Coupe from "../assets/images/Image_coupe.webp";
+import BandeAppel from "../components/BandeAppel.astro";
+import Portrait from "../assets/images/Portrait_Sandra.webp";
+import { SITE } from "../lib/site";
 
-const competences = await getCollection("competences");
+const POURQUOI = [
+  {
+    titre: "Double casquette",
+    texte:
+      "Je développe votre site et je pilote le projet : pas besoin de traduire entre un chef de projet et un développeur.",
+  },
+  {
+    titre: "Habituée aux projets à enjeux",
+    texte:
+      "En 2023, chez Enedis, j'étais la référente de l'Automobile Club de l'Ouest pour les bornes de recharge du centenaire des 24 Heures du Mans.",
+  },
+  {
+    titre: "Une seule interlocutrice",
+    texte:
+      "Vous parlez à la personne qui fait le travail, du premier échange au suivi après mise en ligne.",
+  },
+  {
+    titre: "Un numérique responsable",
+    texte:
+      "Des sites légers, des données protégées et hébergées en Europe quand c'est possible, et une IA utilisée seulement quand elle est vraiment utile.",
+  },
+];
 
-// L'âge est calculé au build (il part donc dans le HTML, visible des crawlers)
-// puis rafraîchi côté client s'il a vieilli entre deux déploiements.
-const BIRTH_DATE = "1992-07-28";
-const calculerAge = (iso: string, ref = new Date()) => {
-  const n = new Date(iso);
-  let age = ref.getFullYear() - n.getFullYear();
-  const m = ref.getMonth() - n.getMonth();
-  if (m < 0 || (m === 0 && ref.getDate() < n.getDate())) age--;
-  return age;
+const PARCOURS = [
+  {
+    periode: "Depuis 2026",
+    titre: "Sukiweb, mon activité indépendante",
+    texte:
+      "Création de sites, référencement, pilotage de projets numériques.",
+  },
+  {
+    periode: "2024 – 2025",
+    titre: "Titre RNCP Développeur informatique",
+    texte:
+      "Reconversion vers le développement web : front-end, back-end et projets en équipe.",
+  },
+  {
+    periode: "2021 – 2024",
+    titre: "Chargée de projets",
+    texte:
+      "Chez Enedis : assistante ingénieur projet, puis responsable des raccordements provisoires. Également au ministère de l'Agriculture, chez Dactem Développement et à l'Université du Mans.",
+  },
+  {
+    periode: "2016 – 2017",
+    titre: "Cheffe de projet événementiel",
+    texte:
+      "En service civique : organisation de A à Z d'un séminaire avec 5 établissements scolaires et des associations, sur le harcèlement et le décrochage scolaires.",
+  },
+  {
+    periode: "2014 – 2016",
+    titre: "Vendeuse en prêt-à-porter",
+    texte:
+      "Le commerce de l'intérieur : je sais ce qu'un client attend d'une boutique, en ligne comme en vrai.",
+  },
+];
+
+const FORMATIONS = [
+  { titre: "Titre RNCP Développeur informatique" },
+  { titre: "Intégrateur web", precision: "· OpenClassrooms" },
+  { titre: "BTS Assistant Manager" },
+  { titre: "BAC PRO Commerce", precision: "· 2012 – 2014" },
+];
+
+const personne = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: SITE.personne,
+  jobTitle: "Développeuse web et cheffe de projet",
+  url: new URL("/a-propos/", SITE.url).href,
+  worksFor: { "@id": `${SITE.url}/#professionalservice` },
+  sameAs: SITE.reseaux,
 };
-const age = calculerAge(BIRTH_DATE);
 
-const parcours = [
-  { periode: "2008-2010", titre: "BEP Métiers de la Mode" },
-  { periode: "2012-2014", titre: "BAC PRO Commerce" },
-  { periode: "2014-2016", titre: "Vendeuse Prêt-à-porter" },
-  { periode: "2016-2017", titre: "Cheffe de projet évenementiel" },
-  { periode: "2021-2024", titre: "Chargée de projets" },
-  { periode: "2024-2025", titre: "Titre RNCP Développeur informatique" },
-  { periode: "2025-auj.", titre: "Développeuse & Créatrice web intuitive" },
+const breadcrumb = [
+  { nom: "Accueil", url: "/" },
+  { nom: "À propos", url: "/a-propos/" },
 ];
 ---
 
 <BaseLayout
-  title="sukiweb - Profil de Sandra Pautonnier, développeuse web"
-  description="Profil de Sandra Pautonnier, développeuse web spécialisée en création de sites performants, modernes et sur-mesure. Découvrez son parcours, ses compétences techniques et ses réussites."
-  pageClass="profile"
+  title="Sandra Pautonnier, développeuse web au Mans | Sukiweb"
+  description="Développeuse web et cheffe de projet digitale au Mans. Parcours, formations et façon de travailler : un site, c'est autant d'organisation que de code."
+  pageClass="apropos"
+  pleineLargeur
+  jsonLd={[personne]}
+  breadcrumb={breadcrumb}
 >
-  <div class="banner" slot="banner" role="region" aria-label="Présentation - À propos">
-    <Image src={ImageProfile} alt="Image dessin d'un portrait carte de visite de Sandra Pautonnier" loading="lazy" />
-    <h1>A propos de Sandra Pautonnier</h1>
-    <div class="card-banner">
-      <p class="base-text">
-        Développeuse & Créatrice web intuitive, je conçois des applications
-        modernes centrées utilisateur avec React, Node.js et MongoDB.
-      </p>
-    </div>
-  </div>
-
-  <section class="hook-about margin">
-    <h2>Qui suis-je?</h2>
-    <div class="container-hook-about">
-      <div class="text-hook-about">
-        <div class="box">
-          <Image src={Sandra} alt="Portrait de Sandra Pautonnier" loading="lazy" />
-          <p class="base-text">
-            <span>Sandra Pautonnier</span> Développeuse & Créatrice web intuitive
-            de <span id="age-sandra" data-birth={BIRTH_DATE}>{age}</span> ans au Mans.
-            J'aime analyser, créer et développer pour donner vie à des projets web
-            uniques. <br />
-            Mon parcours mêle artistique, commerce, gestion de projet, création de
-            contenu et développement web. Une combinaison qui me permet de comprendre
-            les besoins réels de mes clients.
-          </p>
-        </div>
+  <section class="apropos-entete">
+    <div class="conteneur apropos-entete-grille">
+      <div class="apropos-entete-texte">
+        <p class="apropos-accroche">Bonjour, moi c'est Sandra.</p>
+        <h1>
+          Sandra Pautonnier, développeuse web et cheffe de projet au Mans
+        </h1>
+        <p>
+          Développeuse web et cheffe de projet digitale, installée en Sarthe.
+          J'ai lancé mon activité en janvier 2026 après plusieurs années à
+          piloter des projets, notamment chez Enedis.
+        </p>
+        <p>
+          Ma conviction : un bon site, c'est autant une question d'organisation
+          que de code. Je vous accompagne sur les deux.
+        </p>
         <a
+          class="bouton bouton--contour apropos-cv"
           href="/CV-Sandra-Pautonnier.pdf"
-          class="btn"
           target="_blank"
           rel="noreferrer"
           download
-          aria-label="Télécharger le CV de Sandra en document pdf"
         >
-          <FontAwesomeIcon icon={faFileArrowDown} /> Télécharger le CV
+          Télécharger le CV
         </a>
       </div>
+      <Image
+        class="apropos-portrait"
+        src={Portrait}
+        alt={`Portrait de ${SITE.personne}`}
+        width={300}
+        height={450}
+      />
     </div>
-    <p class="catch">
-      Une développeuse qui parle votre langue (et aussi JavaScript !).
-    </p>
   </section>
 
-  <section>
-    <h2>Mes compétences techniques</h2>
-    <div class="technical-skills-grid">
-      {
-        competences.map((cat) => (
-          <div class="skill-card">
-            <h4>{cat.data.category}</h4>
-            <ul class="skill-list">
-              {cat.data.skills.map((skill) => (
-                <li>
-                  <FontAwesomeIcon icon={faCheckCircle} />
-                  <span>{skill}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
-      }
-    </div>
-    <p class="catch">
-      Oui je m'interesse à tout, mais ce que je sais surtout faire c'est analyser
-      les besoins <br /> et exploiter les outils adaptés à la situation en toute cohérence.
-      <br />Chaque projet est une passion !
-    </p>
-  </section>
-
-  <section>
-    <h2>Mon parcours</h2>
-    <div class="container-mobile">
-      {
-        parcours.map((etape) => (
-          <div class="card insert">
-            <span>{etape.periode}</span>
-            <div class="center">
-              <h3>{etape.titre}</h3>
+  <section class="apropos-pourquoi">
+    <div class="conteneur apropos-pourquoi-bloc">
+      <h2>Pourquoi travailler avec moi</h2>
+      <div class="apropos-pourquoi-grille">
+        {
+          POURQUOI.map((point) => (
+            <div class="apropos-point">
+              <strong>{point.titre}</strong>
+              <span>{point.texte}</span>
             </div>
-          </div>
-        ))
-      }
+          ))
+        }
+      </div>
     </div>
   </section>
 
-  <section class="success">
-    <h2>Mes réussites</h2>
-    <div class="container-img-success">
-      <Image src={Coupe} alt="Coupe de réussite" loading="lazy" />
-      <ul class="container-success">
-        <li><span class="bold">2010 :</span> Dans le domaine des Métiers de la Mode, j'ai été médaillée d'argent au concours départementale du Meilleur Apprenti de France.</li>
-        <li><span class="bold">2017 :</span> Lors de mon service civique, j'ai organisé un séminaire de A à Z avec 5 établissements scolaires et des associations sur les thèmes du harcèlement scolaire et du décrochage scolaire.</li>
-        <li><span class="bold">2021 :</span> Lors d'un évènement caritatif sur ma chaîne Twitch, j'ai récolté 1477€ pour l'association Endofrance.</li>
-        <li><span class="bold">2023 :</span> Chez Enedis, j'ai été l'interlocutrice et référente de l'ACO (Automobile Club de l'Ouest) pour le centenaire des 24h du Mans (Bornes fixes).</li>
-      </ul>
+  <section class="apropos-parcours">
+    <div class="conteneur apropos-parcours-grille">
+      <div class="apropos-frise-colonne">
+        <h2>Parcours</h2>
+        <ol class="apropos-frise">
+          {
+            PARCOURS.map((etape) => (
+              <li>
+                <span class="apropos-periode">{etape.periode}</span>
+                <strong>{etape.titre}</strong>
+                <span class="apropos-etape-texte">{etape.texte}</span>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+
+      <div class="apropos-formations-colonne">
+        <h2>Formations</h2>
+        <ul class="apropos-formations">
+          {
+            FORMATIONS.map((formation) => (
+              <li>
+                <strong>{formation.titre}</strong>
+                {formation.precision && (
+                  <span class="apropos-precision"> {formation.precision}</span>
+                )}
+              </li>
+            ))
+          }
+        </ul>
+        <div class="apropos-mode">
+          <strong>Avant le web, la mode</strong>
+          <span>
+            BEP Métiers de la mode (2008 – 2010) et médaille d'argent au concours
+            Meilleur Apprenti de France de la Sarthe en 2010. Le goût du détail
+            et du travail fini vient de là.
+          </span>
+        </div>
+      </div>
     </div>
-    <a href="/realisations/" class="btn" aria-label="Accède à mon portfolio">Découvrez mes réalisations</a>
   </section>
+
+  <BandeAppel
+    titre="On fait connaissance ?"
+    secondaire={{ href: "/realisations/", libelle: "Voir mes réalisations" }}
+  />
 </BaseLayout>
-
-<script>
-  // Corrige l'âge si le site n'a pas été redéployé depuis le dernier
-  // anniversaire. La valeur du HTML reste correcte pour les crawlers.
-  const el = document.getElementById("age-sandra");
-  if (el?.dataset.birth) {
-    const n = new Date(el.dataset.birth);
-    const today = new Date();
-    let age = today.getFullYear() - n.getFullYear();
-    const m = today.getMonth() - n.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < n.getDate())) age--;
-    if (String(age) !== el.textContent) el.textContent = String(age);
-  }
-</script>

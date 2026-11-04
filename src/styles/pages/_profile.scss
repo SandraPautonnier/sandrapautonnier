@@ -1,212 +1,232 @@
 @import "../utils/variables";
 @import "../utils/mixins";
 
-.experiences {
-    margin-bottom: 30px;
-}
-.banner {
-  min-height: 500px;
-  @include flex-column-center;
-  margin-bottom: 2rem;
-  img {
-    max-width: 100px;
-    width: 100%;
-    margin-top: 30px;
-  }
+// Page À propos. Même grammaire que les autres pages de la refonte :
+// sections en pleine largeur, conteneur interne qui recentre.
+
+.apropos {
+    background: $creme;
+    color: $encre;
 }
 
-.btn {
-  margin: 0 auto;
+.apropos main > section {
+    display: block;
+    padding: 0;
 }
 
+// --- Accroche ----------------------------------------------------------------
 
-
-.technos {
-  @include flex-row-center;
-  justify-content: center;
-  gap: 30px;
-  font-size: 27px;
-  @media (max-width: 375px) {
-    font-size: 20px;
-    gap: 20px;
-} 
-svg {
-  @include zoom-btn;
-  color: $main-color;
-}
+.apropos-entete-grille {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    align-items: center;
+    padding-top: 56px;
+    padding-bottom: 80px;
 }
 
-.container-mobile {
-  display:flex;
-  text-align: center;
-  margin: 20px;
-  @include flex-column-center;
-  gap: 20px;
-  @media (min-width: 1100px) {
-    @include flex-row-center;
-} 
-}
-
-.insert {
-  @include card;
-  span {
-    font-size: 10px;
-  }
-  h3 {
-    font-size: 12px;
-  }
-  p {
-    font-size: 10px;
-  }
-}
-
-.center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  text-align: center;
-}
-
-.success {
-    width: 100%;
+.apropos-entete-texte {
+    flex: 999 1 520px;
+    min-width: 0;
     display: flex;
     flex-direction: column;
-    .container-img-success {
-        box-sizing: border-box;
-        width: 100%;
-        align-items: center;
-        @media (min-width: 800px) {
-            display: flex;
-            width: 100%;
+    gap: 20px;
+
+    h1 {
+        margin: 0;
+        font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        color: $encre;
+        text-align: left;
+        padding-bottom: 0;
+
+        &::after {
+            content: none;
         }
-        img {
-            width: 100%;
-            max-width: 250px;
-            margin: 0 auto;
-            display: block;
-            border-radius: 10px;
-        }
-        .container-success {
-            @include card-color;
-            margin: 20px;
-            li {
-                padding: 10px;
-                @media (min-width: 1200px) {
-                    font-size: 18px;
-                }
-            }
+    }
+
+    p {
+        margin: 0;
+        font-size: 19px;
+        color: $texte;
+    }
+
+    // Déclarée ici, et non à la racine : sinon la règle « p » ci-dessus, plus
+    // spécifique, l'emporterait et il faudrait un !important.
+    .apropos-accroche {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 600;
+        font-size: 22px;
+        color: $violet-fonce;
+    }
+}
+
+.apropos-cv {
+    align-self: flex-start;
+    margin-top: 4px;
+}
+
+.apropos-portrait {
+    flex: 1 1 280px;
+    min-width: 0;
+    max-width: 340px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 22px;
+}
+
+// --- Pourquoi travailler avec moi ------------------------------------------------
+
+.apropos-pourquoi {
+    background: white;
+    border-top: 1px solid $bordure;
+    border-bottom: 1px solid $bordure;
+}
+
+.apropos-pourquoi-bloc {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    h2 {
+        margin: 0;
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+        color: $encre;
+        text-align: left;
+        padding-bottom: 0;
+
+        &::after {
+            content: none;
         }
     }
 }
 
+.apropos-pourquoi-grille {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+}
 
+.apropos-point {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 
-.technical-skills-grid {
-  @include grid-3;
-    .skill-card {
-        @include highlight-card;
+    strong {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 21px;
+    }
 
-        h4 {
-            margin: 0 0 15px 0;
-            font-size: 18px;
-            font-weight: 700;
-            color: $main-color;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+    span {
+        color: $texte-secondaire;
+    }
+}
 
-        .skill-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+// --- Parcours et formations ---------------------------------------------------------
 
-            li {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                font-size: 14px;
-                color: $text-dark;
+.apropos-parcours-grille {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 56px;
+    padding-top: 80px;
+    padding-bottom: 80px;
 
-                svg {
-                    color: $main-color;
-                    font-size: 16px;
-                    flex-shrink: 0;
-                }
-                span {
-                    font-weight: 500;
-                }
-            }
+    h2 {
+        margin: 0;
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+        color: $encre;
+        text-align: left;
+        padding-bottom: 0;
+
+        &::after {
+            content: none;
         }
     }
 }
 
-.hook-about {
-  width: 100%;
-  .container-hook-about {
-    gap: $gap;
-    @media (max-width: 374px) {
-      @include flex-column-center;
+.apropos-frise-colonne {
+    flex: 999 1 520px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.apropos-frise {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+    border-left: 2px solid $lilas;
+
+    li {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding-left: 24px;
+        list-style: none;
     }
-    @media (min-width: 768px) {
-      @include flex-row-center;
+
+    strong {
+        font-size: 18px;
     }
-    .profile {
-      .card-user {
-        p {
-          margin: 0;
-        }
-        @include flex-column-center;
-        margin: 0 0 10px;
-        svg {
-          font-size: 20px;
-        }
-      }
-      li {
-        margin: 7px 0;
-        svg {
-          margin: 0 5px;
-        }
-      }
+}
+
+.apropos-periode {
+    font-size: 14px;
+    font-weight: 600;
+    color: $violet-fonce;
+}
+
+.apropos-etape-texte {
+    color: $texte-secondaire;
+}
+
+.apropos-formations-colonne {
+    flex: 1 1 300px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.apropos-formations {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+
+    li {
+        padding: 16px 18px;
+        border: 1px solid $bordure;
+        border-radius: 12px;
+        background: white;
+        list-style: none;
     }
-    .tags {
-      display: flex;
-      justify-content: space-around;
-      gap: 20px;
-      .tag {
-        @include tags;
-      }
+}
+
+.apropos-precision {
+    color: $texte-secondaire;
+}
+
+.apropos-mode {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 22px;
+    border-radius: 16px;
+    background: $rose;
+    color: #4a2531;
+
+    strong {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 18px;
     }
-    .text-hook-about {
-      @include flex-column-center;
-      .box {
-        @include flex-row-center;
-        gap: 20px;
-        .base-text {
-          max-width: 100%;
-          flex: 1;
-          @include base-card;
-          
-          span:first-of-type {
-            font-weight: bold;
-            white-space: nowrap;
-          }
-        }
-        @media (max-width: 768px) {
-          @include flex-column-center;
-          text-align: center;
-        }
-        img {
-          max-width: 100px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.219);
-          border-radius: 10px;
-          flex-shrink: 0;
-        }
-      }
-    }
-  }
 }

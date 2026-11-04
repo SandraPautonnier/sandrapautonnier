@@ -4,21 +4,32 @@ import { BOOKING_URL } from "../lib/site";
 interface Props {
   /** Titre de la bande, propre à chaque page. */
   titre: string;
+  /** Second bouton, en contour, placé avant celui de réservation. */
+  secondaire?: { href: string; libelle: string };
 }
 
-const { titre } = Astro.props;
+const { titre, secondaire } = Astro.props;
 ---
 
 <section class="bande-appel">
   <div class="conteneur bande-appel-bloc">
     <h2>{titre}</h2>
-    <a
-      class="bouton bouton--clair"
-      href={BOOKING_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Réserver un appel de 30 min
-    </a>
+    <div class="bande-appel-boutons">
+      {
+        secondaire && (
+          <a class="bouton bouton--contour-clair" href={secondaire.href}>
+            {secondaire.libelle}
+          </a>
+        )
+      }
+      <a
+        class="bouton bouton--clair"
+        href={BOOKING_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Réserver un appel de 30 min
+      </a>
+    </div>
   </div>
 </section>

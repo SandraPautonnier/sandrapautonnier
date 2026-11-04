@@ -213,7 +213,12 @@ button {
         text-align: center;
     }
     img {
+        // max-width seul laissait l'image déborder sous 500 px de fenêtre :
+        // il plafonne la largeur sans la faire descendre. width: 100 % la fait
+        // suivre son conteneur, height: auto garde les proportions.
         max-width: 500px;
+        width: 100%;
+        height: auto;
         border-radius: 15px;
 }
 
