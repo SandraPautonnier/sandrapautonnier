@@ -303,3 +303,48 @@ section occupe toute la largeur disponible et un conteneur interne de 1200 px
 recentre le contenu. `BaseLayout` accepte pour cela `pleineLargeur`, qui libère
 le conteneur de 1240 px. Mesuré après coup : plus aucun débordement
 horizontal sur `/` à 375, 768 et 1440 px.
+
+### Points finaux manquants dans les listes des projets — 🔵 cosmétique
+
+Les maquettes des fiches projet ponctuent chaque puce d'un point final :
+
+> Intégration du pied de page du site.
+
+Les fichiers `src/content/projets/*.json` ne le font pas, à une exception
+près :
+
+| Fichier | Puces | Point final |
+| --- | --- | --- |
+| `vela.json` | 7 | oui |
+| les 8 autres | 85 au total | non |
+
+Comparaison automatique des 9 fiches générées avec leur maquette : **ce point
+final est le seul écart de texte**, une fois mis à part les gabarits `{{…}}`
+de la maquette. Tout le reste — titres, mentions, badges, résumés, encadrés
+d'informations, outils, liens, sections et témoignage — correspond mot pour
+mot.
+
+Rien n'a été modifié : c'est du contenu. Normaliser dans un sens ou dans
+l'autre est une décision d'écriture.
+
+### L'ordre des projets diffère entre la maquette et les données — 🔵 cosmétique
+
+La maquette enchaîne Cassis → **Pulsar42 → LMSAI** → Ancrage. Les fichiers
+JSON donnent l'ordre inverse pour ces deux-là : `le-mans-school-of-ai` porte
+`ordre: 40` et `pulsar42` `ordre: 50`.
+
+C'est le champ `ordre` qui pilote la liste, la navigation projet précédent /
+suivant et le bloc « Autres projets ». Le site suit donc les données, pas la
+maquette. Intervertir les deux valeurs suffirait à retrouver l'ordre de la
+maquette.
+
+### Le champ `github` n'est affiché nulle part — 🔵 cosmétique
+
+Quatre projets portent un dépôt public dans leur JSON : `kasa`,
+`le-mans-school-of-ai`, `pulsar42`, `speaktime`. Aucune maquette de fiche
+n'affiche ce lien — l'encadré ne montre que `lien`, l'adresse du site ou de
+l'application. L'information survit uniquement sous forme de texte, dans les
+`infos` de Kasa et SpeakTime : « Code — Public sur GitHub ».
+
+Le gabarit suit la maquette et n'affiche donc pas `github`. Ajouter un
+deuxième lien dans l'encadré serait trois lignes.

@@ -1,400 +1,335 @@
 @import "../utils/variables";
 @import "../utils/mixins";
 
-.project-page {
-    overflow: hidden;
-    will-change: transform, opacity;
-}
+// Fiche projet. Encadré d'informations à gauche, récit à droite, puis
+// navigation entre projets, projets voisins et bande d'appel.
 
-.project-header {
-    max-width: 1200px;
-    margin: 20px auto 0;
-    animation: slideInFromLeft 0.6s ease-in-out;
+// --- En-tête --------------------------------------------------------------
+
+.fiche-entete-bloc {
     display: flex;
-    align-items: baseline;
-    gap: 30px;
-
-    // .back-link : le bouton retour est devenu un <a> (navigation statique
-    // vers /realisations/). Mêmes styles que l'ancien <button>.
-    button,
-    .back-link {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-
-        &:hover {
-            transform: translateX(-5px);
-        }
-    }
+    flex-direction: column;
+    gap: 18px;
+    padding-top: 48px;
+    padding-bottom: 40px;
 
     h1 {
         margin: 0;
-        font-size: 48px;
-        font-weight: 800;
-        flex: 1;
+        max-width: 900px;
+        font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        color: $encre;
+        text-align: left;
+        padding-bottom: 0;
 
-        @media (max-width: 768px) {
-            font-size: 32px;
-        }
-    }
-
-    .project-date {
-        font-size: 16px;
-        color: $main-color;
-        font-weight: 700;
-        margin: 0;
-        flex-shrink: 0;
-    }
-
-    @media (max-width: 479px) {
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-
-        button {
-            order: 1;
-            flex: 0 0 auto;
-        }
-
-        .project-date {
-            order: 2;
-            flex: 0 0 auto;
-        }
-
-        h1 {
-            order: 3;
-            flex-basis: 100%;
-            font-size: 28px;
-            margin-top: -20px;
-            margin-bottom: 20px;
+        &::after {
+            content: none;
         }
     }
 }
 
-// Résumé du projet, sous le titre. C'est un paragraphe et non le badge de
-// catégorie d'avant : il doit pouvoir passer à la ligne.
-.project-resume {
-    max-width: 900px;
-    margin: 20px auto 0;
+.fil-ariane {
+    font-size: 14px;
+    color: $texte-secondaire;
+
+    a {
+        color: $violet-fonce;
+        text-decoration: underline;
+    }
+}
+
+.fiche-mentions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    align-items: center;
+}
+
+.fiche-mention {
+    font-size: 14px;
+    font-weight: 600;
+    color: $violet-fonce;
+}
+
+.fiche-statut {
+    padding: 4px 12px;
+    border: 1px solid $bordure;
+    border-radius: 999px;
+    background: white;
+    color: $texte;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.fiche-resume {
+    margin: 0;
+    max-width: 720px;
     font-size: 19px;
-    line-height: 1.5;
     color: $texte-secondaire;
 }
 
-.project-meta {
-    max-width: 1200px;
-    margin: 20px auto 0;
-    animation: slideInFromLeft 0.7s ease-in-out;
+// --- Corps ------------------------------------------------------------------
+
+.fiche-corps-grille {
     display: flex;
-    align-items: center;
-    gap: 40px;
     flex-wrap: wrap;
+    gap: 56px;
+    align-items: flex-start;
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
 
-    @media (max-width: 768px) {
-        margin: 15px auto 0;
-        gap: 20px;
-    }
+.fiche-infos {
+    flex: 1 1 280px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 28px;
+    border: 1px solid $bordure;
+    border-radius: 18px;
+    background: white;
+    box-sizing: border-box;
+}
 
-    .project-category {
-        @include project-category;
-        margin: 0;
-    }
+.fiche-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 
-    .project-techs {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        flex-wrap: wrap;
-        flex-shrink: 0;
-
-        @media (max-width: 768px) {
-            width: 100%;
-        }
-
-        strong {
-            font-weight: 500;
-            color: $text-muted;
-            white-space: nowrap;
-            font-size: 13px;
-        }
-    }
-
-    .tech-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
+    strong {
+        color: $encre;
     }
 }
 
-.project-detail {
-    max-width: 1200px;
-    margin: 30px auto 20px;
-    animation: slideInFromLeft 0.8s ease-in-out;
+.fiche-info-label {
+    font-size: 13px;
+    color: $texte-secondaire;
+}
 
-    .project-cover {
-        max-width: 600px;
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        border-radius: 12px;
-        margin: 0 auto 50px;
-        display: block;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+.fiche-outils {
+    gap: 8px;
 
-        @media (max-width: 768px) {
-            margin-bottom: 35px;
-        }
+    .carte-projet-tags {
+        margin-top: 0;
+        padding-top: 0;
     }
+}
 
-    // Visuel principal : capture ou aplat de la teinte du projet.
-    .visuel--fiche {
-        margin-bottom: 50px;
+.fiche-lien {
+    align-self: flex-start;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    padding: 4px 0;
+    font-weight: 600;
+    color: $violet-fonce;
+    text-decoration: underline;
 
-        @media (max-width: 768px) {
-            margin-bottom: 35px;
-        }
+    &:hover {
+        color: $encre;
     }
+}
 
-    // Encadré "infos" du projet. Mise en forme provisoire : la colonne
-    // latérale de la maquette arrive à l'étape 5.
-    .project-infos {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 18px;
-        margin: 0 0 50px;
-        padding: 24px;
-        background-color: white;
-        border: 1px solid $bordure;
-        border-radius: 18px;
+.fiche-article {
+    flex: 999 1 560px;
+    min-width: 0;
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
 
-        dt {
-            font-size: 13px;
-            color: $texte-secondaire;
-        }
+.fiche-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
-        dd {
-            margin: 2px 0 0;
-            font-weight: 700;
-            font-size: 15px;
-            color: $encre;
-        }
-
-        @media (max-width: 768px) {
-            margin-bottom: 35px;
-        }
-    }
-
-    .project-temoignage {
-        margin: 0 0 50px;
-        padding: 28px;
-        background-color: white;
-        border: 1px solid $bordure;
-        border-radius: 18px;
-
-        p {
-            margin: 0;
-            font-size: 17px;
-            line-height: 1.6;
-            color: $texte;
-        }
-
-        footer {
-            margin-top: 14px;
-            font-size: 14px;
-            color: $texte-secondaire;
-        }
-    }
-
-    .project-section {
-        margin-bottom: 50px;
-
-        @media (max-width: 768px) {
-            margin-bottom: 35px;
-        }
-
-        h2 {
-            font-size: 20px;
-            margin: 0 0 15px;
-            color: $text;
-            font-weight: 600;
-            text-align: left;
-            position: static;
-            padding-bottom: 0;
-
-            &::after {
-                content: none;
-            }
-
-            @media (max-width: 768px) {
-                font-size: 18px;
-                margin-bottom: 12px;
-            }
-        }
-
-        p {
-            font-size: 15px;
-            line-height: 1.8;
-            color: $text-dark;
-            margin: 0;
-
-            @media (max-width: 768px) {
-                font-size: 14px;
-                line-height: 1.7;
-            }
-        }
-    }
-
-    .technical-skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
-        margin: 20px 0;
-
-        @media (max-width: 768px) {
-            grid-template-columns: 1fr;
-            gap: 15px;
-        }
-
-        .skill-card {
-            background-color: white;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
-
-            &:hover {
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-                transform: translateY(-5px);
-            }
-
-            h4 {
-                margin: 0 0 15px 0;
-                font-size: 18px;
-                font-weight: 700;
-                color: $main-color;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-            }
-
-            .skill-list {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-
-                li {
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                    font-size: 14px;
-                    color: $text-dark;
-
-                    svg {
-                        color: $main-color;
-                        font-size: 16px;
-                        flex-shrink: 0;
-                    }
-
-                    span {
-                        font-weight: 500;
-                    }
-                }
-            }
-        }
-    }
-
-    .todo-list {
-        list-style: none;
-        padding: 0;
+    h2 {
         margin: 0;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 600;
+        font-size: 26px;
+        color: $encre;
+        text-align: left;
+        padding-bottom: 0;
+
+        &::after {
+            content: none;
+        }
+    }
+
+    p {
+        margin: 0;
+        font-size: 17px;
+        color: $texte;
+    }
+
+    ul {
         display: flex;
         flex-direction: column;
-        gap: 12px;
-
-        li {
-            font-size: 15px;
-            line-height: 1.6;
-            color: $text-dark;
-            padding-left: 25px;
-            position: relative;
-
-            @media (max-width: 768px) {
-                font-size: 14px;
-            }
-
-            &:before {
-                content: "✓";
-                position: absolute;
-                left: 0;
-                color: $main-color;
-                font-weight: bold;
-                font-size: 18px;
-            }
-        }
+        gap: 8px;
+        margin: 0;
+        padding-left: 20px;
+        font-size: 17px;
+        color: $texte;
     }
 
-    .project-links {
-        margin: 40px 0;
-        text-align: center;
-        animation: slideInFromLeft 0.8s ease-in-out;
+    li {
+        list-style: disc;
+    }
+}
 
-        .project-link-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            max-width: 100%;
+.fiche-temoignage {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 0;
+    padding: 32px;
+    border: 1px solid $bordure;
+    border-radius: 18px;
+    background: white;
 
-            @media (max-width: 768px) {
-                flex-direction: column;
-            }
+    blockquote {
+        margin: 0;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 1.4;
+    }
 
-            a {
-                @include btn;
-                @include btn-animated-link;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                text-decoration: none;
-                max-width: 100%;
+    figcaption {
+        font-size: 15px;
+        color: $texte-secondaire;
+    }
 
-                @media (max-width: 768px) {
-                  
-                    justify-content: center;
-                }
-            }
+    @media (max-width: 479px) {
+        padding: 24px;
+
+        blockquote {
+            font-size: 19px;
         }
     }
 }
 
-@keyframes slideInFromLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
+// --- Projet précédent / suivant -------------------------------------------------
+
+.fiche-voisins {
+    border-top: 1px solid $bordure;
+    border-bottom: 1px solid $bordure;
+    background: white;
+}
+
+.fiche-voisins-bloc {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fiche-voisin {
+    flex: 1 1 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: $encre;
+    text-decoration: none;
+
+    &:hover .fiche-voisin-nom {
+        color: $violet-fonce;
     }
 }
 
-@keyframes slideOutToRight {
-    from {
-        opacity: 1;
-        transform: translateX(0) scaleX(1);
-    }
-    to {
-        opacity: 0;
-        transform: translateX(30px) scaleX(0.95);
+.fiche-voisin--precedent {
+    padding: 32px 24px 32px 0;
+}
+
+.fiche-voisin--suivant {
+    align-items: flex-end;
+    text-align: right;
+    padding: 32px 0 32px 24px;
+}
+
+.fiche-voisin-label {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 14px;
+    color: $texte-secondaire;
+}
+
+.fiche-voisin-nom {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    transition: color 0.3s ease;
+}
+
+.fiche-voisin-tous {
+    flex: 1 1 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 24px;
+    border-left: 1px solid $bordure;
+    border-right: 1px solid $bordure;
+    font-weight: 600;
+    color: $encre;
+    text-decoration: none;
+
+    &:hover {
+        color: $violet-fonce;
     }
 }
 
-.project-page.exiting {
-    animation: slideOutToRight 0.3s ease-in-out forwards;
-    
-    * {
-        animation: slideOutToRight 0.3s ease-in-out forwards;
+// --- Autres projets ----------------------------------------------------------------
+
+.fiche-autres-bloc {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 72px;
+    padding-bottom: 72px;
+
+    h2 {
+        margin: 0;
+        font-size: 28px;
+        color: $encre;
+        text-align: left;
+        padding-bottom: 0;
+
+        &::after {
+            content: none;
+        }
     }
+}
+
+.fiche-autres-grille {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.carte-mini {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid $bordure;
+    border-radius: 16px;
+    background: white;
+    color: $encre;
+    text-decoration: none;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+        box-shadow: 0 10px 24px rgba(35, 28, 43, 0.1);
+    }
+}
+
+.carte-mini-corps {
+    padding: 16px 18px 20px;
+}
+
+.carte-mini-titre {
+    margin: 4px 0 0;
+    font-weight: 600;
 }

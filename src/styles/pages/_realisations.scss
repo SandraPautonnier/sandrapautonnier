@@ -1,84 +1,203 @@
 @import "../utils/variables";
 @import "../utils/mixins";
 
-// Badge de statut sur les cartes et les fiches projet. Son texte vient du
-// champ "statutAffiche" du projet : « En ligne », « Livré », « Privé »,
-// « Accompagnement continu »…
-.work-statut {
-  display: inline-block;
-  margin: 6px 0 0;
-  font-size: 12px;
-  font-weight: 600;
-  color: $main-color;
-  background-color: rgba($main-color, 0.1);
-  padding: 3px 8px;
-  border-radius: 4px;
+// Liste des réalisations. Même grammaire que l'accueil : sections en pleine
+// largeur, conteneur interne de 1200 px.
+
+.realisations,
+.fiche-projet {
+    background: $creme;
+    color: $encre;
 }
 
-// Section "Exercices & expérimentations" : hiérarchie délibérément plus
-// discrète que la grille des projets clients.
-.works-secondaires {
-  h2 {
-    font-size: 1.15rem;
-    margin-bottom: 0;
+.realisations main > section,
+.fiche-projet main > section {
+    display: block;
+    padding: 0;
+}
+
+// --- En-tête de la liste ---------------------------------------------------
+
+.realisations-entete-bloc {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 56px;
+    padding-bottom: 32px;
+
+    h1 {
+        margin: 0;
+        font-size: clamp(2.5rem, 5vw, 3.75rem);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        color: $encre;
+        text-align: left;
+        padding-bottom: 0;
+
+        &::after {
+            content: none;
+        }
+    }
+
+    .filtres {
+        margin-top: 12px;
+    }
+}
+
+.realisations-intro {
+    margin: 0;
+    max-width: 640px;
+    font-size: 19px;
+    color: $texte-secondaire;
+}
+
+// --- Groupes ----------------------------------------------------------------
+
+.realisations-groupes {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding-top: 16px;
+    padding-bottom: 96px;
+}
+
+.groupe-projets {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.groupe-projets-titre {
+    margin: 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid $bordure;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    color: $encre;
+    text-align: left;
+
+    &::after {
+        content: none;
+    }
+}
+
+// --- Carte large -------------------------------------------------------------
+
+.carte-large {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    border: 1px solid $bordure;
+    border-radius: 18px;
+    background: white;
+    color: $encre;
+    text-decoration: none;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+        box-shadow: 0 12px 28px rgba(35, 28, 43, 0.1);
+
+        .carte-large-voir .icone-fleche {
+            transform: translateX(4px);
+        }
+    }
+}
+
+.carte-large-visuel {
+    flex: 1 1 300px;
+    min-width: 0;
+    display: flex;
+}
+
+.carte-large-corps {
+    flex: 999 1 420px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 28px 32px;
+
+    @media (max-width: 479px) {
+        padding: 22px 20px;
+    }
+}
+
+.carte-large-entete {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    align-items: center;
+}
+
+.carte-large-titre {
+    margin: 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.25;
+    color: $encre;
+    text-align: left;
     padding-bottom: 0;
 
     &::after {
-      content: none;
+        content: none;
     }
-  }
+}
 
-  .works-secondaires-intro {
-    max-width: 560px;
-    margin: 8px auto 20px;
-    text-align: center;
-    font-size: 13px;
-    font-style: italic;
-    color: $light-text;
-  }
+.carte-large-resume {
+    margin: 0;
+    color: $texte-secondaire;
+}
 
-  // Imbriqué sous .works .container-card-works pour dépasser la spécificité
-  // des règles de base de _works.scss (0,3,1), sinon la hauteur d'image de
-  // 180px l'emporterait et les vignettes ne seraient pas plus compactes.
-  .works .container-card-works {
-    gap: 15px;
+.carte-large-pied {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 10px;
 
-    @media (min-width: 769px) {
-      grid-template-columns: repeat(3, 1fr);
+    .carte-projet-tags {
+        margin-top: 0;
+        padding-top: 0;
     }
+}
 
-    .card-works--compact {
-      height: auto;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07);
+.carte-large-voir {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-weight: 600;
+    font-size: 15px;
+}
 
-      img {
-        height: 110px;
+// --- Bande d'appel, commune à plusieurs pages ---------------------------------
 
-        @media (min-width: 1200px) {
-          height: 120px;
+.bande-appel {
+    background: $encre;
+    color: $creme;
+}
+
+.bande-appel-bloc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 72px;
+    padding-bottom: 72px;
+
+    h2 {
+        margin: 0;
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+        color: $creme;
+        text-align: left;
+        padding-bottom: 0;
+
+        &::after {
+            content: none;
         }
-      }
-
-      .card-content {
-        padding: 12px 12px 15px;
-      }
-
-      h3 {
-        font-size: 15px;
-
-        @media (min-width: 450px) {
-          font-size: 15px;
-        }
-      }
-
-      .work-category {
-        font-size: 12px;
-      }
-
-      .btn-secondary {
-        font-size: 13px;
-        padding: 6px 12px;
-      }
     }
-  }
 }

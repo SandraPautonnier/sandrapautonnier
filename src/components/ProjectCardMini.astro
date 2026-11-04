@@ -1,0 +1,19 @@
+---
+import type { CollectionEntry } from "astro:content";
+import ProjectVisuel from "./ProjectVisuel.astro";
+
+interface Props {
+  projet: CollectionEntry<"projets">;
+}
+
+const { projet } = Astro.props;
+const d = projet.data;
+---
+
+<a class="carte-mini" href={`/realisations/${projet.id}/`}>
+  <ProjectVisuel projet={projet} variante="mini" />
+  <div class="carte-mini-corps">
+    <span class="carte-projet-mention">{d.mention}</span>
+    <p class="carte-mini-titre">{d.titreCarte}</p>
+  </div>
+</a>

@@ -1,70 +1,99 @@
 ---
 import { getCollection } from "astro:content";
-import { Image } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import ProjectCard from "../../components/ProjectCard.astro";
-import Docs from "../../assets/images/image_portfolio.webp";
+import ProjectCardLarge from "../../components/ProjectCardLarge.astro";
+import BandeAppel from "../../components/BandeAppel.astro";
 
-const projets = await getCollection("projets");
-const parOrdre = (a, b) => a.data.ordre - b.data.ordre;
+const projets = (await getCollection("projets"))
+  .filter((p) => !p.data.brouillon)
+  .sort((a, b) => a.data.ordre - b.data.ordre);
 
-// Le champ "type" répartit automatiquement les projets entre les deux blocs.
-const clients = projets.filter((p) => p.data.type === "client").sort(parOrdre);
-const autres = projets
-  .filter((p) => p.data.type === "personnel" || p.data.type === "formation")
-  .sort(parOrdre);
+const estPerso = (type: string) => type === "personnel" || type === "formation";
+
+const clients = projets.filter((p) => p.data.type === "client");
+const perso = projets.filter((p) => estPerso(p.data.type));
+
+const FILTRES = [
+  { id: "tous", libelle: "Tous", compte: projets.length },
+  { id: "client", libelle: "Clients", compte: clients.length },
+  { id: "perso", libelle: "Projets perso", compte: perso.length },
+];
+
+// Deux groupes, dans l'ordre de la maquette. Un filtre masque le groupe
+// entier plutôt que de le vider.
+const GROUPES = [
+  { id: "client", titre: "Projets clients", items: clients },
+  { id: "perso", titre: "Projets personnels", items: perso },
+];
 ---
 
 <BaseLayout
-  title="Réalisations - Projets web de Sandra Pautonnier | Sukiweb"
+  title="Réalisations : sites et projets web | Sandra Pautonnier"
   description="Découvrez les projets web réalisés par Sandra Pautonnier, développeuse et cheffe de projet digitale au Mans : sites vitrines, refontes et applications sur-mesure."
-  pageClass="portfolio"
+  pageClass="realisations"
+  pleineLargeur
   breadcrumb={[
     { nom: "Accueil", url: "/" },
     { nom: "Réalisations", url: "/realisations/" },
   ]}
 >
-  <div class="banner" slot="banner" role="region" aria-label="Présentation - Réalisations">
-    <Image src={Docs} alt="Illustration de documents" loading="lazy" />
-    <h1>Réalisations</h1>
-    <div class="card-banner">
-      <p class="base-text">
-        Passionnée par le web, je crée des solutions sur mesure pour donner vie à
-        vos idées. Découvrez ici les projets qui ont enrichi mon parcours.
+  <section class="realisations-entete">
+    <div class="conteneur realisations-entete-bloc">
+      <h1>Réalisations : sites internet et projets numériques</h1>
+      <p class="realisations-intro">
+        Chaque projet raconte le besoin de départ, ce que j'ai fait et le
+        résultat. Les projets clients d'abord, puis mes projets personnels.
       </p>
+      <div class="filtres" role="group" aria-label="Filtrer les projets">
+        {
+          FILTRES.map((filtre, i) => (
+            <button
+              type="button"
+              class="filtre"
+              data-filtre={filtre.id}
+              aria-pressed={i === 0 ? "true" : "false"}
+            >
+              {filtre.libelle}{" "}
+              <span class="filtre-compte">{filtre.compte}</span>
+            </button>
+          ))
+        }
+      </div>
     </div>
-  </div>
+  </section>
 
-  {
-    clients.length > 0 && (
-      <section class="margin">
-        <h2>Projets clients</h2>
-        <div class="works">
-          <div class="container-card-works">
-            {clients.map((projet) => (
-              <ProjectCard projet={projet} />
+  <section class="realisations-liste">
+    <div class="conteneur realisations-groupes">
+      {
+        GROUPES.map((groupe) => (
+          <div class="groupe-projets" data-groupe={groupe.id}>
+            <h2 class="groupe-projets-titre">{groupe.titre}</h2>
+            {groupe.items.map((projet) => (
+              <ProjectCardLarge projet={projet} />
             ))}
           </div>
-        </div>
-      </section>
-    )
-  }
+        ))
+      }
+    </div>
+  </section>
 
-  {
-    autres.length > 0 && (
-      <section class="works-secondaires">
-        <h2>Exercices & expérimentations</h2>
-        <p class="works-secondaires-intro">
-          Des exercices et essais techniques, gardés pour ce qu'ils démontrent.
-        </p>
-        <div class="works">
-          <div class="container-card-works">
-            {autres.map((projet) => (
-              <ProjectCard projet={projet} />
-            ))}
-          </div>
-        </div>
-      </section>
-    )
-  }
+  <BandeAppel titre="Votre projet pourrait être le prochain." />
 </BaseLayout>
+
+<script>
+  // Même filtre que sur l'accueil, appliqué ici aux deux groupes entiers.
+  // « Tous » est l'état rendu au build : sans JavaScript, les 9 projets
+  // restent affichés.
+  const boutons = document.querySelectorAll<HTMLButtonElement>(".filtre");
+  const groupes = document.querySelectorAll<HTMLElement>(".groupe-projets");
+
+  boutons.forEach((bouton) => {
+    bouton.addEventListener("click", () => {
+      const filtre = bouton.dataset.filtre ?? "tous";
+      boutons.forEach((b) => b.setAttribute("aria-pressed", String(b === bouton)));
+      groupes.forEach((groupe) => {
+        groupe.hidden = filtre !== "tous" && groupe.dataset.groupe !== filtre;
+      });
+    });
+  });
+</script>

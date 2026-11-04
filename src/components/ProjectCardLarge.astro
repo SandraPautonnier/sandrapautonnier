@@ -1,0 +1,46 @@
+---
+import type { CollectionEntry } from "astro:content";
+import ProjectVisuel from "./ProjectVisuel.astro";
+import Fleche from "./icones/Fleche.astro";
+import { estTagIA } from "../lib/site";
+
+interface Props {
+  projet: CollectionEntry<"projets">;
+}
+
+const { projet } = Astro.props;
+const d = projet.data;
+
+// Même règle que la carte de l'accueil : les premiers outils, plus le tag
+// « Développé avec l'IA » s'il figure au-delà.
+const PREMIERS = 3;
+const tags = d.competences.slice(0, PREMIERS);
+const tagIA = d.competences.find(estTagIA);
+if (tagIA && !tags.includes(tagIA)) tags.push(tagIA);
+---
+
+<a class="carte-large" href={`/realisations/${projet.id}/`}>
+  <div class="carte-large-visuel">
+    <ProjectVisuel projet={projet} variante="large" />
+  </div>
+  <div class="carte-large-corps">
+    <div class="carte-large-entete">
+      <span class="carte-projet-mention">{d.mention}</span>
+      <span class="carte-projet-statut">{d.statutAffiche}</span>
+    </div>
+    <h3 class="carte-large-titre">{d.titreCarte}</h3>
+    <p class="carte-large-resume">{d.resume}</p>
+    <div class="carte-large-pied">
+      <div class="carte-projet-tags">
+        {
+          tags.map((tag) => (
+            <span class:list={["tag-outil", estTagIA(tag) && "tag-outil--ia"]}>
+              {tag}
+            </span>
+          ))
+        }
+      </div>
+      <span class="carte-large-voir">Voir le projet<Fleche /></span>
+    </div>
+  </div>
+</a>

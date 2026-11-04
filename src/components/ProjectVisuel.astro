@@ -5,10 +5,12 @@ import type { CollectionEntry } from "astro:content";
 interface Props {
   projet: CollectionEntry<"projets">;
   /**
-   * "carte" : vignette d'une grille. "fiche" : visuel principal de la page
-   * projet. La variante ne change que les dimensions, pas la logique.
+   * Dimensions du visuel selon l'endroit : vignette de grille ("carte"),
+   * vignette large de la liste des réalisations ("large"), visuel principal
+   * de la fiche ("fiche"), vignette d'un lien voisin ("mini"). La variante
+   * ne change que les dimensions, pas la logique.
    */
-  variante?: "carte" | "fiche";
+  variante?: "carte" | "large" | "fiche" | "mini";
   /** Le visuel de la fiche est au-dessus de la ligne de flottaison. */
   eager?: boolean;
 }

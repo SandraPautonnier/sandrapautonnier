@@ -47,7 +47,11 @@ const estActif = (href: string) =>
       {
         LIENS.map((lien) => (
           <li class="nav-li">
-            <a href={lien.href} class={estActif(lien.href) ? "active" : ""}>
+            <a
+              href={lien.href}
+              class={estActif(lien.href) ? "active" : ""}
+              aria-current={estActif(lien.href) ? "page" : undefined}
+            >
               {lien.libelle}
             </a>
           </li>

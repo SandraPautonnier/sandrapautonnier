@@ -9,7 +9,6 @@
 @import "./pages/services";
 @import "./pages/Legalnotice";
 @import "./pages/contact";
-@import "./components/works";
 @import "./pages/realisations";
 // Jamais importé depuis la migration Astro : les fiches projet s'affichaient
 // sans leurs styles propres. Réintégré ici, et remplacé à l'étape 5 par le

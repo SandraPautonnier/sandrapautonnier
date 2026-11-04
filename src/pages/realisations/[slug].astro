@@ -1,138 +1,174 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ProjectVisuel from "../../components/ProjectVisuel.astro";
+import ProjectCardMini from "../../components/ProjectCardMini.astro";
+import BandeAppel from "../../components/BandeAppel.astro";
+import Fleche from "../../components/icones/Fleche.astro";
+import FlecheGauche from "../../components/icones/FlecheGauche.astro";
+import LienExterne from "../../components/icones/LienExterne.astro";
 import { estTagIA } from "../../lib/site";
 
 export async function getStaticPaths() {
-  const projets = await getCollection("projets");
-  return projets
-    .filter((projet) => !projet.data.brouillon)
-    .map((projet) => ({
+  const projets = (await getCollection("projets"))
+    .filter((p) => !p.data.brouillon)
+    .sort((a, b) => a.data.ordre - b.data.ordre);
+
+  // Navigation en boucle : le dernier projet renvoie au premier. Les voisins
+  // et les « Autres projets » se calculent ici, une fois pour toutes, plutôt
+  // que de relire la collection sur chaque page.
+  return projets.map((projet, i) => {
+    const suivant = (n: number) => projets[(i + n) % projets.length];
+    return {
       params: { slug: projet.id },
-      props: { projet },
-    }));
+      props: {
+        projet,
+        precedent: projets[(i - 1 + projets.length) % projets.length],
+        suivant: suivant(1),
+        autres: [suivant(1), suivant(2), suivant(3)],
+      },
+    };
+  });
 }
 
 interface Props {
   projet: CollectionEntry<"projets">;
+  precedent: CollectionEntry<"projets">;
+  suivant: CollectionEntry<"projets">;
+  autres: CollectionEntry<"projets">[];
 }
 
-const { projet } = Astro.props;
+const { projet, precedent, suivant, autres } = Astro.props;
 const d = projet.data;
 
-// Aucun lien externe tant que le projet n'est pas en ligne : les fichiers
-// des projets privés ou en développement n'en portent pas, cette garde
-// évite qu'un oubli en publie un.
-const lienVisible = d.statut === "en-ligne" && Boolean(d.lien);
-
-// Mise en page transitoire : le gabarit définitif (fil d'Ariane, encadré
-// infos, navigation projet précédent / suivant, « Autres projets »,
-// bandeau d'appel) arrive à l'étape 5.
+// Garde-fou : aucun lien externe tant que le projet n'est pas en ligne, même
+// si un fichier venait à en porter un.
+const lien = d.statut === "en-ligne" ? d.lien : undefined;
 ---
 
 <BaseLayout
   title={`${d.nomCourt} : ${d.titreCarte} | Sandra Pautonnier`}
   description={d.resume.slice(0, 155)}
-  pageClass="project-page"
+  pageClass="fiche-projet"
+  pleineLargeur
   breadcrumb={[
     { nom: "Accueil", url: "/" },
     { nom: "Réalisations", url: "/realisations/" },
     { nom: d.nomCourt, url: `/realisations/${projet.id}/` },
   ]}
 >
-  <section class="project-container">
-    <div class="project-header">
-      <a href="/realisations/" class="btn back-link" aria-label="Retour aux réalisations">
-        <FontAwesomeIcon icon={faArrowLeft} /> Retour
-      </a>
-      <h1>{d.titre}</h1>
-      <p class="project-date">{d.mention} · {d.statutAffiche}</p>
-    </div>
-
-    <p class="project-resume">{d.resume}</p>
-
-    <div class="project-meta">
-      <div class="project-techs">
-        <strong>Technologies &amp; Outils utilisés :</strong>
-        <div class="tech-list">
-          {
-            d.competences.map((tech) => (
-              <span class:list={["tag", estTagIA(tech) && "tag--ia"]}>{tech}</span>
-            ))
-          }
-        </div>
+  <section class="fiche-entete">
+    <div class="conteneur fiche-entete-bloc">
+      <nav class="fil-ariane" aria-label="Fil d'Ariane">
+        <a href="/">Accueil</a> / <a href="/realisations/">Réalisations</a> /{" "}
+        {d.nomCourt}
+      </nav>
+      <div class="fiche-mentions">
+        <span class="fiche-mention">{d.mention}</span>
+        <span class="fiche-statut">{d.statutAffiche}</span>
       </div>
+      <h1>{d.titre}</h1>
+      <p class="fiche-resume">{d.resume}</p>
     </div>
+  </section>
 
-    <div class="project-detail">
-      <ProjectVisuel projet={projet} variante="fiche" eager />
+  <div class="conteneur fiche-visuel">
+    <ProjectVisuel projet={projet} variante="fiche" eager />
+  </div>
 
-      <dl class="project-infos">
+  <section class="fiche-corps">
+    <div class="conteneur fiche-corps-grille">
+      <aside class="fiche-infos">
         {
           d.infos.map((info) => (
-            <div>
-              <dt>{info.label}</dt>
-              <dd>{info.valeur}</dd>
+            <div class="fiche-info">
+              <span class="fiche-info-label">{info.label}</span>
+              <strong>{info.valeur}</strong>
             </div>
           ))
         }
-      </dl>
 
-      {
-        (lienVisible || d.github) && (
-          <div class="project-links">
-            <div class="project-link-buttons">
-              {lienVisible && d.lien && (
-                <a href={d.lien.url} target="_blank" rel="noopener noreferrer">
-                  {d.lien.libelle}
-                </a>
-              )}
-              {d.github && (
-                <a
-                  href={d.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="github-button"
-                  aria-label="Lien vers le dépôt GitHub"
-                >
-                  <FontAwesomeIcon icon={faGithub} /> GitHub
-                </a>
+        <div class="fiche-info fiche-outils">
+          <span class="fiche-info-label">Outils</span>
+          <div class="carte-projet-tags">
+            {
+              d.competences.map((tech) => (
+                <span class:list={["tag-outil", estTagIA(tech) && "tag-outil--ia"]}>
+                  {tech}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+
+        {
+          lien && (
+            <a
+              class="fiche-lien"
+              href={lien.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {lien.libelle} : {lien.texte}
+              <LienExterne />
+            </a>
+          )
+        }
+      </aside>
+
+      <article class="fiche-article">
+        {
+          d.sections.map((section) => (
+            <div class="fiche-section">
+              <h2>{section.titre}</h2>
+              {section.texte && <p>{section.texte}</p>}
+              {section.liste && (
+                <ul>
+                  {section.liste.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
               )}
             </div>
-          </div>
-        )
-      }
+          ))
+        }
 
-      {
-        d.sections.map((section) => (
-          <div class="project-section">
-            <h2>{section.titre}</h2>
-            {section.texte && <p>{section.texte}</p>}
-            {section.liste && (
-              <ul class="todo-list">
-                {section.liste.map((item) => (
-                  <li>{item}</li>
-                ))}
-              </ul>
-            )}
-          </div>
-        ))
-      }
-
-      {
-        d.temoignage && (
-          <blockquote class="project-temoignage">
-            <p>{d.temoignage.texte}</p>
-            <footer>
-              <strong>{d.temoignage.auteur}</strong>, {d.temoignage.fonction}
-            </footer>
-          </blockquote>
-        )
-      }
+        {
+          d.temoignage && (
+            <figure class="fiche-temoignage">
+              <blockquote>« {d.temoignage.texte} »</blockquote>
+              <figcaption>
+                {d.temoignage.auteur}, {d.temoignage.fonction}
+              </figcaption>
+            </figure>
+          )
+        }
+      </article>
     </div>
   </section>
+
+  <nav class="fiche-voisins" aria-label="Navigation entre projets">
+    <div class="conteneur fiche-voisins-bloc">
+      <a class="fiche-voisin fiche-voisin--precedent" href={`/realisations/${precedent.id}/`}>
+        <span class="fiche-voisin-label"><FlecheGauche />Projet précédent</span>
+        <span class="fiche-voisin-nom">{precedent.data.nomCourt}</span>
+      </a>
+      <a class="fiche-voisin-tous" href="/realisations/">Toutes les réalisations</a>
+      <a class="fiche-voisin fiche-voisin--suivant" href={`/realisations/${suivant.id}/`}>
+        <span class="fiche-voisin-label">Projet suivant<Fleche /></span>
+        <span class="fiche-voisin-nom">{suivant.data.nomCourt}</span>
+      </a>
+    </div>
+  </nav>
+
+  <section class="fiche-autres">
+    <div class="conteneur fiche-autres-bloc">
+      <h2>Autres projets</h2>
+      <div class="fiche-autres-grille">
+        {autres.map((autre) => <ProjectCardMini projet={autre} />)}
+      </div>
+    </div>
+  </section>
+
+  <BandeAppel titre="Un projet du même genre ?" />
 </BaseLayout>
