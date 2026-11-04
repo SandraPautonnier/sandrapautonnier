@@ -1,0 +1,33 @@
+---
+import { FAQ } from "../lib/offres";
+
+interface Props {
+  /** Identifiants des questions à afficher, dans l'ordre voulu. */
+  ids?: string[];
+  titre?: string;
+}
+
+const { ids, titre = "Questions fréquentes" } = Astro.props;
+
+const questions = ids
+  ? ids.map((id) => FAQ.find((q) => q.id === id)).filter((q) => q !== undefined)
+  : FAQ;
+---
+
+{
+  questions.length > 0 && (
+    <section class="section-faq">
+      <div class="conteneur-etroit section-faq-bloc">
+        <h2>{titre}</h2>
+        <div class="faq-liste">
+          {questions.map((q) => (
+            <details>
+              <summary>{q.question}</summary>
+              <p>{q.reponse}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

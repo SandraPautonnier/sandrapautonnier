@@ -1,0 +1,20 @@
+---
+import { METHODE } from "../lib/offres";
+---
+
+<section class="section-methode">
+  <div class="conteneur section-methode-bloc">
+    <h2>Comment on travaille</h2>
+    <ol class="methode-etapes">
+      {
+        METHODE.map((etape) => (
+          <li>
+            <span class="methode-numero">{etape.numero}</span>
+            <strong>{etape.titre}</strong>
+            <span class="methode-texte">{etape.texte}</span>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

@@ -348,3 +348,30 @@ l'application. L'information survit uniquement sous forme de texte, dans les
 
 Le gabarit suit la maquette et n'affiche donc pas `github`. Ajouter un
 deuxième lien dans l'encadré serait trois lignes.
+
+### Création et refonte : deux pages à 93 % identiques — 🟠 important
+
+La maquette traite la création et la refonte dans **un seul bloc**, « Création &
+refonte de site ». Le brief demande pourtant **deux pages d'offre distinctes** :
+
+| URL | H1 |
+| --- | --- |
+| `/services/creation-site-internet-le-mans/` | Création de site internet au Mans |
+| `/services/refonte-site-web/` | Refonte de site internet au Mans |
+
+N'ayant pas de texte propre à la refonte, les deux pages servent le même bloc.
+Mesuré sur le HTML généré : **50 blocs de texte sur 54 sont communs**. Seuls
+diffèrent le `title`, le fil d'Ariane, le H1 et le lien d'exemple.
+
+Google traite ces pages comme des quasi-doublons : l'une des deux sera ignorée,
+et laquelle n'est pas prévisible. Trois sorties possibles :
+
+1. écrire un bloc propre à la refonte (état des lieux, reprise des contenus,
+   redirections de l'ancien site…) — c'est la seule qui fasse gagner les deux
+   pages ;
+2. garder la seule page création et rediriger `/services/refonte-site-web/`
+   en 301 vers elle ;
+3. laisser ainsi, en acceptant qu'une seule des deux ressorte.
+
+Rien n'a été tranché ici : il manque du texte, et en inventer serait contraire
+à la règle 3 du brief.

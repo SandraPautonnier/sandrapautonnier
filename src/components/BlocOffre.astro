@@ -1,0 +1,103 @@
+---
+import type { Bloc } from "../lib/offres";
+import { BOOKING_URL } from "../lib/site";
+
+interface Props {
+  bloc: Bloc;
+  /** Liens « Exemple : … » vers les projets qui prouvent l'offre. */
+  projets?: { slug: string; libelle: string }[];
+  /** Sur une page d'offre, le titre du bloc n'est pas le titre de la page. */
+  niveauTitre?: "h2" | "h3";
+  /** L'ancre ne sert que sur /services/, où les blocs sont empilés. */
+  ancre?: boolean;
+}
+
+const { bloc, projets = [], niveauTitre = "h2", ancre = false } = Astro.props;
+const Titre = niveauTitre;
+---
+
+<article
+  class:list={["bloc-offre", bloc.theme === "encre" && "bloc-offre--encre"]}
+  id={ancre ? bloc.id : undefined}
+>
+  <div class="bloc-offre-texte">
+    <span class:list={["bloc-offre-badge", `bloc-offre-badge--${bloc.teinteBadge}`]}>
+      {bloc.badge}
+    </span>
+    <Titre class="bloc-offre-titre">{bloc.titre}</Titre>
+    <p class="bloc-offre-chapeau">{bloc.chapeau}</p>
+    <ul class="bloc-offre-points">
+      {bloc.points.map((point) => <li>{point}</li>)}
+    </ul>
+
+    {
+      bloc.encart && (
+        <div class="bloc-offre-encart">
+          <strong>{bloc.encart.titre}</strong>
+          {bloc.encart.lignes.map((ligne) => (
+            <span>
+              {ligne.fort && <strong>{ligne.fort}</strong>}
+              {ligne.fort ? " " : ""}
+              {ligne.texte}
+            </span>
+          ))}
+        </div>
+      )
+    }
+
+    {
+      projets.map((projet) => (
+        <a class="bloc-offre-exemple" href={`/realisations/${projet.slug}/`}>
+          Exemple : {projet.libelle}
+        </a>
+      ))
+    }
+  </div>
+
+  <div class="bloc-offre-tarif">
+    <span class="tarif-label">{bloc.tarif.label}</span>
+    <span class="tarif-montant">{bloc.tarif.montant}</span>
+
+    {
+      bloc.tarif.lignes && (
+        <ul class="tarif-lignes">
+          {bloc.tarif.lignes.map((ligne) => (
+            <li>
+              {ligne.texte} <strong>{ligne.montant}</strong>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    {bloc.tarif.mentions.map((mention) => <span class="tarif-mention">{mention}</span>)}
+
+    {
+      bloc.tarif.complement && (
+        <span class="tarif-mention tarif-filet">{bloc.tarif.complement}</span>
+      )
+    }
+
+    {
+      bloc.tarif.avantage && (
+        <span
+          class:list={[
+            "tarif-avantage",
+            !bloc.tarif.complement && "tarif-filet",
+          ]}
+        >
+          {bloc.tarif.avantage}
+        </span>
+      )
+    }
+
+    <a
+      class="tarif-bouton"
+      href={BOOKING_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Réserver un appel de 30 min
+    </a>
+  </div>
+</article>

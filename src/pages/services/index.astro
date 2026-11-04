@@ -1,59 +1,101 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlocOffre from "../../components/BlocOffre.astro";
+import BlocAssociations from "../../components/BlocAssociations.astro";
+import Methode from "../../components/Methode.astro";
+import Faq from "../../components/Faq.astro";
+import BandeAppel from "../../components/BandeAppel.astro";
+import {
+  BLOCS,
+  FAQ,
+  GARANTIES_SERVICES,
+  MENTION_TVA,
+} from "../../lib/offres";
 
-const prestations = [
-  {
-    href: "/services/creation-site-internet-le-mans/",
-    titre: "Création de site internet au Mans",
-    resume:
-      "Un site vitrine sur-mesure, pensé pour votre activité : structure claire, performances, accessibilité et référencement dès la conception.",
-  },
-  {
-    href: "/services/refonte-site-web/",
-    titre: "Refonte de site web",
-    resume:
-      "Votre site existe déjà mais ne vous ressemble plus, ou ne performe pas. Audit, reprise de l'existant et refonte sans perdre votre référencement.",
-  },
-  {
-    href: "/services/gestion-de-projet-digital/",
-    titre: "Gestion de projet digital",
-    resume:
-      "Cadrage, coordination des intervenants et suivi jusqu'à la mise en ligne. Un interlocuteur unique pour votre projet web.",
-  },
+// Raccourcis vers les blocs. « Associations » se distingue par sa teinte,
+// comme dans la maquette.
+const RACCOURCIS = [
+  { ancre: "#creation", libelle: "Création & refonte" },
+  { ancre: "#audit", libelle: "Audit SEO" },
+  { ancre: "#ia", libelle: "IA & automatisation" },
+  { ancre: "#pilotage", libelle: "Pilotage de projet" },
+  { ancre: "#associations", libelle: "Associations", teinte: true },
+];
+
+const faqPage = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ.map((q) => ({
+    "@type": "Question",
+    name: q.question,
+    acceptedAnswer: { "@type": "Answer", text: q.reponse },
+  })),
+};
+
+const breadcrumb = [
+  { nom: "Accueil", url: "/" },
+  { nom: "Services", url: "/services/" },
 ];
 ---
 
 <BaseLayout
-  title="Services - Création de site, refonte et gestion de projet | Sukiweb"
-  description="Les prestations de Sandra Pautonnier, développeuse web au Mans : création de site internet, refonte de site existant et gestion de projet digital."
+  title="Services web au Mans : création, audit, IA, pilotage"
+  description="Quatre offres aux prix affichés : création et refonte de site, audit SEO, IA et automatisation, pilotage de projet. Au Mans et à distance."
   pageClass="services"
-  breadcrumb={[
-    { nom: "Accueil", url: "/" },
-    { nom: "Services", url: "/services/" },
-  ]}
+  pleineLargeur
+  jsonLd={[faqPage]}
+  breadcrumb={breadcrumb}
 >
-  <section class="margin">
-    <h1>Mes services</h1>
-    <p class="base-text">
-      Développeuse web et cheffe de projet digitale au Mans, j'accompagne les
-      indépendants, les associations et les petites structures sur l'ensemble de
-      leur présence en ligne.
-    </p>
-
-    <div class="offers-container">
-      {
-        prestations.map((p) => (
-          <div class="offer-card">
-            <h2>{p.titre}</h2>
-            <p class="base-text">{p.resume}</p>
-            <a href={p.href} class="btn-secondary" aria-label={`En savoir plus : ${p.titre}`}>
-              En savoir plus
+  <section class="services-entete">
+    <div class="conteneur services-entete-bloc">
+      <h1>Sites internet, IA & projets numériques, au Mans et à distance</h1>
+      <p class="services-intro">
+        Quatre offres, des prix affichés, et une seule interlocutrice du premier
+        échange au suivi. Vous ne savez pas laquelle choisir ? On en parle
+        30 minutes, sans engagement.
+      </p>
+      <p class="garanties">
+        {
+          GARANTIES_SERVICES.map((garantie, i) => (
+            <>
+              {i > 0 && <span aria-hidden="true">·</span>}
+              <span>{garantie}</span>
+            </>
+          ))
+        }
+      </p>
+      <nav class="raccourcis" aria-label="Aller à une offre">
+        {
+          RACCOURCIS.map((raccourci) => (
+            <a
+              class:list={["raccourci", raccourci.teinte && "raccourci--sauge"]}
+              href={raccourci.ancre}
+            >
+              {raccourci.libelle}
             </a>
-          </div>
+          ))
+        }
+      </nav>
+    </div>
+  </section>
+
+  <section class="services-offres">
+    <div class="conteneur services-offres-bloc">
+      {
+        BLOCS.map((bloc) => (
+          <BlocOffre
+            bloc={bloc}
+            projets={bloc.exemple ? [bloc.exemple] : []}
+            ancre
+          />
         ))
       }
+      <BlocAssociations ancre />
+      <p class="mention-tva">{MENTION_TVA}</p>
     </div>
-
-    <a href="/contact/" class="btn" aria-label="Demander un devis">Demander un devis</a>
   </section>
+
+  <Methode />
+  <Faq />
+  <BandeAppel titre="Pas sûr de l'offre qui vous convient ?" />
 </BaseLayout>

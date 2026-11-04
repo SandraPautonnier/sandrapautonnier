@@ -1,88 +1,502 @@
 @import "../utils/variables";
 @import "../utils/mixins";
 
-@media (max-width: 600px) {
-    table, thead, tbody, th, td, tr {
-      display: block;
-    }
+// Page Services et pages d'offre. Même grammaire que l'accueil : sections en
+// pleine largeur, conteneur interne qui recentre.
 
-    thead tr {
-      display: none;
-    }
-
-    tbody tr {
-      margin-bottom: 1rem;
-      border-radius: 8px;
-      padding: 1rem;
-    }
-
-    tbody td {
-      padding-left: 50%;
-      position: relative;
-      border: none;
-      border-bottom: 1px solid $border-light;
-      text-align: left;
-
-      &:last-child {
-        border-bottom: none;
-      }
-
-      &::before {
-        position: absolute;
-        top: 12px;
-        left: 15px;
-        width: 45%;
-        white-space: nowrap;
-        font-weight: 600;
-        color: $text-dark;
-        content: attr(data-label);
-      }
-    }
+.services {
+    background: $creme;
+    color: $encre;
 }
 
-.table {
-  border-collapse: separate;
-  border-radius: 8px;
+.services main > section {
+    display: block;
+    padding: 0;
 }
-// Grille des offres de /services/. Elle vivait dans _Home.scss, que la
-// refonte de l'accueil a remplacé ; déplacée ici, auprès de la seule page
-// qui l'utilise encore. L'étape 6 réécrit cette page.
-.offers-container {
-  @include grid-4;
-  // auto-fit plutôt qu'un nombre de colonnes figé : la grille s'ajuste au
-  // nombre d'offres affichées, sans laisser de colonne vide.
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 
-  @media (max-width: 991px) {
+// Largeur de lecture resserrée de la FAQ, comme dans la maquette.
+.conteneur-etroit {
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+}
+
+// --- En-têtes --------------------------------------------------------------
+
+.services-entete-bloc,
+.offre-entete-bloc {
     display: flex;
     flex-direction: column;
     gap: 20px;
-  }
+    padding-top: 56px;
+    padding-bottom: 40px;
 
-  .offer-card {
-    @include highlight-card;
-    justify-content: space-between;
+    h1 {
+        margin: 0;
+        max-width: 900px;
+        font-size: clamp(2.5rem, 5vw, 3.75rem);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        color: $encre;
+        text-align: left;
+        padding-bottom: 0;
 
-    svg {
-      color: $main-color;
-      font-size: 45px;
-      margin-top: 20px;
+        &::after {
+            content: none;
+        }
+    }
+}
+
+.offre-entete-bloc {
+    gap: 18px;
+    padding-bottom: 8px;
+}
+
+.services-intro {
+    margin: 0;
+    max-width: 660px;
+    font-size: 19px;
+    color: $texte-secondaire;
+}
+
+.raccourcis {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.raccourci {
+    padding: 10px 18px;
+    border: 1.5px solid $encre;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 600;
+    color: $encre;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+        background: $encre;
+        color: $creme;
+    }
+}
+
+.raccourci--sauge {
+    border-color: $sauge;
+    background: $sauge;
+    color: $sauge-encre;
+
+    &:hover {
+        border-color: $sauge-encre;
+        background: $sauge-encre;
+        color: $sauge;
+    }
+}
+
+// --- Blocs d'offre -----------------------------------------------------------
+
+.services-offres-bloc {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 16px;
+    padding-bottom: 80px;
+}
+
+.bloc-offre {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 56px;
+    padding: 40px;
+    border: 1px solid $bordure;
+    border-radius: 22px;
+    background: white;
+
+    @media (max-width: 479px) {
+        padding: 24px;
+    }
+}
+
+// Le bloc Pilotage est posé sur l'encre dans la maquette.
+.bloc-offre--encre {
+    border-color: $encre;
+    background: $encre;
+    color: $creme;
+
+    .bloc-offre-titre {
+        color: $creme;
     }
 
-    h3 {
-      color: $main-color;
-      text-align: center;
+    .bloc-offre-chapeau,
+    .bloc-offre-points {
+        color: #d9d1e0;
     }
 
-    p {
-      text-align: center;
+    .bloc-offre-exemple {
+        color: #e6ddee;
+    }
+
+    .bloc-offre-tarif {
+        background: #2e2638;
+    }
+
+    .tarif-label,
+    .tarif-mention {
+        color: #d9d1e0;
+    }
+
+    .tarif-montant {
+        color: $creme;
+    }
+
+    .tarif-bouton {
+        background: $creme;
+        color: $encre;
+
+        &:hover {
+            background: white;
+            color: $encre;
+        }
+    }
+}
+
+.bloc-offre-texte {
+    flex: 999 1 460px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.bloc-offre-badge {
+    align-self: flex-start;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.bloc-offre-badge--lilas {
+    background: $lilas;
+    color: $lilas-encre;
+}
+
+.bloc-offre-badge--rose {
+    background: $rose;
+    color: $rose-encre;
+}
+
+.bloc-offre-badge--sable {
+    background: $sable;
+    color: $sable-encre;
+}
+
+.bloc-offre-badge--encre {
+    background: #3a3045;
+    color: #e6ddee;
+}
+
+.bloc-offre-titre {
+    margin: 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    color: $encre;
+    text-align: left;
+    padding-bottom: 0;
+
+    &::after {
+        content: none;
+    }
+
+    @media (max-width: 479px) {
+        font-size: 26px;
+    }
+}
+
+.bloc-offre-chapeau {
+    margin: 0;
+    font-size: 17px;
+    color: $texte;
+}
+
+.bloc-offre-points {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 4px 0 0;
+    padding-left: 20px;
+    color: $texte;
+
+    li {
+        list-style: disc;
+    }
+}
+
+.bloc-offre-encart {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 6px;
+    padding: 20px 22px;
+    border-radius: 14px;
+    background: $sauge;
+    color: #22301e;
+
+    > strong:first-child {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 18px;
     }
 
     span {
-      display: block;
-      text-align: center;
-      margin-top: 10px;
-      font-weight: bold;
+        font-size: 15px;
     }
-  }
+}
+
+.bloc-offre-exemple {
+    align-self: flex-start;
+    margin-top: 6px;
+    font-weight: 600;
+    color: $violet-fonce;
+    text-decoration: underline;
+
+    &:hover {
+        color: $encre;
+    }
+}
+
+// --- Colonne tarif ------------------------------------------------------------
+
+.bloc-offre-tarif {
+    flex: 1 1 260px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 28px;
+    border-radius: 16px;
+    background: $creme;
+    box-sizing: border-box;
+}
+
+.tarif-label {
+    font-size: 14px;
+    color: $texte-secondaire;
+}
+
+.tarif-montant {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1;
+}
+
+.tarif-lignes {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 4px 0 0;
+    padding: 0;
+    font-size: 14px;
+    color: $texte;
+
+    li {
+        list-style: none;
+    }
+}
+
+.tarif-mention {
+    font-size: 14px;
+    color: $texte-secondaire;
+}
+
+.tarif-avantage {
+    font-size: 14px;
+    font-weight: 600;
+    color: $violet-fonce;
+}
+
+// Filet de séparation avant la dernière mention du bloc.
+.tarif-filet {
+    padding-top: 8px;
+    border-top: 1px solid $bordure;
+}
+
+.tarif-bouton {
+    margin-top: 12px;
+    padding: 14px 20px;
+    border-radius: 999px;
+    background: $violet;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background: $violet-fonce;
+        color: white;
+    }
+}
+
+// --- Bloc associations ----------------------------------------------------------
+
+.bloc-associations {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 56px;
+    align-items: center;
+    padding: 40px;
+    border-radius: 22px;
+    background: $sauge;
+    color: #233620;
+
+    @media (max-width: 479px) {
+        padding: 24px;
+    }
+
+    .bloc-offre-titre {
+        color: #233620;
+    }
+}
+
+.bloc-associations-texte {
+    flex: 999 1 460px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.bloc-associations-chapeau {
+    margin: 0;
+    font-size: 17px;
+}
+
+.bloc-associations-precision {
+    margin: 0;
+    font-size: 15px;
+}
+
+.bouton-associations {
+    flex: 0 0 auto;
+    padding: 16px 26px;
+    border-radius: 999px;
+    background: $sauge-encre;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+        background: #233620;
+        color: white;
+    }
+}
+
+.mention-tva {
+    margin: 0;
+    font-size: 14px;
+    color: $texte-secondaire;
+}
+
+// --- Méthode ----------------------------------------------------------------------
+
+.section-methode {
+    background: #ede6df;
+}
+
+.section-methode-bloc {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    h2 {
+        margin: 0;
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+        color: $encre;
+        text-align: left;
+        padding-bottom: 0;
+
+        &::after {
+            content: none;
+        }
+    }
+}
+
+.methode-etapes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+
+    li {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        list-style: none;
+    }
+
+    strong {
+        font-size: 18px;
+    }
+}
+
+.methode-numero {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: $violet-fonce;
+}
+
+.methode-texte {
+    font-size: 15px;
+    color: $texte-secondaire;
+}
+
+// --- FAQ ----------------------------------------------------------------------------
+
+.section-faq-bloc {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 88px;
+    padding-bottom: 88px;
+
+    h2 {
+        margin: 0;
+        font-size: clamp(1.75rem, 3vw, 2.25rem);
+        color: $encre;
+        text-align: left;
+        padding-bottom: 0;
+
+        &::after {
+            content: none;
+        }
+    }
+}
+
+.faq-liste {
+    border-top: 1px solid $bordure;
+
+    details {
+        padding: 20px 0;
+        border-bottom: 1px solid $bordure;
+    }
+
+    summary {
+        font-size: 18px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    p {
+        margin: 12px 0 0;
+        color: $texte;
+    }
 }

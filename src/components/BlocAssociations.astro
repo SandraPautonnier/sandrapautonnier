@@ -1,0 +1,42 @@
+---
+import { BLOC_ASSOCIATIONS } from "../lib/offres";
+import { BOOKING_URL } from "../lib/site";
+
+interface Props {
+  niveauTitre?: "h2" | "h3";
+  ancre?: boolean;
+  /** Liens « Exemple : … » vers les projets qui prouvent l'offre. */
+  projets?: { slug: string; libelle: string }[];
+}
+
+const { niveauTitre = "h2", ancre = false, projets = [] } = Astro.props;
+const Titre = niveauTitre;
+
+// La remise est mise en gras au milieu du chapeau, comme dans la maquette.
+const [avant, apres] = BLOC_ASSOCIATIONS.chapeau.split(BLOC_ASSOCIATIONS.remise);
+---
+
+<article class="bloc-associations" id={ancre ? BLOC_ASSOCIATIONS.id : undefined}>
+  <div class="bloc-associations-texte">
+    <Titre class="bloc-offre-titre">{BLOC_ASSOCIATIONS.titre}</Titre>
+    <p class="bloc-associations-chapeau">
+      {avant}<strong>{BLOC_ASSOCIATIONS.remise}</strong>{apres}
+    </p>
+    <p class="bloc-associations-precision">{BLOC_ASSOCIATIONS.precision}</p>
+    {
+      projets.map((projet) => (
+        <a class="bloc-offre-exemple" href={`/realisations/${projet.slug}/`}>
+          Exemple : {projet.libelle}
+        </a>
+      ))
+    }
+  </div>
+  <a
+    class="bouton-associations"
+    href={BOOKING_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Réserver un appel de 30 min
+  </a>
+</article>

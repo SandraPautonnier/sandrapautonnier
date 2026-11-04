@@ -1,0 +1,117 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlocOffre from "../../components/BlocOffre.astro";
+import BlocAssociations from "../../components/BlocAssociations.astro";
+import Methode from "../../components/Methode.astro";
+import Faq from "../../components/Faq.astro";
+import BandeAppel from "../../components/BandeAppel.astro";
+import { BLOCS, FAQ, MENTION_TVA, OFFRES, type Offre } from "../../lib/offres";
+import { SITE, ZONE_DESSERVIE } from "../../lib/site";
+
+export function getStaticPaths() {
+  return OFFRES.map((offre) => ({
+    params: { slug: offre.slug },
+    props: { offre },
+  }));
+}
+
+interface Props {
+  offre: Offre;
+}
+
+const { offre } = Astro.props;
+const bloc = BLOCS.find((b) => b.id === offre.bloc);
+const url = new URL(`/services/${offre.slug}/`, SITE.url).href;
+
+const service: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: offre.h1,
+  serviceType: offre.serviceType,
+  description: offre.description,
+  provider: { "@id": `${SITE.url}/#professionalservice` },
+  areaServed: ZONE_DESSERVIE,
+  url,
+};
+
+// Un prix affiché mérite une offre structurée. « Sur devis » n'en porte pas :
+// mieux vaut aucune donnée qu'un prix inventé.
+if (offre.prix) {
+  service.offers = {
+    "@type": "Offer",
+    priceCurrency: "EUR",
+    price: offre.prix.valeur,
+    ...(offre.prix.type === "minimum"
+      ? {
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            minPrice: offre.prix.valeur,
+            priceCurrency: "EUR",
+            valueAddedTaxIncluded: false,
+          },
+        }
+      : {}),
+    availability: "https://schema.org/InStock",
+    url,
+  };
+}
+
+const questions = offre.faq
+  .map((id) => FAQ.find((q) => q.id === id))
+  .filter((q) => q !== undefined);
+
+const faqPage =
+  questions.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: questions.map((q) => ({
+          "@type": "Question",
+          name: q.question,
+          acceptedAnswer: { "@type": "Answer", text: q.reponse },
+        })),
+      }
+    : undefined;
+
+const breadcrumb = [
+  { nom: "Accueil", url: "/" },
+  { nom: "Services", url: "/services/" },
+  { nom: offre.h1, url: `/services/${offre.slug}/` },
+];
+---
+
+<BaseLayout
+  title={offre.title}
+  description={offre.description}
+  pageClass="services"
+  pleineLargeur
+  jsonLd={faqPage ? [service, faqPage] : [service]}
+  breadcrumb={breadcrumb}
+>
+  <section class="offre-entete">
+    <div class="conteneur offre-entete-bloc">
+      <nav class="fil-ariane" aria-label="Fil d'Ariane">
+        <a href="/">Accueil</a> / <a href="/services/">Services</a> /{" "}
+        {offre.h1}
+      </nav>
+      <h1>{offre.h1}</h1>
+    </div>
+  </section>
+
+  <section class="services-offres">
+    <div class="conteneur services-offres-bloc">
+      {
+        bloc ? (
+          <BlocOffre bloc={bloc} projets={offre.projets} niveauTitre="h2" />
+        ) : (
+          <BlocAssociations niveauTitre="h2" projets={offre.projets} />
+        )
+      }
+      <p class="mention-tva">{MENTION_TVA}</p>
+    </div>
+  </section>
+
+  <Methode />
+  <Faq ids={offre.faq} />
+  <BandeAppel titre="Pas sûr de l'offre qui vous convient ?" />
+</BaseLayout>
