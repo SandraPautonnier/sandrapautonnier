@@ -1,6 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+import ProjectVisuel from "./ProjectVisuel.astro";
 
 interface Props {
   projet: CollectionEntry<"projets">;
@@ -10,24 +10,20 @@ interface Props {
 const { projet, compact = false } = Astro.props;
 const d = projet.data;
 
-// "en-ligne" s'affiche normalement (aucune mention). Les deux autres statuts
-// portent une mention visible et n'exposent aucun lien externe, ici comme sur
-// la page de détail.
-const mentionStatut =
-  d.statut === "en-developpement"
-    ? "En cours de développement"
-    : d.statut === "prive"
-      ? "Application privée"
-      : null;
+// Mise en page transitoire : la grille et les cartes définitives de la
+// maquette arrivent aux étapes 4 et 5. Ici, seuls les champs du nouveau
+// schéma sont câblés.
 ---
 
 <div class:list={["card-works", compact && "card-works--compact"]}>
-  <Image src={d.cover} alt={`Projet ${d.titre}`} loading="lazy" />
+  <a href={`/realisations/${projet.id}/`} aria-label={`Voir le projet ${d.nomCourt}`}>
+    <ProjectVisuel projet={projet} />
+  </a>
   <div class="card-content">
     <div>
-      <h3>{d.titre}</h3>
-      <p class="work-category">{d.category}</p>
-      {mentionStatut && <p class="work-statut">{mentionStatut}</p>}
+      <p class="work-category">{d.mention}</p>
+      <h3>{d.titreCarte}</h3>
+      <p class="work-statut">{d.statutAffiche}</p>
     </div>
     <a href={`/realisations/${projet.id}/`} class="btn-secondary">Voir le projet</a>
   </div>

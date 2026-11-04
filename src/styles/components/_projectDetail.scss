@@ -71,6 +71,16 @@
     }
 }
 
+// Résumé du projet, sous le titre. C'est un paragraphe et non le badge de
+// catégorie d'avant : il doit pouvoir passer à la ligne.
+.project-resume {
+    max-width: 900px;
+    margin: 20px auto 0;
+    font-size: 19px;
+    line-height: 1.5;
+    color: $texte-secondaire;
+}
+
 .project-meta {
     max-width: 1200px;
     margin: 20px auto 0;
@@ -133,6 +143,65 @@
 
         @media (max-width: 768px) {
             margin-bottom: 35px;
+        }
+    }
+
+    // Visuel principal : capture ou aplat de la teinte du projet.
+    .visuel--fiche {
+        margin-bottom: 50px;
+
+        @media (max-width: 768px) {
+            margin-bottom: 35px;
+        }
+    }
+
+    // Encadré "infos" du projet. Mise en forme provisoire : la colonne
+    // latérale de la maquette arrive à l'étape 5.
+    .project-infos {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 18px;
+        margin: 0 0 50px;
+        padding: 24px;
+        background-color: white;
+        border: 1px solid $bordure;
+        border-radius: 18px;
+
+        dt {
+            font-size: 13px;
+            color: $texte-secondaire;
+        }
+
+        dd {
+            margin: 2px 0 0;
+            font-weight: 700;
+            font-size: 15px;
+            color: $encre;
+        }
+
+        @media (max-width: 768px) {
+            margin-bottom: 35px;
+        }
+    }
+
+    .project-temoignage {
+        margin: 0 0 50px;
+        padding: 28px;
+        background-color: white;
+        border: 1px solid $bordure;
+        border-radius: 18px;
+
+        p {
+            margin: 0;
+            font-size: 17px;
+            line-height: 1.6;
+            color: $texte;
+        }
+
+        footer {
+            margin-top: 14px;
+            font-size: 14px;
+            color: $texte-secondaire;
         }
     }
 

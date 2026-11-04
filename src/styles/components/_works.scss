@@ -23,7 +23,10 @@
             @media (min-width: 1200px) {
                 height: auto;
             }
-            img {
+            // Capture et aplat de remplacement occupent la même boîte, pour
+            // que la grille reste régulière quel que soit le projet.
+            img,
+            .visuel {
                 width: 100%;
                 height: 140px;
                 object-fit: cover;

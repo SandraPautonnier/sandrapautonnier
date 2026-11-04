@@ -1,0 +1,88 @@
+{
+  "titre": "VELA : la technique d’une plateforme d’accompagnement pour dirigeants",
+  "nomCourt": "VELA",
+  "titreCarte": "Piloter une plateforme d’abonnement pour dirigeants",
+  "type": "client",
+  "mention": "Client · KiRoMa",
+  "statut": "en-ligne",
+  "statutAffiche": "Accompagnement continu",
+  "ordre": 10,
+  "aLaUne": true,
+  "brouillon": false,
+  "annee": 2026,
+  "teinte": "lilas",
+  "resume": "Depuis avril 2026, je construis et je fais tourner toute la partie technique de VELA Business Media : paiement, espace membre, automatisations, e-mails et outil de pilotage.",
+  "infos": [
+    {
+      "label": "Client",
+      "valeur": "KiRoMa — VELA Business Media"
+    },
+    {
+      "label": "Mon rôle",
+      "valeur": "Responsable technique et cheffe de projet"
+    },
+    {
+      "label": "Depuis",
+      "valeur": "Avril 2026"
+    },
+    {
+      "label": "Format",
+      "valeur": "Environ trois jours par semaine"
+    }
+  ],
+  "competences": [
+    "Kajabi",
+    "Make",
+    "Stripe",
+    "Brevo",
+    "Typeform",
+    "Apps Script",
+    "Développé avec l’IA"
+  ],
+  "developpeAvecIA": true,
+  "sections": [
+    {
+      "titre": "Le contexte",
+      "texte": "VELA Business Media est une plateforme d’accompagnement stratégique pour les dirigeants de TPE et PME. Chaque membre rejoint un niveau selon le chiffre d’affaires qu’il déclare (de N1 Fondateurs à N5 Capitaines), répond à des questionnaires, puis reçoit une mindmap et des comptes rendus personnalisés dans un espace membre privé."
+    },
+    {
+      "titre": "L’enjeu",
+      "texte": "Transformer ce concept en une plateforme qui fonctionne seule, du paiement à l’espace membre, en passant par les e-mails, les questionnaires et le suivi de chaque membre. La fondatrice produit les contenus ; je m’occupe de tout le reste."
+    },
+    {
+      "titre": "Ce que j’ai construit",
+      "liste": [
+        "Une plateforme membre sur Kajabi : offres par niveau, contenus programmés sur 14 semaines, tunnel de paiement personnalisé.",
+        "Un thème sur mesure (HTML, CSS, JavaScript) : tableau de bord personnel, vidéos filtrées, mindmap intégrée, barre de progression, messagerie et réservation de visio.",
+        "Une dizaine d’automatisations Make qui enchaînent tout le parcours : paiement, questionnaire, calcul du niveau, PDF rangés dans Google Drive, publication des comptes rendus, détection des résiliations.",
+        "Une dizaine d’e-mails Brevo déclenchés au bon moment, sur un domaine authentifié.",
+        "Un Cockpit de pilotage (Google Sheets et Apps Script) utilisé chaque jour par l’équipe : 7 onglets, sauvegarde nocturne, journal des actions et alertes automatiques.",
+        "Un espace gratuit qui mène au payant, sans perte de données au passage.",
+        "Le site vitrine et la conformité : mentions légales, confidentialité, bandeau cookies, mesure d’audience."
+      ]
+    },
+    {
+      "titre": "Comment j’ai travaillé",
+      "texte": "J’ai documenté avant de construire : les automatisations sont décrites dans un dossier de 35 pages, et chaque étape a été testée, jusqu’à un vrai paiement de 1 € pour valider l’inscription. Chaque semaine : un plan de travail, des comptes rendus et une liste de tâches priorisée. J’ai aussi fiabilisé l’existant avec des gestionnaires d’erreur, pour qu’aucun nouvel abonné ne se perde."
+    },
+    {
+      "titre": "Le résultat",
+      "texte": "En sept mois : une plateforme lancée en juin 2026, 5 niveaux d’abonnement, une dizaine d’automatisations, une dizaine de modèles d’e-mails, un espace membre sur mesure et un outil de pilotage à 7 onglets utilisé chaque jour."
+    },
+    {
+      "titre": "La suite : VELA 2.0",
+      "texte": "Je prépare la nouvelle génération de la plateforme : un espace membre reconstruit hors Kajabi, en Next.js, avec une base de données hébergée en Europe. Les automatisations seront réécrites en code et le Cockpit intégré à l’application."
+    }
+  ],
+  "client": "KiRoMa — VELA Business Media",
+  "lien": {
+    "libelle": "Voir le site",
+    "url": "https://vela-media.fr/",
+    "texte": "vela-media.fr"
+  },
+  "temoignage": {
+    "texte": "Sandra a su comprendre rapidement ce que je voulais construire, même quand mes idées partaient dans tous les sens ! Elle est disponible, impliquée et cherche toujours des solutions pour faire avancer les choses. C’est agréable de travailler avec quelqu’un sur qui on peut compter, et j’ai bien l’intention de continuer à lui confier de nouveaux projets !",
+    "auteur": "Célia Campion",
+    "fonction": "fondatrice de VELA Business Media (KiRoMa)"
+  }
+}

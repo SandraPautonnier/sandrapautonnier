@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  projet: CollectionEntry<"projets">;
+  /**
+   * "carte" : vignette d'une grille. "fiche" : visuel principal de la page
+   * projet. La variante ne change que les dimensions, pas la logique.
+   */
+  variante?: "carte" | "fiche";
+  /** Le visuel de la fiche est au-dessus de la ligne de flottaison. */
+  eager?: boolean;
+}
+
+const { projet, variante = "carte", eager = false } = Astro.props;
+const d = projet.data;
+
+// Faute de capture, on affiche un aplat de la teinte du projet portant son
+// nom : pas d'image empruntée, pas de texte entre crochets en production.
+---
+
+{
+  d.cover ? (
+    <Image
+      class:list={["visuel", `visuel--${variante}`]}
+      src={d.cover}
+      alt={`Capture du projet ${d.nomCourt}`}
+      loading={eager ? "eager" : "lazy"}
+    />
+  ) : (
+    <div
+      class:list={[
+        "visuel",
+        `visuel--${variante}`,
+        "visuel--aplat",
+        `visuel--${d.teinte}`,
+      ]}
+    >
+      <span class="visuel-nom">{d.nomCourt}</span>
+      <span class="visuel-attente">Capture d'écran à venir</span>
+    </div>
+  )
+}

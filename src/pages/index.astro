@@ -10,18 +10,18 @@ import {
   faWrench,
   faCheck,
   faPen,
+  faRobot,
+  faDiagramProject,
 } from "@fortawesome/free-solid-svg-icons";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HeaderImage from "../assets/images/Image_header.webp";
 import MainImage from "../assets/images/image_poignee-de-main.webp";
 
-// "Services supplémentaires" (id 4) reste dans services.json mais n'est plus
-// affiché ici : son ordre de grandeur tarifaire jure avec les trois offres
-// principales. Il réapparaîtra dans les pages services détaillées.
-const SERVICES_MASQUES_ACCUEIL = [4];
-const services = (await getCollection("services")).filter(
-  (s) => !SERVICES_MASQUES_ACCUEIL.includes(s.data.id)
+// Les 4 offres du nouveau catalogue sont toutes affichées : plus de carte
+// "Services supplémentaires" à masquer.
+const services = (await getCollection("services")).sort(
+  (a, b) => a.data.id - b.data.id
 );
 
 const iconMap = {
@@ -30,12 +30,16 @@ const iconMap = {
   faWrench,
   faAward,
   faPen,
+  faRobot,
+  faDiagramProject,
 };
 
-// Les 3 projets les plus récents. La grille définitive arrive à l'étape 4.
+// Aperçu des projets mis en avant. La grille et les filtres définitifs
+// arrivent à l'étape 4.
 const projets = await getCollection("projets");
 const recents = projets
-  .sort((a, b) => (b.data.date ?? "").localeCompare(a.data.date ?? ""))
+  .filter((p) => p.data.aLaUne && !p.data.brouillon)
+  .sort((a, b) => a.data.ordre - b.data.ordre)
   .slice(0, 3);
 ---
 
@@ -107,7 +111,7 @@ const recents = projets
       {
         recents.map((p) => (
           <li>
-            <a href={`/realisations/${p.id}/`}>{p.data.titre}</a>
+            <a href={`/realisations/${p.id}/`}>{p.data.titreCarte}</a>
           </li>
         ))
       }

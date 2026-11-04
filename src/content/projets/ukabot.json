@@ -1,0 +1,68 @@
+{
+  "titre": "UkaBot : le bot Discord pour accueillir sa communauté",
+  "nomCourt": "UkaBot",
+  "titreCarte": "Le bot Discord pour accueillir sa communauté",
+  "type": "personnel",
+  "mention": "Produit Sukiweb",
+  "statut": "en-developpement",
+  "statutAffiche": "En développement",
+  "ordre": 70,
+  "aLaUne": true,
+  "brouillon": false,
+  "annee": 2026,
+  "teinte": "lilas",
+  "resume": "Un bot Discord gratuit et sans publicité pour accueillir et organiser une communauté : règlement à accepter, choix des rôles et identité propre à chaque serveur.",
+  "infos": [
+    {
+      "label": "Type",
+      "valeur": "Produit Sukiweb"
+    },
+    {
+      "label": "Mon rôle",
+      "valeur": "Conception, développement et identité visuelle"
+    },
+    {
+      "label": "Année",
+      "valeur": "2026"
+    },
+    {
+      "label": "Prix",
+      "valeur": "Gratuit, sans publicité"
+    }
+  ],
+  "competences": [
+    "Node.js",
+    "discord.js",
+    "SQLite",
+    "OAuth2 Discord",
+    "Caddy",
+    "Développé avec l’IA"
+  ],
+  "developpeAvecIA": true,
+  "sections": [
+    {
+      "titre": "Le contexte",
+      "texte": "Sur Discord, beaucoup de bots d'accueil sont lourds à configurer ou envoient de la publicité aux membres. J'ai conçu UkaBot comme un produit Sukiweb : simple, gratuit pour l'essentiel, et respectueux des membres."
+    },
+    {
+      "titre": "L’enjeu",
+      "texte": "Permettre à n'importe quel administrateur de serveur d'accueillir ses nouveaux membres en quelques minutes, sans taper de commande compliquée, avec un minimum de données collectées."
+    },
+    {
+      "titre": "Ce que j’ai fait",
+      "liste": [
+        "Règlement à accepter d'un clic, qui attribue le rôle Membre",
+        "Rôles principaux cumulables, chacun avec ses sous-rôles, choisis par les membres eux-mêmes",
+        "Une identité par serveur : nom, avatar et couleur des messages",
+        "Panneau /config dans Discord, avec boutons, menus et envoi de l'avatar",
+        "Tableau de bord web avec connexion par compte Discord (OAuth2)",
+        "Suppression automatique des réglages d'un serveur après son départ",
+        "Identité visuelle, page d'accueil et pages légales"
+      ]
+    },
+    {
+      "titre": "Et ensuite",
+      "texte": "La V1 est terminée. Prochaine étape : une section Sécurité (niveaux de protection prêts à l'emploi, règles AutoMod, mode verrouillage en cas de raid). Je développe aussi des bots sur mesure pour les associations, créateurs et entreprises."
+    }
+  ]
+}

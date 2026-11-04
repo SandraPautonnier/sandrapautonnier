@@ -1,25 +1,70 @@
 {
-  "titre": "Pulsar42",
-  "client": "Pulsar42",
+  "titre": "Pulsar42 : contribution au site d'une association",
+  "nomCourt": "Pulsar42",
+  "titreCarte": "Contribution au site d’une association",
   "type": "client",
+  "mention": "Association · projet collaboratif",
   "statut": "en-ligne",
-  "url": "https://pulsar42.sc",
-  "ordre": 10,
+  "statutAffiche": "En ligne",
+  "ordre": 50,
+  "aLaUne": true,
+  "brouillon": false,
+  "annee": 2025,
+  "teinte": "sable",
+  "cover": "../../assets/images/portfolio/pulsar42.webp",
+  "resume": "Développement en équipe du site de Pulsar42, association de la communauté Star Citizen : pied de page, mentions légales, conformité RGPD et LCEN.",
+  "infos": [
+    {
+      "label": "Pour",
+      "valeur": "Pulsar42, association"
+    },
+    {
+      "label": "Mon rôle",
+      "valeur": "Développeuse front-end, au sein d'une équipe de bénévoles"
+    },
+    {
+      "label": "Depuis",
+      "valeur": "Juin 2025"
+    },
+    {
+      "label": "Cadre",
+      "valeur": "Bénévolat, en équipe"
+    }
+  ],
   "competences": [
     "React",
-    "Vite"
+    "Vite",
+    "TypeScript"
   ],
-  "annee": 2025,
-  "date": "2025-06",
-  "category": "Création de site web",
-  "cover": "../../assets/images/portfolio/pulsar42.webp",
-  "context": "Pulsar42 est un projet collaboratif porté par une association autour du jeu Star Citizen. En juin 2025, j'ai participé au développement du site Pulsar42.sc, l'un de mes premiers travaux en équipe sur un projet concret en TypeScript.",
-  "todo": [
-    "Intégration du footer du site",
-    "Développement de la page des mentions légales",
-    "Conformité RGPD et LCEN",
-    "Collaboration avec d'autres développeurs"
+  "developpeAvecIA": false,
+  "sections": [
+    {
+      "titre": "Le contexte",
+      "texte": "Pulsar42 est une association qui réunit la communauté francophone du jeu Star Citizen lors de rencontres « Bar Citizen » partout en France. En juin 2025, j'ai rejoint l'équipe de bénévoles qui développait son site."
+    },
+    {
+      "titre": "L’enjeu",
+      "texte": "Livrer un site conforme aux obligations légales et cohérent sur mobile, en travaillant à plusieurs sur le même code."
+    },
+    {
+      "titre": "Ce que j’ai fait",
+      "liste": [
+        "Intégration du pied de page du site",
+        "Développement de la page des mentions légales",
+        "Mise en conformité RGPD et LCEN",
+        "Travail en équipe avec d'autres développeurs : branches, revues de code"
+      ]
+    },
+    {
+      "titre": "En résumé",
+      "texte": "Un de mes premiers projets en équipe en TypeScript. Il a consolidé mon intégration front-end et ma pratique du travail collaboratif dans un cadre associatif."
+    }
   ],
-  "conclusion": "Ce projet m'a permis de consolider mes compétences en intégration front-end, en responsive design, et de collaborer avec d'autres développeurs dans un cadre associatif. L'expérience a été enrichissante et m'a préparée pour des projets d'équipe futurs.",
+  "client": "Pulsar42 (association)",
+  "lien": {
+    "libelle": "Voir le site",
+    "url": "https://pulsar42.sc",
+    "texte": "pulsar42.sc"
+  },
   "github": "https://github.com/Pulsar42sc/Pulsar42Web"
 }

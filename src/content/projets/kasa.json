@@ -1,25 +1,64 @@
 {
-  "titre": "Kasa",
+  "titre": "Kasa : application de location d'appartements",
+  "nomCourt": "Kasa",
+  "titreCarte": "Application de location d'appartements",
   "type": "formation",
+  "mention": "Exercice de formation",
   "statut": "en-ligne",
-  "url": "https://sandrapautonnier.github.io/kasa/",
-  "ordre": 40,
+  "statutAffiche": "En ligne",
+  "ordre": 90,
+  "aLaUne": false,
+  "brouillon": false,
+  "annee": 2024,
+  "teinte": "sable",
+  "cover": "../../assets/images/portfolio/kasa.webp",
+  "resume": "Exercice de formation : le front-end d'une application de location d'appartements entre particuliers, en React.",
+  "infos": [
+    {
+      "label": "Type",
+      "valeur": "Exercice du parcours OpenClassrooms"
+    },
+    {
+      "label": "Mon rôle",
+      "valeur": "Développement front-end"
+    },
+    {
+      "label": "Année",
+      "valeur": "2024"
+    },
+    {
+      "label": "Code",
+      "valeur": "Public sur GitHub"
+    }
+  ],
   "competences": [
     "React",
-    "React Router",
-    "CRA"
+    "React Router"
   ],
-  "annee": 2024,
-  "date": "2024-12",
-  "category": "Création d'une application",
-  "cover": "../../assets/images/portfolio/kasa.webp",
-  "context": "Kasa est une entreprise de location d'appartements entre particuliers. J'ai développé le front-end de cette application en utilisant React et React Router pour une navigation fluide.",
-  "todo": [
-    "Développement du front-end avec React",
-    "Mise en place de React Router",
-    "Gestion des données depuis un fichier JSON",
-    "Création d'une interface réactive et moderne"
+  "developpeAvecIA": false,
+  "sections": [
+    {
+      "titre": "Le contexte",
+      "texte": "Projet réalisé pendant mon parcours OpenClassrooms. Le sujet : développer le front-end d'une application de location d'appartements entre particuliers, à partir de maquettes fournies."
+    },
+    {
+      "titre": "Ce que j’ai fait",
+      "liste": [
+        "Développement du front-end avec React",
+        "Navigation entre les pages avec React Router",
+        "Affichage des données depuis un fichier JSON",
+        "Interface adaptée au mobile"
+      ]
+    },
+    {
+      "titre": "En résumé",
+      "texte": "L'exercice qui m'a fait passer à React. Je le garde ici comme repère de mes débuts, à côté des projets réalisés pour de vrais clients."
+    }
   ],
-  "conclusion": "J'ai conçu une application réactive qui offre une excellente expérience utilisateur. Ce projet m'a permis de maîtriser React et React Router, essentiels pour développer des applications web modernes.",
+  "lien": {
+    "libelle": "Voir l’application",
+    "url": "https://sandrapautonnier.github.io/kasa/",
+    "texte": "sandrapautonnier.github.io/kasa"
+  },
   "github": "https://github.com/SandraPautonnier/kasa"
 }

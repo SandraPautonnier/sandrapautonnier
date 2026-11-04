@@ -229,3 +229,56 @@ d'expérience, pas une simple équivalence technique.
 - Les icônes FontAwesome sont rendues en SVG statique au build (zéro JS sur les
   pages sans îlot), mais restent 4 paquets npm. Des SVG inline les remplaceraient
   avantageusement.
+
+## Refonte 2026 — points relevés en cours d'intégration
+
+### Captures projet manquantes — 🟠 important
+
+Le nouveau contenu décrit 9 projets. Tant qu'une capture n'est pas fournie, la
+carte et la fiche affichent un **aplat de la teinte du projet portant son nom**
+(composant `ProjectVisuel.astro`) : aucune image empruntée, aucun texte entre
+crochets en production.
+
+Cinq projets n'ont aujourd'hui **aucune capture** :
+
+| Projet | Teinte de l'aplat | Capture attendue |
+| --- | --- | --- |
+| VELA | lilas | espace membre |
+| Ardvina | sauge | écran principal (avec l'accord du client) |
+| Location Voiture Cassis | rose | page d'accueil du site |
+| Ancrage | sauge | tableau de bord (capture ou courte vidéo) |
+| UkaBot | lilas | tableau de bord web |
+
+Quatre projets ont une capture, mais **héritée de l'ancien site : 600 px de
+large** (`kasa`, `lemansschoolofai`, `pulsar42`, `speaktime`). Elles suffisent
+pour les vignettes de grille (190 px de haut), mais la maquette prévoit un visuel
+de **1200 × 460** sur la fiche projet : à cette taille elles sont agrandies deux
+fois et deviennent floues. `A-CONFIRMER.md` demande d'ailleurs des captures
+neuves pour les 9 projets, en WebP 1600 px de large.
+
+Pour installer une capture : déposer le fichier dans
+`src/assets/images/portfolio/<slug>.webp`, puis ajouter au JSON du projet
+`"cover": "../../assets/images/portfolio/<slug>.webp"`. L'aplat disparaît tout
+seul et la boîte garde exactement les mêmes dimensions — rien ne se décale.
+
+### `_projectDetail.scss` n'était plus importé — 🔴 bloquant (corrigé)
+
+Depuis la migration Astro, `style.scss` n'importait plus
+`components/_projectDetail.scss`. Les pages `/realisations/<slug>/`
+s'affichaient donc **sans leurs styles propres** : titre, encadrés, listes à
+puces et boutons retombaient sur les règles globales. La régression n'avait pas
+été vue parce que les vérifications de la migration avaient porté sur les images
+et le texte servi, pas sur la mise en page de ces pages.
+
+L'import est rétabli. Le fichier sera de toute façon remplacé à l'étape 5 par le
+gabarit de la maquette. Rien n'avait été déployé entre-temps : le site en ligne
+est encore la version React.
+
+### `/a-propos/` déborde horizontalement à 375 et 768 px — 🟠 important
+
+Mesuré sur la page construite : largeur de défilement 451 px pour 375 px de
+fenêtre, 839 px pour 768 px. En cause, les étiquettes de compétences
+(`competences.json`) rendues dans une liste qui ne revient pas à la ligne.
+
+Antérieur à la refonte, sans rapport avec le nouveau contenu. À traiter à
+l'étape 7, qui réécrit cette page.

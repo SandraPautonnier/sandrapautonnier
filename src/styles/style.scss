@@ -11,6 +11,11 @@
 @import "./pages/contact";
 @import "./components/works";
 @import "./pages/realisations";
+// Jamais importé depuis la migration Astro : les fiches projet s'affichaient
+// sans leurs styles propres. Réintégré ici, et remplacé à l'étape 5 par le
+// gabarit de la maquette.
+@import "./components/projectDetail";
+@import "./components/ProjectVisuel";
 @import "./utils/colors";
 // Les polices sont self-hébergées via @fontsource, importées dans
 // BaseLayout.astro. Plus aucun appel à fonts.googleapis.com.
@@ -163,6 +168,18 @@ button {
     @include badark-colight-tags;
     display: inline-block;
     @include tags;
+}
+
+// « Développé avec l'IA » se distingue des autres outils : c'est une façon de
+// travailler, pas une technologie de la pile.
+.tag--ia {
+    // Le raccourci "background" efface le dégradé de bordure de .tag :
+    // la bordure transparente qu'il laissait est donc retirée.
+    border: 0;
+    border-radius: 6px;
+    background: $lilas;
+    color: $lilas-encre;
+    font-weight: 600;
 }
 
 .catch {

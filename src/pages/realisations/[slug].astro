@@ -1,17 +1,20 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
-import { Image } from "astro:assets";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectVisuel from "../../components/ProjectVisuel.astro";
+import { estTagIA } from "../../lib/site";
 
 export async function getStaticPaths() {
   const projets = await getCollection("projets");
-  return projets.map((projet) => ({
-    params: { slug: projet.id },
-    props: { projet },
-  }));
+  return projets
+    .filter((projet) => !projet.data.brouillon)
+    .map((projet) => ({
+      params: { slug: projet.id },
+      props: { projet },
+    }));
 }
 
 interface Props {
@@ -21,38 +24,24 @@ interface Props {
 const { projet } = Astro.props;
 const d = projet.data;
 
-const MOIS: Record<string, string> = {
-  "01": "janvier", "02": "février", "03": "mars", "04": "avril",
-  "05": "mai", "06": "juin", "07": "juillet", "08": "août",
-  "09": "septembre", "10": "octobre", "11": "novembre", "12": "décembre",
-};
+// Aucun lien externe tant que le projet n'est pas en ligne : les fichiers
+// des projets privés ou en développement n'en portent pas, cette garde
+// évite qu'un oubli en publie un.
+const lienVisible = d.statut === "en-ligne" && Boolean(d.lien);
 
-const dateAffichee = d.date
-  ? `${MOIS[d.date.split("-")[1]]} ${d.date.split("-")[0]}`
-  : String(d.annee);
-
-// Aucun lien externe si le projet est privé ou encore en développement.
-const lienSiteVisible = d.statut === "en-ligne" && Boolean(d.url);
-
-const mentionStatut =
-  d.statut === "en-developpement"
-    ? "Projet en cours de développement"
-    : d.statut === "prive"
-      ? "Application privée, accessible derrière authentification"
-      : null;
-
-const titreContexte =
-  d.type === "formation" ? "Contexte fictif" : "Contexte";
+// Mise en page transitoire : le gabarit définitif (fil d'Ariane, encadré
+// infos, navigation projet précédent / suivant, « Autres projets »,
+// bandeau d'appel) arrive à l'étape 5.
 ---
 
 <BaseLayout
-  title={`${d.titre} - Réalisation | Sukiweb`}
-  description={d.context.slice(0, 155)}
+  title={`${d.nomCourt} : ${d.titreCarte} | Sandra Pautonnier`}
+  description={d.resume.slice(0, 155)}
   pageClass="project-page"
   breadcrumb={[
     { nom: "Accueil", url: "/" },
     { nom: "Réalisations", url: "/realisations/" },
-    { nom: d.titre, url: `/realisations/${projet.id}/` },
+    { nom: d.nomCourt, url: `/realisations/${projet.id}/` },
   ]}
 >
   <section class="project-container">
@@ -61,36 +50,55 @@ const titreContexte =
         <FontAwesomeIcon icon={faArrowLeft} /> Retour
       </a>
       <h1>{d.titre}</h1>
-      <p class="project-date">{dateAffichee}</p>
+      <p class="project-date">{d.mention} · {d.statutAffiche}</p>
     </div>
 
-    <div class="project-meta">
-      <p class="project-category">{d.category}</p>
+    <p class="project-resume">{d.resume}</p>
 
+    <div class="project-meta">
       <div class="project-techs">
         <strong>Technologies &amp; Outils utilisés :</strong>
         <div class="tech-list">
-          {d.competences.map((tech) => <span class="tag">{tech}</span>)}
+          {
+            d.competences.map((tech) => (
+              <span class:list={["tag", estTagIA(tech) && "tag--ia"]}>{tech}</span>
+            ))
+          }
         </div>
       </div>
     </div>
 
     <div class="project-detail">
-      <Image src={d.cover} alt={d.titre} class="project-cover" loading="lazy" />
+      <ProjectVisuel projet={projet} variante="fiche" eager />
 
-      {mentionStatut && <p class="work-statut">{mentionStatut}</p>}
+      <dl class="project-infos">
+        {
+          d.infos.map((info) => (
+            <div>
+              <dt>{info.label}</dt>
+              <dd>{info.valeur}</dd>
+            </div>
+          ))
+        }
+      </dl>
 
       {
-        (lienSiteVisible || d.github) && (
+        (lienVisible || d.github) && (
           <div class="project-links">
             <div class="project-link-buttons">
-              {lienSiteVisible && (
-                <a href={d.url} target="_blank" rel="noopener noreferrer" aria-label="Lien vers le projet">
-                  Lien vers le projet
+              {lienVisible && d.lien && (
+                <a href={d.lien.url} target="_blank" rel="noopener noreferrer">
+                  {d.lien.libelle}
                 </a>
               )}
               {d.github && (
-                <a href={d.github} target="_blank" rel="noopener noreferrer" class="github-button" aria-label="Lien vers le dépôt GitHub">
+                <a
+                  href={d.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="github-button"
+                  aria-label="Lien vers le dépôt GitHub"
+                >
                   <FontAwesomeIcon icon={faGithub} /> GitHub
                 </a>
               )}
@@ -99,39 +107,30 @@ const titreContexte =
         )
       }
 
-      <div class="project-section">
-        <h2>{titreContexte}</h2>
-        <p>{d.context}</p>
-      </div>
-
-      <div class="project-section">
-        <h2>Réalisations</h2>
-        <ul class="todo-list">
-          {d.todo.map((item) => <li>{item}</li>)}
-        </ul>
-      </div>
-
-      <div class="project-section">
-        <h2>Conclusion</h2>
-        <p>{d.conclusion}</p>
-      </div>
+      {
+        d.sections.map((section) => (
+          <div class="project-section">
+            <h2>{section.titre}</h2>
+            {section.texte && <p>{section.texte}</p>}
+            {section.liste && (
+              <ul class="todo-list">
+                {section.liste.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))
+      }
 
       {
-        (lienSiteVisible || d.github) && (
-          <div class="project-links">
-            <div class="project-link-buttons">
-              {lienSiteVisible && (
-                <a href={d.url} target="_blank" rel="noopener noreferrer" aria-label="Lien vers le projet">
-                  Lien vers le projet
-                </a>
-              )}
-              {d.github && (
-                <a href={d.github} target="_blank" rel="noopener noreferrer" class="github-button" aria-label="Lien vers le dépôt GitHub">
-                  <FontAwesomeIcon icon={faGithub} /> GitHub
-                </a>
-              )}
-            </div>
-          </div>
+        d.temoignage && (
+          <blockquote class="project-temoignage">
+            <p>{d.temoignage.texte}</p>
+            <footer>
+              <strong>{d.temoignage.auteur}</strong>, {d.temoignage.fonction}
+            </footer>
+          </blockquote>
         )
       }
     </div>

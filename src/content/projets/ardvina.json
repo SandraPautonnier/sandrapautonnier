@@ -1,0 +1,72 @@
+{
+  "titre": "Ardvina : une application métier pour la traçabilité des déchets",
+  "nomCourt": "Ardvina",
+  "titreCarte": "Une application métier pour la traçabilité des déchets",
+  "type": "client",
+  "mention": "Client · Ardvina",
+  "statut": "prive",
+  "statutAffiche": "Livré",
+  "ordre": 20,
+  "aLaUne": true,
+  "brouillon": false,
+  "annee": 2026,
+  "teinte": "sauge",
+  "resume": "Une application métier sur mesure pour un transporteur de déchets verts, connectée à Trackdéchets, la plateforme nationale de traçabilité des déchets.",
+  "infos": [
+    {
+      "label": "Client",
+      "valeur": "Ardvina, transporteur de déchets verts"
+    },
+    {
+      "label": "Mon rôle",
+      "valeur": "Conception et développement"
+    },
+    {
+      "label": "Année",
+      "valeur": "2026"
+    },
+    {
+      "label": "Accès",
+      "valeur": "Application privée, utilisée en interne"
+    }
+  ],
+  "competences": [
+    "Next.js",
+    "Material UI",
+    "API GraphQL",
+    "OAuth2",
+    "Webhooks"
+  ],
+  "developpeAvecIA": false,
+  "sections": [
+    {
+      "titre": "Le contexte",
+      "texte": "Ardvina est un transporteur de déchets verts. Son activité est encadrée par la réglementation sur la traçabilité des déchets : chaque collecte doit être suivie et déclarée sur Trackdéchets, la plateforme nationale gérée par l'administration."
+    },
+    {
+      "titre": "L’enjeu",
+      "texte": "Disposer d'un outil de travail adapté à son métier, qui respecte les obligations réglementaires et échange directement avec Trackdéchets."
+    },
+    {
+      "titre": "Ce que j’ai fait",
+      "liste": [
+        "Création, modification et duplication des bordereaux de suivi de déchets : client, destinataire, code et nature du déchet, conditionnement, quantité, véhicule (camion ou vélo)",
+        "Signature de toute la chaîne en un clic : émetteur, transporteur, réception puis traitement",
+        "Suivi des dernières opérations et de leur statut : brouillon, publié, signé, reçu, traité",
+        "Gestion des entreprises clientes (nom, SIRET) et de leurs codes de signature",
+        "Récupération automatique du bordereau final en PDF dès que le traitement est validé, rangé par client",
+        "Connexion sécurisée au compte Trackdéchets du client (OAuth2) et échanges avec son API GraphQL",
+        "Mises à jour reçues en temps réel par webhooks"
+      ]
+    },
+    {
+      "titre": "Le résultat",
+      "texte": "Une application livrée et opérationnelle. Le transporteur crée, signe et suit ses bordereaux dans un outil pensé pour son métier, au lieu de tout saisir sur la plateforme nationale. Les signatures de toute la chaîne se font en un clic, et chaque bordereau final est récupéré en PDF et classé automatiquement par client."
+    },
+    {
+      "titre": "En résumé",
+      "texte": "Un projet technique et réglementaire, avec une administration en face : le type d'outil métier qu'une petite entreprise ne peut pas improviser, et dont j'ai assuré le développement jusqu'à la livraison."
+    }
+  ],
+  "client": "Ardvina"
+}

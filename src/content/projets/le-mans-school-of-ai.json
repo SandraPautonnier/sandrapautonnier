@@ -1,27 +1,75 @@
 {
-  "titre": "Le Mans School of AI",
-  "client": "Le Mans School of AI",
+  "titre": "Le Mans School of AI : refonte du site d'une communauté IA",
+  "nomCourt": "LMSAI",
+  "titreCarte": "Refonte du site de Le Mans School of AI",
   "type": "client",
+  "mention": "Client · Communauté",
   "statut": "en-ligne",
-  "url": "https://lemans-schoolofai.github.io/",
-  "ordre": 20,
+  "statutAffiche": "En ligne",
+  "ordre": 40,
+  "aLaUne": true,
+  "brouillon": false,
+  "annee": 2025,
+  "teinte": "lilas",
+  "cover": "../../assets/images/portfolio/lemansschoolofai.webp",
+  "resume": "Refonte complète du site d'un groupe d'entraide autour de l'IA, avec des événements qui s'archivent automatiquement.",
+  "infos": [
+    {
+      "label": "Pour",
+      "valeur": "Le Mans School of AI"
+    },
+    {
+      "label": "Mon rôle",
+      "valeur": "Refonte et développement"
+    },
+    {
+      "label": "Année",
+      "valeur": "2025"
+    },
+    {
+      "label": "Type",
+      "valeur": "Refonte de site vitrine"
+    }
+  ],
   "competences": [
     "HTML",
     "CSS",
-    "Javascript",
-    "Awesome"
+    "JavaScript",
+    "Font Awesome"
   ],
-  "annee": 2025,
-  "date": "2025-03",
-  "category": "Refonte de site vitrine",
-  "cover": "../../assets/images/portfolio/lemansschoolofai.webp",
-  "context": "Le Mans School of AI est un groupe d'entraide pour les étudiants et professionnels autour de l'IA. J'ai réalisé la refonte intégrale du site web de cette organisation.",
-  "todo": [
-    "Refonte complète du design du site",
-    "Développement en HTML/CSS et Javascript",
-    "Création d'une gestion des événements dynamiques",
-    "Mise à jour automatique des événements passés"
+  "developpeAvecIA": false,
+  "sections": [
+    {
+      "titre": "Le contexte",
+      "texte": "Le Mans School of AI est un groupe d'entraide pour les étudiants et les professionnels qui s'intéressent à l'intelligence artificielle. Son site devait mieux refléter la communauté et rester simple à faire vivre par des bénévoles."
+    },
+    {
+      "titre": "L’enjeu",
+      "texte": "Un site à jour sans effort : les bénévoles n'ont pas le temps de déplacer à la main chaque événement une fois passé."
+    },
+    {
+      "titre": "Ce que j’ai fait",
+      "liste": [
+        "Refonte complète du design du site",
+        "Développement en HTML, CSS et JavaScript",
+        "Gestion dynamique des événements",
+        "Archivage automatique des événements passés"
+      ]
+    },
+    {
+      "titre": "Le résultat",
+      "texte": "Les événements passés basculent tout seuls dans la colonne « Événements passés » : le site reste à jour sans intervention."
+    },
+    {
+      "titre": "En résumé",
+      "texte": "Un site plus clair, qui reflète mieux les valeurs de la communauté et demande moins de temps aux bénévoles."
+    }
   ],
-  "conclusion": "Avec cette refonte, j'ai créé un système intelligent où les événements passés se mettent automatiquement dans la colonne 'Événements passés'. Le site offre maintenant une meilleure expérience utilisateur et reflète mieux les valeurs de la communauté.",
-  "github": "https://github.com/LeMans-SchoolofAI/LeMans-SchoolofAI.github.io.git"
+  "client": "Le Mans School of AI",
+  "lien": {
+    "libelle": "Voir le site",
+    "url": "https://lemans-schoolofai.github.io/",
+    "texte": "lemans-schoolofai.github.io"
+  },
+  "github": "https://github.com/LeMans-SchoolofAI/LeMans-SchoolofAI.github.io"
 }

@@ -1,8 +1,9 @@
 @import "../utils/variables";
 @import "../utils/mixins";
 
-// Mention de statut sur les cartes projet (visible uniquement pour
-// "en-developpement" et "prive" ; "en-ligne" ne porte aucune mention).
+// Badge de statut sur les cartes et les fiches projet. Son texte vient du
+// champ "statutAffiche" du projet : « En ligne », « Livré », « Privé »,
+// « Accompagnement continu »…
 .work-statut {
   display: inline-block;
   margin: 6px 0 0;

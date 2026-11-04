@@ -1,0 +1,70 @@
+{
+  "titre": "Ancrage : mon application de gestion pour indépendants",
+  "nomCourt": "Ancrage",
+  "titreCarte": "Mon application de gestion, faite maison",
+  "type": "personnel",
+  "mention": "Produit Sukiweb",
+  "statut": "prive",
+  "statutAffiche": "Privé",
+  "ordre": 60,
+  "aLaUne": true,
+  "brouillon": false,
+  "annee": 2026,
+  "teinte": "sauge",
+  "resume": "L'application que j'ai construite pour gérer mon activité : clients, devis, factures, projets, finances, déclarations Urssaf et réseaux sociaux. Bientôt proposée à d'autres indépendants.",
+  "infos": [
+    {
+      "label": "Type",
+      "valeur": "Produit Sukiweb"
+    },
+    {
+      "label": "Mon rôle",
+      "valeur": "Conception et développement"
+    },
+    {
+      "label": "Année",
+      "valeur": "2026"
+    },
+    {
+      "label": "Accès",
+      "valeur": "Privé, sortie publique avec sukiweb.eu"
+    }
+  ],
+  "competences": [
+    "Next.js",
+    "React",
+    "Supabase",
+    "PostgreSQL",
+    "Vercel",
+    "Développé avec l’IA"
+  ],
+  "developpeAvecIA": true,
+  "sections": [
+    {
+      "titre": "Le contexte",
+      "texte": "J'avais besoin d'un outil qui réunisse tout ce que gère une indépendante au quotidien. Plutôt que d'empiler les logiciels, j'ai construit Ancrage. Il a remplacé mon ancien simulateur de devis, et je l'utilise tous les jours pour mon activité."
+    },
+    {
+      "titre": "L’enjeu",
+      "texte": "Un seul outil pour gérer clients, devis, factures, finances et obligations déclaratives, accessible partout et prêt pour la facturation électronique obligatoire."
+    },
+    {
+      "titre": "Ce que j’ai fait",
+      "liste": [
+        "Gestion des clients, des devis et des factures, avec génération des PDF et fusion des pièces jointes",
+        "Import de données depuis un fichier Excel",
+        "Suivi des projets et des publications sur les réseaux sociaux",
+        "Suivi des finances et tableau de bord de l'activité",
+        "Déclarations Urssaf : échéances mensuelles ou trimestrielles et estimation des cotisations",
+        "Comptes sécurisés : chaque utilisateur ne voit que ses propres données (sécurité au niveau des lignes de la base)",
+        "Installable sur téléphone comme une application",
+        "Démarche d'écoconception : mesure du poids de chaque page et des ressources externes",
+        "Raccordement prévu à une plateforme agréée pour la facturation électronique"
+      ]
+    },
+    {
+      "titre": "En résumé",
+      "texte": "Un outil que j'utilise tous les jours avant de le proposer à d'autres : la meilleure façon de savoir qu'il répond à un vrai besoin. Sa sortie publique est prévue avec le site sukiweb.eu."
+    }
+  ]
+}

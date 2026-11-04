@@ -1,25 +1,70 @@
 {
-  "titre": "SpeakTime",
+  "titre": "SpeakTime : gérer le temps de parole en réunion",
+  "nomCourt": "SpeakTime",
+  "titreCarte": "Gérer le temps de parole en réunion",
   "type": "personnel",
+  "mention": "Projet personnel",
   "statut": "en-ligne",
-  "url": "https://speaktime.vercel.app/",
-  "ordre": 30,
+  "statutAffiche": "En ligne",
+  "ordre": 80,
+  "aLaUne": false,
+  "brouillon": false,
+  "annee": 2025,
+  "teinte": "rose",
+  "cover": "../../assets/images/portfolio/speaktime.webp",
+  "resume": "Une application pour suivre et répartir le temps de parole de chacun en réunion, menée avec la revue de code d'un développeur senior.",
+  "infos": [
+    {
+      "label": "Type",
+      "valeur": "Projet personnel"
+    },
+    {
+      "label": "Mon rôle",
+      "valeur": "Conception et développement, avec revue de code par un développeur senior"
+    },
+    {
+      "label": "Année",
+      "valeur": "2025"
+    },
+    {
+      "label": "Code",
+      "valeur": "Public sur GitHub"
+    }
+  ],
   "competences": [
     "React",
-    "Node.js avec Express",
+    "Node.js",
+    "Express",
     "Zustand"
   ],
-  "annee": 2025,
-  "date": "2025-02",
-  "category": "Création d'une application",
-  "cover": "../../assets/images/portfolio/speaktime.webp",
-  "context": "SpeakTime est une application que je développe pour gérer le temps de parole lors de réunions ou discussions. Simple et intuitive, elle permet de suivre, répartir et contrôler le temps de chacun en un clin d'œil.",
-  "todo": [
-    "Développement du front-end avec React",
-    "Mise en place du back-end avec Node.js et Express",
-    "Gestion de l'état global avec Zustand",
-    "Intégration d'une interface utilisateur intuitive"
+  "developpeAvecIA": false,
+  "sections": [
+    {
+      "titre": "Le contexte",
+      "texte": "J'ai lancé SpeakTime entre deux missions, à la demande d'un développeur senior qui suivait mon travail, pour continuer à coder sur un vrai projet. L'idée : une application simple pour suivre, répartir et contrôler le temps de parole de chacun pendant une réunion."
+    },
+    {
+      "titre": "L’enjeu",
+      "texte": "Des réunions plus équilibrées, où chacun a sa place, sans qu'une personne doive chronométrer à la main."
+    },
+    {
+      "titre": "Ce que j’ai fait",
+      "liste": [
+        "Front-end en React",
+        "Back-end avec Node.js et Express",
+        "Gestion de l'état global avec Zustand",
+        "Interface pensée pour être comprise en un coup d'œil"
+      ]
+    },
+    {
+      "titre": "En résumé",
+      "texte": "Un projet qui m'a fait progresser grâce aux revues de code régulières, et qui montre ma façon de travailler : un besoin simple, traité proprement jusqu'au bout."
+    }
   ],
-  "conclusion": "SpeakTime vise à améliorer la gestion du temps de parole dans les réunions, favorisant ainsi une communication plus équilibrée et efficace. En combinant des technologies modernes, j'ai créé une application qui répond aux besoins des utilisateurs tout en offrant une expérience fluide et agréable.",
+  "lien": {
+    "libelle": "Voir l’application",
+    "url": "https://speaktime.vercel.app/",
+    "texte": "speaktime.vercel.app"
+  },
   "github": "https://github.com/SandraPautonnier/SpeakTime"
 }

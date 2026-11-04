@@ -1,34 +1,38 @@
 [
-    {
-        "id": 1,
-        "icon": "faCode",
-        "alt": "Icône de création de site",
-        "title": "Création & Refonte de site web",
-        "description": "Des sites modernes, rapides et adaptés à votre activité.\n Responsive, sécurisés et prêts à évoluer avec vous.",
-        "prix": "À partir de 1 200 €"
-    },
-    {
-        "id": 2,
-        "icon": "faMagnifyingGlass",
-        "alt": "Icône du référencement et d'un audit SEO",
-        "title": "Audit & visibilité",
-        "description": "Analyse de votre site et de votre présence digitale pour identifier les leviers d’amélioration et booster votre visibilité.",
-        "prix": "À partir de 900 €"
-    },
-    {
-        "id": 3,
-        "icon": "faWrench",
-        "alt": "Icône de la maintenance d'un site web",
-        "title": "Maintenance & optimisation",
-        "description": "Mises à jour régulières, sécurité et optimisation des performances pour garantir un site fiable au quotidien.",
-        "prix": "À partir de 59 € / mois"
-    },
-    {
-        "id": 4,
-        "icon": "faPen",
-        "alt": "Icône d'un crayon'",
-        "title": "Services supplémentaires",
-        "description": "Design, contenu et réseaux sociaux : des services simples et accessibles pour une présence en ligne efficace.",
-        "prix": "À partir de 90€"
-    }
+  {
+    "id": 1,
+    "icon": "faCode",
+    "alt": "Icône de création de site",
+    "title": "Création & refonte de site",
+    "description": "Site vitrine sur mesure, rapide et bien référencé localement. Maintenance en option à 59 € / mois.",
+    "prix": "dès 1 500 €",
+    "url": "/services/creation-site-internet-le-mans/"
+  },
+  {
+    "id": 2,
+    "icon": "faMagnifyingGlass",
+    "alt": "Icône d'audit SEO",
+    "title": "Audit SEO & performance",
+    "description": "Pourquoi votre site ne ressort pas, et quoi corriger en premier. Déduit de la création si vous la signez dans les 3 mois.",
+    "prix": "900 €",
+    "url": "/services/audit-seo/"
+  },
+  {
+    "id": 3,
+    "icon": "faRobot",
+    "alt": "Icône IA et automatisation",
+    "title": "IA & automatisation",
+    "description": "Gagner du temps au quotidien : les bons outils d'IA, mis en place et expliqués simplement.",
+    "prix": "atelier dès 190 €",
+    "url": "/services/ia-automatisation/"
+  },
+  {
+    "id": 4,
+    "icon": "faDiagramProject",
+    "alt": "Icône de pilotage de projet",
+    "title": "Pilotage de projet digital",
+    "description": "Une cheffe de projet externalisée pour cadrer, coordonner et automatiser.",
+    "prix": "sur devis",
+    "url": "/services/gestion-de-projet-digital/"
+  }
 ]

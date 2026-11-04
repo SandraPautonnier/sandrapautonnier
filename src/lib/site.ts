@@ -37,7 +37,7 @@ export const ADRESSES = [
   },
   {
     "@type": "PostalAddress",
-    streetAddress: "59 rue de Ponthieu, Bureau 326",
+    streetAddress: "58 rue de Ponthieu, Bureau 326",
     addressLocality: "Paris",
     postalCode: "75008",
     addressRegion: "Île-de-France",
@@ -57,3 +57,18 @@ export const ZONE_DESSERVIE = [
   { "@type": "City", name: "Le Mans" },
   { "@type": "City", name: "Paris" },
 ];
+
+/**
+ * Parmi les `competences` d'un projet, « Développé avec l'IA » n'est pas un
+ * outil mais une façon de travailler : le tag reçoit un style à part.
+ * La comparaison neutralise la variante d'apostrophe (droite ou courbe)
+ * utilisée dans les fichiers de contenu.
+ */
+const APOSTROPHE_COURBE = String.fromCharCode(0x2019);
+
+export function estTagIA(tag: string): boolean {
+  return (
+    tag.split(APOSTROPHE_COURBE).join("'").toLocaleLowerCase("fr") ===
+    "développé avec l'ia"
+  );
+}

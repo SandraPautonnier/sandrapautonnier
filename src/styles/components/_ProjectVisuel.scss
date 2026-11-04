@@ -1,0 +1,82 @@
+// Visuel d'un projet : capture quand elle existe, sinon aplat de la teinte
+// du projet portant son nom. Les deux cas occupent exactement la même boîte,
+// pour qu'une capture livrée plus tard ne décale rien.
+
+.visuel {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.visuel--carte {
+    height: 190px;
+    object-fit: cover;
+}
+
+.visuel--fiche {
+    height: 460px;
+    object-fit: cover;
+    border-radius: 22px;
+
+    @media (max-width: 767px) {
+        height: 240px;
+        border-radius: 16px;
+    }
+}
+
+// --- Aplat de remplacement ---------------------------------------------------
+
+.visuel--aplat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 22px;
+}
+
+// Carte : nom en bas à gauche, comme dans la maquette.
+.visuel--aplat.visuel--carte {
+    justify-content: flex-end;
+}
+
+// Fiche : nom centré dans le grand aplat.
+.visuel--aplat.visuel--fiche {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+}
+
+.visuel-nom {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+}
+
+.visuel-attente {
+    font-size: 12px;
+    opacity: 0.75;
+}
+
+// Une teinte, une encre : le couple est fixé dans les variables pour garantir
+// le contraste du texte sur l'aplat.
+.visuel--lilas {
+    background: $lilas;
+    color: $lilas-encre;
+}
+
+.visuel--rose {
+    background: $rose;
+    color: $rose-encre;
+}
+
+.visuel--sauge {
+    background: $sauge;
+    color: $sauge-encre;
+}
+
+.visuel--sable {
+    background: $sable;
+    color: $sable-encre;
+}
