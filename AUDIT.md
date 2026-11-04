@@ -449,3 +449,65 @@ iframe.
 Un chargement au clic (un bouton « Afficher l'agenda » qui remplace le cadre)
 supprimerait ce dépôt pour qui ne prend pas rendez-vous, et allègerait la page.
 Rien n'a été installé : c'est un changement de comportement à valider.
+
+## Vérifications finales de la refonte
+
+Relevé sur le site construit, le 4 novembre 2026.
+
+| Contrôle | Résultat |
+| --- | --- |
+| Build | sans erreur, 22 pages |
+| Texte entre crochets dans le HTML | **aucun** — la seule occurrence de `[` est `window.dataLayer \|\| []`, dans le script Google Analytics |
+| Titres de premier niveau | 1 par page, 22 sur 22, **tous différents** |
+| Liens internes | 25 cibles distinctes, **0 cassée** |
+| Redirections 301 | 12 règles, **toutes les cibles existent** |
+| Contraste du texte | 8 pages, chaque élément porteur de texte, **0 échec** au niveau AA |
+| Focus clavier | visible sur les 28 éléments focusables testés |
+| Débordement horizontal | 22 pages × 3 largeurs (375, 768, 1440) = 66 mesures, **0 débordement** |
+
+### L'anneau de focus était invisible sur les bandes sombres — 🟠 important (corrigé)
+
+Le violet `#70588C` de l'anneau ne contraste qu'à **2,72:1** avec l'encre
+`#231C2B` : sous le minimum de 3:1 qu'exige un indicateur de focus. Trois
+zones étaient concernées : la section contact de l'accueil, les bandes
+d'appel et le bloc d'offre « Pilotage ».
+
+L'anneau y passe à la crème `#F5F1ED`, soit **14,7:1**. Partout ailleurs il
+reste violet, entre 4,45:1 (sur la teinte sauge) et 6,06:1 (sur blanc).
+Vérifié par une vraie tabulation dans les deux cas.
+
+### Couverture des anciennes URL
+
+Les routes du SPA React, relevées dans `src/main.jsx` d'avant la migration,
+sont toutes couvertes :
+
+| Ancienne URL | Devient |
+| --- | --- |
+| `/profile` | `/a-propos/` |
+| `/portfolio` | `/realisations/` |
+| `/portfolio/1`, `/2`, `/3`, `/5` | la fiche correspondante |
+| `/portfolio/4`, `/6` | `/realisations/` (projets retirés) |
+| `/realisations/simulateur-de-devis` | `/realisations/` |
+| `/legalnotice` | `/mentions-legales/` |
+| `/contact` | `/contact/` (normalisation du slash final) |
+| `/price`, `/politique-de-confidentialite` | pages d'offre et mentions légales |
+
+Le SPA renvoyait l'accueil sur toute URL inconnue ; le site statique sert
+désormais une vraie page 404, ce qui est le bon comportement.
+
+**Ces règles n'ont pas été exécutées.** Elles vivent dans le `.htaccess`, qui
+demande Apache : la vérification porte sur l'exhaustivité des règles et
+l'existence des cibles, pas sur leur déclenchement. À retester après la mise
+en ligne chez Hostinger.
+
+### Poids du site livré
+
+| | |
+| --- | --- |
+| Feuille de style, commune à toutes les pages | 53 Ko |
+| JavaScript applicatif | **4,3 Ko, sur la seule page `/contact/`** |
+| Polices auto-hébergées | 47 fichiers, découpés par alphabet ; un navigateur français n'en charge qu'une poignée |
+| HTML de l'accueil | 24,6 Ko |
+
+Les 21 autres pages ne chargent aucun fichier JavaScript : seuls des scripts
+courts en ligne (menu, filtres, Google Analytics).

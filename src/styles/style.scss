@@ -34,6 +34,23 @@ summary:focus-visible,
     outline-offset: $focus-decalage;
 }
 
+// Sur les bandes sombres, le violet de l'anneau ne contraste qu'à 2,72:1
+// avec l'encre : sous le minimum de 3:1 exigé pour un indicateur de focus.
+// On repasse à la crème, qui monte à 14,7:1.
+.accueil-contact,
+.bande-appel,
+.bloc-offre--encre {
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    summary:focus-visible,
+    [tabindex]:focus-visible {
+        outline-color: $creme;
+    }
+}
+
 * {
     font-family: 'Montserrat', sans-serif;
 }
