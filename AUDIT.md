@@ -585,3 +585,25 @@ Le texte fourni ne donne qu'un seul titre, celui du H1. Le bloc de la page
 n'a donc **ni titre propre** (un `h2` aurait répété le H1 juste en dessous)
 **ni badge** (les quatre autres blocs en portent un ; en inventer un serait du
 texte non validé). Les deux se posent en une ligne si le texte vient.
+
+### Captures : 7 projets sur 9 en sont pourvus (5 novembre 2026)
+
+Trois captures récupérées depuis l'ancien dépôt d'images de Sandra
+(`gentle-pony-095b6f.netlify.app`), vérifiées comme vrais fichiers WebP avant
+d'entrer dans le projet :
+
+| Projet | Fichier | Dimensions |
+| --- | --- | --- |
+| VELA | `vela.webp` | 1869 × 932 |
+| Ardvina | `ardvina.webp` | 1902 × 902 |
+| Location Voiture Cassis | `location-voiture-cassis.webp` (depuis `mehari.webp`) | 1892 × 903 |
+
+**Deux projets gardent leur aplat**, par choix : Ancrage et UkaBot, ce dernier
+étant encore en développement.
+
+Reste l'écart de définition signalé plus haut : les quatre captures héritées
+de l'ancien site (Kasa, LMSAI, Pulsar42, SpeakTime) font **600 px de large**,
+contre ~1900 px pour les trois nouvelles. Sur le visuel de 1200 px des fiches,
+les premières sont agrandies deux fois et paraissent floues à côté des
+secondes. L'ancien dépôt d'images ne contient que ces mêmes fichiers de
+600 px : il faudra de nouvelles captures pour y remédier.

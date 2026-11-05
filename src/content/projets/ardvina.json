@@ -11,6 +11,7 @@
   "brouillon": false,
   "annee": 2026,
   "teinte": "sauge",
+  "cover": "../../assets/images/portfolio/ardvina.webp",
   "resume": "Une application métier sur mesure pour un transporteur de déchets verts, connectée à Trackdéchets, la plateforme nationale de traçabilité des déchets.",
   "infos": [
     {
