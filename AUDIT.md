@@ -543,3 +543,45 @@ piste pour les éviter à qui ne prend pas rendez-vous.
 Le tag mort `UA-196212309-1` disparaît avec GA côté site. Il peut encore être
 débranché proprement dans le compte Google Analytics, pour que la propriété
 GA4 cesse de le réclamer.
+
+## Points réglés après l'audit (5 novembre 2026)
+
+Décisions prises par Sandra, appliquées dans les commits `edc6571` et
+`3db94e0`. Les sections correspondantes plus haut restent pour mémoire ; voici
+ce qu'elles sont devenues.
+
+| Point relevé | Statut |
+| --- | --- |
+| Points finaux des puces | ✅ 61 puces ponctuées sur 8 fichiers |
+| Ordre Pulsar42 / LMSAI | ✅ intervertis, le site suit la maquette |
+| Champ `github` jamais affiché | ✅ lien « Voir le code » dans l'encadré, et `sameAs` des données structurées |
+| `competences.json` orphelin | ✅ supprimé, avec sa collection et les champs `icon` / `alt` de `services.json` |
+| Création et refonte à 93 % identiques | ✅ la refonte a son propre bloc, les deux pages sont distinctes |
+| Calendly chargé d'office | ✅ chargement au clic, rien n'est contacté avant |
+| Google Analytics | ✅ retiré du site ; le tag `UA-196212309-1` est débranché côté compte Google |
+
+### L'attribut `hidden` ne masquait rien — 🔴 bloquant (corrigé)
+
+Trouvé en vérifiant le chargement au clic de Calendly, et non détecté à
+l'étape 5.
+
+Dans la feuille du navigateur, `[hidden]` ne vaut qu'un `display: none` de
+priorité minimale : **toute règle d'auteur posant un `display` l'annule**.
+`.groupe-projets` étant en `display: flex`, le filtre de `/realisations/`
+posait bien l'attribut, mais rien ne disparaissait : choisir « Clients »
+laissait le groupe « Projets personnels » entièrement visible, 992 px de
+haut.
+
+Le contrôle de l'étape 5 lisait `groupe.hidden`, la propriété. Il vérifiait
+que l'attribut était posé, pas qu'un élément disparaissait. Les contrôles
+mesurent désormais la hauteur rendue.
+
+Corrigé par une règle unique, `[hidden] { display: none !important; }`.
+L'accueil n'était pas touché — ses cartes ne portent pas de `display` propre.
+
+### Deux choix laissés ouverts sur la page refonte
+
+Le texte fourni ne donne qu'un seul titre, celui du H1. Le bloc de la page
+n'a donc **ni titre propre** (un `h2` aurait répété le H1 juste en dessous)
+**ni badge** (les quatre autres blocs en portent un ; en inventer un serait du
+texte non validé). Les deux se posent en une ligne si le texte vient.
