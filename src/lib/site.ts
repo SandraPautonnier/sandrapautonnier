@@ -33,7 +33,7 @@ export const BOOKING_URL = "https://calendly.com/sandrapautonnier/rdv";
  * mise en ligne réelle le jour du déploiement, et à chaque modification du
  * texte légal ensuite.
  */
-export const DATE_MAJ_LEGALES = "4 novembre 2026";
+export const DATE_MAJ_LEGALES = "5 novembre 2026";
 
 /**
  * Deux adresses exposées : Le Mans, base opérationnelle et ancrage local
