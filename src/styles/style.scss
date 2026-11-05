@@ -51,6 +51,16 @@ summary:focus-visible,
     }
 }
 
+// L'attribut hidden ne vaut, dans la feuille du navigateur, qu'un
+// « display: none » de priorité la plus basse : n'importe quelle règle
+// d'auteur posant un display le neutralise. C'était le cas de
+// .groupe-projets et .calendly-attente, en display: flex, qui restaient
+// affichés alors que le script les avait masqués. Le !important est ici
+// justifié : hidden doit l'emporter, c'est tout son rôle.
+[hidden] {
+    display: none !important;
+}
+
 * {
     font-family: 'Montserrat', sans-serif;
 }
