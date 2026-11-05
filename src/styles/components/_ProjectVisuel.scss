@@ -1,27 +1,22 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+
 // Visuel d'un projet : capture quand elle existe, sinon aplat de la teinte
-// du projet portant son nom. Les deux cas occupent exactement la même boîte,
-// pour qu'une capture livrée plus tard ne décale rien.
+// du projet portant son nom.
+//
+// AUCUNE CAPTURE N'EST ROGNÉE. Les boîtes ne fixent pas de hauteur : l'image
+// occupe toute la largeur disponible et sa hauteur suit ses proportions. Les
+// aplats, eux, adoptent le format des captures (2:1, celui des sept fichiers
+// actuels) pour que les grilles restent régulières quand les deux se côtoient.
+
+$format-capture: 2 / 1;
 
 .visuel {
     display: block;
     width: 100%;
+    // height: auto et pas de object-fit : l'image entière est visible.
+    height: auto;
     box-sizing: border-box;
-}
-
-.visuel--carte {
-    height: 190px;
-    object-fit: cover;
-}
-
-.visuel--fiche {
-    height: 460px;
-    object-fit: cover;
-    border-radius: 22px;
-
-    @media (max-width: 767px) {
-        height: 240px;
-        border-radius: 16px;
-    }
 }
 
 // --- Aplat de remplacement ---------------------------------------------------
@@ -31,10 +26,14 @@
     flex-direction: column;
     gap: 4px;
     padding: 22px;
+    // L'aplat n'a pas d'image pour lui donner sa hauteur : il prend le format
+    // des captures, afin de ne pas trouer la grille.
+    aspect-ratio: $format-capture;
 }
 
 // Carte : nom en bas à gauche, comme dans la maquette.
-.visuel--aplat.visuel--carte {
+.visuel--aplat.visuel--carte,
+.visuel--aplat.visuel--large {
     justify-content: flex-end;
 }
 
@@ -81,26 +80,24 @@
     color: $sable-encre;
 }
 
-// Vignette large de la liste des réalisations : elle occupe la hauteur de la
-// carte, qui est fixée par le texte à côté.
-.visuel--large {
-    height: 100%;
-    min-height: 200px;
-    object-fit: cover;
-    padding: 24px;
+// --- Variantes ----------------------------------------------------------------
 
-    .visuel-nom {
-        font-size: 28px;
+// Visuel principal de la fiche projet.
+.visuel--fiche {
+    border-radius: 22px;
+
+    @media (max-width: 767px) {
+        border-radius: 16px;
     }
 }
 
-// Vignette des liens « Autres projets ».
-.visuel--mini {
-    height: 120px;
-    object-fit: cover;
-    padding: 18px;
-    justify-content: flex-end;
+// Vignette large de la liste des réalisations.
+.visuel--large .visuel-nom {
+    font-size: 28px;
+}
 
+// Vignette des liens « Autres projets », plus petite.
+.visuel--mini {
     .visuel-nom {
         font-size: 22px;
     }
@@ -108,4 +105,11 @@
     .visuel-attente {
         display: none;
     }
+}
+
+// Le rembourrage n'a de sens que sur l'aplat, pour y détacher le nom. Posé
+// sur l'image, il s'ajoutait à sa hauteur et la boîte n'avait plus le format
+// du fichier.
+.visuel--aplat.visuel--mini {
+    padding: 18px;
 }

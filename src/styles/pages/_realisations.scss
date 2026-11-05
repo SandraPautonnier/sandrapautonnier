@@ -108,6 +108,9 @@
     flex: 1 1 300px;
     min-width: 0;
     display: flex;
+    // La capture n'étant plus étirée ni rognée, sa hauteur dépend de sa
+    // largeur. Elle se centre donc face au texte, souvent plus haut qu'elle.
+    align-items: center;
 }
 
 .carte-large-corps {

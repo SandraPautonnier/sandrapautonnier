@@ -607,3 +607,24 @@ contre ~1900 px pour les trois nouvelles. Sur le visuel de 1200 px des fiches,
 les premières sont agrandies deux fois et paraissent floues à côté des
 secondes. L'ancien dépôt d'images ne contient que ces mêmes fichiers de
 600 px : il faudra de nouvelles captures pour y remédier.
+
+### Les captures ne sont plus rognées — 🟠 important (corrigé)
+
+Les quatre variantes de visuel fixaient une hauteur et recadraient l'image en
+`object-fit: cover` : 190 px pour la vignette d'accueil, 460 px pour la fiche,
+120 px pour les liens voisins. Une capture au format 2:1 y perdait le haut et
+le bas.
+
+Plus aucune hauteur n'est imposée : l'image occupe la largeur disponible et sa
+hauteur suit ses proportions. Les aplats, qui n'ont pas d'image pour les
+dimensionner, prennent le format `2 / 1` des sept captures, afin que les
+grilles restent régulières là où les deux se côtoient.
+
+Vérifié en comparant, pour chaque image, le rapport de sa boîte de contenu à
+celui du fichier : **29 images sur 6 pages à 1200 px, 18 à 375 px, aucune
+rognée ni déformée**.
+
+Au passage, `.visuel--mini` posait son rembourrage de 18 px sur l'image comme
+sur l'aplat. Sur une image, il s'ajoutait à la hauteur et la boîte perdait le
+format du fichier. Il ne s'applique plus qu'à l'aplat, où il sert à détacher
+le nom.
