@@ -31,7 +31,9 @@ export interface Traceur {
  *
  * Reste le cas de Calendly, qui dépose ses propres cookies à l'intérieur de
  * son iframe, sur son domaine. Ils ne sont ni lisibles ni maîtrisés depuis
- * ce site : la section Cookies les mentionne à part.
+ * ce site : la section Cookies les mentionne à part. Depuis que l'agenda ne
+ * se charge qu'au clic, rien n'est déposé tant que le visiteur ne l'a pas
+ * demandé.
  */
 export const TRACEURS: Traceur[] = [];
 
@@ -40,7 +42,8 @@ export const SERVICES_TIERS = [
   {
     nom: "Calendly",
     hotes: "calendly.com, assets.calendly.com",
-    quand: "Dès l'ouverture de la page Contact, qui intègre l'agenda.",
+    quand:
+      "Uniquement si vous cliquez sur « Afficher l'agenda », sur la page Contact.",
   },
   {
     nom: "EmailJS",

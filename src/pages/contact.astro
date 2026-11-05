@@ -52,14 +52,31 @@ const CALENDLY_EMBED = `${BOOKING_URL}?hide_event_type_details=1&hide_gdpr_banne
             besoins et voir comment je peux vous accompagner.
           </p>
 
-          <div class="calendly-inline-widget" data-url={CALENDLY_EMBED}></div>
-          <noscript>
-            <p>
+          {/*
+            L'agenda ne part qu'au clic : ni script ni iframe Calendly tant
+            que le visiteur ne le demande pas, donc aucun cookie Calendly
+            pour qui vient seulement remplir le formulaire.
+          */}
+          <div class="calendly-attente" id="calendly-attente">
+            <button type="button" class="bouton bouton--plein" id="afficher-agenda">
+              Afficher l'agenda
+            </button>
+            <p class="calendly-mention">
+              L'agenda est fourni par Calendly, qui dépose ses propres cookies.
+              Vous pouvez aussi
               <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
-                Ouvrir mon agenda pour réserver un appel
-              </a>
+                l'ouvrir directement sur son site
+              </a>.
             </p>
-          </noscript>
+          </div>
+
+          <div
+            class="calendly-inline-widget"
+            id="calendly-widget"
+            data-url={CALENDLY_EMBED}
+            hidden
+          >
+          </div>
         </div>
       </div>
 
@@ -112,15 +129,28 @@ const CALENDLY_EMBED = `${BOOKING_URL}?hide_event_type_details=1&hide_gdpr_banne
 </BaseLayout>
 
 <script>
-  // Agenda Calendly : le script officiel transforme .calendly-inline-widget
-  // en iframe. Chargé ici plutôt que par une balise dans le <head>, pour que
-  // les autres pages n'en héritent pas.
-  const widget = document.querySelector(".calendly-inline-widget");
-  if (widget) {
-    const s = document.createElement("script");
-    s.src = "https://assets.calendly.com/assets/external/widget.js";
-    s.async = true;
-    document.body.appendChild(s);
+  // Agenda Calendly, chargé au clic. Rien ne part vers calendly.com avant :
+  // ni le script officiel, ni l'iframe, ni les cookies qui vont avec.
+  const bouton = document.querySelector<HTMLButtonElement>("#afficher-agenda");
+  const attente = document.querySelector<HTMLElement>("#calendly-attente");
+  const widget = document.querySelector<HTMLElement>("#calendly-widget");
+
+  if (bouton && attente && widget) {
+    bouton.addEventListener(
+      "click",
+      () => {
+        attente.hidden = true;
+        widget.hidden = false;
+
+        // Le script officiel transforme .calendly-inline-widget en iframe au
+        // chargement. Il n'est ajouté qu'ici, une seule fois.
+        const script = document.createElement("script");
+        script.src = "https://assets.calendly.com/assets/external/widget.js";
+        script.async = true;
+        document.body.appendChild(script);
+      },
+      { once: true },
+    );
   }
 </script>
 

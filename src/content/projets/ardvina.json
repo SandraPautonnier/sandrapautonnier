@@ -50,13 +50,13 @@
     {
       "titre": "Ce que j’ai fait",
       "liste": [
-        "Création, modification et duplication des bordereaux de suivi de déchets : client, destinataire, code et nature du déchet, conditionnement, quantité, véhicule (camion ou vélo)",
-        "Signature de toute la chaîne en un clic : émetteur, transporteur, réception puis traitement",
-        "Suivi des dernières opérations et de leur statut : brouillon, publié, signé, reçu, traité",
-        "Gestion des entreprises clientes (nom, SIRET) et de leurs codes de signature",
-        "Récupération automatique du bordereau final en PDF dès que le traitement est validé, rangé par client",
-        "Connexion sécurisée au compte Trackdéchets du client (OAuth2) et échanges avec son API GraphQL",
-        "Mises à jour reçues en temps réel par webhooks"
+        "Création, modification et duplication des bordereaux de suivi de déchets : client, destinataire, code et nature du déchet, conditionnement, quantité, véhicule (camion ou vélo).",
+        "Signature de toute la chaîne en un clic : émetteur, transporteur, réception puis traitement.",
+        "Suivi des dernières opérations et de leur statut : brouillon, publié, signé, reçu, traité.",
+        "Gestion des entreprises clientes (nom, SIRET) et de leurs codes de signature.",
+        "Récupération automatique du bordereau final en PDF dès que le traitement est validé, rangé par client.",
+        "Connexion sécurisée au compte Trackdéchets du client (OAuth2) et échanges avec son API GraphQL.",
+        "Mises à jour reçues en temps réel par webhooks."
       ]
     },
     {

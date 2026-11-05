@@ -19,10 +19,18 @@ export interface Encart {
 
 export interface Bloc {
   id: string;
-  badge: string;
-  teinteBadge: "lilas" | "rose" | "sable" | "encre";
-  titre: string;
+  /** Absent quand le bloc n'en porte pas, comme celui de la refonte. */
+  badge?: string;
+  teinteBadge?: "lilas" | "rose" | "sable" | "encre";
+  /**
+   * Titre du bloc. Absent quand il ferait doublon avec le H1 de la page,
+   * ce qui est le cas de la page refonte : le texte fourni ne donne qu'un
+   * seul titre, celui du H1.
+   */
+  titre?: string;
   chapeau: string;
+  /** Phrase qui annonce la liste, quand le bloc en porte une. */
+  introPoints?: string;
   points: string[];
   encart?: Encart;
   tarif: {
@@ -191,6 +199,32 @@ export const BLOCS: Bloc[] = [
   },
 ];
 
+/**
+ * Bloc propre à la page refonte. Il ne figure pas dans BLOCS : sur
+ * /services/, la maquette traite création et refonte dans un seul bloc.
+ */
+export const BLOC_REFONTE: Bloc = {
+  id: "refonte",
+  chapeau:
+    "Votre site existe, mais il est daté, lent ou introuvable sur Google ? Je le refais sans repartir de zéro : on garde ce qui fonctionne, on corrige le reste, et vous ne perdez pas votre référencement.",
+  introPoints: "Ce que comprend une refonte :",
+  points: [
+    "Un état des lieux de départ : vitesse, référencement, affichage sur mobile, contenus à garder. C'est l'audit, déduit si vous me confiez la refonte.",
+    "La reprise de vos contenus, textes et images, réécrits si besoin pour vos clients et pour Google.",
+    "Un nouveau design, pensé d'abord pour le mobile.",
+    "Les redirections de vos anciennes adresses, pour garder vos positions sur Google et ne perdre aucun lien.",
+    "Une mise en ligne préparée, puis une vérification après la bascule.",
+  ],
+  tarif: {
+    // « dès 1 500 € » : même formulation que le bloc création, qui dit la
+    // même chose. Le montant reste seul, comme dans les autres blocs.
+    label: "À partir de",
+    montant: "1 500 €",
+    mentions: [],
+    avantage: "Audit de 900 € déduit.",
+  },
+};
+
 /** Le bloc associations a sa propre mise en page dans la maquette. */
 export const BLOC_ASSOCIATIONS = {
   id: "associations",
@@ -294,13 +328,13 @@ export const OFFRES: Offre[] = [
     title: "Refonte de site internet au Mans | Sukiweb",
     description:
       "Refonte de site internet au Mans : un site repris de la structure au référencement, adapté au mobile et prêt à évoluer.",
-    bloc: "creation",
+    bloc: "refonte",
     serviceType: "Refonte de site internet",
     prix: { valeur: 1500, type: "minimum" },
     projets: [
       {
         slug: "le-mans-school-of-ai",
-        libelle: "Refonte du site de Le Mans School of AI",
+        libelle: "Le Mans School of AI, refonte complète d'un site associatif",
       },
     ],
     faq: ["delai", "modifier", "domaine", "distance"],

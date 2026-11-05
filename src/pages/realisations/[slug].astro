@@ -62,7 +62,8 @@ const creativeWork: Record<string, unknown> = {
 
 if (d.cover) creativeWork.image = new URL(d.cover.src, SITE.url).href;
 if (d.client) creativeWork.sourceOrganization = { "@type": "Organization", name: d.client };
-if (lien) creativeWork.sameAs = lien.url;
+const sameAs = [lien?.url, d.github].filter(Boolean);
+if (sameAs.length) creativeWork.sameAs = sameAs;
 
 // Un seul témoignage réel à ce jour, celui de VELA. Aucune note n'ayant été
 // donnée, le Review n'en porte pas : en inventer une serait un faux avis.
@@ -146,6 +147,20 @@ if (d.temoignage) {
               rel="noopener noreferrer"
             >
               {lien.libelle} : {lien.texte}
+              <LienExterne />
+            </a>
+          )
+        }
+
+        {
+          d.github && (
+            <a
+              class="fiche-lien"
+              href={d.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Voir le code
               <LienExterne />
             </a>
           )

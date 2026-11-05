@@ -5,7 +5,14 @@ import BlocAssociations from "../../components/BlocAssociations.astro";
 import Methode from "../../components/Methode.astro";
 import Faq from "../../components/Faq.astro";
 import BandeAppel from "../../components/BandeAppel.astro";
-import { BLOCS, FAQ, MENTION_TVA, OFFRES, type Offre } from "../../lib/offres";
+import {
+  BLOC_REFONTE,
+  BLOCS,
+  FAQ,
+  MENTION_TVA,
+  OFFRES,
+  type Offre,
+} from "../../lib/offres";
 import { SITE, ZONE_DESSERVIE } from "../../lib/site";
 
 export function getStaticPaths() {
@@ -20,7 +27,7 @@ interface Props {
 }
 
 const { offre } = Astro.props;
-const bloc = BLOCS.find((b) => b.id === offre.bloc);
+const bloc = [...BLOCS, BLOC_REFONTE].find((b) => b.id === offre.bloc);
 const url = new URL(`/services/${offre.slug}/`, SITE.url).href;
 
 const service: Record<string, unknown> = {

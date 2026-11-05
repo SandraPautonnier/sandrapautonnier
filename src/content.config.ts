@@ -85,8 +85,6 @@ const services = defineCollection({
   loader: file("./src/content/services.json"),
   schema: z.object({
     id: z.number(),
-    icon: z.string(),
-    alt: z.string(),
     title: z.string(),
     description: z.string(),
     prix: z.string(),
@@ -95,13 +93,4 @@ const services = defineCollection({
   }),
 });
 
-const competences = defineCollection({
-  loader: file("./src/content/competences.json"),
-  schema: z.object({
-    id: z.number(),
-    category: z.string(),
-    skills: z.array(z.string()),
-  }),
-});
-
-export const collections = { projets, services, competences };
+export const collections = { projets, services };

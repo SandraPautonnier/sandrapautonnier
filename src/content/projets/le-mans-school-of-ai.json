@@ -6,7 +6,7 @@
   "mention": "Client · Communauté",
   "statut": "en-ligne",
   "statutAffiche": "En ligne",
-  "ordre": 40,
+  "ordre": 50,
   "aLaUne": true,
   "brouillon": false,
   "annee": 2025,
@@ -50,10 +50,10 @@
     {
       "titre": "Ce que j’ai fait",
       "liste": [
-        "Refonte complète du design du site",
-        "Développement en HTML, CSS et JavaScript",
-        "Gestion dynamique des événements",
-        "Archivage automatique des événements passés"
+        "Refonte complète du design du site.",
+        "Développement en HTML, CSS et JavaScript.",
+        "Gestion dynamique des événements.",
+        "Archivage automatique des événements passés."
       ]
     },
     {

@@ -191,3 +191,25 @@
     font-size: 14px;
     color: $texte-secondaire;
 }
+
+// Bloc d'attente affiché à la place de l'agenda, tant qu'on ne l'a pas
+// demandé. Il occupe peu de place : la boîte de 700 px n'apparaît qu'avec
+// l'agenda lui-même.
+.calendly-attente {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 24px 0 8px;
+}
+
+.calendly-mention {
+    margin: 0;
+    font-size: 14px;
+    color: $texte-secondaire;
+
+    a {
+        color: $violet-fonce;
+        text-decoration: underline;
+    }
+}

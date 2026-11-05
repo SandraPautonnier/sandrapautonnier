@@ -6,7 +6,7 @@
   "mention": "Association · projet collaboratif",
   "statut": "en-ligne",
   "statutAffiche": "En ligne",
-  "ordre": 50,
+  "ordre": 40,
   "aLaUne": true,
   "brouillon": false,
   "annee": 2025,
@@ -49,10 +49,10 @@
     {
       "titre": "Ce que j’ai fait",
       "liste": [
-        "Intégration du pied de page du site",
-        "Développement de la page des mentions légales",
-        "Mise en conformité RGPD et LCEN",
-        "Travail en équipe avec d'autres développeurs : branches, revues de code"
+        "Intégration du pied de page du site.",
+        "Développement de la page des mentions légales.",
+        "Mise en conformité RGPD et LCEN.",
+        "Travail en équipe avec d'autres développeurs : branches, revues de code."
       ]
     },
     {

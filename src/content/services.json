@@ -1,8 +1,6 @@
 [
   {
     "id": 1,
-    "icon": "faCode",
-    "alt": "Icône de création de site",
     "title": "Création & refonte de site",
     "description": "Site vitrine sur mesure, rapide et bien référencé localement. Maintenance en option à 59 € / mois.",
     "prix": "dès 1 500 €",
@@ -10,8 +8,6 @@
   },
   {
     "id": 2,
-    "icon": "faMagnifyingGlass",
-    "alt": "Icône d'audit SEO",
     "title": "Audit SEO & performance",
     "description": "Pourquoi votre site ne ressort pas, et quoi corriger en premier. Déduit de la création si vous la signez dans les 3 mois.",
     "prix": "900 €",
@@ -19,8 +15,6 @@
   },
   {
     "id": 3,
-    "icon": "faRobot",
-    "alt": "Icône IA et automatisation",
     "title": "IA & automatisation",
     "description": "Gagner du temps au quotidien : les bons outils d'IA, mis en place et expliqués simplement.",
     "prix": "atelier dès 190 €",
@@ -28,8 +22,6 @@
   },
   {
     "id": 4,
-    "icon": "faDiagramProject",
-    "alt": "Icône de pilotage de projet",
     "title": "Pilotage de projet digital",
     "description": "Une cheffe de projet externalisée pour cadrer, coordonner et automatiser.",
     "prix": "sur devis",

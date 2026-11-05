@@ -21,14 +21,30 @@ const Titre = niveauTitre;
   id={ancre ? bloc.id : undefined}
 >
   <div class="bloc-offre-texte">
-    <span class:list={["bloc-offre-badge", `bloc-offre-badge--${bloc.teinteBadge}`]}>
-      {bloc.badge}
-    </span>
-    <Titre class="bloc-offre-titre">{bloc.titre}</Titre>
+    {
+      bloc.badge && (
+        <span
+          class:list={[
+            "bloc-offre-badge",
+            `bloc-offre-badge--${bloc.teinteBadge}`,
+          ]}
+        >
+          {bloc.badge}
+        </span>
+      )
+    }
+    {bloc.titre && <Titre class="bloc-offre-titre">{bloc.titre}</Titre>}
     <p class="bloc-offre-chapeau">{bloc.chapeau}</p>
-    <ul class="bloc-offre-points">
-      {bloc.points.map((point) => <li>{point}</li>)}
-    </ul>
+    {bloc.introPoints && <p class="bloc-offre-chapeau">{bloc.introPoints}</p>}
+    {
+      bloc.points.length > 0 && (
+        <ul class="bloc-offre-points">
+          {bloc.points.map((point) => (
+            <li>{point}</li>
+          ))}
+        </ul>
+      )
+    }
 
     {
       bloc.encart && (

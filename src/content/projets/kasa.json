@@ -25,10 +25,6 @@
     {
       "label": "Année",
       "valeur": "2024"
-    },
-    {
-      "label": "Code",
-      "valeur": "Public sur GitHub"
     }
   ],
   "competences": [
@@ -44,10 +40,10 @@
     {
       "titre": "Ce que j’ai fait",
       "liste": [
-        "Développement du front-end avec React",
-        "Navigation entre les pages avec React Router",
-        "Affichage des données depuis un fichier JSON",
-        "Interface adaptée au mobile"
+        "Développement du front-end avec React.",
+        "Navigation entre les pages avec React Router.",
+        "Affichage des données depuis un fichier JSON.",
+        "Interface adaptée au mobile."
       ]
     },
     {

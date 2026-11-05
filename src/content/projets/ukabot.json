@@ -51,13 +51,13 @@
     {
       "titre": "Ce que j’ai fait",
       "liste": [
-        "Règlement à accepter d'un clic, qui attribue le rôle Membre",
-        "Rôles principaux cumulables, chacun avec ses sous-rôles, choisis par les membres eux-mêmes",
-        "Une identité par serveur : nom, avatar et couleur des messages",
-        "Panneau /config dans Discord, avec boutons, menus et envoi de l'avatar",
-        "Tableau de bord web avec connexion par compte Discord (OAuth2)",
-        "Suppression automatique des réglages d'un serveur après son départ",
-        "Identité visuelle, page d'accueil et pages légales"
+        "Règlement à accepter d'un clic, qui attribue le rôle Membre.",
+        "Rôles principaux cumulables, chacun avec ses sous-rôles, choisis par les membres eux-mêmes.",
+        "Une identité par serveur : nom, avatar et couleur des messages.",
+        "Panneau /config dans Discord, avec boutons, menus et envoi de l'avatar.",
+        "Tableau de bord web avec connexion par compte Discord (OAuth2).",
+        "Suppression automatique des réglages d'un serveur après son départ.",
+        "Identité visuelle, page d'accueil et pages légales."
       ]
     },
     {

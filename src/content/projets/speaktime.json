@@ -25,10 +25,6 @@
     {
       "label": "Année",
       "valeur": "2025"
-    },
-    {
-      "label": "Code",
-      "valeur": "Public sur GitHub"
     }
   ],
   "competences": [
@@ -50,10 +46,10 @@
     {
       "titre": "Ce que j’ai fait",
       "liste": [
-        "Front-end en React",
-        "Back-end avec Node.js et Express",
-        "Gestion de l'état global avec Zustand",
-        "Interface pensée pour être comprise en un coup d'œil"
+        "Front-end en React.",
+        "Back-end avec Node.js et Express.",
+        "Gestion de l'état global avec Zustand.",
+        "Interface pensée pour être comprise en un coup d'œil."
       ]
     },
     {

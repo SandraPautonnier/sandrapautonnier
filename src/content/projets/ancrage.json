@@ -51,15 +51,15 @@
     {
       "titre": "Ce que j’ai fait",
       "liste": [
-        "Gestion des clients, des devis et des factures, avec génération des PDF et fusion des pièces jointes",
-        "Import de données depuis un fichier Excel",
-        "Suivi des projets et des publications sur les réseaux sociaux",
-        "Suivi des finances et tableau de bord de l'activité",
-        "Déclarations Urssaf : échéances mensuelles ou trimestrielles et estimation des cotisations",
-        "Comptes sécurisés : chaque utilisateur ne voit que ses propres données (sécurité au niveau des lignes de la base)",
-        "Installable sur téléphone comme une application",
-        "Démarche d'écoconception : mesure du poids de chaque page et des ressources externes",
-        "Raccordement prévu à une plateforme agréée pour la facturation électronique"
+        "Gestion des clients, des devis et des factures, avec génération des PDF et fusion des pièces jointes.",
+        "Import de données depuis un fichier Excel.",
+        "Suivi des projets et des publications sur les réseaux sociaux.",
+        "Suivi des finances et tableau de bord de l'activité.",
+        "Déclarations Urssaf : échéances mensuelles ou trimestrielles et estimation des cotisations.",
+        "Comptes sécurisés : chaque utilisateur ne voit que ses propres données (sécurité au niveau des lignes de la base).",
+        "Installable sur téléphone comme une application.",
+        "Démarche d'écoconception : mesure du poids de chaque page et des ressources externes.",
+        "Raccordement prévu à une plateforme agréée pour la facturation électronique."
       ]
     },
     {
